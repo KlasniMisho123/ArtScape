@@ -1,4 +1,5 @@
 import React from 'react';
+import NavElement from './NavElement';
 
 export default function Header() {
   return (
@@ -8,18 +9,17 @@ export default function Header() {
         <h3 className='text-[30px]'> <span>Art</span><span className='text-indigo-500 '>Scape</span> </h3>
       </div>
       
-      <div className='flex p-2 gap-6 justify-between  min-w-[500px]'>
-        <button> Gallery </button>
-        <button> Explore </button>
-        <button> Support </button>
-        <div className="w-16 h-16 overflow-hidden rounded-full">
+      <nav className='flex p-2 gap-2 justify-evenly  min-w-[500px]'>
+        <NavElement title="Gallery" link="/gallery" />  
+        <NavElement title="Support" link="/Support" />  
+        <NavElement title="Explore" link="/Explore" />  
+      </nav>
+        <div className=" p-0 w-12 h-12 overflow-hidden rounded-full">
           <img
           className='w-full h-full object-cover' 
           src='ProfilePicDemo.gif'
           alt='Profile Picture Animation' />
         </div>
-      </div>
-      
     </header>
   );
 }
