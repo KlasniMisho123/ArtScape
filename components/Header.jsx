@@ -1,7 +1,10 @@
-import React from 'react'
+import React from 'react';
+
 
 export default function Header() {
   return (
-    <div>Header</div>
-  )
+    <header className="bg-red-500 h-[500px] w-[500px]">
+      header
+    </header>
+  );
 }
