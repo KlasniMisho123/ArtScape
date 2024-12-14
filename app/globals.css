@@ -13,3 +13,20 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
+.nav-div:hover .explore-icon {
+    animation: spin 2s linear infinite;
+}
+
+
+@keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(40deg);
+    } 
+    100% {
+        transform: rotate(0deg);
+    }
+}

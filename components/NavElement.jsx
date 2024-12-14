@@ -4,7 +4,7 @@ import Link from 'next/link'
 export default function NavElement(props) {
     const { title, link, icon } = props;
   return (
-    <button className="shadow-none hover:scale-110">
+    <button className={"shadow-none hover:scale-110 " + (icon? "nav-div":"")}>
         <Link href={link} className='flex items-center gap-2'>
     <span className='text-[18px]'>{title}</span>
     {icon ? (

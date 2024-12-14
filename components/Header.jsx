@@ -21,7 +21,7 @@ const [isAuthenticated, setIsAuthenticated ] = useState(false)
       <nav className='flex p-2 gap-2 justify-evenly  min-w-[500px]'>
         <NavElement title="Gallery" link="/gallery" />  
         <NavElement title="Support" link="/Support" />  
-        <NavElement title="Explore" link="/Explore" icon={<i className="fa-regular fa-compass"></i>} />  
+        <NavElement title="Explore" link="/Explore" icon={<i className="fa-regular fa-compass explore-icon "></i>} />  
       </nav>
         {isAuthenticated? (<div className=" p-0 w-12 h-12 overflow-hidden rounded-full">
           <img
