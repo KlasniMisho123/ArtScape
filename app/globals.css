@@ -2,3 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+.titleGradientRed {
+    background: -webkit-linear-gradient(#FF3B3B, #FF8C42 ,#FFD700);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.titleGradientPurple {
+    background: -webkit-linear-gradient(#8A2BE2, #DA70D6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
