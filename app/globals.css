@@ -18,69 +18,67 @@
     animation: spin 2s linear infinite;
 }
 
-.left-intro-div {
-    gap: 10px;
-    position: relative;
-    animation: swift-in-left 10s forwards;
-}
-
 .right-intro-div {
     gap: 10px;
     position: relative;
-    animation: swift-in-right 10s forwards;
+    animation: swift-in-right 7s forwards;
+}
+
+.left-intro-div {
+    gap: 10px;
+    position: relative;
+    animation: swift-in-left 7s forwards;
+}
+
+.right {
+    animation: picture-posture-right 10s forwards;
+}
+.left {
+    animation: picture-posture-left 10s forwards;
 }
 
 .right.one{
     margin-right: 30px;
-    animation: picture-posture-right 10s forwards;
 }
 .right.two{
     margin-top: 40px;
     margin-right: 30px;
-    animation: picture-posture-right 10s forwards;
 }
 .right.three{
     margin-top: 80px;
     margin-right: 30px;
-    animation: picture-posture-right 10s forwards;
 }   
 .right.four{
     margin-top: 120px;
     margin-right: 30px;
-    animation: picture-posture-right 10s forwards;
 }
 
 .left.one{
-    animation: picture-posture-left 10s forwards;
-    margin-right: 30px;
+    margin-left: 30px;
 }
 
 .left.two{
     margin-top: 40px;
-    margin-right: 30px;
-    animation: picture-posture-left 10s forwards;
+    margin-left: 30px;
 }
 
 .left.three{
     margin-top: 80px;
-    margin-right: 30px;
-    animation: picture-posture-left 10s forwards;
+    margin-left: 30px;
 }  
 
 .left.four{
     margin-top: 120px;
-    margin-right: 30px;
-    animation: picture-posture-left 10s forwards;
+    margin-left: 30px;
 }
 
 @keyframes swift-in-right {
  0% {
     top:  100%;
     left: 100%;
-    
  } 100% {
-    top:  20%;
-    left: 0%;
+    top:  15%;
+    left: -10px;
     transform: rotateX(30deg) rotateY(40deg);
  }  
 } 
@@ -93,48 +91,24 @@
     }  
 } 
 
-@keyframes swift-in-right {
+@keyframes swift-in-left {
     0% {
-      top: 100%;
-      left: 100%;
-    }
-    100% {
-      top: 20%;
-      left: 0%;
-      transform: rotateX(30deg) rotateY(40deg);
-    }
-  }
-  
-  @keyframes picture-posture-right {
-    0% {
-      transform: rotateX(30deg) rotateY(60deg);
-    }
-    100% {
-      transform: rotateX(0deg) rotateY(-10deg);
-    }
-  }
-  
-  @keyframes swift-in-left {
-    0% {
-      top: 100%;
-      left: -100%; /* Starts off-screen to the left */
-    }
-    100% {
-      top: 20%;
-      left: 50%; /* Ends closer to the center */
-      transform: rotateX(30deg) rotateY(-40deg); /* Adjust for left rotation */
-    }
-  }
-  
-  @keyframes picture-posture-left {
-    0% {
-      transform: rotateX(30deg) rotateY(-60deg); /* Opposite of right */
-    }
-    100% {
-      transform: rotateX(0deg) rotateY(10deg); /* Smooth end posture */
-    }
-  }
-  
+       top:  100%;
+       right: 100%;   
+    } 100% {
+       top:  15%;
+       right: -10px;;
+       transform: rotateX(-30deg) rotateY(220deg);
+    }  
+   } 
+   
+   @keyframes picture-posture-left {
+       0% {
+        transform: rotateX(30deg) rotateY(60deg);
+       } 100% {
+        transform: rotateX(0deg) rotateY(10deg);
+       }  
+   } 
 
 
 @keyframes spin {
