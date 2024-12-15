@@ -18,6 +18,45 @@
     animation: spin 2s linear infinite;
 }
 
+.left-intro-div {
+
+}
+
+.right-intro-div {
+    gap: 120px;
+    position: relative;
+    top:  100%;
+    left: 100%;
+    animation: swift-in-right 10s infinite;
+}
+
+.right {
+    animation: swift-in-right 20s infinite;
+}
+
+@keyframes swift-in-right {
+ 0% {
+    top:  100%;
+    left: 100%;
+    transform: rotateX(30deg) rotateY(60deg);
+ } 50% {
+    
+ } 100% {
+    top:  5%;
+    left: 1%;
+    transform: rotateX(0deg) rotateY(45deg);
+ }  
+} 
+
+@keyframes swift-in-right {
+    0% {
+       transform: rotateX(30deg) rotateY(60deg);
+    } 50% {
+       
+    } 100% {
+       transform: rotateX(0deg) rotateY(0deg);
+    }  
+   } 
 
 @keyframes spin {
     0% {

@@ -2,13 +2,13 @@ import React from 'react'
 
 export default function Hero() {
   return (
-    <div className='flex gap-6 bg-gray-900 text-white h-[400px]'>
-        <div className='flex left-intro-div'>
+    <div className='flex bg-gray-900 text-white h-[500px] overflow-hidden '>
+        {/* <div className='flex left-intro-div'>
         <img className="h-[200px] w-[200px] object-cover left one" src='introArt/Guernica.png'/>
         <img className="h-[200px] w-[200px] object-cover left two" src='introArt/Mona-Lisa.png'/>
         <img className="h-[200px] w-[200px] object-cover left three" src='introArt/The Kiss.png'/>
         <img className="h-[200px] w-[200px] object-cover left four" src='introArt/The Last Suppe.png'/>
-        </div>
+        </div> */}
 
         <div className='flex right-intro-div'>
         <img className="h-[200px] w-[200px] object-cover right one " src='introArt/Van-Gogh-Starry-Night.png'/>
