@@ -4,6 +4,7 @@ import NavElement from './NavElement';
 import { Lobster, Pacifico, Poppins } from 'next/font/google';
 import { useState } from 'react';
 import Link from 'next/link';
+import ArtScapeLogo from './ArtScapeLogo';
 
 const poppins = Poppins({ subsets: ['latin'], weight: ['500'] });
 const pacifico = Pacifico({ subsets: ['latin'], weight: ['400'] });
@@ -14,11 +15,7 @@ const [isAuthenticated, setIsAuthenticated ] = useState(false)
 
   return (
     <header className="py-2 px-6 border w-full flex justify-between ">
-      <Link href='/'
-        className='flex row'>
-        <img src='/artScapeLogo.png' className='h-[50px]'/>
-        <h3 className='text-[30px]'> <span className={'titleGradientPurple ' + pacifico.className}>Art</span><span className={'text-indigo-500 titleGradientRed ' + poppins.className}>Scape</span> </h3>
-      </Link>
+      <ArtScapeLogo linkTag={1}/>
       
       <nav className='flex p-2 gap-2 justify-evenly  min-w-[500px]'>
         <NavElement title="Gallery" link="/gallery" />  
