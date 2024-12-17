@@ -30,6 +30,18 @@
     background-color: #758bfd
 } 
 
+.categories-background-border {
+    height: 100%;
+    width: 100%;
+    border-radius: 32px;
+    transition: all 0.3s ease-in-out;
+}
+
+.categories-background-border:hover {
+    border: 8px solid white;
+    transform: scale(0.95);
+}
+
 
 /* --- INTRO ANIMATION --- */
 

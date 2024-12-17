@@ -19,11 +19,11 @@ export default function DemoheroCol() {
             </div>
             <div className='flex gap-6 w-full-auto '>
                 <CategoriesCard title="Modern Art" link='/dashboard' imgSrc="ProfilePicDemo.gif"/>
-                <div className='grid grid-cols-2 grid-rows-2 gap-6 [&>div]:bg-gray-100 [&>div]:h-[200px] [&>div]:w-[350px]'>
-                <CategoriesCard title="Modern Art" link='/dashboard' imgSrc="ProfilePicDemo.gif"/>
-                <CategoriesCard title="Modern Art" link='/dashboard' imgSrc="ProfilePicDemo.gif"/>
-                <CategoriesCard title="Modern Art" link='/dashboard' imgSrc="ProfilePicDemo.gif"/>
-                <CategoriesCard title="Modern Art" link='/dashboard' imgSrc="ProfilePicDemo.gif"/>
+                <div className='grid grid-cols-2 grid-rows-2 gap-6 [&>div]:h-[100%] [&>div]:w-[400px]'>
+                    <CategoriesCard title="Modern Art" link='/dashboard' imgSrc="ProfilePicDemo.gif"/>
+                    <CategoriesCard title="Modern Art" link='/dashboard' imgSrc="ProfilePicDemo.gif"/>
+                    <CategoriesCard title="Modern Art" link='/dashboard' imgSrc="ProfilePicDemo.gif"/>
+                    <CategoriesCard title="Modern Art" link='/dashboard' imgSrc="ProfilePicDemo.gif"/>
                 </div>
             </div>
         </div>
