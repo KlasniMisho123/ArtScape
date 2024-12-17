@@ -18,12 +18,12 @@ export default function DemoheroCol() {
                 <ArtScapeLogo /> <span className={'text-xl ' + lobster.className }> Collections </span>
             </div>
             <div className='flex gap-6 w-full-auto '>
-                <CategoriesCard title="Modern Art" link='/dashboard' imgSrc="ProfilePicDemo.gif"/>
+                <CategoriesCard title="Realism Art" link='/' imgSrc="/CategoriesArt/Realism.avif"/>
                 <div className='grid grid-cols-2 grid-rows-2 gap-6 [&>div]:h-[100%] [&>div]:w-[400px]'>
-                    <CategoriesCard title="Modern Art" link='/dashboard' imgSrc="ProfilePicDemo.gif"/>
-                    <CategoriesCard title="Modern Art" link='/dashboard' imgSrc="ProfilePicDemo.gif"/>
-                    <CategoriesCard title="Modern Art" link='/dashboard' imgSrc="ProfilePicDemo.gif"/>
-                    <CategoriesCard title="Modern Art" link='/dashboard' imgSrc="ProfilePicDemo.gif"/>
+                    <CategoriesCard title="Renaissance Art" link='/' imgSrc="/CategoriesArt/Renaissance.avif"/>
+                    <CategoriesCard title="Impressionism" link='/' imgSrc="/CategoriesArt/Impressionism.avif"/>
+                    <CategoriesCard title="Abstract Art" link='/' imgSrc="/CategoriesArt/Abstract.avif"/>
+                    <CategoriesCard title="Pop Art" link='/' imgSrc="/CategoriesArt/Pop.avif"/>
                 </div>
             </div>
         </div>
