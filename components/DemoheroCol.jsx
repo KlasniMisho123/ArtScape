@@ -19,9 +19,11 @@ export default function DemoheroCol() {
             <div className='flex gap-6 w-full-auto '>
                 <div className='bg-gray-100 h-[500px] w-[300px] rounded-[30px] overflow-hidden relative '>
                     <img src='ProfilePicDemo.gif' className='absolute insert-0 h-full w-full object-cover '/>
-                    <div className="relative z-10 text-white p-4 flex flex-col items-center pt-6 ">
-                        <div> Modern Art </div>
-                        <button className='flex '> <div>{'>'}</div> View Collection </button>
+                    <div className="relative z-10 text-white mx-6 pt-6 w-full ">
+                        <h4 className='text-2xl font-bold '> Modern Art </h4> 
+                    </div>
+                    <div className="relative z-10 text-white p-6 flex"> 
+                        <button className='flex bg-transparent text-white flex gap-2 items-center border-white border rounded-xl px-2 py-2 w-full-auto '> <i className="fa-solid fa-caret-up rotate-[90deg]"></i> <p>View Collection</p>  </button>
                     </div>
                 </div>
                 <div className='grid grid-cols-2 grid-rows-2 gap-6 [&>div]:bg-gray-100 [&>div]:h-[200px] [&>div]:w-[350px]'>

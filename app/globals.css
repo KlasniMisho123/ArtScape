@@ -31,10 +31,10 @@
 }
 
 .right {
-    animation: picture-posture-right 10s forwards;
+    animation: picture-posture-right 10s forwards ;
 }
 .left {
-    animation: picture-posture-left 10s forwards;
+    animation: picture-posture-left 10s forwards ;
 }
 
 .right.one{
