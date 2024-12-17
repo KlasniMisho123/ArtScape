@@ -23,7 +23,12 @@ export default function DemoheroCol() {
                         <h4 className='text-2xl font-bold '> Modern Art </h4> 
                     </div>
                     <div className="relative z-10 text-white p-6 flex"> 
-                        <button className='flex bg-transparent text-white flex gap-2 items-center border-white border rounded-xl px-2 py-2 w-full-auto '> <i className="fa-solid fa-caret-up rotate-[90deg]"></i> <p>View Collection</p>  </button>
+                        <button className='flex bg-transparent text-white flex gap-2 pr-4 py-1 items-center border-white border rounded-[32px] p-1 w-full-auto hover:bg-white collection-btn '> 
+                            <div className='px-[8px] py-[2px] rounded-[32px] border-white border text-sm'> 
+                            <i className="fa-solid fa-caret-up rotate-[90deg]"> </i>
+                            </div>
+                            <p className='whitespace-nowrap'>View Collection</p>  
+                        </button>
                     </div>
                 </div>
                 <div className='grid grid-cols-2 grid-rows-2 gap-6 [&>div]:bg-gray-100 [&>div]:h-[200px] [&>div]:w-[350px]'>

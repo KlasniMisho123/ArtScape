@@ -18,6 +18,21 @@
     animation: spin 2s linear infinite;
 }
 
+.collection-btn:hover {
+    background-color: white;
+}
+
+.collection-btn:hover > p {
+    color: #758bfd
+} 
+
+.collection-btn:hover > div {
+    background-color: #758bfd
+} 
+
+
+/* --- INTRO ANIMATION --- */
+
 .right-intro-div {
     gap: 10px;
     position: relative;
@@ -71,6 +86,7 @@
     margin-top: 120px;
     margin-left: 30px;
 }
+
 
 @keyframes swift-in-right {
  0% {
