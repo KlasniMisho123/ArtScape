@@ -10,10 +10,9 @@
 
  export function AuthProvider({ children }) {
     const [currentUser, setCurrentUser] = useState(null)
-    
+    const [authenticatingActive, setAuthenticatingActive] = useState(true)
     const value = 
     {
-  
     }
 
     return (

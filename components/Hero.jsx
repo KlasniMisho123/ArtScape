@@ -1,15 +1,10 @@
 'use client'
 import React, { useState } from 'react'
-import AuthenticationForm from "@/components/AuthenticationForm";
 import DemoheroCol from "@/components/DemoheroCol";
 
 export default function Hero() {
-
-  const [authenticatingActive, setAuthenticatingActive] = useState(true)
-
   return (
     <>
-      {authenticatingActive? <AuthenticationForm /> : null}
         <div className='flex bg-gray-900 text-white h-[600px] w-full overflow-hidden '>
             <div className='flex left-intro-div'>
               <img className="h-[200px] w-[200px] object-cover left one" src='introArt/Guernica.png'/>
