@@ -2,7 +2,7 @@
 import React from 'react';
 import NavElement from './NavElement';
 import { Lobster, Pacifico, Poppins } from 'next/font/google';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import ArtScapeLogo from './ArtScapeLogo';
 import AuthenticationForm from "@/components/AuthenticationForm";
@@ -15,6 +15,18 @@ export default function Header() {
 const [isAuthenticated, setIsAuthenticated ] = useState(false)
 
 const [authenticatingActive, setAuthenticatingActive] = useState(false)
+
+useEffect(() => {
+  {authenticatingActive ? (
+    document.body.style.overflow = 'hidden'
+  ) : (
+    document.body.style.overflow = 'auto') }
+
+    //to ensure its cleaned up 
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [authenticatingActive])
 
   return (
     <>
