@@ -1,15 +1,12 @@
 import React from 'react'
-import Modal from './Modal'
-
 
 export default function AuthenticationForm() {
   return (
-    <div>AuthenticationForm
-      <Modal> 
-        <p>SAD VAR ABA</p>
-      </Modal>
-    </div>
-
+    <button className='w-full h-full '>
+      <div className='w-full h-full bg-green-300 flex justify-center absolute'>
+        AuthenticationForm
+      </div>
+    </button>
   )
 }
 
