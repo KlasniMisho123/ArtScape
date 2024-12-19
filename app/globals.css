@@ -42,6 +42,10 @@
     transform: scale(0.95);
 }
 
+/* .login-background {
+    background-image: url("../public/LoginFormBackground.avif");
+    object-fit: cover;
+} */
 
 /* --- INTRO ANIMATION --- */
 
