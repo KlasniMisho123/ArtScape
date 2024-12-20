@@ -3,6 +3,7 @@ import ArtScapeLogo from './ArtScapeLogo'
 import { Lobster, Open_Sans } from 'next/font/google';
 import CategoriesCard from './CategoriesCard';
 import TopicDiv from './TopicDiv';
+import UpVotedArtistCard from './UpVotedArtistCard';
 
 const lobster = Lobster({ subsets: ['latin'], weight: ['400'] });
 const openSans = Open_Sans({ subsets: ['latin']})
@@ -32,22 +33,41 @@ export default function DemoheroCol() {
             </div>
             <div className='w-full bg-gray-200 flex justify-center pb-[100px] py-4'>
                 <div className='flex gap-4 w-full-auto w-[75%] min-w-[600px] overflow-x-scroll '>
-                    <div className='w-[30%] flex-shrink-0 bg-green-200 flex flex-col h-[400px] rounded-t-lg overflow-hidden'>
-                        <div className='bg-gray-100 gap-4 h-[200px] p-4 pb-0'>
-                            <img src={"artScapeLogo.png"} className='h-full w-full object-cover border-b-black border-b hover:border-x '/>
-                        </div>
-                        <div className='flex flex-col gap-4 p-4 '>
-                            <h2 className={'text-2xl mx-auto ' + lobster.className} >Jey Dots</h2>
-                            <h3>Upvotes: 8.1K Upvotes </h3>
-                            <h3>Artworks: 75 Paintings</h3>
-                            <h3>Favorite Categories: Abstract & Realism</h3>
-                        </div>
-                    </div>
-
-                    <div className='w-[25%] flex-shrink-0'>CARD2</div>
-                    <div className='w-[25%] flex-shrink-0'>CARD3</div>
-                    <div className='w-[25%] flex-shrink-0'>CARD4</div>
-                    <div className='w-[25%] flex-shrink-0'>CARD5</div>
+                    <UpVotedArtistCard
+                        fullname="Joe Dots"
+                        imgSrc={"artScapeLogo.png"}
+                        Upvotes={"8.1K"}
+                        artWorks={75}
+                        FavCategories={"Abstract & Realism"}
+                    />
+                    <UpVotedArtistCard
+                        fullname="Joe Dots"
+                        imgSrc={"artScapeLogo.png"}
+                        Upvotes={"8.1K"}
+                        artWorks={75}
+                        FavCategories={"Abstract & Realism"}
+                    />
+                    <UpVotedArtistCard
+                        fullname="Joe Dots"
+                        imgSrc={"artScapeLogo.png"}
+                        Upvotes={"8.1K"}
+                        artWorks={75}
+                        FavCategories={"Abstract & Realism"}
+                    />
+                    <UpVotedArtistCard
+                        fullname="Joe Dots"
+                        imgSrc={"artScapeLogo.png"}
+                        Upvotes={"8.1K"}
+                        artWorks={75}
+                        FavCategories={"Abstract & Realism"}
+                    />
+                    <UpVotedArtistCard
+                        fullname="Joe Dots"
+                        imgSrc={"artScapeLogo.png"}
+                        Upvotes={"8.1K"}
+                        artWorks={75}
+                        FavCategories={"Abstract & Realism"}
+                    />
                 </div>
             </div>
         </div>
