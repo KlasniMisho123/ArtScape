@@ -31,8 +31,8 @@ export default function DemoheroCol() {
             <div className='flex items-center gap-2 pb-[40px]'>
                 <h4 className={'text-[32px] bg-gray-100 ' + openSans.className } > Most Upvoted Artists <i className="fa-solid fa-star text-yellow-300 "></i> </h4>
             </div>
-            <div className='w-full bg-gray-200 flex justify-center pb-[100px] py-4'>
-                <div className='flex gap-4 w-full-auto w-[75%] min-w-[600px] overflow-x-scroll '>
+            <div className='w-full  flex justify-center py-[50px]  '>
+                <div className='flex gap-[5%] bg-gray-200 w-full-auto w-[75%] min-w-[600px] overflow-x-scroll p-2 '>
                     <UpVotedArtistCard
                         fullname="Joe Dots"
                         imgSrc={"artScapeLogo.png"}
