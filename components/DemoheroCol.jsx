@@ -28,17 +28,19 @@ export default function DemoheroCol() {
         <TopicDiv title="Top Artists" />
         <div className='flex flex-col items-center justify-center'>
             <div className='flex items-center gap-2 pb-[40px]'>
-                <h4 className={'text-[32px]  ' + openSans.className } > Most Upvoted Artists <i className="fa-solid fa-star text-yellow-300 "></i> </h4>
+                <h4 className={'text-[32px] bg-gray-100 ' + openSans.className } > Most Upvoted Artists <i className="fa-solid fa-star text-yellow-300 "></i> </h4>
             </div>
-            <div  className='w-full bg-gray-300 flex justify-center pb-[100px] '>
+            <div className='w-full bg-gray-200 flex justify-center pb-[100px] py-4'>
                 <div className='flex gap-4 w-full-auto w-[75%] min-w-[600px] overflow-x-scroll '>
-                    <div className='w-[30%] flex-shrink-0 p-4 bg-green-200 flex flex-row-reverse justify-evenly '>
-                        <div className='border-2 border-black rounded-[100%] bg-gray-100 gap-4 '>
-                            <img src={"artScapeLogo.png"} className='w-[100px] h-[100px] fit-cover '/>
+                    <div className='w-[30%] flex-shrink-0 bg-green-200 flex flex-col h-[400px] rounded-t-lg overflow-hidden'>
+                        <div className='bg-gray-100 gap-4 h-[200px] p-4 pb-0'>
+                            <img src={"artScapeLogo.png"} className='h-full w-full object-cover border-b-black border-b hover:border-x '/>
                         </div>
-                        <div className='flex flex-col gap-4'>
+                        <div className='flex flex-col gap-4 p-4 '>
                             <h2 className={'text-2xl mx-auto ' + lobster.className} >Jey Dots</h2>
-                            <h3>8090 Upvotes </h3>
+                            <h3>Upvotes: 8.1K Upvotes </h3>
+                            <h3>Artworks: 75 Paintings</h3>
+                            <h3>Favorite Categories: Abstract & Realism</h3>
                         </div>
                     </div>
 
