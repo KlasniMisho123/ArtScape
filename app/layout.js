@@ -2,10 +2,11 @@ import "./globals.css";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Head from "./head"
-import { Lobster, Pacifico, Poppins } from 'next/font/google';
+import { Lobster, Open_Sans, Pacifico, Poppins } from 'next/font/google';
 
 const poppins = Poppins({ subsets: ['latin'], weight: ['500'] });
 const pacifico = Pacifico({ subsets: ['latin'], weight: ['400'] });
+const openSans = Open_Sans({ subsets: ['latin'], weight: ['400'] })
 
 export const metadata = {
   title: 'ArtScape',
