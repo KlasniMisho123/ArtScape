@@ -2,17 +2,14 @@ import React from 'react'
 import ArtScapeLogo from './ArtScapeLogo'
 import { Lobster } from 'next/font/google';
 import CategoriesCard from './CategoriesCard';
+import TopicDiv from './TopicDiv';
 
 const lobster = Lobster({ subsets: ['latin'], weight: ['400'] });
 
 export default function DemoheroCol() {
   return (
     <>
-        <div className='bg-white mt-[70px] mb-[30px] w-full-auto flex '>
-            <div className='flex items-center gap-4 w-full justify-center '>
-                <div className='border border-gray-500 h-0 w-[20%] '/> <div className='bg-indigo-500 px-6 py-[5px] rounded-3xl text-white text-lg sm:text-sm md:text-md lg:text-lg '> Categories </div> <div className='border border-gray-500 h-0 w-[20%] '/>
-            </div>
-        </div>
+        <TopicDiv title="Categories" />
         <div className='flex flex-col items-center justify-center'>
             <div className='flex items-center gap-2 pb-[40px]'>
                 <ArtScapeLogo /> <span className={'text-xl ' + lobster.className }> Collections </span>
