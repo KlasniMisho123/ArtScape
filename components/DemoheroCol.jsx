@@ -9,6 +9,45 @@ const lobster = Lobster({ subsets: ['latin'], weight: ['400'] });
 const openSans = Open_Sans({ subsets: ['latin']})
 
 export default function DemoheroCol() {
+
+    const artists = [
+        {
+          fullname: "Lila Monte",
+          imgSrc: "https://plus.unsplash.com/premium_photo-1674814950019-b29545fea7a7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8YXJ0aXN0fGVufDB8fDB8fHww",
+          Upvotes: "12.3K",
+          artWorks: 94,
+          FavCategories: "Impressionism & Modern",
+        },
+        {
+          fullname: "Felix Hart",
+          imgSrc: "https://plus.unsplash.com/premium_photo-1702598322608-b0f720050288?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGFydGlzdHxlbnwwfHwwfHx8MA%3D%3D",
+          Upvotes: "8.5K",
+          artWorks: 76,
+          FavCategories: "Pop Art & Abstract",
+        },
+        {
+          fullname: "Nora Vale",
+          imgSrc: "https://plus.unsplash.com/premium_photo-1675425206468-dc196f6decdc?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          Upvotes: "10.2K",
+          artWorks: 88,
+          FavCategories: "Realism & Abstract",
+        },
+        {
+          fullname: "Theo Sparks",
+          imgSrc: "https://media.istockphoto.com/id/1321486723/photo/japanese-man-spending-weekend-morning-painting-in-his-bedroom-at-home.webp?a=1&b=1&s=612x612&w=0&k=20&c=JXw7o4Od_P7DTOUu3Q2ndsyyzjopOjRQl3kqm1Y2TbU=",
+          Upvotes: "9.9K",
+          artWorks: 71,
+          FavCategories: "Cubism & Surrealism",
+        },
+        {
+          fullname: "Aria Bell",
+          imgSrc: "https://media.istockphoto.com/id/2157657577/photo/female-artist-standing-in-front-of-a-big-blank-canvas.webp?a=1&b=1&s=612x612&w=0&k=20&c=YPMLphw7fKUMIQ2nLxOkMycykEO5QTy2OCBz1ID4TTA=",
+          Upvotes: "11.6K",
+          artWorks: 82,
+          FavCategories: "Baroque & Realism",
+        },
+      ];
+
   return (
     <>
         <TopicDiv title="Categories" />
@@ -33,41 +72,16 @@ export default function DemoheroCol() {
             </div>
             <div className='w-full  flex justify-center py-[50px]  '>
                 <div className='flex gap-[5%] bg-gray-200 w-full-auto w-[75%] min-w-[600px] overflow-x-scroll p-2 '>
+                {artists.map((artist, index) => (
                     <UpVotedArtistCard
-                        fullname="Joe Dots"
-                        imgSrc={"artScapeLogo.png"}
-                        Upvotes={"8.1K"}
-                        artWorks={75}
-                        FavCategories={"Abstract & Realism"}
+                    key={index}
+                    fullname={artist.fullname}
+                    imgSrc={artist.imgSrc}
+                    Upvotes={artist.Upvotes}
+                    artWorks={artist.artWorks}
+                    FavCategories={artist.FavCategories}
                     />
-                    <UpVotedArtistCard
-                        fullname="Joe Dots"
-                        imgSrc={"artScapeLogo.png"}
-                        Upvotes={"8.1K"}
-                        artWorks={75}
-                        FavCategories={"Abstract & Realism"}
-                    />
-                    <UpVotedArtistCard
-                        fullname="Joe Dots"
-                        imgSrc={"artScapeLogo.png"}
-                        Upvotes={"8.1K"}
-                        artWorks={75}
-                        FavCategories={"Abstract & Realism"}
-                    />
-                    <UpVotedArtistCard
-                        fullname="Joe Dots"
-                        imgSrc={"artScapeLogo.png"}
-                        Upvotes={"8.1K"}
-                        artWorks={75}
-                        FavCategories={"Abstract & Realism"}
-                    />
-                    <UpVotedArtistCard
-                        fullname="Joe Dots"
-                        imgSrc={"artScapeLogo.png"}
-                        Upvotes={"8.1K"}
-                        artWorks={75}
-                        FavCategories={"Abstract & Realism"}
-                    />
+                ))}
                 </div>
             </div>
         </div>
