@@ -13,15 +13,15 @@ export default function UpVotedArtistCard(props) {
         <div className='flex flex-col gap-4 p-4 '>
             <h2 className={'text-2xl mx-auto ' + lobster.className}>{fullname}</h2>
             <div>
-                <h3 className="text-lg font-semibold">Upvotes:</h3>
+                <h3 className="text-lg font-semibold"><i className="fa-solid fa-thumbs-up text-blue-500"></i> Upvotes:</h3>
                 <p>{Upvotes} Upvotes</p>
             </div>
             <div>
-                <h3 className="text-lg font-semibold">Artworks:</h3>
+                <h3 className="text-lg font-semibold"><i className="fa-solid fa-masks-theater text-purple-500 "></i> Artworks:</h3>
                 <p>{artWorks} Paintings</p>
             </div>
-            <div>
-                <h3 className="text-lg font-semibold">Favorite Categories:</h3>
+            <div className='border-t'>
+                <h3 className="text-lg font-semibold"> <i className="fa-solid fa-star text-yellow-300 "></i> Favorite Categories: </h3>
                 <p>{FavCategories}</p>
             </div>
         </div>
