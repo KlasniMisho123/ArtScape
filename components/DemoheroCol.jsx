@@ -70,10 +70,10 @@ export default function DemoheroCol() {
         <div className='flex flex-col items-center justify-center'>
             <div className='flex items-center gap-2 pb-[40px]'>
                 {/* titleGradientRed / titleGradientPurple*/}
-                <h4 className={'text-[32px] bg-gray-100 ' + lobster_two.className } > Most Upvoted Artists </h4>
+                <h4 className={'text-[32px] ' + lobster_two.className } > Most Upvoted Artists <span> <i className="fa-solid fa-fire-flame-curved gradientFlame "></i> </span> </h4>
             </div>
-            <div className='w-full  flex justify-center py-[50px]  '>
-                <div className='flex gap-[5%] bg-gray-200 w-full-auto w-[75%] min-w-[600px] overflow-x-scroll p-2 '>
+            <div className='w-full flex justify-center py-[20px] '>
+                <div className='flex gap-[5%] w-full-auto w-[75%] min-w-[600px] overflow-x-scroll p-2  bg-gray-200 rounded-lg'>
                 {artists.map((artist, index) => (
                     <UpVotedArtistCard
                     key={index}
