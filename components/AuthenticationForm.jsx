@@ -19,6 +19,7 @@ export default function AuthenticationForm(props) {
 
   async function handleSubmit() {
     try {
+      
       setUsername("")
       setEmail("")
       setPassword("")
