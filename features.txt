@@ -14,3 +14,5 @@ Hydration failed because the server rendered HTML didn't match the client. As a 
 - External changing data without sending a snapshot of it along with the HTML.
 - Invalid HTML tag nesting.
 
+-- import { getAnalytics } from "firebase/analytics"; --firebase.js ??
+    const analytics = getAnalytics(app);

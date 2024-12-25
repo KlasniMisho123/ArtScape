@@ -1,17 +1,20 @@
-import { Poppins } from 'next/font/google';
+'use client'
 import React, { useState } from 'react'
+import { Poppins } from 'next/font/google';
+import { useAuth } from '@/context/AuthContext';
 
 const poppins = Poppins({ subsets: ['latin'], weight: ['600'] });
 
-
 export default function AuthenticationForm(props) {
   const  { setAuthenticatingActive } = props
+  const { signup, login } = useAuth()
 
   const [isRegistered, setIsRegistered ] = useState(true)
   const [username, setUsername ] = useState("")
   const [email, setEmail ] = useState("")
   const [password, setPassword] = useState("")
 
+    
   function handleAuthType() {
     console.log("isRegistered: ", isRegistered)
     setIsRegistered(!isRegistered)
@@ -19,7 +22,7 @@ export default function AuthenticationForm(props) {
 
   async function handleSubmit() {
     try {
-      
+  
       setUsername("")
       setEmail("")
       setPassword("")

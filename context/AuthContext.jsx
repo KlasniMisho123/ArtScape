@@ -1,6 +1,5 @@
 'use client'
-
-import { auth, db } from "../firebase"
+import { auth } from "../firebase"
 import React, { useContext , useEffect, useState } from 'react'
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth"
 
@@ -17,7 +16,6 @@ export function useAuth() {
     setCurrentUser
     
     function signup(email, password) {
-        //username?
         return createUserWithEmailAndPassword(auth, email, password)
     }
 
@@ -32,7 +30,10 @@ export function useAuth() {
     }
 
     const value = {
-        currentUser
+        currentUser,
+        signup,
+        login,
+        logout
     }
 
     return (
