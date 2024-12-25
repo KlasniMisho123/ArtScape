@@ -9,11 +9,10 @@ export function useAuth() {
     return useContext(AuthContext)
 }
 
- export function AuthProvider({ children }) {
+export function AuthProvider({ children }) {
     const [currentUser, setCurrentUser] = useState(null)
     const [authenticatingActive, setAuthenticatingActive] = useState(true)
     const [userDataObj, setUserDataObj] = useState(0)
-    setCurrentUser
     
     function signup(email, password) {
         return createUserWithEmailAndPassword(auth, email, password)
@@ -41,5 +40,5 @@ export function useAuth() {
             {children}
         </AuthContext.Provider>
     )
- }
+}
  

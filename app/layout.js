@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Head from "./head"
 import { Lobster, Open_Sans, Pacifico, Poppins } from 'next/font/google';
+import { AuthProvider } from "@/context/AuthContext";
 
 const poppins = Poppins({ subsets: ['latin'], weight: ['500'] });
 const pacifico = Pacifico({ subsets: ['latin'], weight: ['400'] });
@@ -24,6 +25,7 @@ const footer = (
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <AuthProvider>
       <Head>
         <link
           rel="stylesheet"
@@ -38,6 +40,7 @@ export default function RootLayout({ children }) {
         {children}
         {footer}
         </body>
+        </AuthProvider>
     </html>
   )
 }

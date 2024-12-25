@@ -7,7 +7,7 @@ const poppins = Poppins({ subsets: ['latin'], weight: ['600'] });
 
 export default function AuthenticationForm(props) {
   const  { setAuthenticatingActive } = props
-  const { signup, login } = useAuth()
+  const { signup, login } = useAuth() 
 
   const [isRegistered, setIsRegistered ] = useState(true)
   const [username, setUsername ] = useState("")
