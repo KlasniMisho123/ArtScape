@@ -22,7 +22,7 @@ export default function AuthenticationForm(props) {
 
   async function handleSubmit() {
     try {
-  
+      signup(email,password)
       setUsername("")
       setEmail("")
       setPassword("")
@@ -31,6 +31,23 @@ export default function AuthenticationForm(props) {
     } finally {
       
     }
+  }
+
+  async function handleSignup() {
+    try{
+      await signup(email,password)
+      setUsername("")
+      setEmail("")
+      setPassword("")
+    }catch(err) {
+      console.log(err.message)
+    }finally{
+      
+    }
+  }
+
+  async function handleLogin() {
+    console.log("handleLogin")
   }
 
   return (
@@ -67,7 +84,7 @@ export default function AuthenticationForm(props) {
                 }}
                  />
               <button className='bg-blue-400 text-white py-2 px-4 rounded-lg hover:opacity-90'
-               onClick={handleSubmit} >
+               onClick={isRegistered ?   handleLogin : handleSignup} >
                 {isRegistered ?  "Log In": "Sign up" }
               </button>
               <p> {isRegistered ? "Don’t have an account?" : "Already have an account?"}  <button onClick={handleAuthType} className="text-blue-500" >{isRegistered ? "Sign up" : "Log In"}</button></p>
