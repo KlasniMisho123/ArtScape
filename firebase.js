@@ -27,6 +27,6 @@ export const auth = getAuth(app)
 export const db = getFirestore(app)
 
 //check firebase info
-console.log("Firebase Config:", firebaseConfig);
-console.log("Auth Instance:", auth);
-console.log("Firestore Instance:", db);
+// console.log("Firebase Config:", firebaseConfig);
+// console.log("Auth Instance:", auth);
+// console.log("Firestore Instance:", db);

@@ -10,13 +10,13 @@ export default function AuthenticationForm(props) {
   const  { setAuthenticatingActive } = props
   const { signup, login } = useAuth() 
 
-  const [isRegistered, setIsRegistered ] = useState(true)
+  const [isRegistered, setIsRegistered ] = useState(false)
+  const [uthenticating, setAuthenticating ] = useState(false)
   const [username, setUsername ] = useState("")
   const [email, setEmail ] = useState("")
   const [password, setPassword] = useState("")
   const [authError, setAuthError] = useState("")
   const [ authErrorMessage, setAuthErrorMessage] = useState("")
-
     
   function handleAuthType() {
     console.log("isRegistered: ", isRegistered)
@@ -26,22 +26,44 @@ export default function AuthenticationForm(props) {
   async function handleAuthentification() {
     // username rules
     if(!username) {
-      setAuthError("Username is Required!")
+      setAuthError("Username is required!")
+      return
+    }
+
+    if(username.length < 6) {
+      setAuthError("Username must consist atleast 6 characters!")
       return
     }
 
     // email rules
     if(!email) {
-      setAuthError("Email is Required!")
+      setAuthError("Email is required!")
       return
+    }
+    
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
+      setAuthError("Invalid email");
+      return;
     }
 
     // password rules
     if(!password) {
-      setAuthError("Password is Required!")
+      setAuthError("Password is required!")
       return
     }
-    
+
+    if(password.length < 6 ) {
+      setAuthError("Password should consist atleast 6 characters!")
+      return
+    }
+
+    if (!/\d/.test(password)) { 
+      setAuthError("Password must include at least one number.");
+      return
+    } 
+    // passed all rules
+    setAuthError("")
+    setAuthenticating(true)
     try {
       if(isRegistered) {
         console.log("LOGED IN")
