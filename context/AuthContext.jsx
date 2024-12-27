@@ -12,6 +12,7 @@ export function useAuth() {
 export function AuthProvider({ children }) {
     const [currentUser, setCurrentUser] = useState(null)
     const [isAuthenticated, setIsAuthenticated ] = useState(false)
+    const [isLoading, setIsLoading ] = useState(false)
     const [authenticatingActive, setAuthenticatingActive] = useState(true)
     const [userDataObj, setUserDataObj] = useState(0)
     
@@ -28,6 +29,26 @@ export function AuthProvider({ children }) {
         setCurrentUser(null)
         return signOut(auth)
     }
+
+    useEffect(()=>{
+        const unsubscribe = onAuthStateChanged(auth, async user => {
+            try{
+                // Set the user to our local context state
+                setIsLoading(true)
+                setCurrentUser(user)
+                if (!user) {
+                    return
+                }
+            } catch(err) {
+                console.log("Fetching User Err: ", err.message)
+            } finally {
+                console.log("currentUser: ",currentUser)
+                setIsLoading(false)
+            }
+        })
+    },[
+
+    ])
 
     const value = {
         isAuthenticated,

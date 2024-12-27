@@ -1,5 +1,7 @@
 symetric/hero.jsx update
 
+--!! Set the user to our local context state
+
 -- Authentification ErrorHandle -- responded with a status of 400 ()
 
 -- Console Error -  erterti google useridan agdebs, meoreze ara? 

@@ -11,7 +11,7 @@ export default function AuthenticationForm(props) {
   const { signup, login, setIsAuthenticated, setCurrentUser } = useAuth() 
 
   const [isRegistered, setIsRegistered ] = useState(false)
-  const [isLoading, setIsLoading]  = useState(false)
+  const [authenticating, setAuthenticating]  = useState(false)
   const [username, setUsername ] = useState("")
   const [email, setEmail ] = useState("")
   const [password, setPassword] = useState("")
@@ -66,7 +66,7 @@ export default function AuthenticationForm(props) {
     } 
     // passed all rules
     setAuthError("")
-    setIsLoading(true)
+    setAuthenticating(true)
     try {
       if(isRegistered) {
         console.log("Logging in exsisting user")
@@ -93,7 +93,7 @@ export default function AuthenticationForm(props) {
         setLoginError("Invalid email or password!")
       }
     } finally {
-      setIsLoading(false)
+      setAuthenticating(false)
     }
   }
 
@@ -137,7 +137,7 @@ export default function AuthenticationForm(props) {
               //  onClick={isRegistered ?   handleLogin : handleSignup} 
               onClick={handleAuthentification}
                >
-                {isLoading 
+                {authenticating 
                   ?(isRegistered ?  "Logging in..." : "Signing up..." )
                   :(isRegistered ?  "Log In" : "Sign up" )
                 }
