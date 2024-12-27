@@ -40,8 +40,10 @@ useEffect(() => {
           <NavElement title="Support" link="/support" />  
           <NavElement title="Explore" link="/explore" icon={<i className="fa-regular fa-compass explore-icon "></i>} />  
         </nav>
-          {isAuthenticated? (<div>
-            {currentUser.username}
+          {isAuthenticated? (<div className='flex items-center gap-4 '>
+            <p className="truncate">
+              {currentUser.email.length > 16 ? currentUser.email.slice(0, 15) + "..." : currentUser.email}
+            </p>
             <div className=" p-0 w-12 h-12 overflow-hidden rounded-full">
             <img
             className='w-full h-full object-cover' 
