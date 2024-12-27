@@ -8,16 +8,15 @@ const poppins = Poppins({ subsets: ['latin'], weight: ['600'] });
 
 export default function AuthenticationForm(props) {
   const  { setAuthenticatingActive } = props
-  const { signup, login } = useAuth() 
+  const { signup, login, setIsAuthenticated, setCurrentUser } = useAuth() 
 
   const [isRegistered, setIsRegistered ] = useState(false)
-  const [authenticating, setAuthenticating ] = useState(false)
+  const [isLoading, setIsLoading]  = useState(false)
   const [username, setUsername ] = useState("")
   const [email, setEmail ] = useState("")
   const [password, setPassword] = useState("")
   const [authError, setAuthError] = useState("")
-  const [ loginError, setLoginError] = useState("")
-  const [isLoading, setIsLoading]  = useState(false)
+  const [loginError, setLoginError] = useState("")
 
   function handleAuthType() {
     console.log("isRegistered: ", isRegistered)
@@ -72,8 +71,20 @@ export default function AuthenticationForm(props) {
       if(isRegistered) {
         console.log("Logging in exsisting user")
         await login(email, password)
+        setAuthenticatingActive(false)
+        setIsAuthenticated(true)
+        setCurrentUser({
+          username:username,
+          email:email
+        })
       } else {
         await signup(email, password)
+        setAuthenticatingActive(false)
+        setIsAuthenticated(true)
+        setCurrentUser({
+          username:username,
+          email:email
+        })
       }
     } catch(err) {
       if(!isRegistered) {

@@ -11,6 +11,7 @@ export function useAuth() {
 
 export function AuthProvider({ children }) {
     const [currentUser, setCurrentUser] = useState(null)
+    const [isAuthenticated, setIsAuthenticated ] = useState(false)
     const [authenticatingActive, setAuthenticatingActive] = useState(true)
     const [userDataObj, setUserDataObj] = useState(0)
     
@@ -29,7 +30,10 @@ export function AuthProvider({ children }) {
     }
 
     const value = {
+        isAuthenticated,
+        setIsAuthenticated,
         currentUser,
+        setCurrentUser,
         signup,
         login,
         logout

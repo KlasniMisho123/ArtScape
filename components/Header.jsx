@@ -6,14 +6,15 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import ArtScapeLogo from './ArtScapeLogo';
 import AuthenticationForm from "@/components/AuthenticationForm";
+import { useAuth } from '@/context/AuthContext';
 
 const poppins = Poppins({ subsets: ['latin'], weight: ['500'] });
 const pacifico = Pacifico({ subsets: ['latin'], weight: ['400'] });
 
 export default function Header() {
 
-const [isAuthenticated, setIsAuthenticated ] = useState(false)
-
+// const [isAuthenticated, setIsAuthenticated ] = useState(false)
+const { isAuthenticated, setIsAuthenticated, currentUser } = useAuth()
 const [authenticatingActive, setAuthenticatingActive] = useState(false)
 
 useEffect(() => {
@@ -39,12 +40,14 @@ useEffect(() => {
           <NavElement title="Support" link="/support" />  
           <NavElement title="Explore" link="/explore" icon={<i className="fa-regular fa-compass explore-icon "></i>} />  
         </nav>
-          {isAuthenticated? (<div className=" p-0 w-12 h-12 overflow-hidden rounded-full">
+          {isAuthenticated? (<div>
+            {currentUser.username}
+            <div className=" p-0 w-12 h-12 overflow-hidden rounded-full">
             <img
             className='w-full h-full object-cover' 
             src='ProfilePicDemo.jpg'
             alt='Profile Picture Animation' />
-          </div>) : (
+          </div> </div> ) : (
             <button className='border border-black my-2 px-2 rounded-lg hover:scale-105 hover:bg-indigo-400 hover:border-none hover:text-white ' onClick={() => {
               setAuthenticatingActive(true)
             }}>
