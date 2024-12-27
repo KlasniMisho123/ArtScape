@@ -16,7 +16,7 @@ export default function AuthenticationForm(props) {
   const [email, setEmail ] = useState("")
   const [password, setPassword] = useState("")
   const [authError, setAuthError] = useState("")
-  const [ authErrorMessage, setAuthErrorMessage] = useState("")
+  const [ loginError, setLoginError] = useState("")
     
   function handleAuthType() {
     console.log("isRegistered: ", isRegistered)
@@ -66,9 +66,11 @@ export default function AuthenticationForm(props) {
     setAuthenticating(true)
     try {
       if(isRegistered) {
-        console.log("LOGED IN")
+        console.log("Logging in exsisting user")
+        await login(email, password)
       } else {
-        console.log("SUCESSFULLY REGISTERED")
+        {isRegistered ? setLoginError("") : setLoginError("Invalid email or password. Please try again.")}
+        await signup(email, password)
       }
 
     } catch(err) {
@@ -136,6 +138,7 @@ export default function AuthenticationForm(props) {
                 {isRegistered ?  "Log In": "Sign up" }
               </button>
               <p> {isRegistered ? "Don’t have an account?" : "Already have an account?"}  <button onClick={handleAuthType} className="text-blue-500" >{isRegistered ? "Sign up" : "Log In"}</button></p>
+              <p> {loginError} </p>
             </div>
         </div>
     </div>
