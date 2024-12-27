@@ -20,20 +20,11 @@ export default function AuthenticationForm(props) {
     
   function handleAuthType() {
     console.log("isRegistered: ", isRegistered)
+    setAuthError("")
     setIsRegistered(!isRegistered)
   }
 
   async function handleAuthentification() {
-    // username rules
-    if(!username) {
-      setAuthError("Username is required!")
-      return
-    }
-
-    if(username.length < 6) {
-      setAuthError("Username must consist atleast 6 characters!")
-      return
-    }
 
     // email rules
     if(!email) {
@@ -69,32 +60,28 @@ export default function AuthenticationForm(props) {
         console.log("Logging in exsisting user")
         await login(email, password)
       } else {
-        {isRegistered ? setLoginError("") : setLoginError("Invalid email or password. Please try again.")}
+        // username rules
+        if(!username) {
+          setAuthError("Username is required!")
+          return
+        }
+
+        if(username.length < 6) {
+          setAuthError("Username must consist atleast 6 characters!")
+          return
+        }    
         await signup(email, password)
       }
-
     } catch(err) {
-      console.log(err.message)
+      if(!isRegistered) {
+        setLoginError("Email is Already used!")
+      } else {
+        setLoginError("Invalid email or password!")
+      }
+      
     } finally {
       
     }
-  }
-
-  async function handleSignup() {
-    try{
-      await signup(email,password)
-      setUsername("")
-      setEmail("")
-      setPassword("")
-    }catch(err) {
-      console.log(err.message)
-    }finally{
-      
-    }
-  }
-
-  async function handleLogin() {
-    console.log("handleLogin")
   }
 
   return (
@@ -106,6 +93,7 @@ export default function AuthenticationForm(props) {
             <h2 className={'text-[32px] weight-bolder ' + poppins.className}>{isRegistered ? "Login to website" : "Registration from"}</h2>
             <div className='flex flex-col gap-4 '>
              {authError?  <div className='text-red-500 text-center '> {authError} </div> : null}
+              {isRegistered? " ": (
               <input
                 placeholder='Username'
                 className='p-2 border rounded-xl outline-none' 
@@ -114,6 +102,7 @@ export default function AuthenticationForm(props) {
                   setUsername(e.target.value)
                 }}
                 />
+                )}
               <input
                 placeholder='Email'
                 className='p-2 border rounded-xl outline-none' 
@@ -138,7 +127,7 @@ export default function AuthenticationForm(props) {
                 {isRegistered ?  "Log In": "Sign up" }
               </button>
               <p> {isRegistered ? "Don’t have an account?" : "Already have an account?"}  <button onClick={handleAuthType} className="text-blue-500" >{isRegistered ? "Sign up" : "Log In"}</button></p>
-              <p> {loginError} </p>
+              <p className='text-red-500 '> {loginError} </p>
             </div>
         </div>
     </div>

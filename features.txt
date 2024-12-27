@@ -1,8 +1,6 @@
 symetric/hero.jsx update
 
--- Authentification -- fireStore
-
-
+-- Authentification ErrorHandle -- responded with a status of 400 ()
 
 -- Console Error -  erterti google useridan agdebs, meoreze ara? 
 
