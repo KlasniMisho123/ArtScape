@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Poppins } from 'next/font/google';
 import { useAuth } from '@/context/AuthContext';
 import { auth } from '@/firebase';
@@ -11,13 +11,14 @@ export default function AuthenticationForm(props) {
   const { signup, login } = useAuth() 
 
   const [isRegistered, setIsRegistered ] = useState(false)
-  const [uthenticating, setAuthenticating ] = useState(false)
+  const [authenticating, setAuthenticating ] = useState(false)
   const [username, setUsername ] = useState("")
   const [email, setEmail ] = useState("")
   const [password, setPassword] = useState("")
   const [authError, setAuthError] = useState("")
   const [ loginError, setLoginError] = useState("")
-    
+  const [isLoading, setIsLoading]  = useState(false)
+
   function handleAuthType() {
     console.log("isRegistered: ", isRegistered)
     setAuthError("")
@@ -25,7 +26,19 @@ export default function AuthenticationForm(props) {
   }
 
   async function handleAuthentification() {
-
+    // username rules
+    if(!isRegistered) {
+      if(!username) {
+        setAuthError("Username is required!")
+        return
+      }
+  
+      if(username.length < 6) {
+        setAuthError("Username must consist atleast 6 characters!")
+        return
+      }  
+    }
+    
     // email rules
     if(!email) {
       setAuthError("Email is required!")
@@ -54,22 +67,12 @@ export default function AuthenticationForm(props) {
     } 
     // passed all rules
     setAuthError("")
-    setAuthenticating(true)
+    setIsLoading(true)
     try {
       if(isRegistered) {
         console.log("Logging in exsisting user")
         await login(email, password)
       } else {
-        // username rules
-        if(!username) {
-          setAuthError("Username is required!")
-          return
-        }
-
-        if(username.length < 6) {
-          setAuthError("Username must consist atleast 6 characters!")
-          return
-        }    
         await signup(email, password)
       }
     } catch(err) {
@@ -78,9 +81,8 @@ export default function AuthenticationForm(props) {
       } else {
         setLoginError("Invalid email or password!")
       }
-      
     } finally {
-      
+      setIsLoading(false)
     }
   }
 
@@ -124,7 +126,10 @@ export default function AuthenticationForm(props) {
               //  onClick={isRegistered ?   handleLogin : handleSignup} 
               onClick={handleAuthentification}
                >
-                {isRegistered ?  "Log In": "Sign up" }
+                {isLoading 
+                  ?(isRegistered ?  "Logging in..." : "Signing up..." )
+                  :(isRegistered ?  "Log In" : "Sign up" )
+                }
               </button>
               <p> {isRegistered ? "Don’t have an account?" : "Already have an account?"}  <button onClick={handleAuthType} className="text-blue-500" >{isRegistered ? "Sign up" : "Log In"}</button></p>
               <p className='text-red-500 '> {loginError} </p>
