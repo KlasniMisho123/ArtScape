@@ -1,7 +1,8 @@
 'use client'
-import { auth } from "../firebase"
+import { auth, db } from "../firebase"
 import React, { useContext , useEffect, useState } from 'react'
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth"
+import { doc, getDoc } from "firebase/firestore"
 
 const AuthContext = React.createContext()
 
@@ -30,6 +31,7 @@ export function AuthProvider({ children }) {
         return signOut(auth)
     }
 
+    // not saveing in cache??
     useEffect(()=>{
         const unsubscribe = onAuthStateChanged(auth, async user => {
             try{
@@ -39,6 +41,17 @@ export function AuthProvider({ children }) {
                 if (!user) {
                     return
                 }
+
+                // if user exists, fetch data from firestore database
+                const docRef = doc(db, 'users', user.uid)
+                const docSnap = await getDoc(docRef)
+                
+                let firebaseData = {}
+                // if (docSnap.exists()) {
+                //     firebaseData = docSnap.data()
+                // }
+                // setUserDataObj(firebaseData)
+                // console.log(userDataObj)
             } catch(err) {
                 console.log("Fetching User Err: ", err.message)
             } finally {
@@ -46,6 +59,7 @@ export function AuthProvider({ children }) {
                 setIsLoading(false)
             }
         })
+        return unsubscribe
     },[
 
     ])
