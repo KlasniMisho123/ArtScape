@@ -28,6 +28,7 @@ export function AuthProvider({ children }) {
     function logout() {
         setUserDataObj(null)
         setCurrentUser(null)
+        setIsAuthenticated(false)
         return signOut(auth)
     }
 
@@ -45,8 +46,9 @@ export function AuthProvider({ children }) {
                 // if user exists, fetch data from firestore database
                 const docRef = doc(db, 'users', user.uid)
                 const docSnap = await getDoc(docRef)
-                
+                // console.log(user.email)
                 let firebaseData = {}
+                setIsAuthenticated(true)
                 // if (docSnap.exists()) {
                 //     firebaseData = docSnap.data()
                 // }

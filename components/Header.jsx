@@ -13,8 +13,7 @@ const pacifico = Pacifico({ subsets: ['latin'], weight: ['400'] });
 
 export default function Header() {
 
-// const [isAuthenticated, setIsAuthenticated ] = useState(false)
-const { isAuthenticated, setIsAuthenticated, currentUser } = useAuth()
+const { isAuthenticated, setIsAuthenticated, currentUser, logout } = useAuth()
 const [authenticatingActive, setAuthenticatingActive] = useState(false)
 
 useEffect(() => {
@@ -42,13 +41,17 @@ useEffect(() => {
         </nav>
           {isAuthenticated? (<div className='flex items-center gap-4 '>
             <p className="truncate">
-              {currentUser.email.length > 16 ? currentUser.email.slice(0, 15) + "..." : currentUser.email}
+              {currentUser ? (
+              currentUser.email.length > 16 ? currentUser.email.slice(0, 15) + "..." : currentUser.email) 
+              : (null)}
             </p>
             <div className=" p-0 w-12 h-12 overflow-hidden rounded-full">
+            <button onClick={logout}> 
             <img
             className='w-full h-full object-cover' 
             src='ProfilePicDemo.jpg'
             alt='Profile Picture Animation' />
+            </button>
           </div> </div> ) : (
             <button className='border border-black my-2 px-2 rounded-lg hover:scale-105 hover:bg-indigo-400 hover:border-none hover:text-white ' onClick={() => {
               setAuthenticatingActive(true)
