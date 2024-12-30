@@ -15,6 +15,12 @@ export default function Header() {
 
 const { isAuthenticated, setIsAuthenticated, currentUser, logout } = useAuth()
 const [authenticatingActive, setAuthenticatingActive] = useState(false)
+const [accountNav, setAccountNav] = useState(false)
+
+
+function accountManegementDiv(){
+  setAccountNav(!accountNav)
+}
 
 useEffect(() => {
   {authenticatingActive ? (
@@ -45,14 +51,19 @@ useEffect(() => {
               currentUser.email.length > 16 ? currentUser.email.slice(0, 15) + "..." : currentUser.email) 
               : (null)}
             </p>
-            <div className=" p-0 w-12 h-12 overflow-hidden rounded-full">
-            <button onClick={logout}> 
-            <img
-            className='w-full h-full object-cover' 
-            src='ProfilePicDemo.jpg'
-            alt='Profile Picture Animation' />
-            </button>
-          </div> </div> ) : (
+            <div className=" p-0 w-12 h-12 overflow-hidden rounded-full ">
+              <button className="" onClick={accountManegementDiv}> 
+                <img
+                className='w-full h-full object-cover' 
+                src='ProfilePicDemo.jpg'
+                alt='Profile Picture Animation' />
+              </button>
+            </div>
+            <div className='bg-red-500 flex flex-col absolute '>
+              <p>smash1smash1</p>
+              <p>smash2</p>
+            </div>
+           </div> ) : (
             <button className='border border-black my-2 px-2 rounded-lg hover:scale-105 hover:bg-indigo-400 hover:border-none hover:text-white ' onClick={() => {
               setAuthenticatingActive(true)
             }}>
