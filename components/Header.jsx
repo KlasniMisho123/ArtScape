@@ -37,7 +37,7 @@ useEffect(() => {
   return (
     <>
       {authenticatingActive? <AuthenticationForm setAuthenticatingActive={setAuthenticatingActive} /> : null}
-      <header className="py-2 px-6 border w-full flex justify-between ">
+      <header className="py-2 px-6 border w-full flex justify-between h-[70px]">
         <ArtScapeLogo linkTag={1}/>
         
         <nav className='flex p-2 gap-2 justify-evenly  min-w-[500px]'>
@@ -45,25 +45,30 @@ useEffect(() => {
           <NavElement title="Support" link="/support" />  
           <NavElement title="Explore" link="/explore" icon={<i className="fa-regular fa-compass explore-icon "></i>} />  
         </nav>
-          {isAuthenticated? (<div className='flex items-center gap-4 '>
-            <p className="truncate">
-              {currentUser ? (
-              currentUser.email.length > 16 ? currentUser.email.slice(0, 15) + "..." : currentUser.email) 
-              : (null)}
-            </p>
-            <div className=" p-0 w-12 h-12 overflow-hidden rounded-full ">
-              <button className="" onClick={accountManegementDiv}> 
-                <img
-                className='w-full h-full object-cover' 
-                src='ProfilePicDemo.jpg'
-                alt='Profile Picture Animation' />
-              </button>
-            </div>
-            <div className='bg-red-500 flex flex-col absolute '>
-              <p>smash1smash1</p>
-              <p>smash2</p>
-            </div>
-           </div> ) : (
+          {isAuthenticated? (
+            <div className='flex flex-col  right-[10px] bg-gray-200'> 
+              <div className='flex items-center gap-4 '>
+                <p className="truncate">
+                  {currentUser ? (
+                  currentUser.email.length > 16 ? currentUser.email.slice(0, 15) + "..." : currentUser.email) 
+                  : (null)}
+                </p>
+                  <button className="flex flex-col" onClick={accountManegementDiv}> 
+                    <div className=" p-0 w-12 h-12 overflow-hidden rounded-full ">
+                      <img
+                      className='w-full h-full object-cover' 
+                      src='ProfilePicDemo.jpg'
+                      alt='Profile Picture Animation' />
+                  </div>
+                </button>
+              </div>
+              {accountNav? (<div className="border-black bg-gray-200 flex flex-col z-10 pt-4 gap-2 ">
+                <button>smash1</button>
+                <button>smash1</button>
+                <button>smash1</button>
+                <button>smash1</button>
+              </div>) : (null)}
+            </div>) : (
             <button className='border border-black my-2 px-2 rounded-lg hover:scale-105 hover:bg-indigo-400 hover:border-none hover:text-white ' onClick={() => {
               setAuthenticatingActive(true)
             }}>
