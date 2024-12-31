@@ -52,8 +52,8 @@ useEffect(() => {
           <NavElement title="Explore" link="/explore" icon={<i className="fa-regular fa-compass explore-icon "></i>} />  
         </nav>
           {isAuthenticated? (
-            <div className='flex flex-col right-[10px] bg-gray-100 '> 
-              <div className='flex items-center gap-4 px-2 border-b-2 border-gray-500 '>
+            <div className='flex flex-col right-[10px] bg-gray-100 pt-1'> 
+              <div className={`flex items-center gap-4 px-2 ` +  (accountNav? `border-b-2 border-gray-600` : "")}>
                 <p className="truncate">
                   {currentUser ? (
                   currentUser.email.length > 12 ? currentUser.email.slice(0, 12) + "..." : currentUser.email) 
