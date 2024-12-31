@@ -117,6 +117,17 @@
     margin-left: 30px;
 }
 
+.management-nav-button {
+    filter: brightness(1);
+    transition: background-color 0.3s ease, filter 0.3s ease, box-shadow 0.3s ease-in-out;
+}
+
+.management-nav-button:hover {
+    background-color: white; 
+    box-shadow: 0px 0px 5px black;
+    filter: brightness(1.2); 
+}
+
 
 @keyframes swift-in-right {
  0% {

@@ -22,6 +22,12 @@ function accountManegementDiv(){
   setAccountNav(!accountNav)
 }
 
+// function logOutHandle() {
+//   // setIsAuthenticated(false)
+  
+//   console.log("Logged Out")
+// }
+
 useEffect(() => {
   {authenticatingActive ? (
     document.body.style.overflow = 'hidden'
@@ -47,10 +53,10 @@ useEffect(() => {
         </nav>
           {isAuthenticated? (
             <div className='flex flex-col right-[10px] bg-gray-100 '> 
-              <div className='flex items-center gap-4 px-2 border-b-2 border-black '>
+              <div className='flex items-center gap-4 px-2 border-b-2 border-gray-500 '>
                 <p className="truncate">
                   {currentUser ? (
-                  currentUser.email.length > 16 ? currentUser.email.slice(0, 15) + "..." : currentUser.email) 
+                  currentUser.email.length > 12 ? currentUser.email.slice(0, 12) + "..." : currentUser.email) 
                   : (null)}
                 </p>
                   <button className="flex flex-col" onClick={accountManegementDiv}> 
@@ -62,10 +68,10 @@ useEffect(() => {
                   </div>
                 </button>
               </div>
-              {accountNav? (<div className="border-black bg-gray-100 flex flex-col z-10 pt-4 gap-2 p-4 ">
-                <button className="">My Profile</button>
-                <button className="">Account Manegement</button>
-                <button className="">Log Out </button>
+              {accountNav? (<div className="border-black bg-gray-100 flex flex-col z-10 pt-4 gap-2 py-2 px-1 ">
+                <button className="management-nav-button p-1">My Profile</button>
+                <button className="management-nav-button p-1">Account Manegement</button>
+                <button className="management-nav-button p-1" onClick={logout}>Log Out </button>
               </div>) : (null)}
             </div>) : (
             <button className='border border-black my-2 px-2 rounded-lg hover:scale-105 hover:bg-indigo-400 hover:border-none hover:text-white ' onClick={() => {
