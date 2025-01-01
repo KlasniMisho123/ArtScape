@@ -52,7 +52,7 @@ useEffect(() => {
           <NavElement title="Explore" link="/explore" icon={<i className="fa-regular fa-compass explore-icon "></i>} />  
         </nav>
           {isAuthenticated? (
-            <div className='flex flex-col right-[10px] bg-gray-100 pt-1'> 
+            <div className='flex flex-col right-[10px] pt-1 rounded'> 
               <div className={`flex items-center gap-4 px-2 ` +  (accountNav? `border-b-2 border-gray-600` : "")}>
                 <p className="truncate">
                   {currentUser ? (
@@ -68,9 +68,10 @@ useEffect(() => {
                   </div>
                 </button>
               </div>
-              {accountNav? (<div className="border-black bg-gray-100 flex flex-col z-10 pt-4 gap-2 py-2 px-1 ">
+              {accountNav? (<div className="border-black bg-white flex flex-col z-10 pt-4 gap-2 py-2 px-1 rounded">
                 <button className="management-nav-button p-1">My Profile</button>
                 <button className="management-nav-button p-1">Account Manegement</button>
+                <button className="management-nav-button p-1">Dark Mode</button>
                 <button className="management-nav-button p-1" onClick={logout}>Log Out </button>
               </div>) : (null)}
             </div>) : (
