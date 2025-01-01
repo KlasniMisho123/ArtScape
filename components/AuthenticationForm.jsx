@@ -134,7 +134,6 @@ export default function AuthenticationForm(props) {
                 }}
                  />
               <button className='bg-blue-400 text-white py-2 px-4 rounded-lg hover:opacity-90'
-              //  onClick={isRegistered ?   handleLogin : handleSignup} 
               onClick={handleAuthentification}
                >
                 {authenticating 
