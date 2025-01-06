@@ -7,6 +7,7 @@ import Link from 'next/link';
 import ArtScapeLogo from './ArtScapeLogo';
 import AuthenticationForm from "@/components/AuthenticationForm";
 import { useAuth } from '@/context/AuthContext';
+import ThemeModeButton from './ThemeModeButton';
 
 const poppins = Poppins({ subsets: ['latin'], weight: ['500'] });
 const pacifico = Pacifico({ subsets: ['latin'], weight: ['400'] });
@@ -16,6 +17,7 @@ export default function Header() {
 const { isAuthenticated, setIsAuthenticated, currentUser, logout } = useAuth()
 const [authenticatingActive, setAuthenticatingActive] = useState(false)
 const [accountNav, setAccountNav] = useState(false)
+const [isLightMode, setIsLightMode] = useState(true)
 
 
 function accountManegementDiv(){
@@ -69,7 +71,9 @@ useEffect(() => {
                 </button>
               </div>
               {accountNav? (<div className="border-black bg-white flex flex-col z-10 pt-4 gap-2 py-2 px-1 rounded">
-                <button className="management-nav-button p-1">Dark Mode</button>
+
+                <ThemeModeButton isLightMode={isLightMode} setIsLightMode={setIsLightMode} />
+
                 <button className="management-nav-button p-1">My Profile</button>
                 <button className="management-nav-button p-1">Account Manegement</button>
                 <button className="management-nav-button p-1" onClick={logout}>Log Out </button>
