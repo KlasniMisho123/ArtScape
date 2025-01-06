@@ -69,9 +69,9 @@ useEffect(() => {
                 </button>
               </div>
               {accountNav? (<div className="border-black bg-white flex flex-col z-10 pt-4 gap-2 py-2 px-1 rounded">
+                <button className="management-nav-button p-1">Dark Mode</button>
                 <button className="management-nav-button p-1">My Profile</button>
                 <button className="management-nav-button p-1">Account Manegement</button>
-                <button className="management-nav-button p-1">Dark Mode</button>
                 <button className="management-nav-button p-1" onClick={logout}>Log Out </button>
               </div>) : (null)}
             </div>) : (
