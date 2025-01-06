@@ -6,6 +6,7 @@ import Image from "next/image";
 export default function ThemeModeButton(props) {
   const { isLightMode, setIsLightMode } = props
 
+{/* set dark mode theme */}
   function handleThmeChange() {
     console.log("isLightMode: ", isLightMode)
     setIsLightMode(!isLightMode)
