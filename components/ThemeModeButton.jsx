@@ -1,6 +1,5 @@
 import React from 'react'
 import sunPng from "../public/sun.png"
-// import moonPng from "../public/moon.png"
 import Image from "next/image";
 
 export default function ThemeModeButton(props) {
@@ -15,7 +14,7 @@ export default function ThemeModeButton(props) {
   return (
     <div className='flex flex-row justify-center h-[36.2px]'>
       {/* flex-row-reverse ---> animation */}
-      <button onClick={handleThmeChange} className={`flex justify-between items-center border-2 w-auto rounded-2xl px-[10px] py-1  w-[50%] ` + (isLightMode?`border-gray bg-white `: `border-gray-100 bg-gray-700 flex-row-reverse `)}>
+      <button onClick={handleThmeChange} className={`flex justify-between items-center border-2 w-auto rounded-2xl px-2 py-1  w-[55%] ` + (isLightMode?`border-gray bg-white `: `border-gray-100 bg-gray-700 flex-row-reverse `)}>
           {isLightMode?(
             <Image src={isLightMode?(sunPng):(moonPng)} alt={isLightMode?"sun":"moon"} width={25} height={25} />
           ):(
