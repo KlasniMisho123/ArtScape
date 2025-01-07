@@ -17,8 +17,6 @@ export default function Header() {
 const { isAuthenticated, setIsAuthenticated, currentUser, logout } = useAuth()
 const [authenticatingActive, setAuthenticatingActive] = useState(false)
 const [accountNav, setAccountNav] = useState(false)
-const [isLightMode, setIsLightMode] = useState(true)
-
 
 function accountManegementDiv(){
   setAccountNav(!accountNav)
@@ -72,7 +70,7 @@ useEffect(() => {
               </div>
               {accountNav? (<div className="border-black bg-white flex flex-col z-10 pt-4 gap-2 py-2 px-1 rounded">
 
-                <ThemeModeButton isLightMode={isLightMode} setIsLightMode={setIsLightMode} />
+                <ThemeModeButton />
 
                 <button className="management-nav-button p-1">My Profile</button>
                 <button className="management-nav-button p-1">Account Manegement</button>

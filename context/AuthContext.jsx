@@ -16,6 +16,10 @@ export function AuthProvider({ children }) {
     const [isLoading, setIsLoading ] = useState(false)
     const [authenticatingActive, setAuthenticatingActive] = useState(true)
     const [userDataObj, setUserDataObj] = useState(0)
+    const [isLightMode, setIsLightMode] = useState(() => {
+        //  right way to set up ???
+        return localStorage.getItem('isLightMode') === 'false' ? false : true;
+      });
     
     function signup(email, password) {
         return createUserWithEmailAndPassword(auth, email, password)
@@ -32,7 +36,6 @@ export function AuthProvider({ children }) {
         return signOut(auth)
     }
 
-    // not saveing in cache??
     useEffect(()=>{
         const unsubscribe = onAuthStateChanged(auth, async user => {
             try{
@@ -66,6 +69,10 @@ export function AuthProvider({ children }) {
 
     ])
 
+    useEffect(()=>{
+        localStorage.setItem('isLightMode', isLightMode);
+    },[isLightMode])
+
     const value = {
         isAuthenticated,
         setIsAuthenticated,
@@ -73,7 +80,9 @@ export function AuthProvider({ children }) {
         setCurrentUser,
         signup,
         login,
-        logout
+        logout,
+        isLightMode,
+        setIsLightMode
     }
 
     return (

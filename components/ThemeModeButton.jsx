@@ -1,10 +1,10 @@
 import React from 'react'
 import sunPng from "../public/sun.png"
 import Image from "next/image";
+import { useAuth } from '@/context/AuthContext';
 
-export default function ThemeModeButton(props) {
-  const { isLightMode, setIsLightMode } = props
-
+export default function ThemeModeButton() {
+  const {  isLightMode, setIsLightMode } = useAuth()
 {/* set dark mode theme */}
   function handleThmeChange() {
     console.log("isLightMode: ", isLightMode)
@@ -21,8 +21,6 @@ export default function ThemeModeButton(props) {
             <i className="fa-solid fa-moon text-[24px] text-white moon-icon"></i>
           )}
         </div>
-          
-          
           <i className={`fa-regular fa-circle text-2xl  rounded-2xl ` + (isLightMode?` text-[#FFB72B] bg-[#FFD93D] sun-circle `:`text-white bg-gray-600 moon-circle `)}></i>
       </button>
     </div>
