@@ -6,10 +6,10 @@ import { useAuth } from '@/context/AuthContext';
 export default function ThemeModeButton() {
   const {  isLightMode, setIsLightMode } = useAuth()
 {/* set dark mode theme */}
-  function handleThmeChange() {
-    console.log("isLightMode: ", isLightMode)
-    setIsLightMode(!isLightMode)
-  }
+function handleThmeChange() {
+  setIsLightMode(!isLightMode);
+  localStorage.setItem("theme", !isLightMode ? "light" : "dark");
+}
   
   return (
     <div className='flex flex-row justify-center h-[36.2px] overflow-hidden '>

@@ -20,6 +20,6 @@ Hydration failed because the server rendered HTML didn't match the client. As a 
 
 -User Loading screen. during useffect load
 
--Theme Change Feature - dark/lightmode
+-dark Theme setup.
 
 - add art gallerys.

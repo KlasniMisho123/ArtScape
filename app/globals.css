@@ -2,6 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+body.light {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --accent-color: #ffa500;
+  }
+
+  body.dark {
+    --bg-color: #121212;
+    --text-color: #ffffff;
+    --accent-color: #ff8c00;
+  }
+  
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+  }
+
 .titleGradientRed {
     background: -webkit-linear-gradient(#FF3B3B, #FF8C42 ,#FFD700);
     -webkit-background-clip: text;

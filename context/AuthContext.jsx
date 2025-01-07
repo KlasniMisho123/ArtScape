@@ -69,9 +69,18 @@ export function AuthProvider({ children }) {
 
     ])
 
-    useEffect(()=>{
+    useEffect(() => {
+        const savedTheme = localStorage.getItem('isLightMode');
+        if (savedTheme !== null) {
+            setIsLightMode(JSON.parse(savedTheme)); 
+        }
+    }, []);
+
+    useEffect(() => {
         localStorage.setItem('isLightMode', isLightMode);
-    },[isLightMode])
+        // document.body.style.backgroundColor = isLightMode ? '#ffffff' : '#1a1a1a';
+        // document.body.style.color = isLightMode ? '#000' : '#fff'; 
+    }, [isLightMode]);
 
     const value = {
         isAuthenticated,
