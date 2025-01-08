@@ -4,6 +4,7 @@ import React, { useContext , useEffect, useState } from 'react'
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth"
 import { doc, getDoc } from "firebase/firestore"
 
+
 const AuthContext = React.createContext()
 
 export function useAuth() {
@@ -17,8 +18,10 @@ export function AuthProvider({ children }) {
     const [authenticatingActive, setAuthenticatingActive] = useState(true)
     const [userDataObj, setUserDataObj] = useState(0)
     const [isLightMode, setIsLightMode] = useState(() => {
-        //  right way to set up ???
-        return localStorage.getItem('isLightMode') === 'false' ? false : true;
+        if (typeof window !== 'undefined') {
+          return localStorage.getItem('isLightMode') === 'false' ? false : true;
+        }
+        return true;
       });
     
     function signup(email, password) {
