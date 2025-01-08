@@ -60,13 +60,13 @@ useEffect(() => {
                 </p>
                   <button className="flex flex-col" onClick={accountManegementDiv}> 
                     <div className=" p-0 w-12 h-12 overflow-hidden rounded-full ">
-                    <img
-                      className="w-full h-full object-cover"
-                      src="/ProfilePicDemo.jpg"
-                      alt="Profile Picture Animation"
-                    />
-                  </div>
-                </button>
+                      <img
+                        className="w-full h-full object-cover"
+                        src="/ProfilePicDemo.jpg"
+                        alt="Profile Picture Animation"
+                      />
+                    </div>
+                  </button>
               </div>
               {accountNav? (<div className="border-black bg-white flex flex-col z-10 pt-4 gap-2 py-2 px-1 rounded">
 
