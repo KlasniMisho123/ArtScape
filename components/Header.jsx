@@ -3,7 +3,6 @@ import React from 'react';
 import NavElement from './NavElement';
 import { Lobster, Pacifico, Poppins } from 'next/font/google';
 import { useState, useEffect } from 'react';
-import Link from 'next/link';
 import ArtScapeLogo from './ArtScapeLogo';
 import AuthenticationForm from "@/components/AuthenticationForm";
 import { useAuth } from '@/context/AuthContext';
@@ -61,18 +60,19 @@ useEffect(() => {
                 </p>
                   <button className="flex flex-col" onClick={accountManegementDiv}> 
                     <div className=" p-0 w-12 h-12 overflow-hidden rounded-full ">
-                      <img
-                      className='w-full h-full object-cover' 
-                      src='ProfilePicDemo.jpg'
-                      alt='Profile Picture Animation' />
+                    <img
+                      className="w-full h-full object-cover"
+                      src="/ProfilePicDemo.jpg"
+                      alt="Profile Picture Animation"
+                    />
                   </div>
                 </button>
               </div>
               {accountNav? (<div className="border-black bg-white flex flex-col z-10 pt-4 gap-2 py-2 px-1 rounded">
 
                 <ThemeModeButton />
-
-                <button className="management-nav-button p-1">My Profile</button>
+                <NavElement title="My Profile" link={`/profile/` + currentUser.email} profileType />
+                {/* <button className="management-nav-button p-1"> </button> */}
                 <button className="management-nav-button p-1">Account Manegement</button>
                 <button className="management-nav-button p-1" onClick={logout}>Log Out </button>
               </div>) : (null)}
