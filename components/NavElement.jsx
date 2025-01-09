@@ -10,8 +10,8 @@ export default function NavElement(props) {
     }
 
   return (
-    <button className={profileType?("management-nav-button p-1 flex justify-center "):("shadow-none hover:scale-110 " + (icon? "nav-div":""))}>
-      <Link href={link} className='flex items-center gap-2'>
+    <button className={profileType?("management-nav-button p-1 "):("shadow-none hover:scale-110 " + (icon? "nav-div":""))}>
+      <Link href={link} className='flex items-center justify-center gap-2 w-full'>
         <span className='text-[18px]'>{title}</span>
         {icon ? (
           <span className="text-red-600 text-[20px]">

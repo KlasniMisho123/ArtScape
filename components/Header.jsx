@@ -1,7 +1,7 @@
 'use client'
 import React from 'react';
 import NavElement from './NavElement';
-import { Lobster, Pacifico, Poppins } from 'next/font/google';
+import { Lobster, Open_Sans, Pacifico, Poppins } from 'next/font/google';
 import { useState, useEffect } from 'react';
 import ArtScapeLogo from './ArtScapeLogo';
 import AuthenticationForm from "@/components/AuthenticationForm";
@@ -10,6 +10,7 @@ import ThemeModeButton from './ThemeModeButton';
 
 const poppins = Poppins({ subsets: ['latin'], weight: ['500'] });
 const pacifico = Pacifico({ subsets: ['latin'], weight: ['400'] });
+const openSans = Open_Sans({ subsets: ['latin'], weight: ['400'] })
 
 export default function Header() {
 
@@ -52,8 +53,8 @@ useEffect(() => {
         </nav>
           {isAuthenticated? (
             <div className='flex flex-col right-[10px] pt-1 rounded'> 
-              <div className={`flex items-center gap-4 px-2 ` +  (accountNav? `border-b-2 border-gray-600` : "")}>
-                <p className="truncate">
+              <div className={`flex items-center gap-4 px-2 `}>
+                <p className={`truncate ` + poppins.className }>
                   {currentUser ? (
                   currentUser.email.length > 12 ? currentUser.email.slice(0, 12) + "..." : currentUser.email) 
                   : (null)}
@@ -68,7 +69,7 @@ useEffect(() => {
                     </div>
                   </button>
               </div>
-              {accountNav? (<div className="border-black bg-white flex flex-col z-10 pt-4 gap-2 py-2 px-1 rounded">
+              {accountNav? (<div className="border-2 border-t-0 bg-white flex flex-col z-10 pt-4 gap-2 py-2 px-1 rounded  rounded-tl-none rounded-tr-none  ">
 
                 <ThemeModeButton />
                 {/* <NavElement title="My Profile" link={`/profile/` + currentUser.email} profileType /> dinamic profile? */}
