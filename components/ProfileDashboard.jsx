@@ -12,9 +12,9 @@ export default function ProfileDashboard() {
   
 
   return (
-    <div className='flex mt-[30px] p-[40px] w-[75%] mx-auto gap-[100px] bg-gray-100 rounded-lg '>
+    <div className='flex mt-[30px] p-[40px] w-[85%] mx-auto gap-[50px] bg-gray-100 rounded-lg '>
         <div className={gridDefaultCss}>
-            <button className="flex flex-col overflow-hidden rounded-full border-2 border-gray-300 h-300 w-300 max-w-300 "> 
+            <button className="flex flex-col overflow-hidden rounded-full border-2 border-gray-300 h-300 w-300 min-w-300 "> 
                     <img
                     className="object-cover"
                     src="https://avatars.githubusercontent.com/u/117183990?s=400&u=dbcd799397eb331732f5e0be39ee6cfd1a00f70f&v=4"
@@ -39,7 +39,7 @@ export default function ProfileDashboard() {
                   <button className='bg-gray-200 '> Edit Profile </button>
         </div>
         <div className="flex flex-col gap-[30px] ">
-            <div className={`${gridDefaultCss}`}>
+            <div className={`${gridDefaultCss} `}>
               <div className='flex justify-between gap-[50px] mb-2 '> <h3>Klasnimisho123's ArtWorks</h3> <h3>...</h3> </div>
               <div className='p-4 bg-red-300 flex gap-10 '>
                   <div className='h-[200px] w-[200px] bg-green-200'></div>
