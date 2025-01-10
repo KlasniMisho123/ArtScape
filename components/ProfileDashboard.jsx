@@ -39,7 +39,14 @@ export default function ProfileDashboard() {
                   <button className='bg-gray-200 '> Edit Profile </button>
         </div>
         <div className="flex flex-col gap-[30px] ">
-            <div className={gridDefaultCss + " "}>
+            <div className={`${gridDefaultCss}`}>
+              <div className='flex justify-between gap-[50px] mb-2 '> <h3>Klasnimisho123's ArtWorks</h3> <h3>...</h3> </div>
+              <div className='p-4 bg-red-300 flex gap-10 '>
+                  <div className='h-[200px] w-[200px] bg-green-200'></div>
+                  <div className='h-[200px] w-[200px] bg-green-200'></div>
+                  <div className='h-[200px] w-[200px] bg-green-200'></div>
+              </div>
+              <div className='mx-auto mt-2 '> See All </div>
             </div>
             <div className={gridDefaultCss + ""}>Dashboard 2</div>
         </div>
