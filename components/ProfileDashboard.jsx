@@ -14,7 +14,7 @@ export default function ProfileDashboard() {
   return (
     <div className='flex mt-[30px] p-[40px] w-[75%] mx-auto gap-[100px] bg-gray-100 rounded-lg '>
         <div className={gridDefaultCss}>
-            <button className="flex flex-col overflow-hidden rounded-full border-2 border-gray-300 h-300 w-300 "> 
+            <button className="flex flex-col overflow-hidden rounded-full border-2 border-gray-300 h-300 w-300 max-w-300 "> 
                     <img
                     className="object-cover"
                     src="https://avatars.githubusercontent.com/u/117183990?s=400&u=dbcd799397eb331732f5e0be39ee6cfd1a00f70f&v=4"
@@ -25,13 +25,22 @@ export default function ProfileDashboard() {
             </button>
               <div className={`flex flex-col gap-2 py-4`}>
                   <h3 className={' ' + openSans.className}>KLASNIMISHO123</h3>
-                  <div className='mx-auto '> About Me </div>
-                  <div> ABOUT ME CHART </div>
+                  <div>Following:3 Followers:5</div>
+                  <div className="mt-4 p-4 bg-gray-100 rounded-lg">
+                    <h3 className="text-xl font-semibold mb-2 ">Art Preferences</h3>
+                    <ul className="list-disc pl-5 text-gray-700">
+                      <li>Impressionism</li>
+                      <li>Surrealism</li>
+                      <li>Modern Art</li>
+                      <li>Oil Painting</li>
+                    </ul>
+                  </div>
               </div>
-                  <button className='border py-1 w-full rounded bg-gray-100 '> Edit Profile </button>
+                  <button className='bg-gray-200 '> Edit Profile </button>
         </div>
         <div className="flex flex-col gap-[30px] ">
-            <div className={gridDefaultCss + ""}>Dashboard 1</div>
+            <div className={gridDefaultCss + " "}>
+            </div>
             <div className={gridDefaultCss + ""}>Dashboard 2</div>
         </div>
     </div>
