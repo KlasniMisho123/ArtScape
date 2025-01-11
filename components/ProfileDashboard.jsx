@@ -25,7 +25,11 @@ export default function ProfileDashboard() {
             </button>
               <div className={`flex flex-col gap-2 py-4`}>
                   <h3 className={' ' + openSans.className}>KLASNIMISHO123</h3>
-                  <div>Following:3 Followers:5</div>
+                  <div className='flex gap-2 items-center '>
+                    <i className="fa-solid fa-users"></i> 
+                    <p> Following: 3 </p>
+                    <p> Followers: 5 </p>
+                    </div>
                   <div className="mt-4 p-4 bg-gray-100 rounded-lg">
                     <h3 className="text-xl font-semibold mb-2 ">Art Preferences</h3>
                     <ul className="list-disc pl-5 text-gray-700">
@@ -39,6 +43,11 @@ export default function ProfileDashboard() {
                   <button className='bg-gray-200 '> Edit Profile </button>
         </div>
         <div className="flex flex-col gap-[30px] ">
+        <div className={gridDefaultCss + ""}>
+          <div className='flex items-center justify-between '>
+           <p> About Klasnimisho123 </p> <button className="fa-regular fa-pen-to-square hover:text-gray-500 "></button>
+          </div>
+        </div>
             <div className={`${gridDefaultCss} `}>
               <div className='flex justify-between gap-[50px] mb-2 '> <h3>Klasnimisho123's ArtWorks</h3> <h3>...</h3> </div>
               <div className='p-4 bg-red-300 flex gap-10 '>
@@ -48,7 +57,6 @@ export default function ProfileDashboard() {
               </div>
               <div className='mx-auto mt-2 '> See All </div>
             </div>
-            <div className={gridDefaultCss + ""}>Dashboard 2</div>
         </div>
     </div>
   )
