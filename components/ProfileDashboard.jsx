@@ -45,17 +45,17 @@ export default function ProfileDashboard() {
         <div className="flex flex-col gap-[30px] ">
         <div className={gridDefaultCss + ""}>
           <div className='flex items-center justify-between '>
-           <p> About Klasnimisho123 </p> <button className="fa-regular fa-pen-to-square hover:text-gray-500 "></button>
+           <p> About Klasnimisho123 </p> <button title='Edit' className="fa-regular fa-pen-to-square hover:text-gray-500 "></button>
           </div>
         </div>
-            <div className={`${gridDefaultCss} `}>
-              <div className='flex justify-between gap-[50px] mb-2 '> <h3>Klasnimisho123's ArtWorks</h3> <h3>...</h3> </div>
+            <div className={`${gridDefaultCss}  py-4 `}>
+              <div className='flex justify-between gap-[50px] mb-4 '> <h3>Klasnimisho123's ArtWorks</h3> <button className=' text-lg hover:text-gray-500 '>...</button> </div>
               <div className='p-4 bg-red-300 flex gap-10 '>
                   <div className='h-[200px] w-[200px] bg-green-200'></div>
                   <div className='h-[200px] w-[200px] bg-green-200'></div>
                   <div className='h-[200px] w-[200px] bg-green-200'></div>
               </div>
-              <div className='mx-auto mt-2 '> See All </div>
+              <button className='mx-auto mt-4 '> See All </button>
             </div>
         </div>
     </div>
