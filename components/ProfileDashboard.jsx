@@ -1,7 +1,6 @@
 import { Open_Sans, Pacifico, Poppins } from 'next/font/google';
 import React from 'react'
 
-
 const poppins = Poppins({ subsets: ['latin'], weight: ['500'] });
 const pacifico = Pacifico({ subsets: ['latin'], weight: ['400'] });
 const openSans = Open_Sans({ subsets: ['latin'], weight: ['400'] })
@@ -9,7 +8,6 @@ const openSans = Open_Sans({ subsets: ['latin'], weight: ['400'] })
 export default function ProfileDashboard() {
 
   const gridDefaultCss = ("flex flex-col bg-white p-[30px] rounded-lg shadow-lg ")
-  
 
   return (
     <div className='flex mt-[30px] p-[40px] w-[85%] mx-auto gap-[50px] bg-gray-100 rounded-lg '>
@@ -40,7 +38,7 @@ export default function ProfileDashboard() {
                     </ul>
                   </div>
               </div>
-                  <button className='bg-gray-200 '> Edit Profile </button>
+                  <button className='border-2 p-1 '> <i className="fa-solid fa-gear"></i> Edit Profile </button>
         </div>
         <div className="flex flex-col gap-[30px] ">
         <div className={gridDefaultCss + ""}>
@@ -55,7 +53,10 @@ export default function ProfileDashboard() {
                   <div className='h-[200px] w-[200px] bg-green-200'></div>
                   <div className='h-[200px] w-[200px] bg-green-200'></div>
               </div>
-              <button className='mx-auto mt-4 '> See All </button>
+              <button className='flex items-center gap-1 mx-auto mt-4 py-2 px-4 border-2 border-black rounded-[32px] hover:opacity-75 '>
+                 <p className=''> See All </p>
+                 <i className="fa-solid fa-angles-right"></i>
+                  </button>
             </div>
         </div>
     </div>
