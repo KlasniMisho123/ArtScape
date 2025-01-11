@@ -1,5 +1,6 @@
 import { Open_Sans, Pacifico, Poppins } from 'next/font/google';
 import React from 'react'
+import { artworks } from "../app/demoData";
 
 const poppins = Poppins({ subsets: ['latin'], weight: ['500'] });
 const pacifico = Pacifico({ subsets: ['latin'], weight: ['400'] });
@@ -8,7 +9,7 @@ const openSans = Open_Sans({ subsets: ['latin'], weight: ['400'] })
 export default function ProfileDashboard() {
 
   const gridDefaultCss = ("flex flex-col bg-white p-[30px] rounded-lg shadow-lg ")
-
+  
   return (
     <div className='flex mt-[30px] p-[40px] w-[85%] mx-auto gap-[50px] bg-gray-100 rounded-lg '>
         <div className={gridDefaultCss}>
@@ -48,17 +49,23 @@ export default function ProfileDashboard() {
         </div>
             <div className={`${gridDefaultCss}  py-4 `}>
               <div className='flex justify-between gap-[50px] mb-4 '> <h3>Klasnimisho123's ArtWorks</h3> <button className=' text-lg hover:text-gray-500 '>...</button> </div>
-              <div className='p-4 bg-red-300 flex gap-10 '>
-                  <div className='h-[200px] w-[200px] bg-green-200'></div>
-                  <div className='h-[200px] w-[200px] bg-green-200'></div>
-                  <div className='h-[200px] w-[200px] bg-green-200'></div>
-              </div>
+               {/* User artwork rendering div */}
+               <div className='p-4 bg-red-300 flex gap-10 '>    
+                    {artworks.map((art) => (
+                      <div key={art.id}className='h-[200px] w-[200px] bg-green-200'>
+                        <h1>{art.id}</h1>
+                        <h2>{art.title}</h2>
+                        <p>{art.description}</p>
+                      </div>
+                    ))} 
+              </div> 
               <button className='flex items-center gap-1 mx-auto mt-4 py-2 px-4 border-2 border-black rounded-[32px] hover:opacity-75 '>
                  <p className=''> See All </p>
                  <i className="fa-solid fa-angles-right"></i>
                   </button>
             </div>
         </div>
+        
     </div>
   )
 }
