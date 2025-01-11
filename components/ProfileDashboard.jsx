@@ -50,16 +50,19 @@ export default function ProfileDashboard() {
             <div className={`${gridDefaultCss}  py-4 `}>
               <div className='flex justify-between gap-[50px] mb-4 '> <h3>Klasnimisho123's ArtWorks</h3> <button className=' text-lg hover:text-gray-500 '>...</button> </div>
                {/* User artwork rendering div */}
-               <div className='p-4 bg-red-300 flex gap-10 '>    
+               <div className='p-2 bg-red-300 flex  gap-10 '>    
                     {artworks.map((art) => (
-                      <div key={art.id}className='h-[200px] w-[200px] bg-green-200'>
-                        <h1>{art.id}</h1>
-                        <h2>{art.title}</h2>
-                        <p>{art.description}</p>
+                      <div key={art.id} className='h-[300px] w-[250px] bg-green-200'>
+                        <div className='w-full h-full bg-blue-300 overflow-hidden  '>
+                          <img src={art.imgLink} alt={art.title} className='object-cover h-full w-full ' />
+                        </div>
+                        <div className='flex justify-center mt-4 '>
+                          <h2>{art.title}</h2>
+                        </div>
                       </div>
                     ))} 
               </div> 
-              <button className='flex items-center gap-1 mx-auto mt-4 py-2 px-4 border-2 border-black rounded-[32px] hover:opacity-75 '>
+              <button className='flex items-center gap-1 mx-auto mt-[60px] py-2 px-4 border-2 border-black rounded-[32px] hover:opacity-75 '>
                  <p className=''> See All </p>
                  <i className="fa-solid fa-angles-right"></i>
                   </button>
