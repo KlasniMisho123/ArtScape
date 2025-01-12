@@ -1,5 +1,7 @@
 symetric/hero.jsx update
 
+--footer links
+
 --intro bg - hero.jsx
 
 --!! Set the user to our local context state
