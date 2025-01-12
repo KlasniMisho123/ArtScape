@@ -1,5 +1,7 @@
 symetric/hero.jsx update
 
+--intro bg - hero.jsx
+
 --!! Set the user to our local context state
 
 -- Authentification ErrorHandle -- responded with a status of 400 ()
@@ -17,3 +19,6 @@ Hydration failed because the server rendered HTML didn't match the client. As a 
 -dark Theme setup.
 
 - add art gallerys.
+
+
+--responsive 

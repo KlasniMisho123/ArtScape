@@ -12,7 +12,7 @@ export default function ProfileDashboard() {
 
   return (
     <div className='flex mt-[30px] p-[40px] w-[90%] mx-auto gap-[50px] bg-gray-100 rounded-lg '>
-        <div className={gridDefaultCss + " min-w-[300px]"}>
+        <div className={gridDefaultCss}>
             <button className="flex flex-col overflow-hidden rounded-full border-2 border-gray-300 h-300 w-300 min-w-300 "> 
                     <img
                     className="object-cover"

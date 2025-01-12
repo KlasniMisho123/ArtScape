@@ -16,7 +16,7 @@ export default function ArtScapeLogo(props) {
                     <h3 className='text-[30px]'> <span className={'titleGradientPurple ' + pacifico.className}>Art</span><span className={'text-indigo-500 titleGradientRed ' + poppins.className}>Scape</span> </h3>
                 </Link>
             ) : (
-                <div href='/'
+                <div 
                     className='flex row'>
                     <img src='/artScapeLogo.png' className='h-[50px]'/>
                     <h3 className='text-[30px]'> <span className={'titleGradientPurple ' + pacifico.className}>Art</span><span className={'text-indigo-500 titleGradientRed ' + poppins.className}>Scape</span> </h3>

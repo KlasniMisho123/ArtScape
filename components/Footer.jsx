@@ -1,9 +1,34 @@
 import React from 'react'
+import ArtScapeLogo from './ArtScapeLogo';
 
 export default function Footer() {
   return (
-    <footer>
-      Footer
+    <footer className='flex flex-col p-4 pb-1 mt-[60px] bg-gray-900 text-white gap-1 '>
+      <div className='flex items-center justify-between '> 
+        <div className='flex items-center justify-between gap-[20px] '>
+          <ArtScapeLogo />
+          <div className='flex justify-between gap-2 '>
+            <p>Pricing</p>
+            <p>Resources</p>
+            <p>About</p>
+            <p>Carrers</p>
+            <p>Contact</p>
+          </div>
+        </div>
+        <div className='flex items-center gap-4 '>
+          <div className="fab fa-instagram text-xl text-orange-500 "></div>
+          <div className='text-sm'>artScapeInfo@gmail.com</div>
+        </div>
+      </div>
+      <div className='flex items-center justify-between gap-4  p-4 '>
+        <p className="text-center text-gray-500 text-sm mt-4">
+          &copy; 2025 ArtScape. All rights reserved.
+        </p>
+        <div className='flex items-center gap-4 text-gray-500 text-sm mt-4'>
+          <p>Privacy Policy</p>
+          <div>Terms of Services</div>
+        </div>
+      </div>
     </footer>
   )
 }
