@@ -16,8 +16,8 @@ export default function Footer() {
           </div>
         </div>
         <div className='flex items-center gap-4 '>
-          <div className="fab fa-instagram text-xl text-orange-500 "></div>
-          <div className='text-sm'>artScapeInfo@gmail.com</div>
+          <div className="fab fa-instagram text-2xl text-white hover:text-orange-500 transition-colors duration-200 hover:cursor-pointer "></div>
+          <div className='text-md'>artScapeInfo@gmail.com</div>
         </div>
       </div>
       <div className='flex items-center justify-between gap-4  p-4 '>
