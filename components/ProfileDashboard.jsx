@@ -9,10 +9,10 @@ const openSans = Open_Sans({ subsets: ['latin'], weight: ['400'] })
 export default function ProfileDashboard() {
 
   const gridDefaultCss = ("flex flex-col bg-white p-[30px] rounded-lg shadow-lg ")
-  
+
   return (
-    <div className='flex mt-[30px] p-[40px] w-[85%] mx-auto gap-[50px] bg-gray-100 rounded-lg '>
-        <div className={gridDefaultCss}>
+    <div className='flex mt-[30px] p-[40px] w-[90%] mx-auto gap-[50px] bg-gray-100 rounded-lg '>
+        <div className={gridDefaultCss + " min-w-[300px]"}>
             <button className="flex flex-col overflow-hidden rounded-full border-2 border-gray-300 h-300 w-300 min-w-300 "> 
                     <img
                     className="object-cover"
@@ -24,7 +24,7 @@ export default function ProfileDashboard() {
             </button>
               <div className={`flex flex-col gap-2 py-4`}>
                   <h3 className={' ' + openSans.className}>KLASNIMISHO123</h3>
-                  <div className='flex gap-2 items-center '>
+                  <div className='flex justify-evenly items-center '>
                     <i className="fa-solid fa-users"></i> 
                     <p> Following: 3 </p>
                     <p> Followers: 5 </p>
@@ -47,17 +47,18 @@ export default function ProfileDashboard() {
            <p> About Klasnimisho123 </p> <button title='Edit' className="fa-regular fa-pen-to-square hover:text-gray-500 "></button>
           </div>
         </div>
-            <div className={`${gridDefaultCss}  py-4 `}>
+            <div className={`${gridDefaultCss}  py-[30px] bg-red-300 `}>
               <div className='flex justify-between gap-[50px] mb-4 '> <h3>Klasnimisho123's ArtWorks</h3> <button className=' text-lg hover:text-gray-500 '>...</button> </div>
                {/* User artwork rendering div */}
-               <div className='p-2 bg-red-300 flex  gap-10 '>    
-                    {artworks.map((art) => (
+               <div className='p-2 flex my-[30px] gap-10 '>    
+                    {artworks.slice(0, 3).map((art, index) => (
                       <div key={art.id} className='h-[300px] w-[250px] bg-green-200'>
                         <div className='w-full h-full bg-blue-300 overflow-hidden  '>
                           <img src={art.imgLink} alt={art.title} className='object-cover h-full w-full ' />
                         </div>
-                        <div className='flex justify-center mt-4 '>
-                          <h2>{art.title}</h2>
+                        <div className='flex flex-col items-center mt-4 p-1 border-2 '>
+                          <h2 className='font-bold'>{art.title}</h2>
+                          <span className='font-light'> {art.artist} </span>
                         </div>
                       </div>
                     ))} 

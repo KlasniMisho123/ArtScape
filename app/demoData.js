@@ -1,15 +1,14 @@
 export const artworks = [
   {
     id: 1,
-    title: "Mona Lisa",
-    artist: "Leonardo da Vinci",
-    year: 1503,
-    description: "One of the most famous artworks, celebrated for its enigmatic smile.",
-    imgSrc: "/path-to-images/mona-lisa.jpg",
-    imgLink: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C"+ 
-    "_from_C2RMF_retouched.jpg/1200px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg",
-    type: "Renaissance",
-    dimensions: "77 cm × 53 cm",
+    title: "Girl with a Pearl Earring",
+    artist: "Johannes Vermeer",
+    year: 1665,
+    description: "Often called the 'Mona Lisa of the North,' this painting is known for its captivating gaze and luminous colors.",
+    imgSrc: "/path-to-images/girl-with-a-pearl-earring.jpg",
+    imgLink: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Meisje_met_de_parel.jpg/1200px-Meisje_met_de_parel.jpg",
+    type: "Baroque",
+    dimensions: "44.5 cm × 39 cm",
     price: "$100M"
   },
   {
@@ -36,5 +35,18 @@ export const artworks = [
     type: "Renaissance",
     dimensions: "460 cm × 880 cm",
     price: "$450M"
+},
+{
+  id: 4,
+  title: "Mona Lisa",
+  artist: "Leonardo da Vinci",
+  year: 1503,
+  description: "One of the most famous artworks, celebrated for its enigmatic smile.",
+  imgSrc: "/path-to-images/mona-lisa.jpg",
+  imgLink: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C"+ 
+  "_from_C2RMF_retouched.jpg/1200px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg",
+  type: "Renaissance",
+  dimensions: "77 cm × 53 cm",
+  price: "$100M"
 }
 ];
