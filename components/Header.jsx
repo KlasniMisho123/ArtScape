@@ -72,9 +72,9 @@ useEffect(() => {
               {accountNav? (<div className="border-2 border-t-0 bg-white flex flex-col z-10 pt-4 gap-2 py-2 px-1 rounded  rounded-tl-none rounded-tr-none  ">
 
                 <ThemeModeButton />
-                {/* <NavElement title="My Profile" link={`/profile/` + currentUser.email} profileType /> dinamic profile? */}
                 <NavElement title="My Profile" link={`/profile`} profileType />
-                <button className="management-nav-button p-1">Account Manegement</button>
+                <NavElement title="Upload Your Work" link={`/workspace`} profileType />
+                <NavElement title="Account Manegement" link={`/accountmanegement`} profileType />
                 <button className="management-nav-button p-1" onClick={logout}>Log Out </button>
               </div>) : (null)}
             </div>) : (
