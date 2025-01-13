@@ -4,6 +4,8 @@ symetric/hero.jsx update
 
 --intro bg - hero.jsx
 
+--profileTypeActive design
+
 --!! Set the user to our local context state
 
 -- Authentification ErrorHandle -- responded with a status of 400 ()

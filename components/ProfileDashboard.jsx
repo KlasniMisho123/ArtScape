@@ -21,7 +21,8 @@ export default function ProfileDashboard() {
   return (
     <div className='mt-4'>
       <div className=' border-gray-200 p-2 flex justify-center '>
-        <div className='flex gap-8 bg-gray-300 px-1 '>
+      {/* <div className=' border-gray-200 p-2 flex px-[80px] w-[90%] '> */}
+        <div className='flex gap-4 bg-gray-200 p-1 rounded '>
 
           <button onClick={()=>{
             handleProfileTypeChange("overview")
