@@ -1,18 +1,19 @@
 import React from 'react'
 import ArtScapeLogo from './ArtScapeLogo';
+import Link from 'next/link';
 
 export default function Footer() {
   return (
     <footer className='flex flex-col p-4 pb-1 mt-[60px] bg-gray-900 text-white gap-1 '>
       <div className='flex items-center justify-between '> 
-        <div className='flex items-center justify-between gap-[20px] '>
+        <div className='flex items-center justify-between gap-10 '>
           <ArtScapeLogo />
-          <div className='flex justify-between gap-2 '>
-            <p>Pricing</p>
-            <p>Resources</p>
-            <p>About</p>
-            <p>Carrers</p>
-            <p>Contact</p>
+          <div className='flex justify-between gap-8 text-lg '>
+            <Link href={"/Pricing"}> Pricing </Link>
+            <Link href={"/Resources"}> Resources </Link>
+            <Link href={"/About"}> About </Link>
+            <Link href={"/Carrers"}> Carrers </Link>
+            <Link href={"/Contact"}> Contact </Link>
           </div>
         </div>
         <div className='flex items-center gap-4 '>
