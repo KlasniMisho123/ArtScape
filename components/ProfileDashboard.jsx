@@ -77,7 +77,7 @@ export default function ProfileDashboard() {
                       <Link href={"/accountmanegement"} className='border-2 p-1 px-2 rounded ' > <i className="fa-solid fa-gear"></i> Edit Profile </Link>
             </div>
             <div className="flex flex-col gap-[30px] max-w-[960px] ">
-            <div className={gridDefaultCss + `${aboutEdit?"pb-2":" "}`}>
+            <div className={gridDefaultCss + `${aboutEdit?"pb-4":" "}`}>
               <div className='flex flex-col gap-8 '>
                 <div className='flex items-center justify-between'>
                   {/* HERE */}
@@ -95,10 +95,11 @@ export default function ProfileDashboard() {
               onChange={(e)=>{
                 setAboutText(e.target.value)
               }}/>
-                <button onClick={()=>{
+              <button onClick={()=>{
                     setAboutEdit(false)
-                  }} className='px-1 py-1 mx-auto flex gap-4 items-center bg-gray-900 rounded-lg shadow-lg hover:bg-gray-700'>
-                     <span className='text-white font-bold text-[20px] tracking-wide border-b-2 border-r-2 rounded border-white px-2 py-1'> Aplly </span>  </button>
+                  }} className='px-2 mx-auto border-2 border-black rounded flex gap-4 items-center px-4 py-1 rounded-xl hover:opacity-75 '>
+                     <span> Aplly Changes </span>
+                  </button>
                 </>
 
                 ):(
