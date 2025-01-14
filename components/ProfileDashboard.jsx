@@ -10,7 +10,18 @@ const openSans = Open_Sans({ subsets: ['latin'], weight: ['400'] })
 
 export default function ProfileDashboard() {
   const [profileTypeActive, setProfileTypeActive ] = useState("overview")
-
+  const [aboutEdit, setAboutEdit] = useState(false)
+  const [aboutText, setAboutText] = useState(`
+        Hi there! I'm a passionate artist who finds joy in bringing imagination to 
+        life through colors and creativity. My art is inspired by the beauty of nature, 
+        emotions, and the stories that connect us all.
+        I specialize in realistic portraits and surreal landscapes,
+        blending traditional techniques with a contemporary touch. Every piece I create tells a story
+        , and my goal is to evoke emotions and spark conversations through my work.
+        When I'm not painting, you’ll find me 
+        exploring art galleries, experimenting with new techniques, or simply soaking in the beauty
+        of the world around me. Thank you for stopping by, and I hope my art resonates with you!`)
+    
   const gridDefaultCss = ("flex flex-col bg-white p-[30px] rounded-lg shadow-lg ")
 
   function handleProfileTypeChange(type) {
@@ -74,24 +85,34 @@ export default function ProfileDashboard() {
                       <Link href={"/accountmanegement"} className='border-2 p-1 px-2 ' > <i className="fa-solid fa-gear"></i> Edit Profile </Link>
             </div>
             <div className="flex flex-col gap-[30px] max-w-[960px] ">
-            <div className={gridDefaultCss + ""}>
+            <div className={gridDefaultCss + `${aboutEdit?"pb-2":" "}`}>
               <div className='flex flex-col gap-8 '>
                 <div className='flex items-center justify-between'>
-                  <p> About Klasnimisho123 </p> <button title='Edit' className="fa-regular fa-pen-to-square hover:text-gray-500 "></button>
+                  {/* HERE */}
+                  <p> About Klasnimisho123 </p> <button title='Edit' 
+                  onClick={()=>{
+                    setAboutEdit(true)
+                  }}
+                   className="fa-regular fa-pen-to-square hover:text-gray-500 "></button>
                 </div>
-              
-              <div className='px-1 '>
-                    Hi there! I'm a passionate artist who finds joy in bringing imagination to 
-                    life through colors and creativity. My art is inspired by the beauty of nature, 
-                    emotions, and the stories that connect us all.
-                    I specialize in realistic portraits and surreal landscapes,
-                    blending traditional techniques with a contemporary touch. Every piece I create tells a story
-                    , and my goal is to evoke emotions and spark conversations through my work.
-                    When I'm not painting, you’ll find me 
-                    exploring art galleries, experimenting with new techniques, or simply soaking in the beauty
-                    of the world around me. Thank you for stopping by, and I hope my art resonates with you!
-                </div>
+              {aboutEdit?(
+                <>
+              <textarea 
+              className="h-full" 
+              value={aboutText}
+              onChange={(e)=>{
+                setAboutText(e.target.value)
+              }}/>
+              <button onClick={()=>{
+                    setAboutEdit(false)
+                  }} className='px-4 mx-auto border '>Aplly</button>
+                </>
 
+                ):(
+                <div className='px-1 '>
+                      {aboutText}
+                  </div>
+                )}
               </div>
             </div>
                 <div className={`${gridDefaultCss}  py-[30px] bg-red-300 `}>
