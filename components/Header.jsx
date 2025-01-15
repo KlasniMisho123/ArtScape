@@ -43,7 +43,7 @@ useEffect(() => {
   return (
     <>
       {authenticatingActive? <AuthenticationForm setAuthenticatingActive={setAuthenticatingActive} /> : null}
-      <header className="py-2 px-6 border w-full flex justify-between h-[70px]">
+      <header className="py-2 px-6 border-0 border-b-2  w-full flex justify-between h-[70px]">
         <ArtScapeLogo linkTag />
         
         <nav className='flex p-2 gap-2 justify-evenly  min-w-[500px]'>

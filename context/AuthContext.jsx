@@ -82,7 +82,8 @@ export function AuthProvider({ children }) {
     useEffect(() => {
         localStorage.setItem('isLightMode', isLightMode);
         // document.body.style.backgroundColor = isLightMode ? '#ffffff' : '#1a1a1a';
-        // document.body.style.color = isLightMode ? '#000' : '#fff';  colors, fix setup.
+        // document.body.style.color = isLightMode ? '#000' : '#fff';
+        // isLightMode ? document.body.classList.add("light") : document.body.classList.add("dark"); doesnot change from dark to light?
     }, [isLightMode]);
 
     const value = {

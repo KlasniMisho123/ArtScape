@@ -95,13 +95,13 @@ export default function ProfileDashboard() {
               onChange={(e)=>{
                 setAboutText(e.target.value)
               }}/>
+              {/* handle firebase update */}
               <button onClick={()=>{
                     setAboutEdit(false)
                   }} className='px-2 mx-auto border-2 border-black rounded flex gap-4 items-center px-4 py-1 rounded-xl hover:opacity-75 '>
                      <span> Aplly Changes </span>
                   </button>
                 </>
-
                 ):(
                 <div className='px-1 '>
                       {aboutText}
