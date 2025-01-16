@@ -132,7 +132,7 @@ export default function ProfileDashboard() {
                   <button 
                   onClick={showPersonalArtHande} 
                   className='flex items-center gap-1 mx-auto mt-[60px] py-2 px-4 border-2 border-black rounded-[32px] hover:opacity-75 '>
-                    <p className=''> {showArtExpanded? "See Less":"See All"} </p>
+                    <p className=''> {showArtExpanded? "See Less":"See More"} </p>
                     <i className="fa-solid fa-angles-right"></i>
                       </button>
                 </div>
