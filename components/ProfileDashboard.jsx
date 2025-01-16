@@ -12,13 +12,17 @@ export default function ProfileDashboard() {
   const [profileTypeActive, setProfileTypeActive ] = useState("overview")
   const [aboutEdit, setAboutEdit] = useState(false)
   const [aboutText, setAboutText] = useState(``)
-        
+  const [showArtExpanded, setShowArtExpanded] = useState(false)
     
   const gridDefaultCss = ("flex flex-col bg-white p-[30px] rounded-lg shadow-lg ")
 
   function handleProfileTypeChange(type) {
     console.log("currentType: ", profileTypeActive)
     setProfileTypeActive(type)
+  }
+
+  function showPersonalArtHande() {
+    setShowArtExpanded(!showArtExpanded)
   }
 
   return (
@@ -113,7 +117,7 @@ export default function ProfileDashboard() {
                   <div className='flex justify-between gap-[50px] mb-4 '> <h3>Klasnimisho123's ArtWorks</h3> <button className=' text-lg hover:text-gray-500 '>...</button> </div>
                   {/* User artwork rendering div */}
                   <div className='p-2 flex my-[30px] gap-10 '>    
-                        {artworks.slice(0, 3).map((art, index) => (
+                        {(showArtExpanded ? artworks : artworks.slice(0, 3)).map((art, index) => (
                           <div key={art.id} className='h-[300px] w-[250px] bg-green-200'>
                             <div className='w-full h-full bg-blue-300 overflow-hidden  '>
                               <img src={art.imgLink} alt={art.title} className='object-cover h-full w-full ' />
@@ -125,8 +129,10 @@ export default function ProfileDashboard() {
                           </div>
                         ))} 
                   </div> 
-                  <button className='flex items-center gap-1 mx-auto mt-[60px] py-2 px-4 border-2 border-black rounded-[32px] hover:opacity-75 '>
-                    <p className=''> See All </p>
+                  <button 
+                  onClick={showPersonalArtHande} 
+                  className='flex items-center gap-1 mx-auto mt-[60px] py-2 px-4 border-2 border-black rounded-[32px] hover:opacity-75 '>
+                    <p className=''> {showArtExpanded? "See Less":"See All"} </p>
                     <i className="fa-solid fa-angles-right"></i>
                       </button>
                 </div>
