@@ -50,6 +50,8 @@ export default function ProfileDashboard() {
           </button>
         </div>
       </div>
+      {/* profileTypeActive */}
+        
         <div className='flex  p-[40px] w-[90%] mx-auto gap-[50px] bg-gray-100 rounded-lg '>
             <div className={gridDefaultCss}>
                 <button className="flex flex-col overflow-hidden rounded-full border-2 border-gray-300 h-300 w-300 min-w-300 "> 
@@ -80,6 +82,7 @@ export default function ProfileDashboard() {
                   </div>
                       <Link href={"/accountmanegement"} className='border-2 p-1 px-2 rounded ' > <i className="fa-solid fa-gear"></i> Edit Profile </Link>
             </div>
+            {profileTypeActive === "overview"? (
             <div className="flex flex-col gap-[30px] max-w-[960px] ">
             <div className={gridDefaultCss + `${aboutEdit?"pb-4":" "}`}>
               <div className='flex flex-col gap-8 '>
@@ -137,6 +140,24 @@ export default function ProfileDashboard() {
                       </button>
                 </div>
             </div>
+        ) : (
+          <div>
+        {/*personal GALLERY Side*/}
+        <div className={'bg-white p-[30px] rounded-lg shadow-lg  p-2 flex flex-row gap-10 h-full '}> 
+        {artworks.map((art, index) => (
+            <div key={art.id} className='h-[300px] w-[250px] bg-green-200'>
+              <div className='w-full h-full bg-blue-300 overflow-hidden  '>
+                <img src={art.imgLink} alt={art.title} className='object-cover h-full w-full ' />
+              </div>
+              <div className='flex flex-col items-center mt-4 p-1 border-2 '>
+                <h2 className='font-bold'>{art.title}</h2>
+                <span className='font-light'> {art.artist} </span>
+              </div>
+            </div>
+          ))} 
+        </div>
+      </div>
+      )}  
         </div>
       </div>
   )
