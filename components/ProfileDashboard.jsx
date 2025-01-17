@@ -16,20 +16,6 @@ export default function ProfileDashboard() {
     
   const gridDefaultCss = ("flex flex-col bg-white p-[30px] rounded-lg shadow-lg ")
 
-  function calculateColNumbers() {
-    let fakeArtworksNumber = 5
-    // const nashti = Math.floor(artworks.length % 3)
-    // const colNum = Math.floor(artworks.length / 3);
-    let nashti = Math.floor(fakeArtworksNumber % 3);
-    let colNum = Math.floor(fakeArtworksNumber / 3);
-    if(nashti>= 1) {
-      colNum += 1
-    }
-    console.log("colNum: ", colNum)
-  }
-  
-  calculateColNumbers()
-
   function handleProfileTypeChange(type) {
     console.log("currentType: ", profileTypeActive)
     setProfileTypeActive(type)
@@ -64,8 +50,6 @@ export default function ProfileDashboard() {
           </button>
         </div>
       </div>
-      {/* profileTypeActive */}
-        
         <div className='flex  p-[40px] w-[90%] mx-auto gap-[50px] bg-gray-100 rounded-lg '>
             <div className={gridDefaultCss}>
                 <button className="flex flex-col overflow-hidden rounded-full border-2 border-gray-300 h-300 w-300 min-w-300 "> 
@@ -101,7 +85,6 @@ export default function ProfileDashboard() {
             <div className={gridDefaultCss + `${aboutEdit?"pb-4":" "}`}>
               <div className='flex flex-col gap-8 '>
                 <div className='flex items-center justify-between'>
-                  {/* HERE */}
                   <p> About Klasnimisho123 </p> <button title='Edit' 
                   onClick={()=>{
                     setAboutEdit(true)
@@ -158,19 +141,22 @@ export default function ProfileDashboard() {
           <div>
         {/*personal GALLERY Side*/}
         <div className={'bg-white p-[30px] justify-evenly rounded-lg shadow-lg p-2 flex flex-row gap-10 h-full overflow-hidden '}> 
-        {/* {artworks.map((art, index) => (
-            <button 
-              key={art.id} className='h-[300px] w-[250px] art-gallery-animation shrink-0 '>
-              <div className='w-full h-full bg-blue-300 overflow-hidden rounded'>
-                <img src={art.imgLink} alt={art.title} className='object-cover h-full w-full ' />
+        <p className='absolute l-0 z-100'>ss</p>
+          <div className={`grid grid-cols-3 gap-x-6 gap-y-8`}>
+            {artworks.map((art, index) => (
+              <button 
+              key={art.id} 
+              className='w-[250px] art-gallery-animation shrink-0 '>
+              <div className='w-full bg-blue-300 overflow-hidden rounded'>
+                <img src={art.imgLink} alt={art.title} className='object-cover w-full h-[300px]' />
               </div>
               <div className='flex flex-col items-center mt-4 p-1 border-2 '>
                 <h2 className='font-bold'>{art.title}</h2>
                 <span className='font-light'> {art.artist} </span>
               </div>
             </button>
-          ))}  */}
-          <div></div>
+            ))} 
+          </div>
         </div>
       </div>
       )}  
