@@ -140,10 +140,12 @@ export default function ProfileDashboard() {
         ) : (
           <div>
         {/*personal GALLERY Side*/}
-        <div className={'bg-white p-[30px] justify-evenly rounded-lg shadow-lg p-2 flex flex-row gap-10 h-full overflow-hidden '}> 
-        <p className='absolute l-0 z-100'>ss</p>
+        <div className={'bg-white p-[30px] justify-evenly rounded-lg shadow-lg p-2 flex flex-col gap-10 h-full overflow-hidden '}>
+          <div>
+             <button className='bg-green-500 p-[5px] px-[10px] rounded hover:opacity-90' title='Add your work to gallery'> <i class="fa-solid fa-plus text-white "></i> </button>
+          </div> 
           <div className={`grid grid-cols-3 gap-x-6 gap-y-8`}>
-            {artworks.map((art, index) => (
+            {artworks.map((art) => (
               <button 
               key={art.id} 
               className='w-[250px] art-gallery-animation shrink-0 '>
