@@ -169,6 +169,22 @@ body.light {
     animation:  dark-slide-left 1s ease-in-out forwards;
 }
 
+.art-gallery-animation {
+
+}
+.art-gallery-animation:hover {
+    animation: art-gallery-animation 0.75s ease-in-out forwards;
+}
+
+@keyframes art-gallery-animation {
+    0% {
+        transform: translatey(0px);
+    } 100% {
+        transform: translatey(-20px);
+    }
+}
+
+
 @keyframes  light-slide-right {
     0% {
         transform: translateX(50px); 
