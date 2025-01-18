@@ -13,6 +13,7 @@ export default function ProfileDashboard() {
   const [aboutEdit, setAboutEdit] = useState(false)
   const [aboutText, setAboutText] = useState(``)
   const [showArtExpanded, setShowArtExpanded] = useState(false)
+  const [isUploading, setIsUploading] = useState(false)
     
   const gridDefaultCss = ("flex flex-col bg-white p-[30px] rounded-lg shadow-lg ")
 
@@ -24,6 +25,7 @@ export default function ProfileDashboard() {
   function showPersonalArtHande() {
     setShowArtExpanded(!showArtExpanded)
   }
+
 
   return (
     <div className='mt-4'>
@@ -140,9 +142,11 @@ export default function ProfileDashboard() {
         ) : (
           <div>
         {/*personal GALLERY Side*/}
-        <div className={'bg-white p-[30px] justify-evenly rounded-lg shadow-lg p-2 flex flex-col gap-10 h-full overflow-hidden '}>
+        <div className={'bg-white p-[30px] justify-evenly rounded-lg shadow-lg p-2 flex flex-col gap-6 h-full overflow-hidden '}>
           <div>
-             <button className='bg-green-500 p-[5px] px-[10px] rounded hover:opacity-90' title='Add your work to gallery'> <i class="fa-solid fa-plus text-white "></i> </button>
+            <p>{isUploading}</p>
+             <button onClick={()=> {setIsUploading(true)}}
+              className='bg-green-500 p-[5px] px-[10px] rounded hover:opacity-90' title='Add your work to gallery'> <i className="fa-solid fa-plus text-white "></i> </button>
           </div> 
           <div className={`grid grid-cols-3 gap-x-6 gap-y-8`}>
             {artworks.map((art) => (
@@ -160,6 +164,16 @@ export default function ProfileDashboard() {
             ))} 
           </div>
         </div>
+        {/* if uploading */}
+        {isUploading?
+        (<div className='absolute z-100 left-[40%] right-[30%] top-[30%] bg-blue-300 h-full '>
+          <div className='flex justify-between p-4 '>
+            <p>UPLOAD Content</p>
+            <button onClick={()=> {setIsUploading(false)}} > X </button>
+          </div>
+        </div>
+        ) : (""
+        )}
       </div>
       )}  
         </div>
