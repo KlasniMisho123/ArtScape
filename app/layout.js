@@ -8,6 +8,8 @@ import { AuthProvider } from "@/context/AuthContext";
 const poppins = Poppins({ subsets: ['latin'], weight: ['500'] });
 const pacifico = Pacifico({ subsets: ['latin'], weight: ['400'] });
 const openSans = Open_Sans({ subsets: ['latin'], weight: ['400'] })
+const raleway = Raleway({ subsets: ['latin'], weight: ['400', '500', '700'] });
+
 
 export const metadata = {
   title: 'ArtScape',
