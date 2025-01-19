@@ -2,7 +2,7 @@ import "./globals.css";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Head from "./head"
-import { Lobster, Open_Sans, Pacifico, Poppins } from 'next/font/google';
+import { Lobster, Open_Sans, Pacifico, Poppins, Raleway } from 'next/font/google';
 import { AuthProvider } from "@/context/AuthContext";
 
 const poppins = Poppins({ subsets: ['latin'], weight: ['500'] });
