@@ -16,6 +16,28 @@ export default function Upload() {
           </div> 
           <div> ArtForm </div>
           {/* title, desc, type ,  Dimensions , Year of Creation, Availability, price */}
+          <input 
+          placeholder="title"
+          />
+          <input 
+          placeholder="desc"
+          />
+          <input 
+          placeholder="type"
+          />
+          <input 
+          placeholder="Dimensions"
+          />
+          <input 
+          placeholder="Year of Creation"
+          />
+          <input 
+          placeholder="Availability"
+          />
+          <input 
+          placeholder="price"
+          />
+          
         </div>
       </Main>
     );
