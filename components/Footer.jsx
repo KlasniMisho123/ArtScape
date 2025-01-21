@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export default function Footer() {
   return (
-    <footer className='flex flex-col p-4 pb-1 mt-[60px] bg-gray-900 text-white gap-1 '>
+    <footer className='flex flex-col p-4 pb-1 bg-gray-900 text-white gap-1 '>
       <div className='flex items-center justify-between '> 
         <div className='flex items-center justify-between gap-10 '>
           <ArtScapeLogo />
