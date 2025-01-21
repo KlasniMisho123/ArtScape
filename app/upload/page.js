@@ -63,21 +63,37 @@ export default function Upload() {
             <div> 
               <h2 className="text-lg font-bold py-2 "> <i className="fa-solid fa-coins text-[#F3C623] text-2xl "></i> <span className="text-red-700 "> * </span> </h2>
             </div>
-            <select className="p-2 border-2 border-black rounded" defaultValue="">
+            <select className="p-2 border-2 border-black rounded" 
+            onChange={(e) => {
+              if (e.target.value === "available") {
+                setIsAvailableToBuy(true);
+              } else if (e.target.value === "unavailable") {
+                setIsAvailableToBuy(false);
+              }
+            }}
+            >
               <option value="" disabled>Available to buy?</option>
-              <option value="available">Available</option>
-              <option value="unavailable">Unavailable</option>
+              <option 
+              value="available"
+              >Available</option>
+              <option value="unavailable"
+              >Unavailable</option>
             </select>
             </div>
             
-            <div className={"flex gap-5 " + isAvailableToBuy?" ":" opacity-25"}> 
-              <input className="p-2 border-2 border-black rounded w-[85%] max-w-[85%] outline-indigo-600" 
+            <div className={`flex gap-5 ${isAvailableToBuy ? "" : "opacity-25"}`}>
+              <input
+              className={`p-2 border-2 border-black rounded w-[85%] max-w-[85%] outline-indigo-600 + ${isAvailableToBuy?" ":" cursor-not-allowed"}`} 
               type="number"
               placeholder="Price"
               min="0" 
               step="1"
+              disabled={!isAvailableToBuy}
               />
-              <select className="p-2 border-2 border-black rounded min-w-[5%] " defaultValue="" >
+              <select 
+              className={`p-2 border-2 border-black rounded min-w-[5%] ${isAvailableToBuy ? "" : "cursor-not-allowed"}`}
+              disabled={!isAvailableToBuy}
+              defaultValue="" >
                 <option value="GEL">🇬🇪 GEL</option>
                 <option value="USD">🇺🇸 USD$</option>
                 <option value="EUR">🇪🇺 EUR</option>
