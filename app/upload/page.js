@@ -1,11 +1,15 @@
-import React from "react";
+'use client'
+import React, { useState } from "react";
 import  Main  from "@/components/Main";
 import {Poppins, Raleway } from "next/font/google";
 
 const poppins = Poppins({ subsets: ['latin'], weight: ['500'] });
 const raleway = Raleway({ subsets: ['latin'], weight: ['400', '500', '700'] });
 
+
 export default function Upload() {
+  const [isAvailableToBuy, setIsAvailableToBuy ] = useState(false)
+
   return (
       <Main>
         <div className="flex flex-col items-center py-6 pb-[150px] gap-6 bg-gray-100"> 
@@ -57,7 +61,7 @@ export default function Upload() {
             <hr />
             <div className=""> 
             <div> 
-              <h2 className="text-lg font-bold py-2 "> <i class="fa-solid fa-coins text-[#F3C623] text-2xl "></i> <span className="text-red-700 "> * </span> </h2>
+              <h2 className="text-lg font-bold py-2 "> <i className="fa-solid fa-coins text-[#F3C623] text-2xl "></i> <span className="text-red-700 "> * </span> </h2>
             </div>
             <select className="p-2 border-2 border-black rounded" defaultValue="">
               <option value="" disabled>Available to buy?</option>
@@ -65,7 +69,8 @@ export default function Upload() {
               <option value="unavailable">Unavailable</option>
             </select>
             </div>
-            <div className="flex gap-5 "> 
+            
+            <div className={"flex gap-5 " + isAvailableToBuy?" ":" opacity-25"}> 
               <input className="p-2 border-2 border-black rounded w-[85%] max-w-[85%] outline-indigo-600" 
               type="number"
               placeholder="Price"
@@ -81,7 +86,7 @@ export default function Upload() {
               </select>
             </div>
             <div className="flex justify-evenly pt-[40px]"> 
-              <button className="text-red-600 border-2 border-red-600 rounded p-2 px-8 "> <i className="fa-solid fa-broom"></i>Clear </button>
+              <button className="text-red-600 border-2 border-red-600 rounded p-2 px-8"> <i className="fa-solid fa-broom"></i>Clear </button>
               <button className="text-green-600 border-2 border-green-600 rounded p-2 px-8 "> Add  <i className="fa-solid fa-map-pin"></i></button>
             </div>
           </div>
