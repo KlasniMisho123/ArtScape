@@ -14,30 +14,37 @@ export default function Upload() {
             <p className={` ` + raleway.className}> Vincent van Gogh never lived to see the immense love and recognition his art would receive. 
               Don’t keep it hidden share your creativity now </p> 
           </div> 
-          <div> ArtForm </div>
-          {/* title, desc, type ,  Dimensions , Year of Creation, Availability, price */}
-          <input 
-          placeholder="title"
-          />
-          <input 
-          placeholder="desc"
-          />
-          <input 
-          placeholder="type"
-          />
-          <input 
-          placeholder="Dimensions"
-          />
-          <input 
-          placeholder="Year of Creation"
-          />
-          <input 
-          placeholder="Availability"
-          />
-          <input 
-          placeholder="price"
-          />
-          
+          <div className="flex flex-col p-2 gap-2 bg-orange-100 border-2 border-black rounded ">
+            <div > ArtForm </div>
+            <div> 
+              <input 
+              className="p-2 border-2 border-black rounded "
+              placeholder="title"
+              />
+              <input 
+              placeholder="desc"
+              />
+            </div>
+            
+            <input 
+            placeholder="type"
+            />
+            <input 
+            placeholder="Dimensions"
+            />
+            <input 
+            type="year"
+            placeholder="Year of Creation"
+            />
+            <select >
+              <option value="" disabled selected>Available to buy?</option>
+              <option> Available </option>
+              <option> Unavailable </option>
+            </select>
+            <input 
+            placeholder="price"
+            />
+          </div>
         </div>
       </Main>
     );
