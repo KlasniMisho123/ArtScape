@@ -72,18 +72,24 @@ body.light {
     transform: scale(0.95);
 }
 
+.categories-background-border i{
+    rotate: 180deg;
+    transform: scale(0.95);
+    animation: rotate-180-270 0.25s forwards;
+}
+
+.categories-background-border:hover i{
+    rotate: 180deg;
+    transform: scale(0.95);
+    animation: rotate-270-180 0.25s forwards;
+}
+
 /* .login-background {
     background-image: url("../public/LoginFormBackground.avif");
     object-fit: cover;
 } */
 
 /* --- INTRO ANIMATION --- */
-
-.right-intro-div {
-    gap: 10px;
-    position: relative;
-    animation: swift-in-right 7s forwards;
-}
 
 .left-intro-div {
     gap: 10px;
@@ -174,6 +180,23 @@ body.light {
 .art-gallery-animation:hover {
     animation: art-gallery-animation 0.75s ease-in-out forwards;
 }
+
+@keyframes rotate-270-180 {
+    0% {
+        transform: rotate(270deg);
+    } 100% {
+        transform: rotate(180deg);
+    }
+}
+
+@keyframes rotate-180-270 {
+    0% {
+        transform: rotate(180deg);
+    } 100% {
+        transform: rotate(270deg);
+    }
+}
+
 
 @keyframes art-gallery-animation {
     0% {

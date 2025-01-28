@@ -10,7 +10,7 @@ export default function CategoriesCard(props) {
             <div className="relative z-10 text-white mx-6 pt-6 w-full ">
                 <h4 className='text-2xl font-bold '> {title} </h4> 
             </div>
-            <div className="relative z-10 text-white p-6 flex"> 
+            <div className="relative z-10 text-white p-6 flex "> 
                 <Link href={link}>
                     <button className='flex bg-transparent text-white flex gap-2 pr-4 py-1 items-center border-white border rounded-[32px] p-1 w-full-auto hover:bg-white collection-btn '> 
                         <div className='px-[8px] py-[2px] rounded-[32px] border-white border text-sm'> 
