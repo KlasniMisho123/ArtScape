@@ -6,7 +6,7 @@ export default function Hero() {
   return (
     <>
         <div className='flex bg-[#020006] text-white h-[600px] w-full overflow-hidden '>
-          {/* <div className='absolute z-1 w-full h-[600px] '>
+          {/* <div className='absolute z-1 w-full h-[600px] '> bg-gray-900/800
             <img className='w-full h-full' src='https://media.assettype.com/afkgaming/import/media/images/94087-QoP%20Brother%20Cover.jpg?w=1200&h=675&auto=format%2Ccompress&fit=max'/>
           </div> */}
             <div className='flex left-intro-div '>
