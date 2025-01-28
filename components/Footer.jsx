@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export default function Footer() {
   return (
-    <footer className='flex flex-col p-4 pb-1 bg-gray-900 text-white gap-1 '>
+    <footer className='flex flex-col p-3 pb-1 bg-gray-900 text-white gap-1 '>
       <div className='flex items-center justify-between '> 
         <div className='flex items-center justify-between gap-10 '>
           <ArtScapeLogo />
@@ -21,7 +21,7 @@ export default function Footer() {
           <div className='text-md'>artScapeInfo@gmail.com</div>
         </div>
       </div>
-      <div className='flex items-center justify-between gap-4  p-4 '>
+      <div className='flex items-center justify-between gap-4 pb-2'>
         <p className="text-center text-gray-500 text-sm mt-4">
           &copy; 2025 ArtScape. All rights reserved.
         </p>
