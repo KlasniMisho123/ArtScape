@@ -63,6 +63,7 @@ export default function Upload() {
             <div> 
               <h2 className="text-lg font-bold py-2 "> <i className="fa-solid fa-coins text-[#F3C623] text-2xl "></i> <span className="text-red-700 "> * </span> </h2>
             </div>
+            <p className="p-2 ">Available to buy?</p>
             <select className="p-2 border-2 border-black rounded" 
             onChange={(e) => {
               if (e.target.value === "available") {
@@ -72,12 +73,11 @@ export default function Upload() {
               }
             }}
             >
-              <option value="" disabled>Available to buy?</option>
+              <option value="unavailable"
+              >Unavailable</option>
               <option 
               value="available"
               >Available</option>
-              <option value="unavailable"
-              >Unavailable</option>
             </select>
             </div>
             
