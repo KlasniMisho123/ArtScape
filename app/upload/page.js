@@ -9,6 +9,29 @@ const raleway = Raleway({ subsets: ['latin'], weight: ['400', '500', '700'] });
 
 export default function Upload() {
   const [isAvailableToBuy, setIsAvailableToBuy ] = useState(false)
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [imagePreview, setImagePreview] = useState(null);
+
+  const handleUploadedImg = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      setSelectedImage(file);
+
+      const imageUrl = URL.createObjectURL(file);
+      setSelectedImage(imageUrl);
+    }
+  };
+  
+  // {imagePreview && (
+  //   <div className="mt-4">
+  //     <p className="text-sm text-gray-500">Preview:</p>
+  //     <img
+  //       src={preview}
+  //       alt="Selected"
+  //       className="w-full h-auto rounded border"
+  //     />
+  //   </div>
+  // )}
 
   return (
       <Main>
@@ -101,6 +124,18 @@ export default function Upload() {
                 <option value="JPY">🇯🇵 JPY¥</option>
               </select>
             </div>
+            <div className="flex gap-2 mb-[10px] mt-[20px]"> 
+              <div className="bg-black text-white px-[8px] rounded-[62px] ">3</div>
+              <div className=""> Upload </div>
+            </div>
+            {/* UPLOADING IMG */}
+            <label className="block font-semibold mb-2">Upload an Image:</label>
+              <input
+                type="file"
+                accept="image/*"
+                onChange={handleUploadedImg}
+                className="block w-full border p-2 rounded"
+              />
             <div className="flex justify-evenly pt-[40px]"> 
               <button className="text-red-600 border-2 border-red-600 rounded p-2 px-8"> <i className="fa-solid fa-broom"></i>Clear </button>
               <button className="text-green-600 border-2 border-green-600 rounded p-2 px-8 "> Add  <i className="fa-solid fa-map-pin"></i></button>
