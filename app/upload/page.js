@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import  Main  from "@/components/Main";
 import {Poppins, Raleway } from "next/font/google";
 
@@ -8,6 +8,7 @@ const raleway = Raleway({ subsets: ['latin'], weight: ['400', '500', '700'] });
 
 
 export default function Upload() {
+  const fileInputRef = useRef(null);
   const [isAvailableToBuy, setIsAvailableToBuy ] = useState(false)
   const [selectedImage, setSelectedImage] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
@@ -21,7 +22,13 @@ export default function Upload() {
       setSelectedImage(imageUrl);
     }
   };
-  
+
+  const handleClearImage = () => {
+    setSelectedImage(null);
+    if (fileInputRef.current) {
+      fileInputRef.current.value = "";
+    }
+  }
   // {imagePreview && (
   //   <div className="mt-4">
   //     <p className="text-sm text-gray-500">Preview:</p>
@@ -130,12 +137,21 @@ export default function Upload() {
             </div>
             {/* UPLOADING IMG */}
             <label className="block font-semibold mb-2">Upload an Image:</label>
+             <div className="flex border pr-2 justify-between"> 
               <input
                 type="file"
                 accept="image/*"
                 onChange={handleUploadedImg}
-                className="block w-full border p-2 rounded"
+                className="block p-2 rounded"
+                ref={fileInputRef}
               />
+              <button  
+                onClick={handleClearImage}
+                className="hover:text-red-500 text-xl"
+              >
+                <i className="fa-solid fa-xmark"></i>
+              </button>
+              </div>
             <div className="flex justify-evenly pt-[40px]"> 
               <button className="text-red-600 border-2 border-red-600 rounded p-2 px-8"> <i className="fa-solid fa-broom"></i>Clear </button>
               <button className="text-green-600 border-2 border-green-600 rounded p-2 px-8 "> Add  <i className="fa-solid fa-map-pin"></i></button>
