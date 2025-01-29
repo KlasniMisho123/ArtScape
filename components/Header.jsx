@@ -73,7 +73,7 @@ useEffect(() => {
 
                 <ThemeModeButton />
                 <NavElement title="My Profile" link={`/profile`} profileType />
-                <NavElement title="Upload Your Work" link={`/workspace`} profileType />
+                <NavElement title="Upload Your Work" link={`/upload`} profileType />
                 <NavElement title="Account Manegement" link={`/accountmanegement`} profileType />
                 <button className="management-nav-button p-1" onClick={logout}>Log Out </button>
               </div>) : (null)}
