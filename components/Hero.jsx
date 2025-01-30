@@ -15,7 +15,7 @@ export default function Hero() {
                 <img className="h-[200px] w-[200px] object-cover left three" src='introArt/The Kiss.png'/>
                 <img className="h-[200px] w-[200px] object-cover left four" src='introArt/The Last Suppe.png'/>
               </div>
-              <div className='flex right-intro-div'>
+              <div className='flex right-intro-div '>
                 <img className="h-[200px] w-[200px] object-cover right one " src='introArt/Van-Gogh-Starry-Night.png'/>
                 <img className="h-[200px] w-[200px] object-cover right two" src='introArt/The Night Watch (Nachtwacht).png'/>
                 <img className="h-[200px] w-[200px] object-cover right three" src='introArt/The Persistence.png'/>

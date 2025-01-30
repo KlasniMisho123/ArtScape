@@ -97,6 +97,12 @@ body.light {
     animation: swift-in-left 7s forwards;
 }
 
+.right-intro-div {
+    gap: 10px;
+    position: relative;
+    animation: swift-in-right 7s forwards;
+}
+
 .right {
     animation: picture-posture-right 10s forwards ;
 }
