@@ -16,7 +16,7 @@ export default function Upload() {
   const [price, setPrice] = useState(0)
   const [currency, setCurrency] = useState("GEL")
   const [selectedImage, setSelectedImage] = useState(null);
-  const [imagePreview, setImagePreview] = useState(0);
+  const [imagePreview, setImagePreview] = useState(null);
   const fileInputRef = useRef(null);
 
 
@@ -38,9 +38,16 @@ export default function Upload() {
   }
 
   function handleClearForm() {
-    console.log("")
-    // clear
-    // log
+  setTitle("")
+  setDesc("")
+  setType("")
+  setCreationDate("")
+  setIsAvailableToBuy(false)
+  setPrice(0)
+  setCurrency("GEL")= useState()
+  setSelectedImage(null);
+  setImagePreview(null);
+  fileInputRef.current.value = "";
   }
   function handleSubmitForm() {
     console.log(`
