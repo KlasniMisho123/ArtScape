@@ -30,19 +30,18 @@ export default function Upload() {
     }
   };
 
-
   function handleClearForm() {
   setTitle("")
   setDesc("")
   setType("")
   setCreationDate("")
-  setIsAvailableToBuy(false)
   setPrice(0)
   setCurrency("GEL")
   setSelectedImage(null);
   setImagePreview(null);
   fileInputRef.current.value = "";
   }
+
   function handleSubmitForm() {
     // * await submit
     // * log
@@ -65,13 +64,6 @@ export default function Upload() {
       fileInputRef.current.value = "";
     }
   }
-
-  // useEffect(()=>{
-  //   setSelectedImage(null);
-  //   if (fileInputRef.current) {
-  //     fileInputRef.current.value = "";
-  //   }
-  // },[selectedImage])
 
   // {imagePreview && (
   //   <div className="mt-4">
@@ -211,7 +203,7 @@ export default function Upload() {
                 onChange={handleUploadedImg}
                 className="block p-2 rounded"
                 ref={fileInputRef}
-              />
+              /> 
               <button  
                 onClick={handleClearImage}
                 className="hover:text-red-500 text-xl"
@@ -219,6 +211,8 @@ export default function Upload() {
                 <i className="fa-solid fa-xmark"></i>
               </button>
               </div>
+              {/* Preview Img div */}
+              <div> Preview Img </div>
             <div className="flex justify-evenly pt-[40px]"> 
               <button className="text-red-600 border-2 border-red-600 rounded p-2 px-8"
               onClick={handleClearForm}
