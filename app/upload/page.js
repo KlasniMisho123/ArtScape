@@ -19,9 +19,6 @@ export default function Upload() {
   const [selectedImage, setSelectedImage] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
 
-  function handleClearForm() {
-    
-  }
 
   const handleUploadedImg = (event) => {
     const file = event.target.files[0];
@@ -39,6 +36,19 @@ export default function Upload() {
       fileInputRef.current.value = "";
     }
   }
+
+  function handleClearForm() {
+    console.log("")
+    // clear
+    // log
+  }
+  function handleSubmitForm() {
+    // await submit
+    // log
+    // clear
+  }
+
+
   // {imagePreview && (
   //   <div className="mt-4">
   //     <p className="text-sm text-gray-500">Preview:</p>
@@ -73,6 +83,10 @@ export default function Upload() {
               <input 
               className="p-2 border-2 border-black rounded outline-indigo-600"
               placeholder="title"
+              value={title}
+              onChange={(e)=>{
+                setTitle(e.target.value)
+              }}
               />
             </div>
 
@@ -81,18 +95,30 @@ export default function Upload() {
               <textarea 
               className="p-2 border-2 border-black rounded max-h-[250px] outline-indigo-600"
               placeholder="Share the story behind your piece (optional) ..."
+              value={desc}
+              onChange={(e)=>{
+                setDesc(e.target.value)
+              }}
               />
             </div> 
             {/* popular types selection like in espressometer and then others input */}
             <input
             className="p-2 border-2 border-black rounded outline-indigo-600" 
             placeholder="type"
+            value={type}
+              onChange={(e)=>{
+                setType(e.target.value)
+              }}
             />
             <label className="block font-semibold my-2">Date of Creation:</label>
             <input 
             className="p-2 border-2 border-black rounded outline-indigo-600"
             type="date"
             placeholder="Year of Creation"
+            value={creationDate}
+              onChange={(e)=>{
+                setCreationDate(e.target.value)
+              }}
             />
             <div className="flex gap-2 mb-[10px] mt-[20px]"> 
               <div className="bg-black text-white px-[8px] rounded-[62px] ">2</div>
@@ -129,10 +155,18 @@ export default function Upload() {
               min="0" 
               step="1"
               disabled={!isAvailableToBuy}
+              value={price}
+              onChange={(e)=>{
+                setPrice(e.target.value)
+              }}
               />
               <select 
               className={`p-2 border-2 border-black rounded min-w-[5%] ${isAvailableToBuy ? "" : "cursor-not-allowed"}`}
               disabled={!isAvailableToBuy}
+              value={currency}
+              onChange={(e)=>{
+                setCurrency(e.target.value)
+              }}
               defaultValue="" >
                 <option value="GEL">🇬🇪 GEL</option>
                 <option value="USD">🇺🇸 USD$</option>
@@ -163,8 +197,13 @@ export default function Upload() {
               </button>
               </div>
             <div className="flex justify-evenly pt-[40px]"> 
-              <button className="text-red-600 border-2 border-red-600 rounded p-2 px-8"> <i className="fa-solid fa-broom"></i>Clear </button>
-              <button className="text-green-600 border-2 border-green-600 rounded p-2 px-8 "> Add  <i className="fa-solid fa-map-pin"></i></button>
+              <button className="text-red-600 border-2 border-red-600 rounded p-2 px-8"
+              onClick={handleClearForm}
+              > 
+                <i className="fa-solid fa-broom"></i>Clear </button>
+              <button className="text-green-600 border-2 border-green-600 rounded p-2 px-8 "
+              onClick={handleSubmitForm}>
+                 Add  <i className="fa-solid fa-map-pin"></i></button>
             </div>
           </div>
         </div>
