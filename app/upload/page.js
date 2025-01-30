@@ -8,10 +8,20 @@ const raleway = Raleway({ subsets: ['latin'], weight: ['400', '500', '700'] });
 
 
 export default function Upload() {
-  const fileInputRef = useRef(null);
+  const [title, setTitle] = useState("")
+  const [desc, setDesc] = useState("")
+  const [type, setType] = useState("")
+  const [creationDate, setCreationDate] = useState("")
   const [isAvailableToBuy, setIsAvailableToBuy ] = useState(false)
+  const [price, setPrice] = useState(null)
+  const [currency, setCurrency] = useState("")
+  const fileInputRef = useRef(null);
   const [selectedImage, setSelectedImage] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
+
+  function handleClearForm() {
+    
+  }
 
   const handleUploadedImg = (event) => {
     const file = event.target.files[0];
@@ -78,7 +88,7 @@ export default function Upload() {
             className="p-2 border-2 border-black rounded outline-indigo-600" 
             placeholder="type"
             />
-            
+            <label className="block font-semibold my-2">Date of Creation:</label>
             <input 
             className="p-2 border-2 border-black rounded outline-indigo-600"
             type="date"
@@ -137,7 +147,7 @@ export default function Upload() {
             </div>
             {/* UPLOADING IMG */}
             <label className="block font-semibold mb-2">Upload an Image:</label>
-             <div className="flex border pr-2 justify-between"> 
+             <div className="flex border pr-2 justify-between border-gray-500 "> 
               <input
                 type="file"
                 accept="image/*"
