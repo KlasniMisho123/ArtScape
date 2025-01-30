@@ -1,5 +1,5 @@
 'use client'
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import  Main  from "@/components/Main";
 import {Poppins, Raleway } from "next/font/google";
 
@@ -20,7 +20,7 @@ export default function Upload() {
   const fileInputRef = useRef(null);
 
 
-  const handleUploadedImg = (event) => {
+  function handleUploadedImg(event){
     const file = event.target.files[0];
     if (file) {
       setSelectedImage(file);
@@ -30,12 +30,6 @@ export default function Upload() {
     }
   };
 
-  const handleClearImage = () => {
-    setSelectedImage(null);
-    if (fileInputRef.current) {
-      fileInputRef.current.value = "";
-    }
-  }
 
   function handleClearForm() {
   setTitle("")
@@ -44,12 +38,15 @@ export default function Upload() {
   setCreationDate("")
   setIsAvailableToBuy(false)
   setPrice(0)
-  setCurrency("GEL")= useState()
+  setCurrency("GEL")
   setSelectedImage(null);
   setImagePreview(null);
   fileInputRef.current.value = "";
   }
   function handleSubmitForm() {
+    // * await submit
+    // * log
+    // * clear
     console.log(`
       Title: ${title}
       Description: ${desc}
@@ -60,12 +57,21 @@ export default function Upload() {
       Currency: ${currency}
       Selected Image: ${selectedImage}
     `);
-    
-    // await submit
-    // log
-    // clear
   }
 
+  function handleClearImage() {
+    setSelectedImage(null);
+    if (fileInputRef.current) {
+      fileInputRef.current.value = "";
+    }
+  }
+
+  // useEffect(()=>{
+  //   setSelectedImage(null);
+  //   if (fileInputRef.current) {
+  //     fileInputRef.current.value = "";
+  //   }
+  // },[selectedImage])
 
   // {imagePreview && (
   //   <div className="mt-4">
