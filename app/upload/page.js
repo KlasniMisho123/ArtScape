@@ -13,11 +13,11 @@ export default function Upload() {
   const [type, setType] = useState("")
   const [creationDate, setCreationDate] = useState("")
   const [isAvailableToBuy, setIsAvailableToBuy ] = useState(false)
-  const [price, setPrice] = useState(null)
-  const [currency, setCurrency] = useState("")
-  const fileInputRef = useRef(null);
+  const [price, setPrice] = useState(0)
+  const [currency, setCurrency] = useState("GEL")
   const [selectedImage, setSelectedImage] = useState(null);
-  const [imagePreview, setImagePreview] = useState(null);
+  const [imagePreview, setImagePreview] = useState(0);
+  const fileInputRef = useRef(null);
 
 
   const handleUploadedImg = (event) => {
@@ -43,6 +43,17 @@ export default function Upload() {
     // log
   }
   function handleSubmitForm() {
+    console.log(`
+      Title: ${title}
+      Description: ${desc}
+      Type: ${type}
+      Date of Creation: ${creationDate}
+      Available for Purchase: ${isAvailableToBuy}
+      Price: ${price}
+      Currency: ${currency}
+      Selected Image: ${selectedImage}
+    `);
+    
     // await submit
     // log
     // clear
@@ -166,8 +177,7 @@ export default function Upload() {
               value={currency}
               onChange={(e)=>{
                 setCurrency(e.target.value)
-              }}
-              defaultValue="" >
+              }}>
                 <option value="GEL">🇬🇪 GEL</option>
                 <option value="USD">🇺🇸 USD$</option>
                 <option value="EUR">🇪🇺 EUR</option>
@@ -203,7 +213,7 @@ export default function Upload() {
                 <i className="fa-solid fa-broom"></i>Clear </button>
               <button className="text-green-600 border-2 border-green-600 rounded p-2 px-8 "
               onClick={handleSubmitForm}>
-                 Add  <i className="fa-solid fa-map-pin"></i></button>
+                 Add <i className="fa-solid fa-map-pin"></i></button>
             </div>
           </div>
         </div>
