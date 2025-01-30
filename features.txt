@@ -1,3 +1,14 @@
+-- work in process --
+    *upload form
+-- preview img 
+-- form submit
+-- popluar types selection -> espresso meter resemblence
+
+
+
+
+
+--- *** ---
 symetric/hero.jsx update
 
 --footer links
