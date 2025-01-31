@@ -27,6 +27,7 @@ export default function Upload() {
 
       const imageUrl = URL.createObjectURL(file);
       setSelectedImage(imageUrl);
+      setImagePreview(imageUrl)
     }
   };
 
@@ -63,6 +64,7 @@ export default function Upload() {
     if (fileInputRef.current) {
       fileInputRef.current.value = "";
     }
+    setImagePreview(null)
   }
 
   return (
@@ -201,17 +203,8 @@ export default function Upload() {
               </button>
               </div>
               {/* Preview Img div */}
-              <div> Preview Img
-                {imagePreview && (
-                  <div className="mt-4">
-                    <p className="text-sm text-gray-500">Preview:</p>
-                    <img
-                      src={preview}
-                      alt="Selected"
-                      className="w-full h-auto rounded border"
-                    />
-                  </div>
-                )}
+              <div>
+                {imagePreview && <img src={imagePreview} alt="Uploaded Preview" />}
               </div>
             <div className="flex justify-evenly pt-[40px]"> 
               <button className="text-red-600 border-2 border-red-600 rounded p-2 px-8"
