@@ -65,17 +65,6 @@ export default function Upload() {
     }
   }
 
-  // {imagePreview && (
-  //   <div className="mt-4">
-  //     <p className="text-sm text-gray-500">Preview:</p>
-  //     <img
-  //       src={preview}
-  //       alt="Selected"
-  //       className="w-full h-auto rounded border"
-  //     />
-  //   </div>
-  // )}
-
   return (
       <Main>
         <div className="flex flex-col items-center py-6 pb-[150px] gap-6 bg-gray-100"> 
@@ -212,7 +201,18 @@ export default function Upload() {
               </button>
               </div>
               {/* Preview Img div */}
-              <div> Preview Img </div>
+              <div> Preview Img
+                {imagePreview && (
+                  <div className="mt-4">
+                    <p className="text-sm text-gray-500">Preview:</p>
+                    <img
+                      src={preview}
+                      alt="Selected"
+                      className="w-full h-auto rounded border"
+                    />
+                  </div>
+                )}
+              </div>
             <div className="flex justify-evenly pt-[40px]"> 
               <button className="text-red-600 border-2 border-red-600 rounded p-2 px-8"
               onClick={handleClearForm}
