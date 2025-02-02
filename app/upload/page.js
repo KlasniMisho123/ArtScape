@@ -56,6 +56,7 @@ export default function Upload() {
       Price: ${price}
       Currency: ${currency}
       Selected Image: ${selectedImage}
+      img url: ${imagePreview}
     `);
   }
 
@@ -202,9 +203,7 @@ export default function Upload() {
                 <i className="fa-solid fa-xmark"></i>
               </button>
               </div>
-              {/* Preview Img div */}
               {imagePreview && <img src={imagePreview} alt="Uploaded Preview"  className="pt-4"/>}
-              
             <div className="flex justify-evenly pt-[40px]"> 
               <button className="text-red-600 border-2 border-red-600 rounded p-2 px-8"
               onClick={handleClearForm}

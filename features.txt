@@ -5,7 +5,7 @@
 -- popluar types selection -> espresso meter resemblence
 
 
-
+header useEffect() -> current user. is problem for realiading headers on nav
 
 --- *** ---
 symetric/hero.jsx update
