@@ -54,7 +54,7 @@ export default function ProfileDashboard() {
       </div>
         <div className='flex  p-[40px] w-[90%] mx-auto gap-[50px] bg-gray-100 rounded-lg '>
             <div className={gridDefaultCss}>
-                <button className="flex flex-col overflow-hidden rounded-full border-2 border-gray-300 h-300 w-300 min-w-300 "> 
+                <button className="flex flex-col overflow-hidden rounded-full border-2 border-gray-300 h-300 w-[200px] min-w-300 "> 
                         <img
                         className="object-cover"
                         src="https://avatars.githubusercontent.com/u/117183990?s=400&u=dbcd799397eb331732f5e0be39ee6cfd1a00f70f&v=4"
