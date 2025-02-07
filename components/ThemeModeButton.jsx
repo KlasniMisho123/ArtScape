@@ -5,10 +5,14 @@ import { useAuth } from '@/context/AuthContext';
 
 export default function ThemeModeButton() {
   const {  isLightMode, setIsLightMode } = useAuth()
-{/* set dark mode theme */}
+
 function handleThmeChange() {
+  const newTheme = !isLightMode;
+
   setIsLightMode(!isLightMode);
   localStorage.setItem("theme", !isLightMode ? "light" : "dark");
+
+  document.body.classList.toggle("dark-theme", !newTheme);
 }
   
   return (
