@@ -1,6 +1,5 @@
 -- work in process --
     *upload form
--- preview img --> design
 -- form submit
 -- popluar types selection -> espresso meter resemblence
 
