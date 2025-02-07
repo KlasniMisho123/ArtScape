@@ -18,12 +18,8 @@ export function AuthProvider({ children }) {
     const [authenticatingActive, setAuthenticatingActive] = useState(true)
     const [userDataObj, setUserDataObj] = useState(0)
     // const [isLightMode, setIsLightMode] =  useLocalStorage("theme", true);
-    const [isLightMode, setIsLightMode] = useState(() => {
-        if (typeof window !== 'undefined') {
-          return localStorage.getItem('isLightMode') === 'false' ? false : true;
-        }
-        return true;
-      });
+    const [isLightMode, setIsLightMode] = useState(true);
+
     
     function signup(email, password) {
         return createUserWithEmailAndPassword(auth, email, password)
