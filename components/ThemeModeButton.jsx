@@ -6,18 +6,19 @@ import { useAuth } from '@/context/AuthContext';
 export default function ThemeModeButton() {
   const {  isLightMode, setIsLightMode } = useAuth()
 
-function handleThmeChange() {
-  const newTheme = !isLightMode;
-
-  setIsLightMode(!isLightMode);
-  localStorage.setItem("theme", !isLightMode ? "light" : "dark");
-
-  document.body.classList.toggle("dark-theme", !newTheme);
-}
+  function handleThemeChange() {
+    const newTheme = !isLightMode;
+  
+    setIsLightMode(newTheme);
+    localStorage.setItem("theme", newTheme ? "light" : "dark");
+  
+    document.body.classList.toggle("dark-theme", !newTheme);
+  }
+  
   
   return (
     <div className='flex flex-row justify-center h-[36.2px] overflow-hidden '>
-      <button onClick={handleThmeChange} className={`flex justify-between items-center border-2 w-auto rounded-2xl px-2 py-1 w-[100px] gap-[30px] ` + (isLightMode?`border-gray bg-white `: `border-gray-100 bg-gray-700 `)}>
+      <button onClick={handleThemeChange} className={`flex justify-between items-center border-2 w-auto rounded-2xl px-2 py-1 w-[100px] gap-[30px] ` + (isLightMode?`border-gray bg-white `: `border-gray-100 bg-gray-700 `)}>
         <div className={isLightMode?`sun-div`:`moon-div`}>
           {isLightMode?(
             <Image src={sunPng} alt="sun" width={25} height={25} className='sun-icon'/>

@@ -17,6 +17,7 @@ export function AuthProvider({ children }) {
     const [isLoading, setIsLoading ] = useState(false)
     const [authenticatingActive, setAuthenticatingActive] = useState(true)
     const [userDataObj, setUserDataObj] = useState(0)
+    // const [isLightMode, setIsLightMode] =  useLocalStorage("theme", true);
     const [isLightMode, setIsLightMode] = useState(() => {
         if (typeof window !== 'undefined') {
           return localStorage.getItem('isLightMode') === 'false' ? false : true;

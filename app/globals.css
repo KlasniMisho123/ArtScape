@@ -2,21 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-body.light {
-    --bg-color: #ffffff;
-    --text-color: #000000;
-    --accent-color: #ffa500;
+body {
+    background-color: #ffffff;
+    color: #333;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 
-  body.dark {
-    --bg-color: #121212;
-    --text-color: #ffffff;
-    --accent-color: #ff8c00;
-  }
-  
-  body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
+  body.dark-theme {
+    background-color: #1a1a1a;
+    color: #f0f0f0;
   }
 
 .titleGradientRed {
