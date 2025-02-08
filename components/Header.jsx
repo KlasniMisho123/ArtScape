@@ -69,7 +69,7 @@ useEffect(() => {
                     </div>
                   </button>
               </div>
-              {accountNav? (<div className="border-2 border-t-0 bg-white flex flex-col z-10 pt-4 gap-2 py-2 px-1 rounded  rounded-tl-none rounded-tr-none  ">
+              {accountNav? (<div className="border-2 border-t-0 bg-white flex flex-col z-10 pt-4 gap-2 py-2 px-1 rounded  rounded-tl-none rounded-tr-none text-black ">
 
                 <ThemeModeButton />
                 <NavElement title="My Profile" link={`/profile`} profileType />
