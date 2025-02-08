@@ -72,8 +72,8 @@ export default function DemoheroCol() {
                 {/* titleGradientRed / titleGradientPurple*/}
                 <h4 className={'text-[32px] ' + lobster_two.className } > Most Upvoted Artists <span> <i className="fa-solid fa-fire-flame-curved gradientFlame "></i> </span> </h4>
             </div>
-            <div className='w-full flex justify-center py-[20px] '>
-                <div className='flex gap-[5%] w-full-auto w-[75%] min-w-[600px] overflow-x-scroll p-2 rounded-lg bg-gray-200 '>
+            <div className='w-full flex justify-center py-[20px] text-black '>
+                <div className='flex gap-[5%] w-full-auto w-[75%] min-w-[600px] overflow-x-scroll p-2 rounded-lg bg-gray-50 '>
                 {artists.map((artist, index) => (
                     <UpVotedArtistCard
                     key={index}
