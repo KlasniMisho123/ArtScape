@@ -69,7 +69,7 @@ export default function Upload() {
     } catch(err) {
       console.log("err: ", err)
     } finally {
-      // setIsLoading(false)
+      setIsLoading(false)
     }
     // * await submit
     // * log
@@ -86,7 +86,7 @@ export default function Upload() {
 
   return (
       <Main>
-        <div className="flex flex-col items-center py-6 pb-[150px] gap-6 bg-gray-100"> 
+        <div className="flex flex-col items-center py-6 pb-[150px] gap-6 text-black"> 
           <div className="flex flex-col items-center gap-4 bg-pink-300 p-4 rounded py-6 "> 
             <h2 className={`text-lg font-bold ` + poppins.className}> Share Your Creativity with the World <i className="fa-solid fa-earth-americas ml-2 "></i> </h2>
             <p className={` ` + raleway.className}> Vincent van Gogh never lived to see the immense love and recognition his art would receive. 

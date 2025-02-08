@@ -182,7 +182,7 @@ body {
 }
 
 .loading-icon {
-    animation: spinning-animation 2s ease infinite;
+    animation: spinning-animation 1.5s linear infinite;
 }
 
 @keyframes spinning-animation {
