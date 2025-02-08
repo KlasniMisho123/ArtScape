@@ -5,6 +5,7 @@ import {Poppins, Raleway } from "next/font/google";
 import { useAuth } from "@/context/AuthContext";
 import {collection, addDoc} from "firebase/firestore"
 import { db } from "@/firebase"
+import Loading from "@/components/Loading";
 
 const poppins = Poppins({ subsets: ['latin'], weight: ['500'] });
 const raleway = Raleway({ subsets: ['latin'], weight: ['400', '500', '700'] });
@@ -68,7 +69,7 @@ export default function Upload() {
     } catch(err) {
       console.log("err: ", err)
     } finally {
-      setIsLoading(false)
+      // setIsLoading(false)
     }
     // * await submit
     // * log
@@ -219,7 +220,7 @@ export default function Upload() {
               </button>
               </div>
               {imagePreview && <img src={imagePreview} alt="Uploaded Preview"  className="pt-4"/>}
-            {isLoading? <p>Loading...</p>:(<div className="flex justify-evenly pt-[40px]"> 
+            {isLoading? <Loading />:(<div className="flex justify-evenly pt-[40px]"> 
               <button className="text-red-600 border-2 border-red-600 rounded p-2 px-8"
               onClick={handleClearForm}
               > 

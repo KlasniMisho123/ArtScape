@@ -181,6 +181,19 @@ body {
     animation: art-gallery-animation 0.75s ease-in-out forwards;
 }
 
+.loading-icon {
+    animation: spinning-animation 2s ease infinite;
+}
+
+@keyframes spinning-animation {
+    from {
+        transform: rotate(0deg);
+    } to {
+        transform: rotate(360deg);
+    }
+}
+
+
 @keyframes rotate-270-180 {
     0% {
         transform: rotate(270deg);
