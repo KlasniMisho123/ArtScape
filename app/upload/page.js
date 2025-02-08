@@ -2,12 +2,19 @@
 import React, { useEffect, useRef, useState } from "react";
 import  Main  from "@/components/Main";
 import {Poppins, Raleway } from "next/font/google";
+import { useAuth } from "@/context/AuthContext";
+import {collection, addDoc} from "firebase/firestore"
+import { db } from "@/firebase"
 
 const poppins = Poppins({ subsets: ['latin'], weight: ['500'] });
 const raleway = Raleway({ subsets: ['latin'], weight: ['400', '500', '700'] });
 
 
 export default function Upload() {
+
+  const { currentUser } = useAuth()
+ 
+  const [isLoading, setIsLoading] = useState(false)
   const [title, setTitle] = useState("")
   const [desc, setDesc] = useState("")
   const [type, setType] = useState("")
@@ -44,9 +51,9 @@ export default function Upload() {
   }
 
   function handleSubmitForm() {
-    // * await submit
-    // * log
-    // * clear
+    try {
+    setIsLoading(true)
+    console.log("current user: ",currentUser.uid )
     console.log(`
       Title: ${title}
       Description: ${desc}
@@ -58,6 +65,14 @@ export default function Upload() {
       Selected Image: ${selectedImage}
       img url: ${imagePreview}
     `);
+    } catch(err) {
+      console.log("err: ", err)
+    } finally {
+      setIsLoading(false)
+    }
+    // * await submit
+    // * log
+    // * clear
   }
 
   function handleClearImage() {
@@ -204,7 +219,7 @@ export default function Upload() {
               </button>
               </div>
               {imagePreview && <img src={imagePreview} alt="Uploaded Preview"  className="pt-4"/>}
-            <div className="flex justify-evenly pt-[40px]"> 
+            {isLoading? <p>Loading...</p>:(<div className="flex justify-evenly pt-[40px]"> 
               <button className="text-red-600 border-2 border-red-600 rounded p-2 px-8"
               onClick={handleClearForm}
               > 
@@ -212,7 +227,7 @@ export default function Upload() {
               <button className="text-green-600 border-2 border-green-600 rounded p-2 px-8 "
               onClick={handleSubmitForm}>
                  Add <i className="fa-solid fa-map-pin"></i></button>
-            </div>
+            </div>)}
           </div>
         </div>
       </Main>

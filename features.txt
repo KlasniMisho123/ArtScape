@@ -3,6 +3,7 @@
 -- form submit
 -- popluar types selection -> espresso meter resemblence
 
+--custom errorPage
 
 header useEffect() -> current user. is problem for realiading headers on nav
 
