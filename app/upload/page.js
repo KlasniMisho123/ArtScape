@@ -54,6 +54,7 @@ export default function Upload() {
   function handleSubmitForm() {
     try {
     setIsLoading(true)
+    //docref. adddoc
     console.log("current user: ",currentUser.uid )
     console.log(`
       Title: ${title}
