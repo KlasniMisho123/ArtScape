@@ -40,6 +40,7 @@ useEffect(() => {
     };
   }, [authenticatingActive])
 
+  
   return (
     <>
       {authenticatingActive? <AuthenticationForm setAuthenticatingActive={setAuthenticatingActive} /> : null}

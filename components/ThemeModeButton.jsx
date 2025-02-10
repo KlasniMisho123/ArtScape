@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import sunPng from "../public/sun.png"
 import Image from "next/image";
 import { useAuth } from '@/context/AuthContext';
@@ -14,7 +14,10 @@ export default function ThemeModeButton() {
   
     document.body.classList.toggle("dark-theme", !newTheme);
   }
-  
+
+  useEffect(()=>{
+
+  },[])
   
   return (
     <div className='flex flex-row justify-center h-[36.2px] overflow-hidden '>
