@@ -1,9 +1,9 @@
 'use client'
 import React, { useEffect, useRef, useState } from "react";
 import  Main  from "@/components/Main";
-import {Poppins, Raleway } from "next/font/google";
+import {Merienda, Poppins, Raleway } from "next/font/google";
 import { useAuth } from "@/context/AuthContext";
-import {collection, addDoc} from "firebase/firestore"
+import {collection, addDoc, doc, setDoc} from "firebase/firestore"
 import { db } from "@/firebase"
 import Loading from "@/components/Loading";
 
@@ -51,12 +51,30 @@ export default function Upload() {
   fileInputRef.current.value = "";
   }
 
-  function handleSubmitForm() {
+  async function handleSubmitForm() {
+    if (!currentUser) {
+      console.log("No authenticated user found.");
+      return;
+    }
+
     try {
     setIsLoading(true)
-    //docref. adddoc
-    console.log("current user: ",currentUser.uid )
+    //docref. adddoc 
+    const docRef = doc(db, 'users', currentUser.uid)
+    
+    const formData = {
+      title,
+      description: desc,
+      type,
+      creationDate,
+      isAvailableToBuy,
+      price: isAvailableToBuy ? price : null,
+      currency: isAvailableToBuy ? currency : null,
+      imageURL: selectedImage,
+    }
+
     console.log(`
+      Current User: ${currentUser.uid}
       Title: ${title}
       Description: ${desc}
       Type: ${type}
@@ -67,14 +85,16 @@ export default function Upload() {
       Selected Image: ${selectedImage}
       img url: ${imagePreview}
     `);
+
+    await setDoc(docRef, formData, { merge: true })
+
+    console.log("Data successfully added to Firestore:", formData);
+    handleClearForm()
     } catch(err) {
-      console.log("err: ", err)
+      console.error("Error adding document to Firestore:", err);
     } finally {
       setIsLoading(false)
     }
-    // * await submit
-    // * log
-    // * clear
   }
 
   function handleClearImage() {

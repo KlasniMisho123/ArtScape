@@ -16,9 +16,7 @@ symetric/hero.jsx update
 
 --profileTypeActive design
 
---userFetch setup.-header !*
-
---!! Set the user to our local context state
+-- upload tags ---->>>
 
 -- Authentification ErrorHandle -- responded with a status of 400 ()
 
@@ -31,9 +29,6 @@ Hydration failed because the server rendered HTML didn't match the client. As a 
 
 -- User Loading screen. during useffect load --isLoading
 
--dark Theme setup. ---BAGON 
-
 - add art gallerys.
-
 
 --responsive 
