@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import  Main  from "@/components/Main";
 import {Merienda, Poppins, Raleway } from "next/font/google";
 import { useAuth } from "@/context/AuthContext";
-import {collection, addDoc, doc, setDoc} from "firebase/firestore"
+import {collection, addDoc, doc, setDoc, getDoc} from "firebase/firestore"
 import { db } from "@/firebase"
 import Loading from "@/components/Loading";
 
@@ -59,19 +59,25 @@ export default function Upload() {
 
     try {
     setIsLoading(true)
-    //docref. adddoc 
     const docRef = doc(db, 'users', currentUser.uid)
+    const counterSnap = await getDoc(docRef);
     
+    let newId = 1;
+    
+    console.log("newId: ",newId)
     const formData = {
-      title,
-      description: desc,
-      type,
-      creationDate,
-      isAvailableToBuy,
-      price: isAvailableToBuy ? price : null,
-      currency: isAvailableToBuy ? currency : null,
-      imageURL: selectedImage,
-    }
+      imgId: newId,
+      imgInfo: {
+        title,
+        description: desc,
+        type,
+        creationDate,
+        isAvailableToBuy,
+        price: isAvailableToBuy ? price : null,
+        currency: isAvailableToBuy ? currency : null,
+        imageURL: selectedImage,
+      }
+    };
 
     console.log(`
       Current User: ${currentUser.uid}
