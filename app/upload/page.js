@@ -62,14 +62,22 @@ export default function Upload() {
 
     const userId =  currentUser.uid
 
-    const docRef = doc(db, 'users', userId)
-    const counterRef = doc(db, 'users', userId, "imgCollection")
+    const counterRef = doc(db, "users", userId, "imgCollection", "counter");
     const counterSnap = await getDoc(counterRef);
 
     let newId = 1;
     
     if(counterSnap.exists()){
-      newId = counterSnap.data().lastid + 1
+      newId = counterSnap.data().lastId + 1
+    }
+
+    const imageDocRef = doc(db, "users", userId, "imgCollection", newId.toString());
+    const existingDocSnap = await getDoc(imageDocRef);
+
+    if (existingDocSnap.exists()) {
+      console.log(`Document with ID ${newId} already exists. Overwriting...`);
+    } else {
+      console.log(`Adding new document with ID ${newId}`);
     }
 
     console.log("newId: ",newId)
@@ -87,9 +95,14 @@ export default function Upload() {
       }
     };
 
-    await setDoc(docRef, formData, { merge: true })
+    await setDoc(imageDocRef, formData, { merge: true });
 
-    console.log("Data successfully added to Firestore:", formData);
+    if (!existingDocSnap.exists()) {
+      await setDoc(counterRef, { lastId: newId });
+    }
+
+    console.log(`Successfully stored image with ID: ${newId}`, formData);
+    
     handleClearForm()
     } catch(err) {
       console.error("Error adding document to Firestore:", err);
