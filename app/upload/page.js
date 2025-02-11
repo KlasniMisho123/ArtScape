@@ -63,7 +63,7 @@ export default function Upload() {
 
   async function handleSubmitForm() {
     if(checkSubmitForm()==false) {
-      setMainFormError("Some required fields are missing or incomplete. Please check and try again.");
+      setMainFormError("Some required fields are incomplete. Please try again.");
       return
     }
     if (!currentUser) {
@@ -145,7 +145,9 @@ export default function Upload() {
           </div> 
           {/* form */}
           <div className=" bg-white flex flex-col p-8 gap-2 rounded w-full max-w-[60%] shadow-xl rounded-2xl min-h-[600px]">
+          {mainFormError? <div className="flex justify-center font-bold text-red-600 bg-red-100 border border-red-400 px-4 py-2 rounded-md">
             {mainFormError}
+          </div>:""}
             <div className="flex gap-2 my-[10px] "> 
               <div className="bg-black text-white px-[8px] rounded-[62px] ">1</div>
               <div className=""> information </div>
