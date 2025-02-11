@@ -59,11 +59,19 @@ export default function Upload() {
 
     try {
     setIsLoading(true)
-    const docRef = doc(db, 'users', currentUser.uid)
-    const counterSnap = await getDoc(docRef);
-    
+
+    const userId =  currentUser.uid
+
+    const docRef = doc(db, 'users', userId)
+    const counterRef = doc(db, 'users', userId, "imgCollection")
+    const counterSnap = await getDoc(counterRef);
+
     let newId = 1;
     
+    if(counterSnap.exists()){
+      newId = counterSnap.data().lastid + 1
+    }
+
     console.log("newId: ",newId)
     const formData = {
       imgId: newId,
@@ -78,19 +86,6 @@ export default function Upload() {
         imageURL: selectedImage,
       }
     };
-
-    console.log(`
-      Current User: ${currentUser.uid}
-      Title: ${title}
-      Description: ${desc}
-      Type: ${type}
-      Date of Creation: ${creationDate}
-      Available for Purchase: ${isAvailableToBuy}
-      Price: ${price}
-      Currency: ${currency}
-      Selected Image: ${selectedImage}
-      img url: ${imagePreview}
-    `);
 
     await setDoc(docRef, formData, { merge: true })
 
