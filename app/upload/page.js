@@ -53,16 +53,16 @@ export default function Upload() {
   }
 
   function checkSubmitForm() {
-    if(title.length < 3)
-      return false
-    if(type.length = 0)
-      return false
-    if(selectedImage.length < 3)
-      return false
+    if(title.length < 1) return false
+    if(title.length > 50) return false
+    if(type == "") return false
+    if(selectedImage == null) return false
+
+    return true
   }
 
   async function handleSubmitForm() {
-    if(checkSubmitForm()==false) {
+    if(!checkSubmitForm()) {
       setMainFormError("Some required fields are incomplete. Please try again.");
       return
     }
@@ -156,7 +156,7 @@ export default function Upload() {
             <div className="flex flex-col gap-2 py-4 ">
               <div> 
                 <h2 className="text-lg font-bold m-0 "> Title <span className="text-red-700 "> * </span> </h2>
-                <p className="mt-[-5px]">50 characters max </p>
+                <p className="mt-[-5px]">1-50 characters </p>
               </div>
               <input 
               className="p-2 border-2 border-black rounded outline-indigo-600"
@@ -179,6 +179,7 @@ export default function Upload() {
               }}
               />
             </div> 
+            
             {/* popular types selection like in espressometer and then others input */}
             <input
             className="p-2 border-2 border-black rounded outline-indigo-600" 
