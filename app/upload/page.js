@@ -25,6 +25,7 @@ export default function Upload() {
   const [currency, setCurrency] = useState("GEL")
   const [selectedImage, setSelectedImage] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
+  const [mainFormError, setMainFormError ] = useState("")
   const fileInputRef = useRef(null);
 
 
@@ -51,58 +52,73 @@ export default function Upload() {
   fileInputRef.current.value = "";
   }
 
+  function checkSubmitForm() {
+    if(title.length < 3)
+      return false
+    if(type.length = 0)
+      return false
+    if(selectedImage.length < 3)
+      return false
+  }
+
   async function handleSubmitForm() {
+    if(checkSubmitForm()==false) {
+      setMainFormError("Some required fields are missing or incomplete. Please check and try again.");
+      return
+    }
     if (!currentUser) {
       console.log("No authenticated user found.");
       return;
     }
 
     try {
-    setIsLoading(true)
+      setIsLoading(true);
+  
+      const userId = currentUser.uid; 
 
-    const userId =  currentUser.uid
-
-    const counterRef = doc(db, "users", userId, "imgCollection", "counter");
-    const counterSnap = await getDoc(counterRef);
-
-    let newId = 1;
-    
-    if(counterSnap.exists()){
-      newId = counterSnap.data().lastId + 1
-    }
-
-    const imageDocRef = doc(db, "users", userId, "imgCollection", newId.toString());
-    const existingDocSnap = await getDoc(imageDocRef);
-
-    if (existingDocSnap.exists()) {
-      console.log(`Document with ID ${newId} already exists. Overwriting...`);
-    } else {
-      console.log(`Adding new document with ID ${newId}`);
-    }
-
-    console.log("newId: ",newId)
-    const formData = {
-      imgId: newId,
-      imgInfo: {
-        title,
-        description: desc,
-        type,
-        creationDate,
-        isAvailableToBuy,
-        price: isAvailableToBuy ? price : null,
-        currency: isAvailableToBuy ? currency : null,
-        imageURL: selectedImage,
+      const counterRef = doc(db, "users", userId, "imgCollection", "counter");
+      const counterSnap = await getDoc(counterRef);
+  
+      let newId = 1; 
+  
+      if (counterSnap.exists()) {
+        newId = counterSnap.data().lastId + 1; 
       }
-    };
-
-    await setDoc(imageDocRef, formData, { merge: true });
-
-    if (!existingDocSnap.exists()) {
-      await setDoc(counterRef, { lastId: newId });
-    }
-
-    console.log(`Successfully stored image with ID: ${newId}`, formData);
-    
+  
+      
+      const imageDocRef = doc(db, "users", userId, "imgCollection", newId.toString());
+      const existingDocSnap = await getDoc(imageDocRef);
+  
+      if (existingDocSnap.exists()) {
+        console.log(`Document with ID ${newId} already exists. Overwriting...`);
+      } else {
+        console.log(`Adding new document with ID ${newId}`);
+      }
+  
+      
+      const formData = {
+        imgId: newId,
+        imgInfo: {
+          title,
+          description: desc,
+          type,
+          creationDate,
+          isAvailableToBuy,
+          price: isAvailableToBuy ? price : null,
+          currency: isAvailableToBuy ? currency : null,
+          imageURL: selectedImage,
+        }
+      };
+  
+      
+      await setDoc(imageDocRef, formData, { merge: true });
+  
+      if (!existingDocSnap.exists()) {
+        await setDoc(counterRef, { lastId: newId });
+      }
+  
+      console.log(`Successfully stored image with ID: ${newId}`, formData);
+  
     handleClearForm()
     } catch(err) {
       console.error("Error adding document to Firestore:", err);
@@ -129,6 +145,7 @@ export default function Upload() {
           </div> 
           {/* form */}
           <div className=" bg-white flex flex-col p-8 gap-2 rounded w-full max-w-[60%] shadow-xl rounded-2xl min-h-[600px]">
+            {mainFormError}
             <div className="flex gap-2 my-[10px] "> 
               <div className="bg-black text-white px-[8px] rounded-[62px] ">1</div>
               <div className=""> information </div>
