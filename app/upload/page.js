@@ -181,6 +181,7 @@ export default function Upload() {
             </div> 
             
             {/* popular types selection like in espressometer and then others input */}
+            <h2 className="text-lg font-bold m-0 "> Type <span className="text-red-700 "> * </span> </h2>
             <input
             className="p-2 border-2 border-black rounded outline-indigo-600" 
             placeholder="type"
@@ -206,7 +207,7 @@ export default function Upload() {
             <hr />
             <div className=""> 
             <div> 
-              <h2 className="text-lg font-bold py-2 "> <i className="fa-solid fa-coins text-[#F3C623] text-2xl "></i> <span className="text-red-700 "> * </span> </h2>
+              <h2 className="text-lg font-bold py-2 "> <i className="fa-solid fa-coins text-[#F3C623] text-2xl "></i> </h2>
             </div>
             <p className="p-2 ">Available to buy?</p>
             <select className="p-2 border-2 border-black rounded" 
@@ -255,7 +256,7 @@ export default function Upload() {
             </div>
             <div className="flex gap-2 mb-[10px] mt-[20px]"> 
               <div className="bg-black text-white px-[8px] rounded-[62px] ">3</div>
-              <div className=""> Upload </div>
+              <div className=""> Upload <span className="text-red-700 "> * </span> </div> 
             </div>
             {/* UPLOADING IMG */}
             <label className="block font-semibold mb-2">Upload an Image:</label>
