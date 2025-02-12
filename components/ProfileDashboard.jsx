@@ -30,13 +30,12 @@ export default function ProfileDashboard() {
   return (
     <div className='mt-4'>
       <div className=' border-gray-200 p-2 flex justify-center '>
-      {/* <div className=' border-gray-200 p-2 flex px-[80px] w-[90%] '> */}
-        <div className='flex gap-4 bg-gray-200 p-1 rounded '>
+        <div className='flex gap-4 bg-pink-300 p-1 rounded text-black '>
 
           <button onClick={()=>{
             handleProfileTypeChange("overview")
           }} className={
-            `flex items-center gap-2 p-1 px-2 hover:bg-gray-100 border-b-2 ` + 
+            `flex items-center gap-2 p-1 px-2 hover:bg-red-200 border-b-2 ` + 
             (profileTypeActive === "overview" ? "border-red-500" : "border-transparent")
           }>
              <i className="fa-regular fa-eye "></i> <span className='text-white'> Overview </span> 
@@ -45,14 +44,14 @@ export default function ProfileDashboard() {
           <button onClick={()=>{
             handleProfileTypeChange("gallery")
           }} className={
-             `flex items-center gap-2 p-1 px-2 hover:bg-gray-100 border-b-2 ` + 
+             `flex items-center gap-2 p-1 px-2 hover:bg-red-200 border-b-2 ` + 
              (profileTypeActive === "gallery" ? "border-red-500" : "border-transparent")
           }>
              <i className="fa-regular fa-images"></i> <span className='text-white'> Personal Gallery </span>
           </button>
         </div>
       </div>
-        <div className='flex  p-[40px] w-[90%] mx-auto gap-[50px] bg-gray-100 rounded-lg '>
+        <div className='flex  p-[40px] w-[90%] mx-auto gap-[50px] bg-gray-100 rounded-lg text-black'>
             <div className={gridDefaultCss}>
                 <button className="flex flex-col overflow-hidden rounded-full border-2 border-gray-300 h-300 w-[200px] min-w-300 "> 
                         <img
