@@ -114,10 +114,10 @@ export default function ProfileDashboard() {
                 )}
               </div>
             </div>
-                <div className={`${gridDefaultCss}  py-[30px] bg-red-300 `}>
+                <div className={`${gridDefaultCss}  py-[30px] `}>
                   <div className='flex justify-between gap-[50px] mb-4 '> <h3>Klasnimisho123's ArtWorks</h3> <button className=' text-lg hover:text-gray-500 '>...</button> </div>
                   {/* User artwork rendering div */}
-                  <div className={`h-[410px] p-2 flex my-[30px] gap-10 ` + (showArtExpanded? "overflow-x-scroll overflow-y-none":"")} >    
+                  <div className={`h-[410px] p-2 flex my-[30px] gap-10 ` + (showArtExpanded? "overflow-x-scroll overflow-y-none h-[900px]":"")} >    
                         {(showArtExpanded ? artworks : artworks.slice(0, 3)).map((art, index) => (
                           <div key={art.id} className='h-[300px] min-w-[250px] max-w-[250px] bg-green-200'>
                             <div className='w-full h-full bg-blue-300 overflow-hidden  '>
