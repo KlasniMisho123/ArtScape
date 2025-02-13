@@ -1,3 +1,5 @@
+!!!--- dinamyc profile endpoints ---!!!
+
 -- work in process --
     *upload form
 -- form submit
