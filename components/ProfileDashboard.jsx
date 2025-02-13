@@ -64,10 +64,9 @@ export default function ProfileDashboard() {
                 </button>
                   <div className={`flex flex-col gap-2 py-4`}>
                       <h3 className={' ' + openSans.className}>KLASNIMISHO123</h3>
-                      <div className='flex justify-evenly items-center '>
-                        <i className="fa-solid fa-users"></i> 
-                        <p> Following: 3 </p>
-                        <p> Followers: 5 </p>
+                      <div className='flex flex-col justify-evenly  '> 
+                        <p><i className="fa-solid fa-users"></i>  Following: 3 </p>
+                        <p><i className="fa-solid fa-users-viewfinder"></i> Followers: 5 </p>
                         </div>
                       <div className="mt-4 p-4 bg-gray-100 rounded-lg">
                         <h3 className="text-xl font-semibold mb-2 ">Art Preferences</h3>
