@@ -54,7 +54,7 @@ export const artworks = [
     year: 1931,
     description: "Known for its melting clocks, this iconic surrealist painting challenges perceptions of time and reality.",
     imgSrc: "/path-to-images/persistence-of-memory.jpg",
-    imgLink: "https://upload.wikimedia.org/wikipedia/en/d/dd/The_Persistence_of_Memory.jpg",
+    imgLink: "https://tse3.mm.bing.net/th?id=OIP.6bmyibY6p8iaWlKS2wYcDAHaEK&pid=Api&P=0&h=220",
     type: "Surrealism",
     dimensions: "24 cm × 33 cm",
     price: "$60M"
@@ -66,7 +66,7 @@ export const artworks = [
     year: 1893,
     description: "A powerful expressionist painting that captures the anxiety and anguish of modern life.",
     imgSrc: "/path-to-images/the-scream.jpg",
-    imgLink: "https://upload.wikimedia.org/wikipedia/commons/f/f4/The_Scream.jpg",
+    imgLink: "https://uploads1.wikiart.org/images/edvard-munch/the-scream-1893(2).jpg",
     type: "Expressionism",
     dimensions: "24 cm × 33 cm",
     price: "$60M"
