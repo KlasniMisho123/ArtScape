@@ -30,23 +30,45 @@ export const artworks = [
     year: 1498,
     description: "A renowned fresco depicting the moment Jesus reveals that one of his disciples will betray him.",
     imgSrc: "/path-to-images/last-supper.jpg",
-    imgLink: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/The_Last_Supper_-_Leonardo_Da_Vinci_-_High_"+
-    "Resolution_32x16.jpg/1200px-The_Last_Supper_-_Leonardo_Da_Vinci_-_High_Resolution_32x16.jpg",
+    imgLink: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/The_Last_Supper_-_Leonardo_Da_Vinci_-_High_Resolution_32x16.jpg/1200px-The_Last_Supper_-_Leonardo_Da_Vinci_-_High_Resolution_32x16.jpg",
     type: "Renaissance",
     dimensions: "460 cm × 880 cm",
     price: "$450M"
-},
-{
-  id: 4,
-  title: "Mona Lisa",
-  artist: "Leonardo da Vinci",
-  year: 1503,
-  description: "One of the most famous artworks, celebrated for its enigmatic smile.",
-  imgSrc: "/path-to-images/mona-lisa.jpg",
-  imgLink: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C"+ 
-  "_from_C2RMF_retouched.jpg/1200px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg",
-  type: "Renaissance",
-  dimensions: "77 cm × 53 cm",
-  price: "$100M"
-}
+  },
+  {
+    id: 4,
+    title: "Mona Lisa",
+    artist: "Leonardo da Vinci",
+    year: 1503,
+    description: "One of the most famous artworks, celebrated for its enigmatic smile.",
+    imgSrc: "/path-to-images/mona-lisa.jpg",
+    imgLink: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/1200px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg",
+    type: "Renaissance",
+    dimensions: "77 cm × 53 cm",
+    price: "$100M"
+  },
+  {
+    id: 5,
+    title: "The Persistence of Memory",
+    artist: "Salvador Dalí",
+    year: 1931,
+    description: "Known for its melting clocks, this iconic surrealist painting challenges perceptions of time and reality.",
+    imgSrc: "/path-to-images/persistence-of-memory.jpg",
+    imgLink: "https://upload.wikimedia.org/wikipedia/en/d/dd/The_Persistence_of_Memory.jpg",
+    type: "Surrealism",
+    dimensions: "24 cm × 33 cm",
+    price: "$60M"
+  },
+  {
+    id: 6,
+    title: "The Scream",
+    artist: "Edvard Munch",
+    year: 1893,
+    description: "A powerful expressionist painting that captures the anxiety and anguish of modern life.",
+    imgSrc: "/path-to-images/the-scream.jpg",
+    imgLink: "https://upload.wikimedia.org/wikipedia/commons/f/f4/The_Scream.jpg",
+    type: "Expressionism",
+    dimensions: "24 cm × 33 cm",
+    price: "$60M"
+  }
 ];
