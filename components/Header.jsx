@@ -22,19 +22,12 @@ function accountManegementDiv(){
   setAccountNav(!accountNav)
 }
 
-// function logOutHandle() {
-//   // setIsAuthenticated(false)
-  
-//   console.log("Logged Out")
-// }
-
 useEffect(() => {
   {authenticatingActive ? (
     document.body.style.overflow = 'hidden'
   ) : (
     document.body.style.overflow = 'auto') }
 
-    //to ensure its cleaned up 
     return () => {
       document.body.style.overflow = 'auto';
     };
