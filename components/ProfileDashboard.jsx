@@ -1,6 +1,6 @@
 'use client'
 import { Open_Sans, Pacifico, Poppins } from 'next/font/google';
-import React, { useState} from 'react'
+import React, { useEffect, useState} from 'react'
 import { artworks } from "../app/demoData";
 import Link from 'next/link';
 import { db } from "@/firebase"
@@ -58,6 +58,29 @@ export default function ProfileDashboard() {
       setAboutEdit(false)
     }
   }
+  
+
+  // useEffect(() => {
+  //   async function fetchAboutText() {
+  //     try {
+
+      
+  //     const userId = currentUser.uid;
+
+  //     const userRef = doc(db, "users", userId);
+  //     const userSnap = await getDoc(userRef);
+
+  //     console.log("userSnap: ", userSnap)
+  //     if(userSnap.exists()){
+  //       setAboutText((userSnap.data().aboutMe || ""))
+  //     }
+        
+  //     } catch(err) {
+  //       console.log(err)
+  //     }
+  //   }
+  //   fetchAboutText()
+  // },[])
 
   return (
     <div className='mt-4'>

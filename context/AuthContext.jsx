@@ -62,7 +62,6 @@ export function AuthProvider({ children }) {
             } catch(err) {
                 console.log("Fetching User Err: ", err.message)
             } finally {
-                console.log("currentUser: ",currentUser)
                 setIsLoading(false)
             }
         })

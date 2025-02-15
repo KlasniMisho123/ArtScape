@@ -34,3 +34,8 @@ Hydration failed because the server rendered HTML didn't match the client. As a 
 - add art gallerys.
 
 --responsive 
+
+
+--- recent Errors ---
+
+not gedtting uid to get exsisting userAboutmeText . profileDashboard UseEffect
