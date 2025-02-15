@@ -16,6 +16,8 @@ export default function ProfileDashboard() {
 
 
   const gridDefaultCss = ("flex flex-col bg-white p-[30px] rounded-lg shadow-lg ")
+  const basicBtnHover = ("hover:text-white hover:bg-black")
+
 
   function handleProfileTypeChange(type) {
     console.log("currentType: ", profileTypeActive)
@@ -100,11 +102,11 @@ export default function ProfileDashboard() {
                 setAboutText(e.target.value)
               }}/>
               {/* handle firebase update */}
-              <button onClick={()=>{
+                <button onClick={()=>{
                     setAboutEdit(false)
-                  }} className='px-2 mx-auto border-2 border-black rounded flex gap-4 items-center px-4 py-1 rounded-xl hover:opacity-75 '>
+                  }} className={`px-2 mx-auto border-2 border-black rounded flex gap-4 items-center px-4 py-1 rounded-xl ${basicBtnHover}`}>
                      <span> Aplly Changes </span>
-                  </button>
+                </button>
                 </>
                 ):(
                 <div className='px-1 '>
