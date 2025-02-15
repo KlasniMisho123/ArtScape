@@ -3,6 +3,8 @@ import { Open_Sans, Pacifico, Poppins } from 'next/font/google';
 import React, { useState} from 'react'
 import { artworks } from "../app/demoData";
 import Link from 'next/link';
+import { db } from "@/firebase"
+import { addDoc, doc, setDoc, getDoc } from "firebase/firestore"
 
 const poppins = Poppins({ subsets: ['latin'], weight: ['500'] });
 const pacifico = Pacifico({ subsets: ['latin'], weight: ['400'] });
@@ -104,6 +106,7 @@ export default function ProfileDashboard() {
               {/* handle firebase update */}
                 <button onClick={()=>{
                     setAboutEdit(false)
+
                   }} className={`px-2 mx-auto border-2 border-black rounded flex gap-4 items-center px-4 py-1 rounded-xl ${basicBtnHover}`}>
                      <span> Aplly Changes </span>
                 </button>
