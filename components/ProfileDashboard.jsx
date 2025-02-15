@@ -15,7 +15,7 @@ export default function ProfileDashboard() {
   const [aboutEdit, setAboutEdit] = useState(false)
   const [aboutText, setAboutText] = useState(``)
   const [showArtExpanded, setShowArtExpanded] = useState(false)
-
+  const [isLoading, setIsLoading] = useState(false)
 
   const gridDefaultCss = ("flex flex-col bg-white p-[30px] rounded-lg shadow-lg ")
   const basicBtnHover = (" hover:text-white hover:bg-black")
@@ -30,6 +30,17 @@ export default function ProfileDashboard() {
     setShowArtExpanded(!showArtExpanded)
   }
 
+  async function aboutMeUpdate() {
+    try{
+      setIsLoading(true)
+
+      setAboutEdit(false)
+    } catch(err) {
+      console.log("aboutMeUpdate Err: ", err)
+    } finally {
+      setIsLoading(false)
+    }
+  }
 
   return (
     <div className='mt-4'>
@@ -104,10 +115,10 @@ export default function ProfileDashboard() {
                 setAboutText(e.target.value)
               }}/>
               {/* handle firebase update */}
-                <button onClick={()=>{
-                    setAboutEdit(false)
-
-                  }} className={`px-2 mx-auto border-2 border-black rounded flex gap-4 items-center px-4 py-1 rounded-xl ${basicBtnHover}`}>
+                <button onClick={
+                  aboutMeUpdate
+                } 
+                className={`px-2 mx-auto border-2 border-black rounded flex gap-4 items-center px-4 py-1 rounded-xl ${basicBtnHover}`}>
                      <span> Aplly Changes </span>
                 </button>
                 </>
