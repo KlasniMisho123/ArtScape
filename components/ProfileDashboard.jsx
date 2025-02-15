@@ -5,17 +5,21 @@ import { artworks } from "../app/demoData";
 import Link from 'next/link';
 import { db } from "@/firebase"
 import { addDoc, doc, setDoc, getDoc } from "firebase/firestore"
+import { useAuth } from '@/context/AuthContext';
 
 const poppins = Poppins({ subsets: ['latin'], weight: ['500'] });
 const pacifico = Pacifico({ subsets: ['latin'], weight: ['400'] });
 const openSans = Open_Sans({ subsets: ['latin'], weight: ['400'] })
 
 export default function ProfileDashboard() {
+  const { currentUser } = useAuth()
+
   const [profileTypeActive, setProfileTypeActive ] = useState("overview")
   const [aboutEdit, setAboutEdit] = useState(false)
   const [aboutText, setAboutText] = useState(``)
   const [showArtExpanded, setShowArtExpanded] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
+
 
   const gridDefaultCss = ("flex flex-col bg-white p-[30px] rounded-lg shadow-lg ")
   const basicBtnHover = (" hover:text-white hover:bg-black")
@@ -34,11 +38,18 @@ export default function ProfileDashboard() {
     try{
       setIsLoading(true)
 
-      setAboutEdit(false)
+      const userId = currentUser.uid;
+
+      const userRef = doc(db, "users", userId, aboutText)
+      const userSnap = await getDoc(userRef)
+
+      console.log("userSnap: ", userSnap)
+
     } catch(err) {
       console.log("aboutMeUpdate Err: ", err)
     } finally {
       setIsLoading(false)
+      setAboutEdit(false)
     }
   }
 
