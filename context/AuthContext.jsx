@@ -67,9 +67,9 @@ export function AuthProvider({ children }) {
             }
         })
         return unsubscribe
-    },[
+    },[login])
 
-    ])
+    
 
     useEffect(() => {
         document.body.classList.toggle("dark-theme", !isLightMode);
