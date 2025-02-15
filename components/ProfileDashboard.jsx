@@ -40,11 +40,17 @@ export default function ProfileDashboard() {
 
       const userId = currentUser.uid;
 
-      const userRef = doc(db, "users", userId, aboutText)
+      const userRef = doc(db, "users", userId)
       const userSnap = await getDoc(userRef)
 
-      console.log("userSnap: ", userSnap)
-
+      // await setDoc(userRef, aboutText, {merge:true})
+      if(userSnap.exists()) {
+        await setDoc(userRef, { "AboutMe": aboutText }, {merge:true})
+        console.log("Updated aboutMe successfully.");
+      } else {
+        await setDoc(userRef, { "AboutMe": aboutText })
+        console.log("User document created with aboutMe.");
+      }
     } catch(err) {
       console.log("aboutMeUpdate Err: ", err)
     } finally {
