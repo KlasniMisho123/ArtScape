@@ -38,4 +38,4 @@ Hydration failed because the server rendered HTML didn't match the client. As a 
 
 --- recent Errors ---
 
-not gedtting uid to get exsisting userAboutmeText . profileDashboard UseEffect
+ uid=null? userAboutmeText -- profileDashboard UseEffect

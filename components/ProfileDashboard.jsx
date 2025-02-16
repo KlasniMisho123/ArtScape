@@ -60,12 +60,11 @@ export default function ProfileDashboard() {
   }
   
 
-  // useEffect(() => {
+  useEffect(() => {
+    console.log(currentUser)
   //   async function fetchAboutText() {
   //     try {
-
       
-  //     const userId = currentUser.uid;
 
   //     const userRef = doc(db, "users", userId);
   //     const userSnap = await getDoc(userRef);
@@ -80,7 +79,8 @@ export default function ProfileDashboard() {
   //     }
   //   }
   //   fetchAboutText()
-  // },[])
+  },[])
+
 
   return (
     <div className='mt-4'>
