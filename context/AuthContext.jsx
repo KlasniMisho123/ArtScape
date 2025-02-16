@@ -67,35 +67,35 @@ export function AuthProvider({ children }) {
         return unsubscribe
     },[])
 
-    // useEffect(()=>{
-    //     const unsubscribe = onAuthStateChanged(auth, async user => {
-    //         try{
-    //             // Set the user to our local context state
-    //             setIsLoading(true)
-    //             setCurrentUser(user)
-    //             if (!user) {
-    //                 return
-    //             }
+    useEffect(()=>{
+        const unsubscribe = onAuthStateChanged(auth, async user => {
+            try{
+                // Set the user to our local context state
+                setIsLoading(true)
+                setCurrentUser(user)
+                if (!user) {
+                    return
+                }
 
-    //             // if user exists, fetch data from firestore database
-    //             const docRef = doc(db, 'users', user.uid)
-    //             const docSnap = await getDoc(docRef)
-    //             // console.log(user.email)
-    //             let firebaseData = {}
-    //             setIsAuthenticated(true)
-    //             // if (docSnap.exists()) {
-    //             //     firebaseData = docSnap.data()
-    //             // }
-    //             // setUserDataObj(firebaseData)
-    //             // console.log(userDataObj)
-    //         } catch(err) {
-    //             console.log("Fetching User Err: ", err.message)
-    //         } finally {
-    //             setIsLoading(false)
-    //         }
-    //     })
-    //     return unsubscribe
-    // },[login, signup, logout])-???
+                // if user exists, fetch data from firestore database
+                const docRef = doc(db, 'users', user.uid)
+                const docSnap = await getDoc(docRef)
+                // console.log(user.email)
+                let firebaseData = {}
+                setIsAuthenticated(true)
+                // if (docSnap.exists()) {
+                //     firebaseData = docSnap.data()
+                // }
+                // setUserDataObj(firebaseData)
+                // console.log(userDataObj)
+            } catch(err) {
+                console.log("Fetching User Err: ", err.message)
+            } finally {
+                setIsLoading(false)
+            }
+        })
+        return unsubscribe
+    },[login, signup, logout])
 
     
 
