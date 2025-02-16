@@ -17,10 +17,10 @@ export function AuthProvider({ children }) {
     const [isLoading, setIsLoading ] = useState(false)
     const [authenticatingActive, setAuthenticatingActive] = useState(true)
     const [userDataObj, setUserDataObj] = useState(0)
-    // LOCALSTORAGE ERRORS?
-    const [isLightMode, setIsLightMode] = useState(() => {
-        return localStorage.getItem("theme") === "dark" ? false : true;
-      });
+    // const [isLightMode, setIsLightMode] = useState(() => {
+    //     return localStorage.getItem("theme") === "dark" ? false : true;
+    //   });
+    const [isLightMode, setIsLightMode] = useState(true);
 
     
     function signup(email, password) {
@@ -100,6 +100,13 @@ export function AuthProvider({ children }) {
     
 
     useEffect(() => {
+        const theme = localStorage.getItem("theme") 
+        if(theme === "dark") {
+            setIsLightMode(false)
+        } else {
+            setIsLightMode(true)
+        }
+
         document.body.classList.toggle("dark-theme", !isLightMode);
       }, [isLightMode]);
 

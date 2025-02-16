@@ -61,23 +61,22 @@ export default function ProfileDashboard() {
   
 
   useEffect(() => {
-    console.log(currentUser)
-  //   async function fetchAboutText() {
-  //     try {
+    async function fetchAboutText() {
+      try {
       
 
-  //     const userRef = doc(db, "users", userId);
-  //     const userSnap = await getDoc(userRef);
+      const userRef = doc(db, "users", userId);
+      const userSnap = await getDoc(userRef);
 
-  //     console.log("userSnap: ", userSnap)
-  //     if(userSnap.exists()){
-  //       setAboutText((userSnap.data().aboutMe || ""))
-  //     }
+      console.log("userSnap: ", userSnap)
+      if(userSnap.exists()){
+        setAboutText((userSnap.data().aboutMe || ""))
+      }
         
-  //     } catch(err) {
-  //       console.log(err)
-  //     }
-  //   }
+      } catch(err) {
+        console.log(err)
+      }
+    }
   //   fetchAboutText()
   },[])
 
