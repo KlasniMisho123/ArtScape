@@ -39,11 +39,11 @@ export default function ProfileDashboard() {
       setIsLoading(true)
 
       const userId = currentUser.uid;
+      console.log("userId: ", userId)
 
       const userRef = doc(db, "users", userId)
       const userSnap = await getDoc(userRef)
 
-      // await setDoc(userRef, aboutText, {merge:true})
       if(userSnap.exists()) {
         await setDoc(userRef, { "AboutMe": aboutText }, {merge:true})
         console.log("Updated aboutMe successfully.");
@@ -62,22 +62,22 @@ export default function ProfileDashboard() {
 
   useEffect(() => {
     async function fetchAboutText() {
+      // const userId = currentUser.uid;
+      // console.log("userId: ", userId)
       try {
-      
+      // const userRef = doc(db, "users", currentUser.uid);
+      // const userSnap = await getDoc(userRef);
 
-      const userRef = doc(db, "users", userId);
-      const userSnap = await getDoc(userRef);
-
-      console.log("userSnap: ", userSnap)
-      if(userSnap.exists()){
-        setAboutText((userSnap.data().aboutMe || ""))
-      }
+      // console.log("currentUser: ", currentUser)
+      // if(userSnap.exists()){
+      //   setAboutText((userSnap.data().aboutMe || ""))
+      // }
         
       } catch(err) {
         console.log(err)
       }
     }
-  //   fetchAboutText()
+    fetchAboutText()
   },[])
 
 
@@ -171,7 +171,7 @@ export default function ProfileDashboard() {
                 <div className={`${gridDefaultCss}  py-[30px] `}>
                   <div className='flex justify-between gap-[50px] mb-4 '> <h3>Klasnimisho123's ArtWorks</h3> <button className=' text-lg hover:text-gray-500 '>...</button> </div>
                   <div className={` p-2 flex my-[30px] gap-10 ` + (showArtExpanded? "grid grid-cols-3 gap-y-10 overflow-y-hidden ":"")} >    
-                        {(showArtExpanded ? artworks : artworks.slice(0, 3)).map((art, index) => (
+                        {(showArtExpanded ? artworks : artworks.slice(0, 3)).map((art) => (
                           <div key={art.id} className="h-[350px] min-w-[250px] max-w-[250px] flex flex-col justify-between">
                             <div className='w-full h-full overflow-hidden  '>
                               <img src={art.imgLink} alt={art.title} className='object-cover h-full w-full ' />

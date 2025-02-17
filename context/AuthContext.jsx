@@ -17,9 +17,6 @@ export function AuthProvider({ children }) {
     const [isLoading, setIsLoading ] = useState(false)
     const [authenticatingActive, setAuthenticatingActive] = useState(true)
     const [userDataObj, setUserDataObj] = useState(0)
-    // const [isLightMode, setIsLightMode] = useState(() => {
-    //     return localStorage.getItem("theme") === "dark" ? false : true;
-    //   });
     const [isLightMode, setIsLightMode] = useState(true);
 
     
@@ -67,6 +64,7 @@ export function AuthProvider({ children }) {
         return unsubscribe
     },[])
 
+    // mgoni arari sachiro,[login, signup, logout]
     useEffect(()=>{
         const unsubscribe = onAuthStateChanged(auth, async user => {
             try{
