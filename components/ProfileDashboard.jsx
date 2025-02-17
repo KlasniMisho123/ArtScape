@@ -132,7 +132,7 @@ export default function ProfileDashboard() {
                         </ul>
                       </div>
                   </div>
-                      <Link href={"/accountmanegement"} className='border-2 p-1 px-2 rounded ' > <i className="fa-solid fa-gear"></i> Edit Profile </Link>
+                      <Link href={"/accountmanegement"} className={'border-2 p-1 px-2 rounded ' + basicBtnHover} > <i className="fa-solid fa-gear "></i> Edit Profile </Link>
             </div>
             {profileTypeActive === "overview"? (
             <div className="flex flex-col gap-[30px] max-w-[960px] ">
