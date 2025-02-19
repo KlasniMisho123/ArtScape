@@ -1,11 +1,10 @@
 import React from 'react'
-import AccManSideNav from './AccManSideNav'
 
 export default function AccManegement() {
   return (
-    <div className='flex flex-col h-[100vh]'>
+    <div className='flex flex-col h-[100vh] w-[90%] mx-auto my-[5%] '>
         <div className='flex'>
-            <AccManSideNav />
+        <div>AccManSideNav</div>
             <div className='flex justify-between mt-[60px]'>
                 <div>1</div>
                 <div>2</div>
