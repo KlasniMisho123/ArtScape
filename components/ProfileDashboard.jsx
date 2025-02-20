@@ -105,8 +105,8 @@ export default function ProfileDashboard() {
           </button>
         </div>
       </div>
-        <div className='flex  p-[40px] w-[90%] mx-auto gap-[50px] bg-gray-100 rounded-lg text-black'>
-            <div className={gridDefaultCss}>
+        <div className='flex  p-[40px] w-[90%] mx-auto gap-[50px] bg-gray-100 rounded-lg text-black '>
+            <div className={`h-fit ${gridDefaultCss}`}>
                 <button className="flex flex-col overflow-hidden rounded-full border-2 border-gray-300 h-300 w-[200px] min-w-300 "> 
                         <img
                         className="object-cover"
