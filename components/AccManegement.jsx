@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import AccManegmentSec from './AccManegmentSec'
 
 export default function AccManegement() {
-  const [currentEditSec, setCurrentEditSec] = useState("general")
+  const [currentEditSec, setCurrentEditSec] = useState("General")
 
   return (
     <div className='flex flex-col h-[100vh] w-[90%] mx-auto my-[5%] '>
@@ -22,8 +22,7 @@ export default function AccManegement() {
             setCurrentEditSec("Mini Profile")
           }}> Mini Profile </section>
         </div>
-        {currentEditSec}
-            <AccManegmentSec />
+            <AccManegmentSec currentEditSec={currentEditSec} />
         </div>
     </div>
   )
