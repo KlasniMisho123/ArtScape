@@ -186,6 +186,7 @@ body {
 }
 
 .accManegementBar {
+    white-space: nowrap;
     padding: 1px 6px;
     cursor: pointer;
     transition: background-color 0.5s;
