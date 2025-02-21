@@ -36,19 +36,29 @@ export default function GeneralEdit() {
           <hr className={"opacity-60 " + isLightMode? "border-t-2 border-black":""} />
 
           <div className='flex flex-col p-4 gap-4 '>
-            <label> Country </label>
-            <select className='border-2 border-black bg-[#243642] rounded p-2 text-white'>
-              <option value="" disabled selected>Select your country</option>
+            <label> Country: {selectedCountry} </label>
+            <select 
+            className='border-2 border-black bg-[#243642] rounded p-2 text-white'
+            onChange={(e)=>{
+              setSelectedCountry(e.target.value)
+            }}
+            >
+              <option className='text-gray-400' value="" selected>None</option>
               {Object.keys(availableCountriesAndCities).map((country,index) => {
                 return(<option value={country} key={country}> {country} </option>)
               })}
             </select>
 
-            <label> City </label>
-            <select className='border-2 border-black bg-[#243642] rounded p-2 text-white'> 
-              <option>Tbilisi </option>
-              <option>Sokhumi </option>
-              <option>Rustavi </option>
+            <label> City: {selectedCity} </label>
+            <select
+             disabled={selectedCountry === ""}
+             className={'border-2 border-black bg-[#243642] rounded p-2 text-white ' + 
+             (selectedCountry === ""? "cursor-not-allowed bg-gray-400 border-gray-400" :"" )}
+             onChange={(e)=>{
+              setSelectedCity(e.target.value)
+            }}
+             > 
+              <option className='text-gray-400' value="" selected>None</option>
             </select>
            </div>
         </section>
