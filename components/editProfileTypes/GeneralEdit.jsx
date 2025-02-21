@@ -2,6 +2,6 @@ import React from 'react'
 
 export default function GeneralEdit() {
   return (
-    <div>GeneralEdit</div>
+    <div className='flex justify-center'>GeneralEdit</div>
   )
 }
