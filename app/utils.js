@@ -1,6 +1,6 @@
 const availableCountriesAndCities = {
     "Georgia": [
-      "Tbilisi", "Batumi", "Kutaisi", "Rustavi", "Zugdidi"
+      "Tbilisi", "Sokhumi", "Batumi", "Kutaisi", "Rustavi", "Zugdidi" 
     ],
     "Germany": [
       "Berlin", "Munich", "Hamburg", "Frankfurt", "Cologne"

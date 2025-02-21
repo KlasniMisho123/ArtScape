@@ -16,7 +16,6 @@ export default function GeneralEdit() {
 
   useEffect(()=>{
     findFilteredCities()
-    console.log(filteredCities)
   },[selectedCountry])
 
 
@@ -30,12 +29,17 @@ export default function GeneralEdit() {
           <hr className={"opacity-60 " + isLightMode? "border-t-2 border-black":""} />
           
           <div className='flex flex-col p-4 gap-4 '>
-            <label> Profile Name</label>
+            <label> Username</label>
             <input 
             className='border-2 border-black bg-[#243642] rounded p-2 text-white'
             placeholder=''
             />
-            <label> Real Name <i title="Including your name real friends to find you" className={"fa-regular fa-circle-question ml-[5px] " + (isLightMode? "text-black" : "text-white")}></i></label>
+            <label> Name <i title="Including your name real friends to find you" className={"fa-regular fa-circle-question ml-[5px] " + (isLightMode? "text-black" : "text-white")}></i></label>
+            <input 
+            className='border-2 border-black bg-[#243642] rounded p-2 text-white'
+            placeholder=''
+            />
+            <label> Surname <i title="Including your name real friends to find you" className={"fa-regular fa-circle-question ml-[5px] " + (isLightMode? "text-black" : "text-white")}></i></label>
             <input 
             className='border-2 border-black bg-[#243642] rounded p-2 text-white'
             placeholder=''
