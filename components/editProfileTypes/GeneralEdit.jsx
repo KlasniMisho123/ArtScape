@@ -1,10 +1,14 @@
+'use client'
 import availableCountriesAndCities from '@/app/utils';
 import { useAuth } from '@/context/AuthContext';
-import React from 'react'
+import React, { useState } from 'react'
 
 export default function GeneralEdit() {
   const { isLightMode } = useAuth();
-  //  availableCountriesAndCities
+
+  const [selectedCountry, setSelectedCountry] = useState("")
+  const [selectedCity, setSelectedCity] = useState("")
+  // availableCountriesAndCities
   return (
     <div className='flex flex-col gap-4 justify-center pl-[20px]'>
       <h3 className='font-bold text-lg '> About </h3>
@@ -34,8 +38,9 @@ export default function GeneralEdit() {
           <div className='flex flex-col p-4 gap-4 '>
             <label> Country </label>
             <select className='border-2 border-black bg-[#243642] rounded p-2 text-white'>
+              <option value="" disabled selected>Select your country</option>
               {Object.keys(availableCountriesAndCities).map((country,index) => {
-                return(<option key={country}> {country} </option>)
+                return(<option value={country} key={country}> {country} </option>)
               })}
             </select>
 
