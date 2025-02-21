@@ -8,6 +8,13 @@ export default function GeneralEdit() {
 
   const [selectedCountry, setSelectedCountry] = useState("")
   const [selectedCity, setSelectedCity] = useState("")
+
+  function findFilteredCities() {
+    let filteredCities = []
+
+    console.log(availableCountriesAndCities[selectedCountry])
+  }
+  findFilteredCities()
   // availableCountriesAndCities
   return (
     <div className='flex flex-col gap-4 justify-center pl-[20px]'>
