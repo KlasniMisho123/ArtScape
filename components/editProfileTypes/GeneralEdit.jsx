@@ -1,7 +1,7 @@
 'use client'
 import availableCountriesAndCities from '@/app/utils';
 import { useAuth } from '@/context/AuthContext';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 export default function GeneralEdit() {
   const { isLightMode } = useAuth();
@@ -9,13 +9,17 @@ export default function GeneralEdit() {
   const [selectedCountry, setSelectedCountry] = useState("")
   const [selectedCity, setSelectedCity] = useState("")
 
-  function findFilteredCities() {
-    let filteredCities = []
+  let filteredCities = []
 
-    console.log(availableCountriesAndCities[selectedCountry])
+  function findFilteredCities() {
+    filteredCities = availableCountriesAndCities[selectedCountry]
   }
-  findFilteredCities()
-  // availableCountriesAndCities
+
+  useEffect(()=>{
+    findFilteredCities()
+  },[selectedCountry])
+
+
   return (
     <div className='flex flex-col gap-4 justify-center pl-[20px]'>
       <h3 className='font-bold text-lg '> About </h3>
