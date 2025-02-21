@@ -8,11 +8,10 @@ export default function GeneralEdit() {
 
   const [selectedCountry, setSelectedCountry] = useState("")
   const [selectedCity, setSelectedCity] = useState("")
-
-  let filteredCities = []
+  const [filteredCities, setFilteredCities] = useState([])
 
   function findFilteredCities() {
-    filteredCities = availableCountriesAndCities[selectedCountry]
+    setFilteredCities(availableCountriesAndCities[selectedCountry])
   }
 
   useEffect(()=>{
@@ -71,9 +70,9 @@ export default function GeneralEdit() {
             }}
              > 
               <option className='text-gray-400' value="">None</option>
-              {Object.keys(filteredCities).map(city => {
+              {filteredCities? {Object.keys(filteredCities).map(city => {
                 return(<option value={city} key={city}> {city} </option>)
-              })}
+              })}: null}
             </select>
            </div>
         </section>
