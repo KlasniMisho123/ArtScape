@@ -47,7 +47,7 @@ export default function GeneralEdit() {
           <hr className={"opacity-60 " + isLightMode? "border-t-2 border-black":""} />
 
           <div className='flex flex-col p-4 gap-4 '>
-            <label> Country: {selectedCountry} </label>
+            <label> Country </label>
             <select 
             className='border-2 border-black bg-[#243642] rounded p-2 text-white'
             onChange={(e)=>{
@@ -60,7 +60,7 @@ export default function GeneralEdit() {
               })}
             </select>
 
-            <label> City: {selectedCity} </label>
+            <label> City </label>
             <select
              disabled={selectedCountry === ""}
              className={'border-2 border-black bg-[#243642] rounded p-2 text-white ' + 
@@ -70,9 +70,15 @@ export default function GeneralEdit() {
             }}
              > 
               <option className='text-gray-400' value="">None</option>
-              {filteredCities? {Object.keys(filteredCities).map(city => {
-                return(<option value={city} key={city}> {city} </option>)
-              })}: null}
+              {Array.isArray(filteredCities) && filteredCities.length > 0 ? (
+                (filteredCities).map((city) => (
+                  <option key={city} value={city}>
+                    {city}
+                  </option>
+                ))
+                ) : (
+                  <option value="">No cities available</option>
+              )}
             </select>
            </div>
         </section>
