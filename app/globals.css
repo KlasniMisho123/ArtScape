@@ -19,6 +19,11 @@ body {
     -webkit-text-fill-color: transparent;
 }
 
+.linear-lblue-blue {
+    background: -webkit-linear-gradient(rgb(40, 40, 212), rgb(22, 22, 133) );
+    -webkit-background-clip: color;
+}
+
 .gradientFlame {
     background: -webkit-linear-gradient(
         45deg, 

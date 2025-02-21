@@ -46,7 +46,7 @@ export default function GeneralEdit() {
            </div>
         </section>
         <section>
-          <h3 className='text-lg pb-2'> Summary <i title="Including your location will help ensure accurate shipping to avoid delays or errors." className={"fa-regular fa-circle-question ml-[5px] " + (isLightMode? "text-black" : "text-white")}></i> </h3>
+          <h3 className='text-lg pb-2'> Summary </h3>
           <hr className='opacity-60'/>
 
           <div className='flex flex-col p-4 gap-4 '>
@@ -55,7 +55,10 @@ export default function GeneralEdit() {
           />
           </div>
         </section>
-
+        <div className='flex justify-end gap-16 ml-[10px] mt-[40px]'>
+          <button className='rounded border-white border-2 w-[20%] py-2 bg-gray-700 '> Cancel</button>
+          <button className='rounded border-white border-2 w-[20%] py-2 linear-lblue-blue '> Save</button>
+        </div>
     </div>
   )
 }
