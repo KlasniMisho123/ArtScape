@@ -20,7 +20,7 @@ body {
 }
 
 .linear-lblue-blue {
-    background: -webkit-linear-gradient(rgb(40, 40, 212), rgb(22, 22, 133) );
+    background: linear-gradient(to right, #47bfff 0%, #1a44c2 60%);
     -webkit-background-clip: color;
 }
 
