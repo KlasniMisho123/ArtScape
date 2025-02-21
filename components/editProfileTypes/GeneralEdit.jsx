@@ -17,6 +17,7 @@ export default function GeneralEdit() {
 
   useEffect(()=>{
     findFilteredCities()
+    console.log(filteredCities)
   },[selectedCountry])
 
 
@@ -54,7 +55,7 @@ export default function GeneralEdit() {
               setSelectedCountry(e.target.value)
             }}
             >
-              <option className='text-gray-400' value="" selected>None</option>
+              <option className='text-gray-400' value="">None</option>
               {Object.keys(availableCountriesAndCities).map((country,index) => {
                 return(<option value={country} key={country}> {country} </option>)
               })}
@@ -69,7 +70,10 @@ export default function GeneralEdit() {
               setSelectedCity(e.target.value)
             }}
              > 
-              <option className='text-gray-400' value="" selected>None</option>
+              <option className='text-gray-400' value="">None</option>
+              {Object.keys(filteredCities).map(city => {
+                return(<option value={city} key={city}> {city} </option>)
+              })}
             </select>
            </div>
         </section>
