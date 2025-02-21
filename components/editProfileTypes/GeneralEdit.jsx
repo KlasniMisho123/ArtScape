@@ -1,6 +1,8 @@
+import { useAuth } from '@/context/AuthContext';
 import React from 'react'
 
 export default function GeneralEdit() {
+  const { isLightMode } = useAuth();
   return (
     <div className='flex flex-col gap-4 justify-center pl-[20px]'>
       <h3 className='font-bold text-lg '> About </h3>
@@ -12,9 +14,15 @@ export default function GeneralEdit() {
         </section>
         <div className='flex flex-col p-4 gap-2 '>
           <label> Profile Name</label>
-          <input/>
-          <label> Real Name</label>
-          <input/>
+          <input 
+          className='border-black bg-[#243642] rounded p-2 text-white'
+          placeholder='rad'
+          />
+          <label> Real Name <i title="Including your name real friends to find you" className={"fa-regular fa-circle-question " + (isLightMode? "text-black" : "text-white")}></i></label>
+          <input 
+          className='border-black bg-[#243642] rounded p-2 text-white'
+          placeholder='sad'
+          />
         </div>
     </div>
   )
