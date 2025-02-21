@@ -187,9 +187,10 @@ body {
 
 .accManegementBar {
     white-space: nowrap;
-    padding: 1px 6px;
+    padding: 1.5px 6px;
     cursor: pointer;
     transition: background-color 0.5s;
+    border-radius: 4px;
 }
 
 .accManegementBar:hover {
