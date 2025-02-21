@@ -10,6 +10,12 @@ export default function GeneralEdit() {
         <h3 className=' text-lg pb-2'>General</h3>
         <hr className='opacity-75'/>
         </section>
+        <div className='flex flex-col p-4 gap-2 '>
+          <label> Profile Name</label>
+          <input/>
+          <label> Real Name</label>
+          <input/>
+        </div>
     </div>
   )
 }
