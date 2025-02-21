@@ -187,14 +187,18 @@ body {
 
 .accManegementBar {
     white-space: nowrap;
-    padding: 1.5px 6px;
+    padding: 2px 6px;
     cursor: pointer;
     transition: background-color 0.5s;
-    border-radius: 4px;
+    border-radius: 2px;
 }
 
 .accManegementBar:hover {
-    background-color: rgb(182, 182, 182);
+    background-color: #2973B2;
+}
+
+.activeAccManegementBar {
+    background-color: #2973B2;
 }
 
 @keyframes spinning-animation {
