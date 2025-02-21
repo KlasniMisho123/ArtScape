@@ -44,8 +44,18 @@ export default function GeneralEdit() {
               <option>Soxumi</option>
             </select>
            </div>
-
         </section>
+        <section>
+          <h3 className='text-lg pb-2'> Summary <i title="Including your location will help ensure accurate shipping to avoid delays or errors." className={"fa-regular fa-circle-question ml-[5px] " + (isLightMode? "text-black" : "text-white")}></i> </h3>
+          <hr className='opacity-60'/>
+
+          <div className='flex flex-col p-4 gap-4 '>
+          <textarea 
+            className="border-2 border-black bg-[#243642] rounded p-2 text-white max-h-[200px] min-h-[70px] overflow-y-hidden"
+          />
+          </div>
+        </section>
+
     </div>
   )
 }
