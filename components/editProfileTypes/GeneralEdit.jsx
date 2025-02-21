@@ -9,21 +9,43 @@ export default function GeneralEdit() {
       <p className='text-gray-400'>Set your profile name and details.Providing additional informations 
         like real name can help <br/> friends to find you on the ArtScape Community.</p>
         <section>
-        <h3 className=' text-lg pb-2'>General</h3>
-        <hr className='opacity-75'/>
+          <h3 className=' text-lg pb-2'>General</h3>
+          <hr className='opacity-60'/>
+          
+          <div className='flex flex-col p-4 gap-4 '>
+            <label> Profile Name</label>
+            <input 
+            className='border-black bg-[#243642] rounded p-2 text-white'
+            placeholder=''
+            />
+            <label> Real Name <i title="Including your name real friends to find you" className={"fa-regular fa-circle-question ml-[5px] " + (isLightMode? "text-black" : "text-white")}></i></label>
+            <input 
+            className='border-black bg-[#243642] rounded p-2 text-white'
+            placeholder=''
+            />
+          </div>
         </section>
-        <div className='flex flex-col p-4 gap-2 '>
-          <label> Profile Name</label>
-          <input 
-          className='border-black bg-[#243642] rounded p-2 text-white'
-          placeholder='rad'
-          />
-          <label> Real Name <i title="Including your name real friends to find you" className={"fa-regular fa-circle-question " + (isLightMode? "text-black" : "text-white")}></i></label>
-          <input 
-          className='border-black bg-[#243642] rounded p-2 text-white'
-          placeholder='sad'
-          />
-        </div>
+        <section>
+          <h3 className=' text-lg pb-2'>Location <i title="Including your location will help ensure accurate shipping to avoid delays or errors." className={"fa-regular fa-circle-question ml-[5px] " + (isLightMode? "text-black" : "text-white")}></i> </h3>
+          <hr className='opacity-60'/>
+
+          <div className='flex flex-col p-4 gap-4 '>
+            <label> Country </label>
+            <select className='border-black bg-[#243642] rounded p-2 text-white'>
+              <option>Georgia</option>
+              <option>UK</option>
+              <option>Germany</option>
+            </select>
+
+            <label> City </label>
+            <select className='border-black bg-[#243642] rounded p-2 text-white'> 
+              <option>Tbilisi</option>
+              <option>Rustavi</option>
+              <option>Soxumi</option>
+            </select>
+           </div>
+
+        </section>
     </div>
   )
 }
