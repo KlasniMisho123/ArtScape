@@ -34,7 +34,7 @@ export default function GeneralEdit() {
 
 
   return (
-    <div className='flex flex-col gap-4 justify-center pl-[20px]'>
+    <div className='flex flex-col gap-4 justify-center '>
       <h3 className='font-bold text-lg '> About </h3>
       <p className='opacity-75'>Set your profile name and details.Providing additional informations 
         like real name can help <br/> friends to find you on the ArtScape Community.</p>

@@ -25,8 +25,12 @@ Hydration failed because the server rendered HTML didn't match the client. As a 
 
 --responsive 
 
+2/22/25- mini profile, above edit types.
+
 --- recent Errors ---
 
  uid=null? userAboutmeText -- profileDashboard UseEffect
 
 not logined --> homepage
+
+
