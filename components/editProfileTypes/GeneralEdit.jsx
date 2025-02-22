@@ -9,6 +9,9 @@ export default function GeneralEdit() {
   const [selectedCountry, setSelectedCountry] = useState("")
   const [selectedCity, setSelectedCity] = useState("")
   const [filteredCities, setFilteredCities] = useState([])
+  const [username, setUsername] = useState("")
+  const [name, setName] = useState("")
+  const [surname, setSurname] = useState("")
 
   function findFilteredCities() {
     setFilteredCities(availableCountriesAndCities[selectedCountry])
@@ -32,16 +35,22 @@ export default function GeneralEdit() {
             <label> Username</label>
             <input 
             className='border-2 border-black bg-[#243642] rounded p-2 text-white'
+            value={username}
+            onChange={(e)=>{setUsername(e.target.value)}}
             placeholder=''
             />
             <label> Name <i title="Including your name real friends to find you" className={"fa-regular fa-circle-question ml-[5px] " + (isLightMode? "text-black" : "text-white")}></i></label>
             <input 
             className='border-2 border-black bg-[#243642] rounded p-2 text-white'
+            value={name}
+            onChange={(e)=>{setName(e.target.value)}}
             placeholder=''
             />
             <label> Surname <i title="Including your name real friends to find you" className={"fa-regular fa-circle-question ml-[5px] " + (isLightMode? "text-black" : "text-white")}></i></label>
             <input 
             className='border-2 border-black bg-[#243642] rounded p-2 text-white'
+            value={surname}
+            onChange={(e)=>{setSurname(e.target.value)}}
             placeholder=''
             />
           </div>
