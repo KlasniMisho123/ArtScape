@@ -12,6 +12,7 @@ export default function GeneralEdit() {
   const [username, setUsername] = useState("")
   const [name, setName] = useState("")
   const [surname, setSurname] = useState("")
+  const [aboutText, setAboutText] = useState("")
 
   function findFilteredCities() {
     setFilteredCities(availableCountriesAndCities[selectedCountry])
@@ -96,11 +97,13 @@ export default function GeneralEdit() {
            </div>
         </section>
         <section>
-          <h3 className='text-lg pb-2'> Summary </h3>
+          <h3 className='text-lg pb-2'> About Me </h3>
           <hr className={"opacity-60 " + isLightMode? "border-t-2 border-black":""} />
           <div className='flex flex-col p-4 gap-4 '>
           <textarea 
             className="border-2 border-black bg-[#243642] rounded p-2 text-white max-h-[200px] min-h-[70px] overflow-y-hidden"
+            value={aboutText}
+            onChange={(e)=>{setAboutText(e.target.value)}}
           />
           </div>
         </section>
