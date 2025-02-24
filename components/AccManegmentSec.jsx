@@ -12,8 +12,7 @@ export default function AccManegmentSec(props) {
       <div className='flex flex-col justify-between mt-[40px] pl-[20px]'>
           {currentEditSec === "General"? <GeneralEdit /> : 
           currentEditSec === "Account Details"? <AccountDetailsEdit /> :
-          currentEditSec === "Avatar"? <AvatarEdit /> :
-          currentEditSec === "Mini Profile"? <MiniProfileEdit /> :""}
+          currentEditSec === "Avatar"? <AvatarEdit /> :""}
       </div>
     </div>
   )

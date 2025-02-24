@@ -28,6 +28,12 @@ export default function AvatarEdit() {
         should be square, at least 184px x 184px.</p>
       </div>
       </section>
+      <section>
+      <div className='flex flex-col ml-2 gap-2 '> 
+        <h3 className='font-bold text-white text-xl '> Mini Profile </h3>
+        <p className='opacity-75 '>Preview your profile</p>
+      </div>
+      </section>
       <div className='flex justify-end gap-16 ml-[10px] mt-[80px]'>
           <button className='rounded w-[20%] py-1 text-white bg-[#243642] shadow-lg hover:brightness-110 '> Cancel</button>
           <button className='rounded w-[20%] py-1 text-white linear-lblue-blue shadow-lg hover:brightness-110 '> Save</button>
