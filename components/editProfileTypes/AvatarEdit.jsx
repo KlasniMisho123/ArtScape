@@ -8,17 +8,25 @@ export default function AvatarEdit() {
         <h3 className='font-bold text-white text-xl '> Express Yourself </h3>
         <p className='opacity-75 '>  Change Your Avatar</p>
       </div>
-      <section className='flex justify-between'>
+      <section className='flex gap-14 '>
         <div className='flex gap-12 items-end '>
-          <img src='defaultProfilePicture.jpg' className='h-64 w-64'/>
-          <img src='defaultProfilePicture.jpg' className='h-32 w-32'/>
-          <img src='defaultProfilePicture.jpg' className='h-16 w-16'/>
+          <img src='defaultProfilePicture.jpg' className='h-64 w-64 object-cover'/>
+          <img src='defaultProfilePicture.jpg' className='h-32 w-32 object-cover'/>
+          <img src='defaultProfilePicture.jpg' className='h-16 w-16 object-cover'/>
         </div>
-      <div className='flex flex-col'>
-        <input
-        type='file'
-        />
-        <p>ss</p>
+      <div className='flex flex-col  gap-4'>
+      <input
+        type="file"
+        className="block w-full text-sm text-gray-500
+              file:mr-4 file:py-2 file:px-4
+              file:rounded-lg file:border-0
+              file:text-sm file:font-semibold
+              file:bg-blue-50 file:text-blue-600
+              hover:file:bg-blue-100"
+      />
+
+        <p>Upload a file from your device. Image <br/>
+        should be square, at least 184px x 184px.</p>
       </div>
       </section>
       
