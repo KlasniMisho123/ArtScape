@@ -29,15 +29,14 @@ export default function AvatarEdit() {
       </div>
       </section>
       <section>
-      <div className='flex flex-col ml-2 gap-2 '> 
+      <div className='flex flex-col ml-2 gap-2 my-[20px]'> 
         <h3 className='font-bold text-white text-xl '> Mini Profile </h3>
         <p className='opacity-75 '>Preview your profile</p>
       </div>
 
-      <div className="mx-auto flex w-[50%] miniprofile-bg-theme  shadow-2xl h-full  p-4 ">
-        
+      <div className="mx-auto flex w-[50%] miniprofile-bg-theme  shadow-2xl h-full p-4 ">
           <div className='flex gap-8 '>
-            <img src="ProfilePicDemo.jpg" className="h-32 w-32 object-cover shadow-4xl" />
+            <img src="ProfilePicDemo.jpg" className="h-32 w-32 object-cover shadow-4xl " />
             <div className='flex flex-col'>
                 <h2 className='font-bold text-lg text-white '>GOD OF FIREWORKS</h2>
                 {/* STATS/ RANDOM STATS/ Custom Stats */}
@@ -49,7 +48,7 @@ export default function AvatarEdit() {
 
 
       </section>
-      <div className='flex justify-end gap-16 ml-[10px] mt-[80px]'>
+      <div className='flex justify-end gap-16 ml-[10px] mt-[150px]'>
           <button className='rounded w-[20%] py-1 text-white bg-[#243642] shadow-lg hover:brightness-110 '> Cancel</button>
           <button className='rounded w-[20%] py-1 text-white linear-lblue-blue shadow-lg hover:brightness-110 '> Save</button>
         </div>
