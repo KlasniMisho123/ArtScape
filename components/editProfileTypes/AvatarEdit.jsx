@@ -3,12 +3,12 @@ import React, { useState } from 'react'
 export default function AvatarEdit() {
   const [avatar, setAvatar] = useState("")
   return (
-    <div className='min-h-[100vh] flex flex-col gap-8 '>
+    <div className=' flex flex-col gap-8 '>
       <div className='flex flex-col ml-2 gap-2 '> 
         <h3 className='font-bold text-white text-xl '> Express Yourself </h3>
         <p className='opacity-75 '>  Change Your Avatar</p>
       </div>
-      <section className='flex gap-14 '>
+      <section className='flex gap-14 mt-[20px]'>
         <div className='flex gap-12 items-end '>
           <img src='defaultProfilePicture.jpg' className='h-64 w-64 object-cover'/>
           <img src='defaultProfilePicture.jpg' className='h-32 w-32 object-cover'/>
@@ -24,13 +24,14 @@ export default function AvatarEdit() {
               file:bg-blue-50 file:text-blue-600
               hover:file:bg-blue-100"
       />
-
         <p>Upload a file from your device. Image <br/>
         should be square, at least 184px x 184px.</p>
       </div>
       </section>
-      
-      {avatar}
+      <div className='flex justify-end gap-16 ml-[10px] mt-[80px]'>
+          <button className='rounded w-[20%] py-1 text-white bg-[#243642] shadow-lg hover:brightness-110 '> Cancel</button>
+          <button className='rounded w-[20%] py-1 text-white linear-lblue-blue shadow-lg hover:brightness-110 '> Save</button>
+        </div>
     </div>
   )
 }
