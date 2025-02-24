@@ -35,10 +35,16 @@ export default function AvatarEdit() {
       </div>
 
       <div className="mx-auto flex w-[50%] miniprofile-bg-theme  shadow-2xl h-full  p-4 ">
-        <div className='flex gap-8 '>
-          <img src="defaultProfilePicture.jpg" className="h-32 w-32 object-cover shadow-2xl" />
-          <h2 className='font-bold text-lg text-white '>GOD OF FIREWORKS</h2>
-        </div>
+        
+          <div className='flex gap-8 '>
+            <img src="ProfilePicDemo.jpg" className="h-32 w-32 object-cover shadow-4xl" />
+            <div className='flex flex-col'>
+                <h2 className='font-bold text-lg text-white '>GOD OF FIREWORKS</h2>
+                {/* STATS/ RANDOM STATS/ Custom Stats */}
+                <p>Aboutme/Status</p>
+            </div>
+          </div>
+            
       </div>
 
 
