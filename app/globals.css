@@ -37,6 +37,11 @@ body {
     -webkit-text-fill-color: transparent;
 }
 
+.miniprofile-bg-theme {
+    background-color: red;
+}
+
+
 .titleGradientPurple {
     background: -webkit-linear-gradient(#8A2BE2, #DA70D6);
     -webkit-background-clip: text;

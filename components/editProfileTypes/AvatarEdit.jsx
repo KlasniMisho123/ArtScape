@@ -33,6 +33,14 @@ export default function AvatarEdit() {
         <h3 className='font-bold text-white text-xl '> Mini Profile </h3>
         <p className='opacity-75 '>Preview your profile</p>
       </div>
+
+      <div className='mx-auto flex w-[50%] bg-gray-400 py-2 shadow-2xl bg-gray-500 h-full w-full '>
+          <div className='miniprofile-bg-theme w-full '/>
+          <div className=''>
+              <img src='defaultProfilePicture.jpg' className='h-32 w-32 object-cover'/>
+            </div>
+      </div>
+
       </section>
       <div className='flex justify-end gap-16 ml-[10px] mt-[80px]'>
           <button className='rounded w-[20%] py-1 text-white bg-[#243642] shadow-lg hover:brightness-110 '> Cancel</button>

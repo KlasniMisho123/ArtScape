@@ -2,7 +2,6 @@ import React from 'react'
 import GeneralEdit from './editProfileTypes/GeneralEdit'
 import AccountDetailsEdit from './editProfileTypes/AccountDetailsEdit'
 import AvatarEdit from './editProfileTypes/AvatarEdit'
-import MiniProfileEdit from './editProfileTypes/MiniProfileEdit'
 
 export default function AccManegmentSec(props) {
   const {currentEditSec} = props

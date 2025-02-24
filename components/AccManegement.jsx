@@ -19,9 +19,6 @@ export default function AccManegement() {
             <section className={'accManegementBar ' + (currentEditSec === "Avatar"? "activeAccManegementBar" : "")} onClick={()=>{
               setCurrentEditSec("Avatar")
             }}> Avatar</section>
-            <section className={'accManegementBar ' + (currentEditSec === "Mini Profile"? "activeAccManegementBar" : "")} onClick={()=>{
-              setCurrentEditSec("Mini Profile")
-            }}> Mini Profile </section>
         </div>
             <AccManegmentSec currentEditSec={currentEditSec} />
         </div>
