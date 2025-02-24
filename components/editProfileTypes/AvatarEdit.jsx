@@ -34,12 +34,13 @@ export default function AvatarEdit() {
         <p className='opacity-75 '>Preview your profile</p>
       </div>
 
-      <div className='mx-auto flex w-[50%] bg-gray-400 py-2 shadow-2xl bg-gray-500 h-full w-full '>
-          <div className='miniprofile-bg-theme w-full '/>
-          <div className=''>
-              <img src='defaultProfilePicture.jpg' className='h-32 w-32 object-cover'/>
-            </div>
+      <div className="mx-auto flex w-[50%] miniprofile-bg-theme  shadow-2xl h-full  p-4 ">
+        <div className='flex gap-8 '>
+          <img src="defaultProfilePicture.jpg" className="h-32 w-32 object-cover shadow-2xl" />
+          <h2 className='font-bold text-lg text-white '>GOD OF FIREWORKS</h2>
+        </div>
       </div>
+
 
       </section>
       <div className='flex justify-end gap-16 ml-[10px] mt-[80px]'>
