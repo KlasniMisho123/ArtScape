@@ -34,3 +34,5 @@ Hydration failed because the server rendered HTML didn't match the client. As a 
 not logined --> homepage
 
 
+----------------------------Features----------------------------
+{/* STATS/ RANDOM STATS/ Custom Stats /followers,following...*/}
