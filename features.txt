@@ -36,3 +36,4 @@ not logined --> homepage
 
 ----------------------------Features----------------------------
 {/* STATS/ RANDOM STATS/ Custom Stats /followers,following...*/}
+Art Style/Mediums (checkboxes or multi-select dropdown)
