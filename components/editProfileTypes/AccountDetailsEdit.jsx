@@ -2,6 +2,13 @@ import React from 'react'
 
 export default function AccountDetailsEdit() {
   return (
-    <div>AccountDetailsEdit</div>
+    <div>
+      <input
+      placeholder='Social Links'
+      />
+      <input
+      placeholder='Desc'
+      />
+    </div>
   )
 }
