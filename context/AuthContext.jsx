@@ -50,11 +50,11 @@ export function AuthProvider({ children }) {
                 // console.log(user.email)
                 let firebaseData = {}
                 setIsAuthenticated(true)
-                // if (docSnap.exists()) {
-                //     firebaseData = docSnap.data()
-                // }
-                // setUserDataObj(firebaseData)
-                // console.log(userDataObj)
+                if (docSnap.exists()) {
+                    firebaseData = docSnap.data()
+                }
+                setUserDataObj(firebaseData)
+                console.log("userDataObj: ", userDataObj)
             } catch(err) {
                 console.log("Fetching User Err: ", err.message)
             } finally {
