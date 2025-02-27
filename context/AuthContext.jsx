@@ -74,18 +74,17 @@ export function AuthProvider({ children }) {
                 if (!user) {
                     return
                 }
-
                 // if user exists, fetch data from firestore database
                 const docRef = doc(db, 'users', user.uid)
                 const docSnap = await getDoc(docRef)
-                // console.log(user.email)
+                console.log(user.email)
                 let firebaseData = {}
                 setIsAuthenticated(true)
-                // if (docSnap.exists()) {
-                //     firebaseData = docSnap.data()
-                // }
-                // setUserDataObj(firebaseData)
-                // console.log(userDataObj)
+                if (docSnap.exists()) {
+                    firebaseData = docSnap.data()
+                }
+                setUserDataObj(firebaseData)
+                console.log("currentUser: ", firebaseData)
             } catch(err) {
                 console.log("Fetching User Err: ", err.message)
             } finally {
