@@ -5,7 +5,7 @@ export default function AvatarEdit() {
   return (
     <div className=' flex flex-col gap-8 '>
       <div className='flex flex-col ml-2 gap-2 '> 
-        <h3 className='font-bold text-white text-xl '> Express Yourself </h3>
+        <h3 className='font-bold text-xl '> Express Yourself </h3>
         <p className='opacity-75 '>  Change Your Avatar</p>
       </div>
       <section className='flex gap-14 mt-[20px]'>
@@ -30,7 +30,7 @@ export default function AvatarEdit() {
       </section>
       <section>
       <div className='flex flex-col ml-2 gap-2 my-[20px]'> 
-        <h3 className='font-bold text-white text-xl '> Mini Profile </h3>
+        <h3 className='font-bold text-xl '> Mini Profile </h3>
         <p className='opacity-75 '>Preview your profile</p>
       </div>
 
