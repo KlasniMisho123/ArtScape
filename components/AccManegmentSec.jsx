@@ -10,7 +10,7 @@ export default function AccManegmentSec(props) {
 
   return (
     <div className='flex flex-col w-[80%] py-[20px] '>
-      <div className='ml-[20px] '> User: {currentUser?.email || ""} </div>
+      <div className='ml-[20px] '> User: {currentUser?.displayName || ""} </div>
       <div className='ml-[20px] '> User ID: {currentUser?.uid || ""} </div>
       <div className='flex justify-center font-bold md:text-2xl sm:text-sm '> {currentEditSec} </div>
       <div className='flex flex-col justify-between mt-[40px] pl-[20px]'>
