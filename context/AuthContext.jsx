@@ -62,7 +62,7 @@ export function AuthProvider({ children }) {
         return unsubscribe
     },[])
 
-    // mgoni arari sachiro,[login, signup, logout]
+    // mgoni arari sachiro,[login, signup, logout] //2 logoutis errors agdebs
     useEffect(()=>{
         const unsubscribe = onAuthStateChanged(auth, async user => {
             try{
