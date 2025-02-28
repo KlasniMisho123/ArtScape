@@ -24,11 +24,12 @@ export default function AccountDetailsEdit() {
         <div className="flex gap-[30%]  p-2 mx-2 "> 
           <div>
             <p> <span className='text-gray-500'> Email address: </span>{currentUser?.email || ""} </p> 
-            <p> <span className='text-gray-500'> Status: </span> {currentUser.emailVerified ? `Verified` : "Unverified"} </p>
+            <p> <span className='text-gray-500'> Status: </span> {currentUser?.emailVerified ? `Verified` : "Unverified"} </p>
           </div>
           <div>
-            <p> <span className='text-gray-500'> Phone: </span> <i className="fa-solid fa-mobile mx-1 "></i> {currentUser.phone ? `Ends in: ${currentUser.phone}` : "Empty"} </p> 
-            <p> <span className='text-gray-500'> Status: </span> {currentUser.mbverify ? `Verified` : "Unverified"} </p>
+            <p> <span className='text-gray-500'> Phone: </span> <i className="fa-solid fa-mobile mx-1 "></i> {currentUser?.phoneNumber
+             ? `Ends in: ${currentUser.phone}` : "Empty"} </p> 
+            <p> <span className='text-gray-500'> Status: </span> {currentUser?.mbverify ? `Verified` : "Unverified"} </p>
           </div>
         </div>
       </section>

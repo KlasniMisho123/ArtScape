@@ -38,3 +38,7 @@ not logined --> homepage
 edit profile section ->
 {/* STATS/ RANDOM STATS/ Custom Stats /followers,following...*/}
 Art Style/Mediums (checkboxes or multi-select dropdown) <-
+
+
+----------------------------Firebase Auth ----------------------------
+phoneNumber,emailVerified,displayName 

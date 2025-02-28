@@ -78,12 +78,12 @@ export default function AuthenticationForm(props) {
           email:email
         })
       } else {
-        await signup(email, password)
+        await signup(email, password, username)
         setAuthenticatingActive(false)
         setIsAuthenticated(true)
         setCurrentUser({
-          username:username,
-          email:email
+          email:email,
+          displayName: user.displayName,
         })
       }
     } catch(err) {

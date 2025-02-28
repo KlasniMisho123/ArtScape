@@ -1,7 +1,7 @@
 'use client'
 import { auth, db } from "../firebase"
 import React, { useContext , useEffect, useState } from 'react'
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth"
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, updateProfile } from "firebase/auth"
 import { doc, getDoc } from "firebase/firestore"
 
 
@@ -20,8 +20,14 @@ export function AuthProvider({ children }) {
     const [isLightMode, setIsLightMode] = useState(true);
 
     
-    function signup(email, password) {
-        return createUserWithEmailAndPassword(auth, email, password)
+    async function signup(email, password, username) {
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+
+        await updateProfile(userCredential.user, {
+            displayName: username
+        });
+
+        return userCredential.user;
     }
 
     function login(email, password) {
