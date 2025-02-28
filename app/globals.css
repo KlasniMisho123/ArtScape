@@ -216,6 +216,8 @@ body {
     background-color: #2973B2;
 }
 
+  
+
 @keyframes spinning-animation {
     from {
         transform: rotate(0deg);
