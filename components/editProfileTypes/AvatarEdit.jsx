@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 
 export default function AvatarEdit() {
   const [avatar, setAvatar] = useState("")
+  const [isLoading, setIisLoading] = useState(false)
   // const fileInputRef = useRef(null);
 
   function handleAvatarUpload(event) {
@@ -15,6 +16,16 @@ export default function AvatarEdit() {
 
   function handleClear() {
     setAvatar("")
+  }
+
+  async function handleSubmit() {
+    try{
+      setIisLoading(true)
+    } catch(err) {
+      console.log(err.message)
+    } finally {
+      setIisLoading(false)
+    }
   }
 
   useEffect(()=>{
