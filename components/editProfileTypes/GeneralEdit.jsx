@@ -4,7 +4,7 @@ import { useAuth } from '@/context/AuthContext';
 import React, { useEffect, useState } from 'react'
 
 export default function GeneralEdit() {
-  const { isLightMode } = useAuth();
+  const { isLightMode, currentUser } = useAuth();
 
   const [selectedCountry, setSelectedCountry] = useState("")
   const [selectedCity, setSelectedCity] = useState("")
@@ -18,6 +18,7 @@ export default function GeneralEdit() {
   const [socialLinkOne, setSocialLinkOne] = useState("")
   const [socialLinkTwo, setSocialLinkTwo] = useState("")
   
+  let currentUsername = currentUser?.displayName
 
   function findFilteredCities() {
     setFilteredCities(availableCountriesAndCities[selectedCountry])
@@ -38,9 +39,14 @@ export default function GeneralEdit() {
   }
 
   useEffect(()=>{
+    //filter Cities by Countries
     findFilteredCities()
+
   },[selectedCountry])
 
+  useEffect(()=>{
+    console.log()
+  },[])
 
   return (
     <div className='flex flex-col gap-4 justify-center '>
@@ -57,7 +63,7 @@ export default function GeneralEdit() {
             className='border-2 border-black bg-[#243642] rounded p-2 text-white'
             value={username}
             onChange={(e)=>{setUsername(e.target.value)}}
-            placeholder=''
+            placeholder={currentUsername}
             />
             <label> Name <i title="Including your name real friends to find you" className={"fa-regular fa-circle-question ml-[5px] " + (isLightMode? "text-black" : "text-white")}></i></label>
             <input 
