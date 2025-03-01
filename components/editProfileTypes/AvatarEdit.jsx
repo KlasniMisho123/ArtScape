@@ -33,9 +33,11 @@ export default function AvatarEdit() {
     }
   }
 
-  useEffect(()=> {
-    setCurrentAvatar(currentUser?.photoURL)
-  },[])
+  useEffect(() => {
+    setCurrentAvatar(currentUser?.photoURL || "");
+    console.log("Avatar:", avatar);
+    console.log("Current Avatar:", currentAvatar);
+  }, [currentUser]);
 
   return (
     <div className=' flex flex-col gap-8 '>
@@ -45,9 +47,21 @@ export default function AvatarEdit() {
       </div>
       <section className='flex gap-14 mt-[20px]'>
         <div className='flex gap-12 items-end '>
-          <img src={avatar || "defaultProfilePicture.jpg"} className='h-64 w-64 object-cover'/>
-          <img src={avatar || "defaultProfilePicture.jpg"} className='h-32 w-32 object-cover'/>
-          <img src={avatar || "defaultProfilePicture.jpg"} className='h-16 w-16 object-cover'/>
+          <img 
+          alt='Avatar 64x64'
+          src={avatar?.trim() || currentAvatar?.trim() || "defaultProfilePicture.jpg"}
+          onError={(e) => e.target.src = "defaultProfilePicture.jpg"}
+          className='h-64 w-64 object-cover'/>
+          <img 
+          alt='Avatar 32x32'
+          src={avatar?.trim() || currentAvatar?.trim() || "defaultProfilePicture.jpg"}
+          onError={(e) => e.target.src = "defaultProfilePicture.jpg"} 
+          className='h-32 w-32 object-cover'/>
+          <img 
+          alt='Avatar 16x16'
+          src={avatar?.trim() || currentAvatar?.trim() || "defaultProfilePicture.jpg"}
+          onError={(e) => e.target.src = "defaultProfilePicture.jpg"}
+          className='h-16 w-16 object-cover'/>
         </div>
       <div className='flex flex-col  gap-4'>
       <input
@@ -75,10 +89,11 @@ export default function AvatarEdit() {
           <div className='flex gap-8 '>
             {/* Theme,background change?*/}
             <img 
-                src={avatar || currentAvatar || "defaultProfilePicture.jpg"} 
-                className="h-32 w-32 object-cover shadow-4xl"
+                alt="Avatar"
+                src={avatar?.trim() || currentAvatar?.trim() || "defaultProfilePicture.jpg"}
+                className="h-32 w-32 object-cover shadow-4xl" 
+                onError={(e) => e.target.src = "defaultProfilePicture.jpg"}
             />
-            {/* <img src={avatar || "defaultProfilePicture.jpg"} className="h-32 w-32 object-cover shadow-4xl " /> */}
             <div className='flex flex-col'>
                 <h2 className='font-bold text-lg text-white '>GOD OF FIREWORKS</h2>
                 {/* STATS/ RANDOM STATS/ Custom Stats /followers,following...*/}
