@@ -44,9 +44,6 @@ export default function GeneralEdit() {
 
   },[selectedCountry])
 
-  useEffect(()=>{
-    console.log(currentUser)
-  },[])
 
   return (
     <div className='flex flex-col gap-4 justify-center '>
