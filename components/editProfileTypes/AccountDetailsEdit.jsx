@@ -11,14 +11,6 @@ export default function AccountDetailsEdit() {
 
   return (
     <div className=''>
-      <div>
-      <input
-      placeholder='Social Links'
-      />
-      <input
-      placeholder='Desc'
-      />
-      </div>
       <section className='flex flex-col gap-4 shadow-2xl  '>
         <div className='text-lg font-bold bg-[#134B70] text-white px-2 py-1 '> <i className="fa-solid fa-envelope mr-1"></i> Contact Info  </div>
         <div className="flex gap-[30%] p-2 mx-2 pb-8 "> 
@@ -39,7 +31,7 @@ export default function AccountDetailsEdit() {
       </section>
       <section className='flex flex-col gap-4 shadow-2xl mt-14'>
         <div className='text-lg font-bold bg-[#134B70] text-white px-2 py-1 '> <i class="fa-solid fa-shield mr-1"></i> Account Security  </div>
-        <div className="flex gap-[30%] p-2 mx-2 pb-8 "> 
+        <div className="flex gap-[10%] p-2 mx-2 pb-8 "> 
           <div>
             {/*  Two-Factor Authentication (2FA)*/}
             <p className='my-1'>  <span className='text-gray-500'> 2FA Status: </span> Active </p> 
@@ -49,9 +41,10 @@ export default function AccountDetailsEdit() {
             <button className="p-1 border border-black my-1 px-4 text-green-400 rounded transition-all duration-300 hover:bg-green-500 hover:text-white"> 
             <i class="fa-solid fa-play"></i> Activate </button>
             </div>
+            <button className="p-1 border border-black my-1 px-4 rounded transition-all duration-300 hover:bg-black hover:text-white mt-6 ">Change Password </button>
           </div>
           <div>
-
+              <button className="p-1 border border-black my-1 px-4 rounded transition-all duration-300 hover:bg-black hover:text-white">Learn more about ArtScape 2FA </button>
           </div>
         </div>
       </section>
