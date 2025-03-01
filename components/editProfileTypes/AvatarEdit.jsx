@@ -23,8 +23,7 @@ export default function AvatarEdit() {
   async function handleSubmit() {
     try{
       setIisLoading(true)
-
-      const userId = currentUser.uid; 
+      // const userId = currentUser.uid; 
       
       console.log(currentUser)
     } catch(err) {
@@ -33,10 +32,6 @@ export default function AvatarEdit() {
       setIisLoading(false)
     }
   }
-
-  useEffect(()=>{
-    console.log("avatar: ",avatar)
-  },[avatar])
 
   return (
     <div className=' flex flex-col gap-8 '>

@@ -40,7 +40,15 @@ export function AuthProvider({ children }) {
         setIsAuthenticated(false)
         return signOut(auth)
     }
-    
+
+    async function profileAvatar(avatar) {
+
+        await updateProfile(currentUser.uid, {
+            photoURL: avatar
+        });
+
+    }
+
     useEffect(()=>{
         const unsubscribe = onAuthStateChanged(auth, async user => {
             try{
@@ -115,6 +123,7 @@ export function AuthProvider({ children }) {
         setIsAuthenticated,
         currentUser,
         setCurrentUser,
+        profileAvatar,
         signup,
         login,
         logout,
