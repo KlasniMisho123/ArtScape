@@ -94,7 +94,7 @@ export default function AvatarEdit() {
                 onError={(e) => e.target.src = "defaultProfilePicture.jpg"}
             />
             <div className='flex flex-col'>
-                <h2 className='font-bold text-lg text-white '>GOD OF FIREWORKS</h2>
+                <h2 className='font-bold text-lg text-white '>{currentUser?.displayName || currentUser?.uid?.slice(0, 12)}</h2>
                 {/* STATS/ RANDOM STATS/ Custom Stats /followers,following...*/}
                 <p>Aboutme/Status</p>
             </div>
