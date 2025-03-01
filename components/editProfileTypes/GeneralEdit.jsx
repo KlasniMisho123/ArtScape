@@ -117,6 +117,40 @@ export default function GeneralEdit() {
           />
           </div>
         </section>
+        <section>
+          <h3 className='text-lg pb-2'> Socials </h3>
+          <hr className={"opacity-60 " + isLightMode? "border-t-2 border-black":""} />
+          <div className='flex flex-col p-4 gap-4'> 
+            <div className='flex gap-2'>
+            <input 
+              className='border-2 border-black bg-[#243642] rounded p-2 text-white'
+              value={surname}
+              onChange={(e)=>{setSurname(e.target.value)}}
+              placeholder='Social'
+            />
+              <input 
+                className='border-2 border-black bg-[#243642] rounded p-2 text-white w-full'
+                value={surname}
+                onChange={(e)=>{setSurname(e.target.value)}}
+                placeholder='Link'
+              />
+          </div> 
+          <div className='flex gap-2'>
+              <input 
+                className='border-2 border-black bg-[#243642] rounded p-2 text-white '
+                value={surname}
+                onChange={(e)=>{setSurname(e.target.value)}}
+                placeholder='Social'
+              />
+              <input 
+                className='border-2 border-black bg-[#243642] rounded p-2 text-white w-full'
+                value={surname}
+                onChange={(e)=>{setSurname(e.target.value)}}
+                placeholder='Link'
+              />
+            </div> 
+          </div>
+        </section>
         <div className='flex justify-end gap-16 ml-[10px] mt-[40px]'>
           <button
            className='rounded w-[20%] py-1 text-white bg-[#243642] shadow-lg hover:brightness-110 '
