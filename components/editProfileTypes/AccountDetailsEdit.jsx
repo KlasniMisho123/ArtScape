@@ -20,17 +20,35 @@ export default function AccountDetailsEdit() {
       />
       </div>
       <section className='flex flex-col gap-4 shadow-2xl  '>
-        <div className='text-lg font-bold bg-[#134B70] text-white px-2 py-1 '> Contact Info <i className="fa-solid fa-envelope"></i> </div>
+        <div className='text-lg font-bold bg-[#134B70] text-white px-2 py-1 '> <i className="fa-solid fa-envelope mr-1"></i> Contact Info  </div>
         <div className="flex gap-[30%] p-2 mx-2 pb-8 "> 
           <div>
           <button className="p-1 border border-black my-1 px-4 rounded transition-all duration-300 hover:bg-black hover:text-white"> 
-            Change <i className="fa-solid fa-envelope"></i> </button>
+            Change Email <i className="fa-solid fa-envelope"></i> </button>
             <p className='my-1'> <span className='text-gray-500'> Email address: </span>{currentUser?.email || ""} </p> 
             <p> <span className='text-gray-500'> Status: </span> {currentUser?.emailVerified ? `Verified` : "Unverified"} </p>
           </div>
           <div>
             <button className="p-1 border border-black my-1 px-4 rounded transition-all duration-300 hover:bg-black hover:text-white"> 
-              Change <i className="fa-solid fa-mobile  "> </i> </button>
+              Change Phone <i className="fa-solid fa-mobile  "> </i> </button>
+            <p className='my-1'> <span className='text-gray-500'> Phone: </span> <i className="fa-solid fa-mobile mx-1 "></i> {currentUser?.phoneNumber
+             ? `Ends in: ${currentUser.phone}` : "Empty"} </p> 
+            <p> <span className='text-gray-500'> Status: </span> {currentUser?.mbverify ? `Verified` : "Unverified"} </p>
+          </div>
+        </div>
+      </section>
+      <section className='flex flex-col gap-4 shadow-2xl mt-14'>
+        <div className='text-lg font-bold bg-[#134B70] text-white px-2 py-1 '> <i class="fa-solid fa-shield mr-1"></i> Account Security  </div>
+        <div className="flex gap-[30%] p-2 mx-2 pb-8 "> 
+          <div>
+          <button className="p-1 border border-black my-1 px-4 rounded transition-all duration-300 hover:bg-black hover:text-white"> 
+            Change Email <i className="fa-solid fa-envelope"></i> </button>
+            <p className='my-1'> <span className='text-gray-500'> Email address: </span>{currentUser?.email || ""} </p> 
+            <p> <span className='text-gray-500'> Status: </span> {currentUser?.emailVerified ? `Verified` : "Unverified"} </p>
+          </div>
+          <div>
+            <button className="p-1 border border-black my-1 px-4 rounded transition-all duration-300 hover:bg-black hover:text-white"> 
+              Change Phone <i className="fa-solid fa-mobile  "> </i> </button>
             <p className='my-1'> <span className='text-gray-500'> Phone: </span> <i className="fa-solid fa-mobile mx-1 "></i> {currentUser?.phoneNumber
              ? `Ends in: ${currentUser.phone}` : "Empty"} </p> 
             <p> <span className='text-gray-500'> Status: </span> {currentUser?.mbverify ? `Verified` : "Unverified"} </p>
