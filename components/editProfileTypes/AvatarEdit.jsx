@@ -34,10 +34,9 @@ export default function AvatarEdit() {
   }
 
   useEffect(() => {
-    setCurrentAvatar(currentUser?.photoURL || "");
-    console.log("Avatar:", avatar);
-    console.log("Current Avatar:", currentAvatar);
-  }, [currentUser]);
+    setCurrentAvatar(currentUser?.photoURL);
+    console.log("currentUser:", currentUser);
+}, [currentUser]);
 
   return (
     <div className=' flex flex-col gap-8 '>
@@ -49,18 +48,15 @@ export default function AvatarEdit() {
         <div className='flex gap-12 items-end '>
           <img 
           alt='Avatar 64x64'
-          src={avatar?.trim() || currentAvatar?.trim() || "defaultProfilePicture.jpg"}
-          onError={(e) => e.target.src = "defaultProfilePicture.jpg"}
+          src={avatar || currentAvatar|| "defaultProfilePicture.jpg"}
           className='h-64 w-64 object-cover'/>
           <img 
           alt='Avatar 32x32'
-          src={avatar?.trim() || currentAvatar?.trim() || "defaultProfilePicture.jpg"}
-          onError={(e) => e.target.src = "defaultProfilePicture.jpg"} 
+          src={avatar || currentAvatar || "defaultProfilePicture.jpg"}
           className='h-32 w-32 object-cover'/>
           <img 
           alt='Avatar 16x16'
-          src={avatar?.trim() || currentAvatar?.trim() || "defaultProfilePicture.jpg"}
-          onError={(e) => e.target.src = "defaultProfilePicture.jpg"}
+          src={avatar || currentAvatar || "defaultProfilePicture.jpg"}
           className='h-16 w-16 object-cover'/>
         </div>
       <div className='flex flex-col  gap-4'>
