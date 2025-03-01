@@ -3,14 +3,15 @@ import React, { useEffect, useState } from 'react'
 export default function AvatarEdit() {
   const [avatar, setAvatar] = useState("")
 
-  function handleAvatarUpload(event) {
-    // const file = event.target.files[0];
+  function handleAvatarUpload(e) {
+    const file = e.target.files;
 
     console.log("file: ", file)
   }
 
   useEffect(()=>{
     handleAvatarUpload()
+    console.log(avatar)
   },[avatar])
 
   return (
@@ -28,7 +29,7 @@ export default function AvatarEdit() {
       <div className='flex flex-col  gap-4'>
       <input
         type="file"
-        onChange={(e)=>{setAvatar(e.target.value)}}
+        onChange={handleAvatarUpload}
         className="block w-full text-sm text-gray-500
               file:mr-4 file:py-2 file:px-4
               file:rounded-lg file:border-0
