@@ -13,6 +13,11 @@ export default function GeneralEdit() {
   const [name, setName] = useState("")
   const [surname, setSurname] = useState("")
   const [aboutText, setAboutText] = useState("")
+  const [socialOne, setSocialOne] = useState("")
+  const [socialTwo, setSocialTwo] = useState("")
+  const [socialLinkOne, setSocialLinkOne] = useState("")
+  const [socialLinkTwo, setSocialLinkTwo] = useState("")
+  
 
   function findFilteredCities() {
     setFilteredCities(availableCountriesAndCities[selectedCountry])
@@ -26,6 +31,10 @@ export default function GeneralEdit() {
     setName("")
     setSurname("")
     setAboutText("")
+    setSocialOne("")
+    setSocialTwo("")
+    setSocialLinkOne("")
+    setSocialLinkTwo("")
   }
 
   useEffect(()=>{
@@ -124,28 +133,28 @@ export default function GeneralEdit() {
             <div className='flex gap-2'>
             <input 
               className='border-2 border-black bg-[#243642] rounded p-2 text-white'
-              value={surname}
-              onChange={(e)=>{setSurname(e.target.value)}}
+              value={socialOne}
+              onChange={(e)=>{setSocialOne(e.target.value)}}
               placeholder='Social'
             />
               <input 
                 className='border-2 border-black bg-[#243642] rounded p-2 text-white w-full'
-                value={surname}
-                onChange={(e)=>{setSurname(e.target.value)}}
+                value={socialLinkOne}
+                onChange={(e)=>{setSocialLinkOne(e.target.value)}}
                 placeholder='Link'
               />
           </div> 
           <div className='flex gap-2'>
               <input 
                 className='border-2 border-black bg-[#243642] rounded p-2 text-white '
-                value={surname}
-                onChange={(e)=>{setSurname(e.target.value)}}
+                value={socialTwo}
+                onChange={(e)=>{setSocialTwo(e.target.value)}}
                 placeholder='Social'
               />
               <input 
                 className='border-2 border-black bg-[#243642] rounded p-2 text-white w-full'
-                value={surname}
-                onChange={(e)=>{setSurname(e.target.value)}}
+                value={socialLinkTwo}
+                onChange={(e)=>{setSocialLinkTwo(e.target.value)}}
                 placeholder='Link'
               />
             </div> 
