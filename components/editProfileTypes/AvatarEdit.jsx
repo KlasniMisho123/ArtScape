@@ -3,9 +3,9 @@ import React, { useEffect, useState } from 'react'
 
 export default function AvatarEdit() {
   const { currentUser, updateAvatar } = useAuth()
+  const [currentAvatar, setCurrentAvatar] = useState("")
   const [avatar, setAvatar] = useState("")
   const [isLoading, setIisLoading] = useState(false)
-  // const fileInputRef = useRef(null);
 
   function handleAvatarUpload(event) {
     const file = event.target.files[0];
@@ -34,6 +34,10 @@ export default function AvatarEdit() {
     }
   }
 
+  useEffect(()=> {
+    setCurrentAvatar(currentUser?.photoURL)
+  },[])
+
   return (
     <div className=' flex flex-col gap-8 '>
       <div className='flex flex-col ml-2 gap-2 '> 
@@ -42,9 +46,9 @@ export default function AvatarEdit() {
       </div>
       <section className='flex gap-14 mt-[20px]'>
         <div className='flex gap-12 items-end '>
-          <img src={avatar || "defaultProfilePicture.jpg"} className='h-64 w-64 object-cover'/>
-          <img src={avatar || "defaultProfilePicture.jpg"} className='h-32 w-32 object-cover'/>
-          <img src={avatar || "defaultProfilePicture.jpg"} className='h-16 w-16 object-cover'/>
+          <img src={avatar || {currentAvatar}} className='h-64 w-64 object-cover'/>
+          <img src={avatar || {currentAvatar}} className='h-32 w-32 object-cover'/>
+          <img src={avatar || {currentAvatar}} className='h-16 w-16 object-cover'/>
         </div>
       <div className='flex flex-col  gap-4'>
       <input
@@ -71,7 +75,7 @@ export default function AvatarEdit() {
       <div className="mx-auto flex flex-col w-[50%] miniprofile-bg-theme  shadow-2xl h-full p-4 ">
           <div className='flex gap-8 '>
             {/* Theme,background change?*/}
-            <img src={avatar || "defaultProfilePicture.jpg"} className="h-32 w-32 object-cover shadow-4xl " />
+            <img src={avatar || {currentAvatar} || "defaultProfilePicture.jpg"} className="h-32 w-32 object-cover shadow-4xl " />
             <div className='flex flex-col'>
                 <h2 className='font-bold text-lg text-white '>GOD OF FIREWORKS</h2>
                 {/* STATS/ RANDOM STATS/ Custom Stats /followers,following...*/}
