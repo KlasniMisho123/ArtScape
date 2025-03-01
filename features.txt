@@ -42,3 +42,4 @@ Art Style/Mediums (checkboxes or multi-select dropdown) <-
 
 ----------------------------Firebase Auth ----------------------------
 phoneNumber,emailVerified,displayName 
+! Two-Factor Authentication (2FA) **
