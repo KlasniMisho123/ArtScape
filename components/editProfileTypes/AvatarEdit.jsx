@@ -3,8 +3,14 @@ import React, { useEffect, useState } from 'react'
 export default function AvatarEdit() {
   const [avatar, setAvatar] = useState("")
 
+  function handleAvatarUpload(event) {
+    // const file = event.target.files[0];
+
+    console.log("file: ", file)
+  }
+
   useEffect(()=>{
-    console.log("avatar: ", avatar)
+    handleAvatarUpload()
   },[avatar])
 
   return (
