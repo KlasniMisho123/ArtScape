@@ -49,14 +49,17 @@ export default function AvatarEdit() {
           <img 
           alt='Avatar 64x64'
           src={avatar || currentAvatar|| "defaultProfilePicture.jpg"}
+          onError={(e) => e.target.src = "defaultProfilePicture.jpg"}
           className='h-64 w-64 object-cover'/>
           <img 
           alt='Avatar 32x32'
           src={avatar || currentAvatar || "defaultProfilePicture.jpg"}
+          onError={(e) => e.target.src = "defaultProfilePicture.jpg"}
           className='h-32 w-32 object-cover'/>
           <img 
           alt='Avatar 16x16'
           src={avatar || currentAvatar || "defaultProfilePicture.jpg"}
+          onError={(e) => e.target.src = "defaultProfilePicture.jpg"}
           className='h-16 w-16 object-cover'/>
         </div>
       <div className='flex flex-col  gap-4'>
@@ -86,7 +89,7 @@ export default function AvatarEdit() {
             {/* Theme,background change?*/}
             <img 
                 alt="Avatar"
-                src={avatar?.trim() || currentAvatar?.trim() || "defaultProfilePicture.jpg"}
+                src={avatar || currentAvatar|| "defaultProfilePicture.jpg"}
                 className="h-32 w-32 object-cover shadow-4xl" 
                 onError={(e) => e.target.src = "defaultProfilePicture.jpg"}
             />

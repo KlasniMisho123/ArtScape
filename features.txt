@@ -46,4 +46,4 @@ phoneNumber,emailVerified,displayName
 
 
 ----------------------------Errors ----------------------------
-Avatar Edit error --> ame picture render from User photoUrl -> AvatarEdit
+Avatar Edit error --> ame picture render from User photoUrl -> AvatarEdit, cant recivie existing profilepic
