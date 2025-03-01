@@ -1,7 +1,12 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 export default function AvatarEdit() {
   const [avatar, setAvatar] = useState("")
+
+  useEffect(()=>{
+    console.log("avatar: ", avatar)
+  },[avatar])
+
   return (
     <div className=' flex flex-col gap-8 '>
       <div className='flex flex-col ml-2 gap-2 '> 
@@ -17,6 +22,7 @@ export default function AvatarEdit() {
       <div className='flex flex-col  gap-4'>
       <input
         type="file"
+        onChange={(e)=>{setAvatar(e.target.value)}}
         className="block w-full text-sm text-gray-500
               file:mr-4 file:py-2 file:px-4
               file:rounded-lg file:border-0
@@ -43,7 +49,6 @@ export default function AvatarEdit() {
                 <p>Aboutme/Status</p>
             </div>
           </div>
-          
       </div>
 
 
