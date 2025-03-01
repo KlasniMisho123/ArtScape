@@ -41,12 +41,21 @@ export function AuthProvider({ children }) {
         return signOut(auth)
     }
 
-    async function profileAvatar(avatar) {
-
-        await updateProfile(currentUser.uid, {
-            photoURL: avatar
-        });
-
+    async function updateAvatar(avatar) {
+        if (!auth.currentUser) {
+            console.error("No user is logged in.");
+            return;
+        }
+    
+        try {
+            await updateProfile(auth.currentUser, {
+                photoURL: avatar
+            });
+    
+            console.log("Avatar updated successfully:", avatar);
+        } catch (error) {
+            console.error("Error updating avatar:", error.message);
+        }
     }
 
     useEffect(()=>{
@@ -123,7 +132,7 @@ export function AuthProvider({ children }) {
         setIsAuthenticated,
         currentUser,
         setCurrentUser,
-        profileAvatar,
+        updateAvatar,
         signup,
         login,
         logout,

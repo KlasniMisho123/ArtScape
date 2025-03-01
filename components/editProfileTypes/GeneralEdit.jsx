@@ -45,7 +45,7 @@ export default function GeneralEdit() {
   },[selectedCountry])
 
   useEffect(()=>{
-    console.log()
+    console.log(currentUser)
   },[])
 
   return (

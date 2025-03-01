@@ -2,7 +2,7 @@ import { useAuth } from '@/context/AuthContext';
 import React, { useEffect, useState } from 'react'
 
 export default function AvatarEdit() {
-  const { currentUser } =useAuth()
+  const { currentUser, updateAvatar } = useAuth()
   const [avatar, setAvatar] = useState("")
   const [isLoading, setIisLoading] = useState(false)
   // const fileInputRef = useRef(null);
@@ -23,7 +23,8 @@ export default function AvatarEdit() {
   async function handleSubmit() {
     try{
       setIisLoading(true)
-      // const userId = currentUser.uid; 
+
+      updateAvatar(avatar)
       
       console.log(currentUser)
     } catch(err) {
