@@ -1,6 +1,8 @@
+import { useAuth } from '@/context/AuthContext';
 import React, { useEffect, useState } from 'react'
 
 export default function AvatarEdit() {
+  const { currentUser } =useAuth()
   const [avatar, setAvatar] = useState("")
   const [isLoading, setIisLoading] = useState(false)
   // const fileInputRef = useRef(null);
@@ -21,6 +23,10 @@ export default function AvatarEdit() {
   async function handleSubmit() {
     try{
       setIisLoading(true)
+
+      const userId = currentUser.uid; 
+      
+      console.log(currentUser)
     } catch(err) {
       console.log(err.message)
     } finally {
@@ -84,7 +90,9 @@ export default function AvatarEdit() {
           <button 
           onClick={handleClear}
           className='rounded w-[20%] py-1 text-white bg-[#243642] shadow-lg hover:brightness-110 '> Cancel</button>
-          <button className='rounded w-[20%] py-1 text-white linear-lblue-blue shadow-lg hover:brightness-110 '> Save</button>
+          <button 
+          onClick={handleSubmit}
+          className='rounded w-[20%] py-1 text-white linear-lblue-blue shadow-lg hover:brightness-110 '> Save</button>
         </div>
     </div>
   )
