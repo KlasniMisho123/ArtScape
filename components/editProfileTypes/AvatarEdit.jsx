@@ -1,10 +1,12 @@
 import { useAuth } from '@/context/AuthContext';
 import React, { useEffect, useState } from 'react'
+import StatusMessage from '../StatusMessage';
 
 export default function AvatarEdit() {
   const { currentUser, updateAvatar } = useAuth()
   const [currentAvatar, setCurrentAvatar] = useState("")
   const [avatar, setAvatar] = useState("")
+  const [status, setStatus] = useState(0)
   const [isLoading, setIisLoading] = useState(false)
 
   function handleAvatarUpload(e) {
@@ -29,6 +31,11 @@ export default function AvatarEdit() {
       console.log(err.message)
     } finally {
       setIisLoading(false)
+      setStatus(200)
+      setInterval(() =>{
+        setStatus(0)
+      }, 5000)
+
     }
   }
 
@@ -99,7 +106,10 @@ export default function AvatarEdit() {
             </div>
           </div>
       </div>
-      <section className='mx-auto my-8 text-center '> profile Updated Succesfuylly</section>
+      <section className='mx-auto my-8 text-center'>
+        <StatusMessage status={status} />
+      </section>
+
       </section>
         <div className='flex justify-end gap-16 ml-[10px] mt-[150px]'>
           <button 
