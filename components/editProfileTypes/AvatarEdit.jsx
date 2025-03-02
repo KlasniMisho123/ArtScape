@@ -13,7 +13,7 @@ export default function AvatarEdit() {
 
     const newBlobURL = URL.createObjectURL(file);
     setAvatar(newBlobURL);
-}
+  }
 
   function handleClear() {
     setAvatar("")
@@ -99,10 +99,9 @@ export default function AvatarEdit() {
             </div>
           </div>
       </div>
-
-
+      <section className='mx-auto my-8 text-center '> profile Updated Succesfuylly</section>
       </section>
-      <div className='flex justify-end gap-16 ml-[10px] mt-[150px]'>
+        <div className='flex justify-end gap-16 ml-[10px] mt-[150px]'>
           <button 
           onClick={handleClear}
           className='rounded w-[20%] py-1 text-white bg-[#243642] shadow-lg hover:brightness-110 '> Cancel</button>
