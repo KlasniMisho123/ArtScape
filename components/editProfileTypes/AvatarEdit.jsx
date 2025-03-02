@@ -106,9 +106,6 @@ export default function AvatarEdit() {
             </div>
           </div>
       </div>
-      <section className='mx-auto my-8 text-center'>
-        <StatusMessage status={status} />
-      </section>
 
       </section>
         <div className='flex justify-end gap-16 ml-[10px] mt-[150px]'>
@@ -119,6 +116,9 @@ export default function AvatarEdit() {
           onClick={handleSubmit}
           className='rounded w-[20%] py-1 text-white linear-lblue-blue shadow-lg hover:brightness-110 '> Save</button>
         </div>
+      <section className='mx-auto my-8 text-center'>
+        <StatusMessage status={status} />
+      </section>
     </div>
   )
 }
