@@ -7,14 +7,13 @@ export default function AvatarEdit() {
   const [avatar, setAvatar] = useState("")
   const [isLoading, setIisLoading] = useState(false)
 
-  function handleAvatarUpload(event) {
-    const file = event.target.files[0];
+  function handleAvatarUpload(e) {
+    const file = e.target.files[0]; 
+    if (!file) return;
 
-    if(file) {
-      const imageUrl = URL.createObjectURL(file);
-      setAvatar(imageUrl)
-    }
-  }
+    const newBlobURL = URL.createObjectURL(file);
+    setAvatar(newBlobURL);
+}
 
   function handleClear() {
     setAvatar("")
@@ -23,7 +22,7 @@ export default function AvatarEdit() {
   async function handleSubmit() {
     try{
       setIisLoading(true)
-
+      
       updateAvatar(avatar)
       
     } catch(err) {
@@ -42,7 +41,7 @@ export default function AvatarEdit() {
     <div className=' flex flex-col gap-8 '>
       <div className='flex flex-col ml-2 gap-2 '> 
         <h3 className='font-bold text-xl '> Express Yourself </h3>
-        <p className='opacity-75 '>  Change Your Avatar</p>
+        <p className='opacity-75 '>  Change Your Avatar </p>
       </div>
       <section className='flex gap-14 mt-[20px]'>
         <div className='flex gap-12 items-end '>
