@@ -25,16 +25,18 @@ export default function AvatarEdit() {
     try{
       setIisLoading(true)
       
-      updateAvatar(avatar)
+      await updateAvatar(avatar);
       
     } catch(err) {
       console.log(err.message)
+      setStatus(400)
     } finally {
       setIisLoading(false)
       setStatus(200)
-      setInterval(() =>{
-        setStatus(0)
-      }, 5000)
+
+      setTimeout(() => {
+        setStatus(0);
+    }, 3000);
 
     }
   }
@@ -116,7 +118,7 @@ export default function AvatarEdit() {
           onClick={handleSubmit}
           className='rounded w-[20%] py-1 text-white linear-lblue-blue shadow-lg hover:brightness-110 '> Save</button>
         </div>
-      <section className='mx-auto my-8 text-center'>
+      <section className='mx-auto my-8 h-2 text-center'>
         <StatusMessage status={status} />
       </section>
     </div>
