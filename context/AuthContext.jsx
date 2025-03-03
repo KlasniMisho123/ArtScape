@@ -64,7 +64,6 @@ export function AuthProvider({ children }) {
             return;
         }
         try {
-            console.log("username: ", username)
             await updateProfile(auth.currentUser, {
                 displayName: username
             });
