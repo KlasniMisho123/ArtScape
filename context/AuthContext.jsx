@@ -58,6 +58,20 @@ export function AuthProvider({ children }) {
         }
     }
 
+    async function handleGeneralUpdate(username) {
+        if (!auth.currentUser) {
+            console.error("No user is logged in.");
+            return;
+        }
+        try {
+            await updateProfile(auth.currentUser, {
+                displayName: username
+            });
+        } catch(err) {
+            console.log(err.message)
+        }
+    }
+
     useEffect(()=>{
         const unsubscribe = onAuthStateChanged(auth, async user => {
             try{
@@ -132,6 +146,7 @@ export function AuthProvider({ children }) {
         setIsAuthenticated,
         currentUser,
         setCurrentUser,
+        handleGeneralUpdate,
         updateAvatar,
         signup,
         login,

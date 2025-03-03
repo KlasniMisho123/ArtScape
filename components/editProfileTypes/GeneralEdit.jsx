@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react'
 import StatusMessage from '../StatusMessage';
 
 export default function GeneralEdit() {
-  const { isLightMode, currentUser } = useAuth();
+  const { isLightMode, currentUser, handleGeneralUpdate } = useAuth();
 
   const [selectedCountry, setSelectedCountry] = useState("")
   const [selectedCity, setSelectedCity] = useState("")
@@ -21,6 +21,30 @@ export default function GeneralEdit() {
   const [status, setStatus] = useState(0)
   
   let currentUsername = currentUser?.displayName
+
+  async function handleSubmit() {
+    console.log(currentUser)
+    try {
+      if(username) {
+        handleGeneralUpdate(username)
+      }
+
+    } catch(err) {
+      console.log(err.message)
+      setStatus(400)
+
+      setTimeout(() => {
+        setStatus(0);
+      }, 3000);
+
+    } finally {
+      setStatus(200)
+
+      setTimeout(() => {
+        setStatus(0);
+      }, 3000);
+    }
+  }
 
   function findFilteredCities() {
     setFilteredCities(availableCountriesAndCities[selectedCountry])
@@ -40,25 +64,6 @@ export default function GeneralEdit() {
     setSocialLinkTwo("")
   }
 
-  async function handleSubmit() {
-    try {
-
-    } catch(err) {
-      console.log(err.message)
-      setStatus(400)
-
-      setTimeout(() => {
-        setStatus(0);
-      }, 3000);
-
-    } finally {
-      setStatus(200)
-
-      setTimeout(() => {
-        setStatus(0);
-      }, 3000);
-    }
-  }
 
   useEffect(()=>{
     findFilteredCities()
