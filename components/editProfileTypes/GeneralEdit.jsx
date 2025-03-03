@@ -2,6 +2,7 @@
 import availableCountriesAndCities from '@/app/utils';
 import { useAuth } from '@/context/AuthContext';
 import React, { useEffect, useState } from 'react'
+import StatusMessage from '../StatusMessage';
 
 export default function GeneralEdit() {
   const { isLightMode, currentUser } = useAuth();
@@ -17,6 +18,7 @@ export default function GeneralEdit() {
   const [socialTwo, setSocialTwo] = useState("")
   const [socialLinkOne, setSocialLinkOne] = useState("")
   const [socialLinkTwo, setSocialLinkTwo] = useState("")
+  const [status, setStatus] = useState(0)
   
   let currentUsername = currentUser?.displayName
 
@@ -38,8 +40,27 @@ export default function GeneralEdit() {
     setSocialLinkTwo("")
   }
 
+  async function handleSubmit() {
+    try {
+
+    } catch(err) {
+      console.log(err.message)
+      setStatus(400)
+
+      setTimeout(() => {
+        setStatus(0);
+      }, 3000);
+
+    } finally {
+      setStatus(200)
+
+      setTimeout(() => {
+        setStatus(0);
+      }, 3000);
+    }
+  }
+
   useEffect(()=>{
-    //filter Cities by Countries
     findFilteredCities()
 
   },[selectedCountry])
@@ -168,8 +189,13 @@ export default function GeneralEdit() {
            className='rounded w-[20%] py-1 text-white bg-[#243642] shadow-lg hover:brightness-110 '
             onClick={clearGeneralEdit}
           > Cancel</button>
-          <button className='rounded w-[20%] py-1 text-white linear-lblue-blue shadow-lg hover:brightness-110 '> Save</button>
+          <button className='rounded w-[20%] py-1 text-white linear-lblue-blue shadow-lg hover:brightness-110 '
+            onClick={handleSubmit}
+          > Save</button>
         </div>
+        <section className='mx-auto my-8 h-2 text-center'>
+          <StatusMessage status={status} />
+        </section>
     </div>
   )
 }

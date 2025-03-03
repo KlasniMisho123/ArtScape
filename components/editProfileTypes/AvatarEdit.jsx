@@ -30,13 +30,18 @@ export default function AvatarEdit() {
     } catch(err) {
       console.log(err.message)
       setStatus(400)
+
+      setTimeout(() => {
+        setStatus(0);
+      }, 3000);
+      
     } finally {
       setIisLoading(false)
       setStatus(200)
 
       setTimeout(() => {
         setStatus(0);
-    }, 3000);
+      }, 3000);
 
     }
   }
