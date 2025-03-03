@@ -47,3 +47,10 @@ phoneNumber,emailVerified,displayName
 
 ----------------------------Errors ----------------------------
 Avatar Edit error --> instead of blub, need lasteing picutre upload, same goes for uploading arts. --> AvatarEdit, upload
+
+
+---- Currently Working on ----
+
+General Edit, profile update in firebase. 
+
+////////// add error handleing during filling form 
