@@ -29,23 +29,35 @@ export default function GeneralEdit() {
   async function handleSubmit() {
     console.log(currentUser)
     try {
-        handleGeneralUpdate(username)
-    } catch(err) {
-      console.log(err.message)
-      setStatus(400)
+      if (username.length <= 0) {
+        // Set ERROR MESSAGE
+        setStatus(400);
+        return; // This will prevent the code from continuing
+      } else {
+        // Proceed with general update only if username exists
+        handleGeneralUpdate(username);
+      }
+    } catch (err) {
+      console.log(err.message);
+      setStatus(400);
 
       setTimeout(() => {
         setStatus(0);
       }, 3000);
 
     } finally {
-      setStatus(200)
+      // Ensure we reset the status after handling everything
+      // Only set it to 200 if the username is valid
+      if (username.length > 0) {
+        setStatus(200);
 
-      setTimeout(() => {
-        setStatus(0);
-      }, 3000);
+        setTimeout(() => {
+          setStatus(0);
+        }, 3000);
+      }
     }
-  }
+}
+
 
   function findFilteredCities() {
     setFilteredCities(availableCountriesAndCities[selectedCountry])
@@ -67,7 +79,6 @@ export default function GeneralEdit() {
 
   useEffect(()=>{
     console.log("currentUser: ", currentUser);
-
 
     setUsername(currentUser?.displayName || "");
   },[currentUser])

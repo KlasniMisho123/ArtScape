@@ -61,6 +61,7 @@ export function AuthProvider({ children }) {
             console.error("No user is logged in.");
             return;
         }
+        
         try {
             await updateProfile(auth.currentUser, {
                 displayName: username
