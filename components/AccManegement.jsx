@@ -1,11 +1,17 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import AccManegmentSec from './AccManegmentSec'
 import { useAuth } from '@/context/AuthContext'
 
 export default function AccManegement() {
   const [currentEditSec, setCurrentEditSec] = useState("General")
+
   const { isLightMode } = useAuth();
+
+  useEffect(()=> {
+    
+  },[currentEditSec])
+
   return (
     <div className={'flex flex-col w-[80%] mx-auto my-[3%] p-[2%] rounded shadow-lg ' + (isLightMode? "bg-gray-200 " : "bg-gray-800")}>
         <div className='flex gap-4'>
