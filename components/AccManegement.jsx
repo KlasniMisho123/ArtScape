@@ -4,7 +4,7 @@ import AccManegmentSec from './AccManegmentSec'
 import { useAuth } from '@/context/AuthContext'
 
 export default function AccManegement() {
-  const [currentEditSec, setCurrentEditSec] = useState()
+  const [currentEditSec, setCurrentEditSec] = useState("")
 
   const { isLightMode } = useAuth();
 
