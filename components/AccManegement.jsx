@@ -8,6 +8,12 @@ export default function AccManegement() {
 
   const { isLightMode } = useAuth();
 
+  function handleEditSecChange(selectedSec) {
+     setCurrentEditSec(selectedSec)
+
+     localStorage.setItem("editSection", selectedSec)
+  }
+
   useEffect(()=> {
     const currentSec = localStorage.getItem("editSection")
 
