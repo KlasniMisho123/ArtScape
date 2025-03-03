@@ -20,15 +20,13 @@ export default function GeneralEdit() {
   const [socialLinkTwo, setSocialLinkTwo] = useState("")
   const [status, setStatus] = useState(0)
   
-  let currentUsername = currentUser?.displayName
+  // let currentUsername = currentUser?.displayName
+
 
   async function handleSubmit() {
     console.log(currentUser)
     try {
-      if(username) {
         handleGeneralUpdate(username)
-      }
-
     } catch(err) {
       console.log(err.message)
       setStatus(400)
@@ -54,7 +52,7 @@ export default function GeneralEdit() {
     setSelectedCountry("")
     setSelectedCity("")
     setFilteredCities([])
-    setUsername("")
+    setUsername(currentUser?.displayName || "")
     setName("")
     setSurname("")
     setAboutText("")
@@ -64,10 +62,12 @@ export default function GeneralEdit() {
     setSocialLinkTwo("")
   }
 
+  useEffect(()=>{
+    setUsername(currentUser?.displayName || "");
+  },[currentUser])
 
   useEffect(()=>{
     findFilteredCities()
-
   },[selectedCountry])
 
 
@@ -86,8 +86,8 @@ export default function GeneralEdit() {
             className='border-2 border-black bg-[#243642] rounded p-2 text-white'
             value={username}
             onChange={(e)=>{setUsername(e.target.value)}}
-            placeholder={currentUsername}
             />
+
             <label> Name <i title="Including your name real friends to find you" className={"fa-regular fa-circle-question ml-[5px] " + (isLightMode? "text-black" : "text-white")}></i></label>
             <input 
             className='border-2 border-black bg-[#243642] rounded p-2 text-white'
