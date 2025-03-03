@@ -4,7 +4,7 @@ import AccManegmentSec from './AccManegmentSec'
 import { useAuth } from '@/context/AuthContext'
 
 export default function AccManegement() {
-  const [currentEditSec, setCurrentEditSec] = useState("")
+  const [currentEditSec, setCurrentEditSec] = useState()
 
   const { isLightMode } = useAuth();
 
@@ -17,7 +17,7 @@ export default function AccManegement() {
   useEffect(()=> {
     const currentSec = localStorage.getItem("editSection")
 
-    setCurrentEditSec(currentEditSec)
+    setCurrentEditSec(currentSec)
   },[currentEditSec])
 
   return (
@@ -25,13 +25,13 @@ export default function AccManegement() {
         <div className='flex gap-4'>
           <div className='flex flex-col gap-2 py-2 px-1 bg-[#134B70] text-white h-fit'>
             <section className={'accManegementBar ' + (currentEditSec === "General"? "activeAccManegementBar" : "")} onClick={()=>{
-              setCurrentEditSec("General")
+              handleEditSecChange("General")
             }}> General</section>
             <section className={'accManegementBar ' + (currentEditSec === "Account Details"? "activeAccManegementBar" : "")} onClick={()=>{
-              setCurrentEditSec("Account Details")
+              handleEditSecChange("Account Details")
             }}> Account Details</section>
             <section className={'accManegementBar ' + (currentEditSec === "Avatar"? "activeAccManegementBar" : "")} onClick={()=>{
-              setCurrentEditSec("Avatar")
+              handleEditSecChange("Avatar")
             }}> Avatar</section>
         </div>
             <AccManegmentSec currentEditSec={currentEditSec} />
