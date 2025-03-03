@@ -51,8 +51,6 @@ export function AuthProvider({ children }) {
             await updateProfile(auth.currentUser, {
                 photoURL: avatar
             });
-    
-            console.log("Avatar updated successfully:", avatar);
         } catch (error) {
             console.error("Error updating avatar:", error.message);
         }

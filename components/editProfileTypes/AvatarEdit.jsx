@@ -48,7 +48,6 @@ export default function AvatarEdit() {
 
   useEffect(() => {
     setCurrentAvatar(currentUser?.photoURL);
-    console.log("currentUser:", currentUser);
 }, [currentUser]);
 
   return (
