@@ -66,6 +66,9 @@ export default function GeneralEdit() {
   }
 
   useEffect(()=>{
+    console.log("currentUser: ", currentUser);
+
+
     setUsername(currentUser?.displayName || "");
   },[currentUser])
 
