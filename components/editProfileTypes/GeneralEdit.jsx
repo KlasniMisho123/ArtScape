@@ -3,6 +3,10 @@ import availableCountriesAndCities from '@/app/utils';
 import { useAuth } from '@/context/AuthContext';
 import React, { useEffect, useState } from 'react'
 import StatusMessage from '../StatusMessage';
+import { Exo_2, Inter } from 'next/font/google';
+
+const inter = Inter({ subsets: ["latin"], weight: ["400", "600"]});
+const exo2 = Exo_2({subsets: ["latin"],weight: ["400", "700"]});
 
 export default function GeneralEdit() {
   const { isLightMode, currentUser, handleGeneralUpdate } = useAuth();
@@ -21,7 +25,6 @@ export default function GeneralEdit() {
   const [status, setStatus] = useState(0)
   
   // let currentUsername = currentUser?.displayName
-
 
   async function handleSubmit() {
     console.log(currentUser)
@@ -83,11 +86,11 @@ export default function GeneralEdit() {
           <div className='flex flex-col p-4 gap-4 '>
             <label> Username</label>
             <input 
-            className='border-2 border-black bg-[#243642] rounded p-2 text-white'
+            className={'border-2 border-black bg-[#243642] rounded p-2 text-white text-opacity-75 ' + inter.className}
             value={username}
             onChange={(e)=>{setUsername(e.target.value)}}
             />
-
+            
             <label> Name <i title="Including your name real friends to find you" className={"fa-regular fa-circle-question ml-[5px] " + (isLightMode? "text-black" : "text-white")}></i></label>
             <input 
             className='border-2 border-black bg-[#243642] rounded p-2 text-white'

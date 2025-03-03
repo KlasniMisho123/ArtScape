@@ -2,14 +2,15 @@ import "./globals.css";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Head from "./head"
-import { Lobster, Open_Sans, Pacifico, Poppins, Raleway } from 'next/font/google';
+import { Exo_2, Inter, Lobster, Open_Sans, Pacifico, Poppins, Raleway } from 'next/font/google';
 import { AuthProvider } from "@/context/AuthContext";
 
 const poppins = Poppins({ subsets: ['latin'], weight: ['500'] });
 const pacifico = Pacifico({ subsets: ['latin'], weight: ['400'] });
 const openSans = Open_Sans({ subsets: ['latin'], weight: ['400'] })
-const raleway = Raleway({ subsets: ['latin'], weight: ['400', '500', '700'] });
-
+const raleway = Raleway({ subsets: ['latin'], weight: ['400', '500', '700']});
+const inter = Inter({ subsets: ["latin"], weight: ["400", "600"]});
+const exo2 = Exo_2({subsets: ["latin"],weight: ["400", "700"]});
 
 export const metadata = {
   title: 'ArtScape',
