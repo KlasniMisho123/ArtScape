@@ -16,8 +16,11 @@ export default function AccManegement() {
 
   useEffect(()=> {
     const currentSec = localStorage.getItem("editSection")
-
-    setCurrentEditSec(currentSec)
+    if(currentSec){
+      setCurrentEditSec(currentSec)
+    } else {
+      setCurrentEditSec("General")
+    }
   },[currentEditSec])
 
   return (
