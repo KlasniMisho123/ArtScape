@@ -30,6 +30,7 @@ export default function AccountDetailsEdit() {
             Change Email <i className="fa-solid fa-envelope"></i> </button>
             <p className='my-1'> <span className='text-gray-500'> Email address: </span>{currentUser?.email || ""} </p> 
             <p> <span className='text-gray-500'> Status: </span> {currentUser?.emailVerified ? `Verified` : "Unverified"} </p>
+            <button className="p-1 border border-black my-4  px-4 rounded transition-all duration-300 hover:bg-black hover:text-white"> Verify Email </button>
           </div>
           <div>
             <button className="p-1 border border-black my-1 px-4 rounded transition-all duration-300 hover:bg-black hover:text-white"onClick={()=>{
@@ -39,6 +40,7 @@ export default function AccountDetailsEdit() {
             <p className='my-1'> <span className='text-gray-500'> Phone: </span> <i className="fa-solid fa-mobile mx-1 "></i> {currentUser?.phoneNumber
              ? `Ends in: ${currentUser.phone}` : "Empty"} </p> 
             <p> <span className='text-gray-500'> Status: </span> {currentUser?.mbverify ? `Verified` : "Unverified"} </p>
+            <button className="p-1 border border-black my-4 px-4 rounded transition-all duration-300 hover:bg-black hover:text-white"> Verify Number </button>
           </div>
         </div>
       </section>
@@ -65,7 +67,7 @@ export default function AccountDetailsEdit() {
             <button className="p-1 border border-black my-1 px-4 rounded transition-all duration-300 hover:bg-black hover:text-white mt-6 ">Change Password </button>
           </div>
           <div>
-              <button className="p-1 border border-black my-1 px-4 rounded transition-all duration-300 hover:bg-black hover:text-white">Learn more about ArtScape 2FA </button>
+            <button className="p-1 border border-black my-1 px-4 rounded transition-all duration-300 hover:bg-black hover:text-white">Learn more about ArtScape 2FA </button>
           </div>
         </div>
       </section>
