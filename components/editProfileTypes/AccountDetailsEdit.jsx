@@ -1,11 +1,11 @@
 "use client"
 import { useAuth } from '@/context/AuthContext'
 import React, { useEffect, useState } from 'react'
+import EmailEdit from './EmailEdit'
 
 export default function AccountDetailsEdit() {
   const {currentUser, isLightMode} = useAuth()
   const [isF2AuthActive, setIsF2AuthActive] = useState(false)
-  const [isChangeingDigInfo, setIsChangeingDigInfo] = useState(false)
   
 
   useEffect(()=> {
@@ -13,29 +13,20 @@ export default function AccountDetailsEdit() {
   },[])
 
   return (
-    <div className=''>
-      {(isChangeingDigInfo === "Email" || isChangeingDigInfo === "Number") && (
-        <section>{isChangeingDigInfo}</section>
-      )}
+    <div className={''}>
 
       <section className='flex flex-col gap-4 shadow-2xl  '>
         <div className='text-lg font-bold bg-[#134B70] text-white px-2 py-1 '> <i className="fa-solid fa-envelope mr-1"></i> Contact Info  </div>
         <div className="flex gap-[30%] p-2 mx-2 pb-8 "> 
           <div>
-          <button
-           className="p-1 border border-black my-1 px-4 rounded transition-all duration-300 hover:bg-black hover:text-white"
-           onClick={()=>{
-            setIsChangeingDigInfo("Email")
-          }}>
+          <button className="p-1 border border-black my-1 px-4 rounded transition-all duration-300 hover:bg-black hover:text-white">
             Change Email <i className="fa-solid fa-envelope"></i> </button>
             <p className='my-1'> <span className='text-gray-500'> Email address: </span>{currentUser?.email || ""} </p> 
             <p> <span className='text-gray-500'> Status: </span> {currentUser?.emailVerified ? `Verified` : "Unverified"} </p>
             <button className="p-1 border border-black my-4  px-4 rounded transition-all duration-300 hover:bg-black hover:text-white"> Verify Email </button>
           </div>
           <div>
-            <button className="p-1 border border-black my-1 px-4 rounded transition-all duration-300 hover:bg-black hover:text-white"onClick={()=>{
-            setIsChangeingDigInfo("Number")
-            }}> 
+            <button className="p-1 border border-black my-1 px-4 rounded transition-all duration-300 hover:bg-black hover:text-white"> 
               Change Phone <i className="fa-solid fa-mobile  "> </i> </button>
             <p className='my-1'> <span className='text-gray-500'> Phone: </span> <i className="fa-solid fa-mobile mx-1 "></i> {currentUser?.phoneNumber
              ? `Ends in: ${currentUser.phone}` : "Empty"} </p> 
@@ -48,7 +39,6 @@ export default function AccountDetailsEdit() {
         <div className='text-lg font-bold bg-[#134B70] text-white px-2 py-1 '> <i className="fa-solid fa-shield mr-1"></i> Account Security  </div>
         <div className="flex gap-[10%] p-2 mx-2 pb-8 "> 
           <div>
-            {/*  Two-Factor Authentication (2FA)*/}
             <p className='my-1'>  <span className='text-gray-500'> 2FA Status: </span> <span className={' ' + (isF2AuthActive ? "text-green-400" : "text-red-400" )}> {isF2AuthActive ? "Enabled" : "Disabled"}  </span> </p> 
             <div className='flex gap-1 '> 
             <button 
