@@ -31,7 +31,7 @@ export default function AccountDetailsEdit() {
           </div>
           <div>
             <Link 
-            href="/accountmanegement/change-email"
+            href="/accountmanegement/change-phone"
             className="py-2 border border-black my-2 px-4 rounded transition-all duration-300 hover:bg-black hover:text-white"> 
               Change Phone <i className="fa-solid fa-mobile  "> </i> </Link>
             <p className='my-2'> <span className='text-gray-500'> Phone: </span> <i className="fa-solid fa-mobile mx-1 "></i> {currentUser?.phoneNumber

@@ -1,11 +1,11 @@
 import AccManegement from '@/components/AccManegement'
-import EmailEdit from '@/components/editProfileTypes/EmailEdit'
+import PhoneEdit from '@/components/editProfileTypes/PhoneEdit'
 import React from 'react'
 
 export default function page() {
   return (
     <div>
-        <EmailEdit />
+        <PhoneEdit />
     </div>
   )
 }
