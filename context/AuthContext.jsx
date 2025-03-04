@@ -66,6 +66,7 @@ export function AuthProvider({ children }) {
             await updateProfile(auth.currentUser, {
                 displayName: username
             });
+            // cant add new keys and values in userobject. so need to create collection
         } catch(err) {
             console.log(err.message)
         }
