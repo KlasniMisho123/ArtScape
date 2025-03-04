@@ -11,10 +11,10 @@ export default function AvatarEdit() {
 
   function handleAvatarUpload(e) {
     const file = e.target.files[0]; 
-    console.log( "e.target.files[0]: ", e.target.files[0])
     if (!file) return;
 
     const newBlobURL = URL.createObjectURL(file);
+
     setAvatar(newBlobURL);
   }
 
@@ -49,7 +49,6 @@ export default function AvatarEdit() {
 
   useEffect(() => {
     setCurrentAvatar(currentUser?.photoURL);
-    console.log("currentUser: ", currentUser)
 }, [currentUser]);
 
   return (
