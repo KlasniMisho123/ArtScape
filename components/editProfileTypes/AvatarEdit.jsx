@@ -11,6 +11,7 @@ export default function AvatarEdit() {
 
   function handleAvatarUpload(e) {
     const file = e.target.files[0]; 
+    console.log( "e.target.files[0]: ", e.target.files[0])
     if (!file) return;
 
     const newBlobURL = URL.createObjectURL(file);
@@ -48,12 +49,13 @@ export default function AvatarEdit() {
 
   useEffect(() => {
     setCurrentAvatar(currentUser?.photoURL);
+    console.log("currentUser: ", currentUser)
 }, [currentUser]);
 
   return (
     <div className=' flex flex-col gap-8 '>
       <div className='flex flex-col ml-2 gap-2 '> 
-        <h3 className='font-bold text-xl '> Express Yourself </h3>
+        <h3 className='font-bold text-xl '> Express Yourself  </h3>
         <p className='opacity-75 '>  Change Your Avatar </p>
       </div>
       <section className='flex gap-14 mt-[20px]'>
