@@ -2,6 +2,7 @@
 import { useAuth } from '@/context/AuthContext'
 import React, { useEffect, useState } from 'react'
 import EmailEdit from './EmailEdit'
+import Link from 'next/link'
 
 export default function AccountDetailsEdit() {
   const {currentUser, isLightMode} = useAuth()
@@ -19,8 +20,13 @@ export default function AccountDetailsEdit() {
         <div className='text-lg font-bold bg-[#134B70] text-white px-2 py-1 '> <i className="fa-solid fa-envelope mr-1"></i> Contact Info  </div>
         <div className="flex gap-[30%] p-2 mx-2 pb-8 "> 
           <div>
+          <Link
+          href="/accountmanegement/change-email"
+          >
+      
           <button className="p-1 border border-black my-1 px-4 rounded transition-all duration-300 hover:bg-black hover:text-white">
             Change Email <i className="fa-solid fa-envelope"></i> </button>
+            </Link>
             <p className='my-1'> <span className='text-gray-500'> Email address: </span>{currentUser?.email || ""} </p> 
             <p> <span className='text-gray-500'> Status: </span> {currentUser?.emailVerified ? `Verified` : "Unverified"} </p>
             <button className="p-1 border border-black my-4  px-4 rounded transition-all duration-300 hover:bg-black hover:text-white"> Verify Email </button>
