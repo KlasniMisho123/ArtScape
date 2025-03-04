@@ -51,6 +51,15 @@ Avatar Edit error --> instead of blub, need lasteing picutre upload, same goes f
 
 ---- Currently Working on ----
 
-General Edit, profile update in firebase. 
+1. General Edit profile update in firebase. 
+
+2. Mini Profile stats/look
+
+3. Avatar Error/ handle picture submit - bagon
+
+4.  handle every country and city filter? - bagon
+
+5. Verify Email, Verify Phone, add/change.
+
 
 ////////// add error handleing during filling form 
