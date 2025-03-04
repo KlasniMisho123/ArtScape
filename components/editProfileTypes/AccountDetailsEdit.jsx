@@ -71,12 +71,7 @@ export default function AccountDetailsEdit() {
           </div>
         </div>
       </section>
-      <div className='flex justify-end gap-16 ml-[10px] mt-[40px]'>
-          <button
-           className='rounded w-[20%] py-1 text-white bg-[#243642] shadow-lg hover:brightness-110 '
-          > Cancel</button>
-          <button className='rounded w-[20%] py-1 text-white linear-lblue-blue shadow-lg hover:brightness-110 '> Save</button>
-        </div>
+      
     </div>
   )
 }
