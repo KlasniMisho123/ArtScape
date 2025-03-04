@@ -6,8 +6,7 @@ export default function AccountDetailsEdit() {
   const {currentUser, isLightMode} = useAuth()
   const [isF2AuthActive, setIsF2AuthActive] = useState(false)
 
-  useEffect(()=>{
-    // console.log(currentUser)
+  useEffect(()=> {
   },[])
 
   return (
@@ -35,7 +34,7 @@ export default function AccountDetailsEdit() {
         <div className="flex gap-[10%] p-2 mx-2 pb-8 "> 
           <div>
             {/*  Two-Factor Authentication (2FA)*/}
-            <p className='my-1'>  <span className='text-gray-500'> 2FA Status: </span> {isF2AuthActive ? "2FA: Enabled" : "2FA: Disabled"} </p> 
+            <p className='my-1'>  <span className='text-gray-500'> 2FA Status: </span> <span className={' ' + (isF2AuthActive ? "text-green-400" : "text-red-400" )}> {isF2AuthActive ? "Enabled" : "Disabled"}  </span> </p> 
             <div className='flex gap-1 '> 
             <button 
             onClick={()=>{
