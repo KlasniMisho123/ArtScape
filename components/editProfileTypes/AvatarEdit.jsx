@@ -52,7 +52,7 @@ export default function AvatarEdit() {
 
   function calculateTimeSinceUTC(UTCtime) {
     const currentDate = new Date()
-    const createdDate  = new Date(UTCtime * 1000); 
+    const createdDate  = new Date(UTCtime); 
 
     const differenceInTime = currentDate - createdDate;
     const differenceInDays = Math.floor(differenceInTime / (1000 * 60 * 60 * 24));
@@ -67,7 +67,6 @@ export default function AvatarEdit() {
         const userInfo = await getDoc(userRef)
 
         const createdAt = currentUser?.reloadUserInfo?.createdAt
-        
         calculateTimeSinceUTC(createdAt)
         
         setCurrentAvatar(currentUser?.photoURL || "");
