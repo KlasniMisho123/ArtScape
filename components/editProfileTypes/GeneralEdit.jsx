@@ -101,7 +101,18 @@ export default function GeneralEdit() {
     try {
       const userRef = doc(db, "users", currentUser.uid )
       const userInfo = await getDoc(userRef)
-      
+
+      setUsername(currentUser?.displayName || "");
+      setName(userInfo.data()?.RealName)
+      setSurname(userInfo.data()?.RealSurname)
+      setAboutText(userInfo.data()?.AboutMe)
+      setSelectedCountry(userInfo.data()?.Country)
+      setSelectedCity(userInfo.data()?.City)
+      setSocialOne(userInfo.data()?.SocialOne)
+      setSocialTwo(userInfo.data()?.SocialTwo)
+      setSocialLinkOne(userInfo.data()?.SocialLinkOne)
+      setSocialLinkTwo(userInfo.data()?.SocialLinkTwo)
+    
       console.log("userInfo: ", userInfo.data())
     } catch(err) {
       console.log(err.message)
@@ -111,9 +122,7 @@ export default function GeneralEdit() {
   }
 
   useEffect(() => {
-    console.log("currentUser: ", currentUser);
     getUserInfo()
-    setUsername(currentUser?.displayName || "");
   },[currentUser])
 
   useEffect(()=>{
