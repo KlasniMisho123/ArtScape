@@ -42,6 +42,15 @@ export default function GeneralEdit() {
       
       const userRef = doc(db, "users", userId, "userInfo")
 
+      const userInfoObject = {
+        realName: name,
+        realSurname: surname,
+        country: selectedCountry,
+        city: selectedCity,
+      }
+
+      await doc.setDoc(userRef, userInfoObject, { merge:true })
+
     } catch (err) {
       console.log(err.message);
       setStatus(400);

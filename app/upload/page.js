@@ -119,7 +119,7 @@ export default function Upload() {
   
       console.log(`Successfully stored image with ID: ${newId}`, formData);
   
-    handleClearForm()
+      handleClearForm()
     } catch(err) {
       console.error("Error adding document to Firestore:", err);
     } finally {
