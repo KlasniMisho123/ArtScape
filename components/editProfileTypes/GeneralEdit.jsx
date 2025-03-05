@@ -87,15 +87,15 @@ export default function GeneralEdit() {
       const userInfo = await getDoc(userRef)
 
       setUsername(currentUser?.displayName || "");
-      setName(userInfo.data()?.RealName)
-      setSurname(userInfo.data()?.RealSurname)
-      setAboutText(userInfo.data()?.AboutMe)
-      setSelectedCountry(userInfo.data()?.Country)
-      setSelectedCity(userInfo.data()?.City)
-      setSocialOne(userInfo.data()?.SocialOne)
-      setSocialTwo(userInfo.data()?.SocialTwo)
-      setSocialLinkOne(userInfo.data()?.SocialLinkOne)
-      setSocialLinkTwo(userInfo.data()?.SocialLinkTwo)
+      setName(userInfo.data()?.RealName || "")
+      setSurname(userInfo.data()?.RealSurname || "")
+      setAboutText(userInfo.data()?.AboutMe || "")
+      setSelectedCountry(userInfo.data()?.Country || "")
+      setSelectedCity(userInfo.data()?.City || "")
+      setSocialOne(userInfo.data()?.SocialOne || "")
+      setSocialTwo(userInfo.data()?.SocialTwo || "")
+      setSocialLinkOne(userInfo.data()?.SocialLinkOne || "")
+      setSocialLinkTwo(userInfo.data()?.SocialLinkTwo || "")
     
     } catch(err) {
       console.log(err.message)
