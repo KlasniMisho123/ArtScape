@@ -81,20 +81,6 @@ export default function GeneralEdit() {
     setFilteredCities(availableCountriesAndCities[selectedCountry])
   }
 
-  // async function clearGeneralEdit() {
-  //   setSelectedCountry("")
-  //   setSelectedCity("")
-  //   setFilteredCities([])
-  //   setUsername(currentUser?.displayName || "")
-  //   setName("")
-  //   setSurname("")
-  //   setAboutText("")
-  //   setSocialOne("")
-  //   setSocialTwo("")
-  //   setSocialLinkOne("")
-  //   setSocialLinkTwo("")
-  // }
-
   async function startingInputValues() {
     try {
       const userRef = doc(db, "users", currentUser.uid )
@@ -113,9 +99,7 @@ export default function GeneralEdit() {
     
     } catch(err) {
       console.log(err.message)
-    } finally {
-      console.log("Done")
-    }
+    } 
   }
 
   useEffect(() => {
