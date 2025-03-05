@@ -83,21 +83,21 @@ export default function GeneralEdit() {
     setFilteredCities(availableCountriesAndCities[selectedCountry])
   }
 
-  function clearGeneralEdit() {
-    setSelectedCountry("")
-    setSelectedCity("")
-    setFilteredCities([])
-    setUsername(currentUser?.displayName || "")
-    setName("")
-    setSurname("")
-    setAboutText("")
-    setSocialOne("")
-    setSocialTwo("")
-    setSocialLinkOne("")
-    setSocialLinkTwo("")
-  }
+  // async function clearGeneralEdit() {
+  //   setSelectedCountry("")
+  //   setSelectedCity("")
+  //   setFilteredCities([])
+  //   setUsername(currentUser?.displayName || "")
+  //   setName("")
+  //   setSurname("")
+  //   setAboutText("")
+  //   setSocialOne("")
+  //   setSocialTwo("")
+  //   setSocialLinkOne("")
+  //   setSocialLinkTwo("")
+  // }
 
-  async function getUserInfo() {
+  async function startingInputValues() {
     try {
       const userRef = doc(db, "users", currentUser.uid )
       const userInfo = await getDoc(userRef)
@@ -122,7 +122,7 @@ export default function GeneralEdit() {
   }
 
   useEffect(() => {
-    getUserInfo()
+    startingInputValues()
   },[currentUser])
 
   useEffect(()=>{
@@ -253,7 +253,7 @@ export default function GeneralEdit() {
         <div className='flex justify-end gap-16 ml-[10px] mt-[40px]'>
           <button
            className='rounded w-[20%] py-1 text-white bg-[#243642] shadow-lg hover:brightness-110 '
-            onClick={clearGeneralEdit}
+            onClick={startingInputValues}
           > Cancel</button>
           <button className='rounded w-[20%] py-1 text-white linear-lblue-blue shadow-lg hover:brightness-110 '
             onClick={handleSubmit}
