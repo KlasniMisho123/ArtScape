@@ -1,6 +1,7 @@
 'use client'
 import availableCountriesAndCities from '@/app/utils';
 import { useAuth } from '@/context/AuthContext';
+import { db } from "@/firebase"
 import {collection, addDoc, doc, setDoc, getDoc} from "firebase/firestore"
 import React, { useEffect, useState } from 'react'
 import StatusMessage from '../StatusMessage';
@@ -40,16 +41,21 @@ export default function GeneralEdit() {
         handleGeneralUpdate(username);
       }
       
-      const userRef = doc(db, "users", userId, "userInfo")
+      const userRef = doc(db, "users", userId )
 
       const userInfoObject = {
-        realName: name,
-        realSurname: surname,
-        country: selectedCountry,
-        city: selectedCity,
+        RealName: name,
+        RealSurname: surname,
+        Country: selectedCountry,
+        City: selectedCity,
+        AboutMe: aboutText,
+        SocialOne: socialOne,
+        SocialLinkOne: socialLinkOne,
+        SocialTwo: socialTwo,
+        SocialLinkTwo: socialLinkTwo
       }
 
-      await doc.setDoc(userRef, userInfoObject, { merge:true })
+      await setDoc(userRef, userInfoObject, { merge: true })
 
     } catch (err) {
       console.log(err.message);
