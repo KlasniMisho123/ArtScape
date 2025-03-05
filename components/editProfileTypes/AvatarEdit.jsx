@@ -51,8 +51,14 @@ export default function AvatarEdit() {
   }
 
   function calculateTimeSinceUTC(UTCtime) {
-    const date = new Date(UTCtime * 1000); 
-    console.log(date.toUTCString())
+    const currentDate = new Date()
+    const createdDate  = new Date(UTCtime * 1000); 
+
+    const differenceInTime = currentDate - createdDate;
+    const differenceInDays = Math.floor(differenceInTime / (1000 * 60 * 60 * 24));
+
+    console.log(`Days since account creation: ${differenceInDays} days`);
+    return differenceInDays;
   }
 
   async function startingInputValues() {
@@ -60,7 +66,8 @@ export default function AvatarEdit() {
         const userRef = doc(db, "users", currentUser.uid )
         const userInfo = await getDoc(userRef)
 
-        let createdAt = currentUser?.reloadUserInfo?.createdAt
+        const createdAt = currentUser?.reloadUserInfo?.createdAt
+        
         calculateTimeSinceUTC(createdAt)
         
         setCurrentAvatar(currentUser?.photoURL || "");
