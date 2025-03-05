@@ -34,7 +34,7 @@ Hydration failed because the server rendered HTML didn't match the client. As a 
 not logined --> homepage
 
 
-----------------------------Features----------------------------
+----------------------------Features 💥 ----------------------------
 edit profile section ->
 {/* STATS/ RANDOM STATS/ Custom Stats /followers,following...*/}
 Art Style/Mediums (checkboxes or multi-select dropdown) <-
@@ -45,15 +45,15 @@ phoneNumber,emailVerified,displayName
 ! Two-Factor Authentication (2FA) **
 
 
-----------------------------Errors ----------------------------
+----------------------------Errors❌ ----------------------------
 Avatar Edit error --> instead of blub, need lasteing picutre upload, same goes for uploading arts. --> AvatarEdit, upload
 
 
 ---- Currently Working on ----
 
-1. General Edit profile update in firebase. 
+1. General Edit ✔️. 
 
-2. Mini Profile stats/look
+2. Mini Profile stats/look // years of service placement
 
 3. Avatar Error/ handle picture submit - bagon
 

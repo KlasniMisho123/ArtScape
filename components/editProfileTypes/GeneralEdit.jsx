@@ -153,10 +153,11 @@ export default function GeneralEdit() {
           <div className='flex flex-col p-4 gap-4 '>
             <label> Country </label>
             <select 
-            className='border-2 border-black bg-[#243642] rounded p-2 text-white'
-            onChange={(e)=>{
-              setSelectedCountry(e.target.value)
-            }}
+              className='border-2 border-black bg-[#243642] rounded p-2 text-white'
+              onChange={(e) => {
+                setSelectedCountry(e.target.value);
+              }}
+              value={selectedCountry}
             >
               <option className='text-gray-400' value="">None</option>
               {Object.keys(availableCountriesAndCities).map((country,index) => {
@@ -172,6 +173,7 @@ export default function GeneralEdit() {
              onChange={(e)=>{
               setSelectedCity(e.target.value)
             }}
+            value={selectedCity}
              > 
               <option className='text-gray-400' value="">None</option>
               {Array.isArray(filteredCities) && filteredCities.length > 0 ? (
