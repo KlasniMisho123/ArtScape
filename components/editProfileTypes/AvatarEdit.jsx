@@ -50,15 +50,20 @@ export default function AvatarEdit() {
     }
   }
 
+  function calculateTimeSinceUTC(UTCtime) {
+    const date = new Date(UTCtime * 1000); 
+    console.log(date.toUTCString())
+  }
+
   async function startingInputValues() {
       try {
         const userRef = doc(db, "users", currentUser.uid )
         const userInfo = await getDoc(userRef)
+
+        let createdAt = currentUser?.reloadUserInfo?.createdAt
+        calculateTimeSinceUTC(createdAt)
         
         setCurrentAvatar(currentUser?.photoURL || "");
-        let createdAt = currentUser?.reloadUserInfo?.createdAt
-        
-        setYears(createdAt)
       } catch(err) {
         console.log(err.message)
       } 
