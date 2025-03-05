@@ -97,6 +97,14 @@ export default function GeneralEdit() {
     setSocialLinkTwo("")
   }
 
+  async function getUserInfo() {
+    const userId = currentUser.uid; 
+    const userRef = doc(db, "users", userId )
+    const userInfo = await getDoc(userRef)
+
+    console.log("userInfo: ", userInfo)
+  }
+
   useEffect(() => {
     console.log("currentUser: ", currentUser);
 
@@ -107,14 +115,9 @@ export default function GeneralEdit() {
     findFilteredCities()
   },[selectedCountry])
 
-  // useEffect(async ()=>{
-  //   const userRef = doc(db, "users", userId )
-
-  //   const userInfo = await getDoc(userRef)
-
-  //   console.log("userInfo: ", userInfo)
-  //   findFilteredCities()
-  // },[])
+  useEffect(()=>{
+    getUserInfo()
+  },[])
 
 
   return (
