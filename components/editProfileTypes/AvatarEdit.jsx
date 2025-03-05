@@ -9,7 +9,7 @@ export default function AvatarEdit() {
   const [currentAvatar, setCurrentAvatar] = useState("")
   const [avatar, setAvatar] = useState("")
   const [status, setStatus] = useState(0)
-  const [years, setYears] = useState(0)
+  const [timeOfService, setTimeOfService] = useState("")
   const [isLoading, setIisLoading] = useState(false)
 
   function handleAvatarUpload(e) {
@@ -65,9 +65,9 @@ export default function AvatarEdit() {
     const fullYears = Math.floor(differenceInDays / 365);
     
     if(fullYears > 0) {
-      setYears(`${fullYears} Years of Service`)
+      setTimeOfService(`${fullYears} Years of Service`)
     } else {
-      setYears(`${differenceInDays} Days of Service`)
+      setTimeOfService(`${differenceInDays} Days of Service`)
     }
   }
 
@@ -77,7 +77,7 @@ export default function AvatarEdit() {
         const userInfo = await getDoc(userRef)
 
         const createdAt = currentUser?.reloadUserInfo?.createdAt
-        calculateTimeSinceUTC(createdAt)
+        await calculateTimeSinceUTC(createdAt)
 
         setCurrentAvatar(currentUser?.photoURL || "");
       } catch(err) {
@@ -149,7 +149,7 @@ export default function AvatarEdit() {
                 <h2 className='font-bold text-lg text-white '>{currentUser?.displayName || currentUser?.uid?.slice(0, 12)}</h2>
                 {/* STATS/ RANDOM STATS/ Custom Stats /followers,following...*/}
                 <p>Aboutme/Status</p>
-                <p>{years} Years of Service </p>
+                <p>{timeOfService}</p>
             </div>
           </div>
       </div>
