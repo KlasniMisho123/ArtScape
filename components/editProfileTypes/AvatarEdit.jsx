@@ -51,13 +51,17 @@ export default function AvatarEdit() {
   }
 
   function calculateTimeSinceUTC(UTCtime) {
+    if (!UTCtime) {
+      console.log("Invalid timestamp");
+      return;
+  }
+
     const currentDate = new Date()
-    const createdDate  = new Date(UTCtime); 
+    const createdDate = new Date(Number(UTCtime));
 
     const differenceInTime = currentDate - createdDate;
     const differenceInDays = Math.floor(differenceInTime / (1000 * 60 * 60 * 24));
 
-    console.log(`Days since account creation: ${differenceInDays} days`);
     return differenceInDays;
   }
 
