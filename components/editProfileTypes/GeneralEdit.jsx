@@ -97,7 +97,7 @@ export default function GeneralEdit() {
     setSocialLinkTwo("")
   }
 
-  useEffect(()=>{
+  useEffect(() => {
     console.log("currentUser: ", currentUser);
 
     setUsername(currentUser?.displayName || "");
@@ -106,6 +106,15 @@ export default function GeneralEdit() {
   useEffect(()=>{
     findFilteredCities()
   },[selectedCountry])
+
+  // useEffect(async ()=>{
+  //   const userRef = doc(db, "users", userId )
+
+  //   const userInfo = await getDoc(userRef)
+
+  //   console.log("userInfo: ", userInfo)
+  //   findFilteredCities()
+  // },[])
 
 
   return (
