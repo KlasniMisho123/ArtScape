@@ -1,6 +1,8 @@
 import { useAuth } from '@/context/AuthContext';
 import React, { useEffect, useState } from 'react'
 import StatusMessage from '../StatusMessage';
+import { db } from "@/firebase"
+import {collection, addDoc, doc, setDoc, getDoc} from "firebase/firestore"
 
 export default function AvatarEdit() {
   const { currentUser, updateAvatar } = useAuth()
@@ -47,9 +49,20 @@ export default function AvatarEdit() {
     }
   }
 
-  useEffect(() => {
-    setCurrentAvatar(currentUser?.photoURL);
-}, [currentUser]);
+  async function startingInputValues() {
+      try {
+        const userRef = doc(db, "users", currentUser.uid )
+        const userInfo = await getDoc(userRef)
+        
+        setCurrentAvatar(currentUser?.photoURL || "");
+      } catch(err) {
+        console.log(err.message)
+      } 
+    }
+  
+    useEffect(() => {
+      startingInputValues()
+    },[currentUser])
 
   return (
     <div className=' flex flex-col gap-8 '>
