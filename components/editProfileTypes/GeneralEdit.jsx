@@ -27,8 +27,6 @@ export default function GeneralEdit() {
   const [status, setStatus] = useState(0)
   
   async function handleSubmit() {
-    console.log(currentUser)
-
     const userId = currentUser.uid; 
 
     try {
@@ -113,7 +111,6 @@ export default function GeneralEdit() {
       setSocialLinkOne(userInfo.data()?.SocialLinkOne)
       setSocialLinkTwo(userInfo.data()?.SocialLinkTwo)
     
-      console.log("userInfo: ", userInfo.data())
     } catch(err) {
       console.log(err.message)
     } finally {
