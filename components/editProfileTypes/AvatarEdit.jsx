@@ -62,7 +62,8 @@ export default function AvatarEdit() {
     const differenceInTime = currentDate - createdDate;
     const differenceInDays = Math.floor(differenceInTime / (1000 * 60 * 60 * 24));
 
-    return differenceInDays;
+    const fullYears = Math.floor(differenceInDays / 365);
+    return fullYears;
   }
 
   async function startingInputValues() {
@@ -71,8 +72,8 @@ export default function AvatarEdit() {
         const userInfo = await getDoc(userRef)
 
         const createdAt = currentUser?.reloadUserInfo?.createdAt
-        calculateTimeSinceUTC(createdAt)
-        
+        setYears(calculateTimeSinceUTC(createdAt))
+
         setCurrentAvatar(currentUser?.photoURL || "");
       } catch(err) {
         console.log(err.message)
