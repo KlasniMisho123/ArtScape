@@ -1,6 +1,7 @@
 'use client'
 import availableCountriesAndCities from '@/app/utils';
 import { useAuth } from '@/context/AuthContext';
+import {collection, addDoc, doc, setDoc, getDoc} from "firebase/firestore"
 import React, { useEffect, useState } from 'react'
 import StatusMessage from '../StatusMessage';
 import { Exo_2, Inter } from 'next/font/google';
@@ -24,19 +25,23 @@ export default function GeneralEdit() {
   const [socialLinkTwo, setSocialLinkTwo] = useState("")
   const [status, setStatus] = useState(0)
   
-  // let currentUsername = currentUser?.displayName
-
   async function handleSubmit() {
     console.log(currentUser)
+
+    const userId = currentUser.uid; 
+
     try {
       if (username.length <= 0) {
         // Set ERROR MESSAGE
         setStatus(400);
-        return; // This will prevent the code from continuing
+        return; 
       } else {
         // Proceed with general update only if username exists
         handleGeneralUpdate(username);
       }
+      
+      const userRef = doc(db, "users", userId, "userInfo")
+
     } catch (err) {
       console.log(err.message);
       setStatus(400);

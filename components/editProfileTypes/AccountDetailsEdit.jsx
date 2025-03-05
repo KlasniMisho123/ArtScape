@@ -1,7 +1,6 @@
 "use client"
 import { useAuth } from '@/context/AuthContext'
 import React, { useEffect, useState } from 'react'
-import EmailEdit from './EmailEdit'
 import Link from 'next/link'
 
 export default function AccountDetailsEdit() {
