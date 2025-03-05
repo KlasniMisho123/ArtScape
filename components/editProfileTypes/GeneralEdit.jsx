@@ -98,16 +98,21 @@ export default function GeneralEdit() {
   }
 
   async function getUserInfo() {
-    const userId = currentUser.uid; 
-    const userRef = doc(db, "users", userId )
-    const userInfo = await getDoc(userRef)
-
-    console.log("userInfo: ", userInfo)
+    try {
+      const userRef = doc(db, "users", currentUser.uid )
+      const userInfo = await getDoc(userRef)
+      
+      console.log("userInfo: ", userInfo.data())
+    } catch(err) {
+      console.log(err.message)
+    } finally {
+      console.log("Done")
+    }
   }
 
   useEffect(() => {
     console.log("currentUser: ", currentUser);
-
+    getUserInfo()
     setUsername(currentUser?.displayName || "");
   },[currentUser])
 
@@ -115,9 +120,7 @@ export default function GeneralEdit() {
     findFilteredCities()
   },[selectedCountry])
 
-  useEffect(()=>{
-    getUserInfo()
-  },[])
+
 
 
   return (
