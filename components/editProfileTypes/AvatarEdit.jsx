@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import StatusMessage from '../StatusMessage';
 import { db } from "@/firebase"
 import {collection, addDoc, doc, setDoc, getDoc} from "firebase/firestore"
-import useCountryFlag from "./useCountryFlag";
+import useCountryFlag from "../customHooks/useCountryFlag"
 
 export default function AvatarEdit() {
   const { currentUser, updateAvatar } = useAuth()
@@ -14,8 +14,9 @@ export default function AvatarEdit() {
   const [userCountry, setUserCountry] = useState("")
   const [userCity, setUserCity] = useState("")
   const [isLoading, setIisLoading] = useState(false)
-  const [userCountryFlag, setUserCountryFlag] = useState("")
+  const [userCountryFlag, setUserCountryFlag] = useState("Georgia")
 
+  const countryFlag = useCountryFlag(userCountryFlag);
 
   function handleAvatarUpload(e) {
     const file = e.target.files[0]; 
@@ -81,8 +82,6 @@ export default function AvatarEdit() {
         const userRef = doc(db, "users", currentUser.uid )
         const userInfo = await getDoc(userRef)
 
-        const countryFlag = useCountryFlag(userCountryFlag);
-
         const createdAt = currentUser?.reloadUserInfo?.createdAt
         await calculateTimeSinceUTC(createdAt)
 
@@ -98,7 +97,7 @@ export default function AvatarEdit() {
   
     useEffect(() => {
       startingInputValues()
-      console.log("currentUser: ",currentUser)
+      // console.log("currentUser: ",currentUser)
     },[currentUser])
 
   return (
