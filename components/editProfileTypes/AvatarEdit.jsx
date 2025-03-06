@@ -16,7 +16,6 @@ export default function AvatarEdit() {
   const [isLoading, setIisLoading] = useState(false)
   const [userCountryFlag, setUserCountryFlag] = useState("")
   const [countryIndex, setCountryIndex] = useState("")
-  let countryFlag = useCountryFlag(userCountryFlag);
 
   function handleAvatarUpload(e) {
     const file = e.target.files[0]; 
@@ -93,8 +92,10 @@ export default function AvatarEdit() {
         setUserCity(userCity)
 
         // Handle 🏳 
-        setUserCountryFlag(userCountry)
+        setCountryIndex(useCountryFlag(userInfo.data()?.Country))
 
+        // setUserCountryFlag(countryFlag)
+        
         // setCurrentAvatar(currentUser?.photoURL || ""); -> to ignore Error log
         setCurrentAvatar("");
       } catch(err) {
@@ -105,6 +106,7 @@ export default function AvatarEdit() {
     useEffect(() => {
       startingInputValues()
       // console.log("currentUser: ",currentUser)
+      console.log("userCountryFlag: ",userCountryFlag)
     },[currentUser])
 
   return (
@@ -167,7 +169,8 @@ export default function AvatarEdit() {
             <div className='flex flex-col '>
                 <h2 className='font-bold text-lg text-white '>{currentUser?.displayName || currentUser?.uid?.slice(0, 12)}</h2>
                 {/* STATS/ RANDOM STATS/ Custom Stats /followers,following...*/}
-                <p className='flex justify-between'> <img className='w-[20%] fit-cover' src={`https://flagcdn.com/w40/${countryFlag}.png`} alt="France Flag" /> {userCountry}, {userCity} </p>
+                <p className='flex justify-between'> <img className='w-[20%] fit-cover' src={`https://flagcdn.com/w40/${countryIndex}.png`} alt="France Flag" /> {userCountry}, {userCity} </p>
+                <p> ss: {countryIndex} </p>
             </div>
           </div>
           <p>{timeOfService}</p>
