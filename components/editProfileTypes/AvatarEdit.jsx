@@ -136,7 +136,7 @@ export default function AvatarEdit() {
         <p className='opacity-75 '>Preview your profile</p>
       </div>
 
-      <div className="mx-auto flex flex-col w-[50%] miniprofile-bg-theme  shadow-2xl h-full p-4 ">
+      <div className="mx-auto flex flex-col w-[50%] miniprofile-bg-theme  shadow-2xl h-full p-4 gap-4 ">
           <div className='flex gap-8 '>
             {/* Theme,background change?*/}
             <img 
@@ -145,13 +145,15 @@ export default function AvatarEdit() {
                 className="h-32 w-32 object-cover shadow-4xl" 
                 onError={(e) => e.target.src = "defaultProfilePicture.jpg"}
             />
-            <div className='flex flex-col'>
+                
+
+            <div className='flex flex-col '>
                 <h2 className='font-bold text-lg text-white '>{currentUser?.displayName || currentUser?.uid?.slice(0, 12)}</h2>
                 {/* STATS/ RANDOM STATS/ Custom Stats /followers,following...*/}
                 <p>Aboutme/Status</p>
-                <p>{timeOfService}</p>
             </div>
           </div>
+          <p>{timeOfService}</p>
       </div>
 
       </section>
