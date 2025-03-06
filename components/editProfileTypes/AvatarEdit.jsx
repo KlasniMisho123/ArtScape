@@ -93,7 +93,7 @@ export default function AvatarEdit() {
         setUserCity(userCity)
 
         // Handle 🏳 
-        setUserCountryFlag()
+        setUserCountryFlag(userCountry)
 
         // setCurrentAvatar(currentUser?.photoURL || ""); -> to ignore Error log
         setCurrentAvatar("");
