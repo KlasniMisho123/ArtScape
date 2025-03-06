@@ -92,7 +92,8 @@ export default function AvatarEdit() {
         setUserCity(userCity)
 
         // Handle 🏳 
-        setCountryIndex(useCountryFlag(userInfo.data()?.Country))
+        setUserCountry(userCountry);
+        setCountryIndex(useCountryFlag(userCountry));
 
         // setUserCountryFlag(countryFlag)
         
@@ -106,7 +107,6 @@ export default function AvatarEdit() {
     useEffect(() => {
       startingInputValues()
       // console.log("currentUser: ",currentUser)
-      console.log("userCountryFlag: ",userCountryFlag)
     },[currentUser])
 
   return (
