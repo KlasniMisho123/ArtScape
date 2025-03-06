@@ -6,12 +6,23 @@ export default function useCountryFlag(country) {
     useEffect(()=>{
         if(country==="Georgia") {
             setCountryIndex("ge")
-        } if(country==="Germany"){
-            setCountryIndex("ge")
-        } if(country==="Germany"){
-            setCountryIndex("ge")
-        }
-
+        } else if(country==="Germany"){
+            setCountryIndex("de")
+        } else if(country==="France"){
+            setCountryIndex("fr")
+        } else if(country==="Italy"){
+            setCountryIndex("it")
+        } else if(country==="Spain"){
+            setCountryIndex("es")
+        } else if(country==="United Kingdom"){
+            setCountryIndex("gb")
+        } else if(country==="Poland"){
+            setCountryIndex("pl")
+        } else if(country==="Sweden"){
+            setCountryIndex("se")
+        } else {
+            setCountryIndex(country)
+        }   
     },[])
 
   return (countryIndex);
