@@ -38,7 +38,7 @@ body {
 }
 
 .miniprofile-bg-theme {
-    background: linear-gradient(to bottom, rgb(98, 111, 145) 50%, #343435 50%);
+    background: linear-gradient(to bottom, rgb(98, 111, 145) 40%, #343435 40%);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
     border-radius: 8px;
     overflow: hidden; 

@@ -136,7 +136,7 @@ export default function AvatarEdit() {
         <p className='opacity-75 '>Preview your profile</p>
       </div>
 
-      <div className="mx-auto flex flex-col w-[50%] miniprofile-bg-theme  shadow-2xl h-full p-4 gap-4 ">
+      <div className="mx-auto flex flex-col w-[50%] miniprofile-bg-theme shadow-2xl h-full p-4 gap-4 ">
           <div className='flex gap-8 '>
             {/* Theme,background change?*/}
             <img 
