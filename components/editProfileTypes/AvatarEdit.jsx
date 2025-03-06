@@ -10,6 +10,8 @@ export default function AvatarEdit() {
   const [avatar, setAvatar] = useState("")
   const [status, setStatus] = useState(0)
   const [timeOfService, setTimeOfService] = useState("")
+  const [userCountry, setUserCountry] = useState("")
+  const [userCity, setUserCity] = useState("")
   const [isLoading, setIisLoading] = useState(false)
 
   function handleAvatarUpload(e) {
@@ -50,7 +52,7 @@ export default function AvatarEdit() {
     }
   }
 
-  function calculateTimeSinceUTC(UTCtime) {
+  async function calculateTimeSinceUTC(UTCtime) {
     if (!UTCtime) {
       console.log("Invalid timestamp");
       return;
@@ -79,6 +81,8 @@ export default function AvatarEdit() {
         const createdAt = currentUser?.reloadUserInfo?.createdAt
         await calculateTimeSinceUTC(createdAt)
 
+        const userCountry = userInfo.data()?.Country
+        setUserCountry(userCountry)
         setCurrentAvatar(currentUser?.photoURL || "");
       } catch(err) {
         console.log(err.message)
@@ -150,7 +154,7 @@ export default function AvatarEdit() {
             <div className='flex flex-col '>
                 <h2 className='font-bold text-lg text-white '>{currentUser?.displayName || currentUser?.uid?.slice(0, 12)}</h2>
                 {/* STATS/ RANDOM STATS/ Custom Stats /followers,following...*/}
-                <p>Aboutme/Status</p>
+                <p> {userCountry} </p>
             </div>
           </div>
           <p>{timeOfService}</p>
