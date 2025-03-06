@@ -82,13 +82,19 @@ export default function AvatarEdit() {
         const userRef = doc(db, "users", currentUser.uid )
         const userInfo = await getDoc(userRef)
 
+        // Days/Years Of Service
         const createdAt = currentUser?.reloadUserInfo?.createdAt
         await calculateTimeSinceUTC(createdAt)
 
+        //  Country,City
         const userCountry = userInfo.data()?.Country
         const userCity = userInfo.data()?.City
         setUserCountry(userCountry)
         setUserCity(userCity)
+
+        // Handle 🏳 
+        setUserCountryFlag()
+
         // setCurrentAvatar(currentUser?.photoURL || ""); -> to ignore Error log
         setCurrentAvatar("");
       } catch(err) {
