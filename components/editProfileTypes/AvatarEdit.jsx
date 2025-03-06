@@ -14,10 +14,9 @@ export default function AvatarEdit() {
   const [userCountry, setUserCountry] = useState("")
   const [userCity, setUserCity] = useState("")
   const [isLoading, setIisLoading] = useState(false)
-  const [userCountryFlag, setUserCountryFlag] = useState("Georgia")
   const [countryIndex, setCountryIndex] = useState("")
-  useCountryFlag(userCountryFlag)
 
+  let indexS = useCountryFlag(userCountryFlag)
 
   function handleAvatarUpload(e) {
     const file = e.target.files[0]; 
@@ -96,6 +95,7 @@ export default function AvatarEdit() {
         // Handle 🏳 
         // setUserCountry(userCountry);
         // setCountryIndex(useCountryFlag(userCountry));
+        let userCountryFlag = useCountryFlag(userCountry)
 
         // setCurrentAvatar(currentUser?.photoURL || ""); -> to ignore Error log
         setCurrentAvatar("");
@@ -113,7 +113,7 @@ export default function AvatarEdit() {
       // Handle 🏳 
       // setUserCountry(userCountry);
       // setCountryIndex(useCountryFlag(userCountry));
-      setCountryIndex()
+      
     },[userCountry])
     
 
