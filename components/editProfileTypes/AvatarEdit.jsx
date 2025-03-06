@@ -82,7 +82,9 @@ export default function AvatarEdit() {
         await calculateTimeSinceUTC(createdAt)
 
         const userCountry = userInfo.data()?.Country
+        const userCity = userInfo.data()?.City
         setUserCountry(userCountry)
+        setUserCity(userCity)
         setCurrentAvatar(currentUser?.photoURL || "");
       } catch(err) {
         console.log(err.message)
@@ -154,7 +156,7 @@ export default function AvatarEdit() {
             <div className='flex flex-col '>
                 <h2 className='font-bold text-lg text-white '>{currentUser?.displayName || currentUser?.uid?.slice(0, 12)}</h2>
                 {/* STATS/ RANDOM STATS/ Custom Stats /followers,following...*/}
-                <p> {userCountry} </p>
+                <p> {userCountry}, {userCity} </p>
             </div>
           </div>
           <p>{timeOfService}</p>
