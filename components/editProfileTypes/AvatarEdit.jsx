@@ -14,9 +14,9 @@ export default function AvatarEdit() {
   const [userCountry, setUserCountry] = useState("")
   const [userCity, setUserCity] = useState("")
   const [isLoading, setIisLoading] = useState(false)
-  const [userCountryFlag, setUserCountryFlag] = useState("Georgia")
-
-  const countryFlag = useCountryFlag(userCountryFlag);
+  const [userCountryFlag, setUserCountryFlag] = useState("")
+  const [countryIndex, setCountryIndex] = useState("")
+  let countryFlag = useCountryFlag(userCountryFlag);
 
   function handleAvatarUpload(e) {
     const file = e.target.files[0]; 
