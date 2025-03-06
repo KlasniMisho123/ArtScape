@@ -89,9 +89,10 @@ export default function AvatarEdit() {
         const userCity = userInfo.data()?.City
         setUserCountry(userCountry)
         setUserCity(userCity)
-        setCurrentAvatar(currentUser?.photoURL || "");
+        // setCurrentAvatar(currentUser?.photoURL || ""); -> to ignore Error log
+        setCurrentAvatar("");
       } catch(err) {
-        console.log(err.message)
+        // console.log(err.message) -> to ignore Error log
       } 
     }
   
@@ -160,7 +161,7 @@ export default function AvatarEdit() {
             <div className='flex flex-col '>
                 <h2 className='font-bold text-lg text-white '>{currentUser?.displayName || currentUser?.uid?.slice(0, 12)}</h2>
                 {/* STATS/ RANDOM STATS/ Custom Stats /followers,following...*/}
-                <p className='flex justify-between'> <img className='w-[20%] fit-cover' src={`https://flagcdn.com/w40/es.png`} alt="France Flag" /> {userCountry}, {userCity} </p>
+                <p className='flex justify-between'> <img className='w-[20%] fit-cover' src={`https://flagcdn.com/w40/${countryFlag}.png`} alt="France Flag" /> {userCountry}, {userCity} </p>
             </div>
           </div>
           <p>{timeOfService}</p>

@@ -4,9 +4,13 @@ export default function useCountryFlag(country) {
     const [countryIndex, setCountryIndex] = useState("")
 
     useEffect(()=>{
-        console.log("country: ",country)
+        if(country==="Georgia") {
+            setCountryIndex("ge")
+        } else {
+            console.log("ELSE")
+        }
     },[])
 
-  return [countryIndex, setCountryIndex];
+  return (countryIndex);
   
 }
