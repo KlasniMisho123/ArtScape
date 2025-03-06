@@ -90,7 +90,7 @@ export default function AvatarEdit() {
         const userCity = userInfo.data()?.City
         setUserCountry(userCountry)
         setUserCity(userCity)
-
+        
         // setCurrentAvatar(currentUser?.photoURL || ""); -> to ignore Error log
         setCurrentAvatar("");
       } catch(err) {

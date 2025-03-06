@@ -46,8 +46,9 @@ phoneNumber,emailVerified,displayName
 
 
 ----------------------------Errors❌ ----------------------------
-Avatar Edit error --> instead of blub, need lasteing picutre upload, same goes for uploading arts. --> AvatarEdit, upload
+1. Avatar Edit error --> instead of blub, need lasteing picutre upload, same goes for uploading arts. --> AvatarEdit, upload
 
+2. General Edit, after changeing Saved Country it is possible to leave previous city.
 
 ---- Currently Working on ----
 
