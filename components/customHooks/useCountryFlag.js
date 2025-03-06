@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
-import { db } from "@/firebase"
-import {collection, addDoc, doc, setDoc, getDoc} from "firebase/firestore"
+import { db } from "@/firebase";
+import { doc, getDoc } from "firebase/firestore";
+import { useAuth } from '@/context/AuthContext';
 
 export default function useCountryFlag() {
+    const { currentUser } = useAuth(); 
     const [countryIndex, setCountryIndex] = useState("");
 
-    
     const countryCodes = {
         "Georgia": "ge",
         "Germany": "de",
@@ -17,14 +18,21 @@ export default function useCountryFlag() {
         "Sweden": "se"
     };
 
-    useEffect(async () => {
-        const userRef = doc(db, "users", currentUser.uid )
-        const userInfo = await getDoc(userRef)
+    const getCountryIndex = async () => {
+        if (currentUser) {
+            const userRef = doc(db, "users", currentUser.uid);
+            const userInfo = await getDoc(userRef);
+            const userCountry = userInfo.data()?.Country;
 
-        const userCountry = userInfo.data()?.Country
+            setCountryIndex(countryCodes[userCountry] || userCountry);
+        }
+    };
 
-        setCountryIndex(countryCodes[userCountry] || userCountry);
-    }, []); 
+    useEffect(() => {
+        if (currentUser) {
+            getCountryIndex();
+        }
+    }, [currentUser]);
 
     return countryIndex;
 }
