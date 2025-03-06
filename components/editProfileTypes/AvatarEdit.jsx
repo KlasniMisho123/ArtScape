@@ -14,8 +14,10 @@ export default function AvatarEdit() {
   const [userCountry, setUserCountry] = useState("")
   const [userCity, setUserCity] = useState("")
   const [isLoading, setIisLoading] = useState(false)
-  const [userCountryFlag, setUserCountryFlag] = useState("")
+  const [userCountryFlag, setUserCountryFlag] = useState("Georgia")
   const [countryIndex, setCountryIndex] = useState("")
+  useCountryFlag(userCountryFlag)
+
 
   function handleAvatarUpload(e) {
     const file = e.target.files[0]; 
@@ -92,11 +94,9 @@ export default function AvatarEdit() {
         setUserCity(userCity)
 
         // Handle 🏳 
-        setUserCountry(userCountry);
-        setCountryIndex(useCountryFlag(userCountry));
+        // setUserCountry(userCountry);
+        // setCountryIndex(useCountryFlag(userCountry));
 
-        // setUserCountryFlag(countryFlag)
-        
         // setCurrentAvatar(currentUser?.photoURL || ""); -> to ignore Error log
         setCurrentAvatar("");
       } catch(err) {
@@ -108,6 +108,14 @@ export default function AvatarEdit() {
       startingInputValues()
       // console.log("currentUser: ",currentUser)
     },[currentUser])
+    
+    useEffect(() => {
+      // Handle 🏳 
+      // setUserCountry(userCountry);
+      // setCountryIndex(useCountryFlag(userCountry));
+      setCountryIndex()
+    },[userCountry])
+    
 
   return (
     <div className=' flex flex-col gap-8 '>
