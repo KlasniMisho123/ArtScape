@@ -6,16 +6,28 @@ export default function EmailEdit() {
   const { currentUser } = useAuth()
   const [hashedEmail, setHashedEmail ] = useState("")
 
-  let currentUSSer = currentUser?.email.slice()
+  
 
-  useEffect(()=> {
+  async function hashingEmail() {
+      let userEmail = currentUser?.email
+      let emailFirstLetter = currentUser?.email.slice(0, 1) 
+
+      if(userEmail) {
+        let emailLastLetter =  userEmail.indexOf("@")
+        setHashedEmail(emailLastLetter)
+      } else {
+        setHashedEmail("")
+      }
+  }
+
+  useEffect( ()=> {
     console.log("currentUser: ",currentUser)
-    
+    hashingEmail()
   }, [currentUser])
 
   return (
     <div className=''>        
-        { currentUSSer}
+        {hashedEmail}
     </div>
   )
 }
