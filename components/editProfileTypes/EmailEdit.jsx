@@ -26,9 +26,12 @@ export default function EmailEdit() {
     hashingEmail()
   }, [currentUser])
 
+  //  {hashedEmail}
   return (
-    <div className=''>        
-        {hashedEmail}
+    <div className='min-h-[75vh] '>        
+        <div className='flex bg-[#134B70] w-[70%] mx-auto mt-4 items-center p-4 text-white sm:text-md  md:text-lg lg:text-xl '>
+            Email Configuration
+        </div>
     </div>
   )
 }
