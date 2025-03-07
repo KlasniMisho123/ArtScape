@@ -6,7 +6,7 @@ export default function EmailEdit() {
   const { currentUser } = useAuth()
   const [hashedEmail, setHashedEmail ] = useState("")
   const [newEmail, setNewEmail ] = useState("")
-  
+  const [verifySection, setVerifySection ] = useState(false)
 
   async function hashingEmail() {
     let userEmail = currentUser?.email
@@ -23,6 +23,10 @@ export default function EmailEdit() {
 
   function clearInputs() {
     setNewEmail("")
+  }
+
+  function handleSubmit() {
+    setVerifySection(true)
   }
 
   useEffect( ()=> {
