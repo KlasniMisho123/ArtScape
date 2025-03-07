@@ -159,7 +159,7 @@ export default function AvatarEdit() {
             <img 
                 alt="Avatar"
                 src={avatar || currentAvatar|| "defaultProfilePicture.jpg"}
-                className="h-32 w-32 object-cover shadow-4xl" 
+                className="h-32 w-32 object-cover shadow-4xl border-b-4 border-[#6dcff6] " 
                 onError={(e) => e.target.src = "defaultProfilePicture.jpg"}
             />
                 
