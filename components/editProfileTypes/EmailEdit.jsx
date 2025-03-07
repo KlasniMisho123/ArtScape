@@ -63,11 +63,11 @@ export default function EmailEdit() {
           </div>
           <div className='flex justify-end gap-16 ml-[10px] mt-[40px]'>
           <button
-           className='rounded w-[20%] py-1 text-white bg-[#243642] shadow-lg hover:brightness-110 '
+           className={'rounded w-[20%] py-1 text-white bg-[#243642] shadow-lg hover:brightness-110 ' + (verifySection?  "cursor-not-allowed opacity-50" : "")}
            onClick={clearInputs}
           > Cancel</button>
           <button className='rounded w-[20%] py-1 text-white linear-lblue-blue shadow-lg hover:brightness-110 '
-          onClick={clearInputs}
+          onClick={handleSubmit}
           > Submit </button>
         </div>
         </div>
