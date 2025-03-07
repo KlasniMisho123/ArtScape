@@ -68,8 +68,10 @@ export default function EmailEdit() {
             <p className="text-gray-300 text-sm md:text-md">
               A verification code has been sent to your email.
             </p>
-            <button className="text-red-500 rounded-full p-2 hover:texst-red-800 scale-150 hover:scale-120 transition-all duration-200 ease-in-out">
-            <i class="fa-solid fa-xmark"></i>
+            <button className="text-red-500 rounded-full p-2 hover:texst-red-800 scale-150 hover:scale-125 transition-all duration-200 ease-in-out"
+              onClick={()=>{setVerifySection(false)}}
+            >
+              <i class="fa-solid fa-xmark"></i>
             </button>
           </div>
         
@@ -82,7 +84,7 @@ export default function EmailEdit() {
           />  
             <button className="w-max whitespace-nowrap px-4 py-2 bg-[#1a5276] text-white rounded shadow-md hover:opacity-75 hover:shadow-none 
             transition-all duration-300 ease-in-out 
-            hover:bg-[#2a78a8] hover:opacity-90 hover:scale-105" 
+            hover:bg-[#2a78a8] hover:opacity-90 hover:scale-95" 
             
             >
               Submit Code
