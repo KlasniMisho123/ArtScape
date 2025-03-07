@@ -68,8 +68,8 @@ export default function EmailEdit() {
             <p className="text-gray-300 text-sm md:text-md">
               A verification code has been sent to your email.
             </p>
-            <button className="text-red-500 rounded-full p-2 hover:texst-red-800 hover:scale-150 transition-all duration-200 ease-in-out">
-              X
+            <button className="text-red-500 rounded-full p-2 hover:texst-red-800 scale-150 hover:scale-120 transition-all duration-200 ease-in-out">
+            <i class="fa-solid fa-xmark"></i>
             </button>
           </div>
         
