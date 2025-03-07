@@ -64,10 +64,13 @@ export default function EmailEdit() {
           </div>
           {verifySection?
           <div className="flex flex-col gap-2 border-2 border-gray-500 rounded p-4 bg-[#1a2b3c] text-white space-y-3">
-          <div className="flex items-center gap-2">
+          <div className="flex justify-between items-center gap-2 ">
             <p className="text-gray-300 text-sm md:text-md">
               A verification code has been sent to your email.
             </p>
+            <button className="text-red-500 rounded-full p-2 hover:texst-red-800 hover:scale-150 transition-all duration-200 ease-in-out">
+              X
+            </button>
           </div>
         
         <div className='flex gap-2'> 
@@ -77,7 +80,11 @@ export default function EmailEdit() {
             onChange={(e) => setVerificationCode(e.target.value)}
             placeholder="Enter verification code"
           />  
-            <button className="w-max whitespace-nowrap px-4 py-2 bg-[#1a5276] text-white rounded shadow-md hover:opacity-75 hover:shadow-none ">
+            <button className="w-max whitespace-nowrap px-4 py-2 bg-[#1a5276] text-white rounded shadow-md hover:opacity-75 hover:shadow-none 
+            transition-all duration-300 ease-in-out 
+            hover:bg-[#2a78a8] hover:opacity-90 hover:scale-105" 
+            
+            >
               Submit Code
             </button>
 
