@@ -1,10 +1,16 @@
-import React from 'react'
+'use client'
+import { useAuth } from '@/context/AuthContext'
+import React, { useEffect } from 'react'
 
 export default function EmailEdit() {
+  const { currentUser } = useAuth()
 
+  useEffect(()=>{
+    console.log("currentUser: ",currentUser)
+  }, [currentUser])
   return (
     <div >        
-        sad rad r
+        {currentUser?.displayName}
     </div>
   )
 }
