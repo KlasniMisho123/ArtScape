@@ -32,8 +32,14 @@ export default function EmailEdit() {
 
   async function verifyEmailWithCode() {
     // Check if Code that u sent matches input Code
-    console.log("Dummy Text")
+    console.log("Verify Email With Code Dummy Text")
   }
+
+  async function sendVerificationCode() {
+    // send verification code on inputed email
+    console.log("Send Verification Code Dummy Text")
+  }
+
 
   useEffect( ()=> {
     console.log("currentUser: ",currentUser)
