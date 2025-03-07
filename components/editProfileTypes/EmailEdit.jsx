@@ -7,6 +7,7 @@ export default function EmailEdit() {
   const [hashedEmail, setHashedEmail ] = useState("")
   const [newEmail, setNewEmail ] = useState("")
   const [verifySection, setVerifySection ] = useState(false)
+  const [verificationCode, setVerificationCode ] = useState("")
 
   async function hashingEmail() {
     let userEmail = currentUser?.email
@@ -62,15 +63,25 @@ export default function EmailEdit() {
             />  
           </div>
           {verifySection?
-          <div className='border-2 border-gray-500 rounded p-4'>
-            <p>Verification Code has've been sent to Your Email </p>
-            <input 
-              className='border-2 border-black bg-[#243642] rounded p-2 text-white'
-              value={newEmail}
-              onChange={(e)=>{setNewEmail(e.target.value)}}
-              placeholder='Code'
-            /> 
+          <div className="border-2 border-gray-500 rounded p-4 bg-[#1a2b3c] text-white space-y-3">
+          <div className="flex items-center gap-2">
+            <p className="text-gray-300 text-sm md:text-md">
+              A verification code has been sent to your email.
+            </p>
           </div>
+        
+          <input 
+            className="border-2 border-gray-500 bg-[#243642] rounded p-2 text-white w-full placeholder-gray-400"
+            value={verificationCode}
+            onChange={(e) => setVerificationCode(e.target.value)}
+            placeholder="Enter verification code"
+          />  
+        
+          <p className="text-xs text-gray-400">
+            Didn’t receive the code? <span className="text-blue-400 cursor-pointer hover:underline">Resend</span>
+          </p>
+        </div>
+        
           : ""}
           <div className='flex justify-end gap-16 ml-[10px] mt-[40px]'>
           <button
