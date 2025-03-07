@@ -63,20 +63,26 @@ export default function EmailEdit() {
             />  
           </div>
           {verifySection?
-          <div className="border-2 border-gray-500 rounded p-4 bg-[#1a2b3c] text-white space-y-3">
+          <div className="flex flex-col gap-2 border-2 border-gray-500 rounded p-4 bg-[#1a2b3c] text-white space-y-3">
           <div className="flex items-center gap-2">
             <p className="text-gray-300 text-sm md:text-md">
               A verification code has been sent to your email.
             </p>
           </div>
         
+        <div className='flex gap-2'> 
           <input 
             className="border-2 border-gray-500 bg-[#243642] rounded p-2 text-white w-full placeholder-gray-400"
             value={verificationCode}
             onChange={(e) => setVerificationCode(e.target.value)}
             placeholder="Enter verification code"
           />  
-        
+            <button className="w-max whitespace-nowrap px-4 py-2 bg-[#1a5276] text-white rounded shadow-md hover:opacity-75 hover:shadow-none ">
+              Submit Code
+            </button>
+
+        </div>
+
           <p className="text-xs text-gray-400">
             Didn’t receive the code? <span className="text-blue-400 cursor-pointer hover:underline">Resend</span>
           </p>
