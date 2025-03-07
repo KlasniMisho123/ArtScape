@@ -14,7 +14,7 @@ export default function EmailEdit() {
 
       if(userEmail) {
         let emailLastLetter =  userEmail.indexOf("@")
-        setHashedEmail(emailLastLetter)
+        setHashedEmail(userEmail.slice(0, emailLastLetter))
       } else {
         setHashedEmail("")
       }
