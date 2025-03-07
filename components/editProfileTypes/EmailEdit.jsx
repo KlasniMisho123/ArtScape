@@ -61,6 +61,17 @@ export default function EmailEdit() {
               placeholder='New email'
             />  
           </div>
+          {verifySection?
+          <div className='border-2 border-gray-500 rounded p-4'>
+            <p>Verification Code has've been sent to Your Email </p>
+            <input 
+              className='border-2 border-black bg-[#243642] rounded p-2 text-white'
+              value={newEmail}
+              onChange={(e)=>{setNewEmail(e.target.value)}}
+              placeholder='Code'
+            /> 
+          </div>
+          : ""}
           <div className='flex justify-end gap-16 ml-[10px] mt-[40px]'>
           <button
            className={'rounded w-[20%] py-1 text-white bg-[#243642] shadow-lg hover:brightness-110 ' + (verifySection?  "cursor-not-allowed opacity-50" : "")}
