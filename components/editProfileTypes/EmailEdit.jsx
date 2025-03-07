@@ -9,14 +9,15 @@ export default function EmailEdit() {
   
 
   async function hashingEmail() {
-      let userEmail = currentUser?.email
-      let emailFirstLetter = currentUser?.email.slice(0, 1) 
+    let userEmail = currentUser?.email
+    if(userEmail) {
+        let emailFirstLetter = currentUser?.email.slice(0, 1) 
 
-      if(userEmail) {
-        let emailLastLetter =  userEmail.indexOf("@")
-        setHashedEmail(userEmail.slice(0, emailLastLetter))
+        let emailLastLetterIndex =  userEmail.indexOf("@")
+        let emailLastLetter = userEmail.slice((emailLastLetterIndex-1), emailLastLetterIndex)
+        let emailDomain = userEmail.slice((emailLastLetterIndex))
+        setHashedEmail(`${emailFirstLetter}***${emailLastLetter}${emailDomain}`)
       } else {
-        setHashedEmail("")
       }
   }
 
