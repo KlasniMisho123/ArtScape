@@ -11,6 +11,7 @@ export default function AvatarEdit() {
   const [avatar, setAvatar] = useState("")
   const [status, setStatus] = useState(0)
   const [timeOfService, setTimeOfService] = useState("")
+  const [timeOfServiceNumber, setTimeOfServiceNumber] = useState("")
   const [userCountry, setUserCountry] = useState("")
   const [userCity, setUserCity] = useState("")
   const [isLoading, setIisLoading] = useState(false)
@@ -70,9 +71,11 @@ export default function AvatarEdit() {
     const fullYears = Math.floor(differenceInDays / 365);
     
     if(fullYears > 0) {
-      setTimeOfService(`${fullYears} Years of Service`)
+      setTimeOfServiceNumber(fullYears)
+      setTimeOfService(`Years of Service`)
     } else {
-      setTimeOfService(`${differenceInDays} Days of Service`)
+      setTimeOfService(`Days of Service`)
+      setTimeOfServiceNumber(differenceInDays)
     }
   }
 
@@ -164,10 +167,16 @@ export default function AvatarEdit() {
             <div className='flex flex-col '>
                 <h2 className='font-bold text-lg text-white '>{currentUser?.displayName || currentUser?.uid?.slice(0, 12)}</h2>
                 {/* STATS/ RANDOM STATS/ Custom Stats /followers,following...*/}
-                <p className='flex items-center gap-2'> <img className='w-[15%] h-[60%] object-fit' src={`https://flagcdn.com/w40/${countryIndex}.png`} alt="France Flag" /> {userCountry}, {userCity} </p>
+                <p className='flex items-center gap-2 text-white '> <img className='w-[15%] h-[60%] object-fit' src={`https://flagcdn.com/w40/${countryIndex}.png`} alt="France Flag" /> {userCountry}, {userCity} </p>
             </div>
           </div>
-          <p>{timeOfService}</p>
+          <div className="flex items-center gap-2"> 
+  <div className="border-2 border-gray-800 bg-gray-200 text-gray-900 font-semibold text-lg px-3 py-1 rounded-md">
+    {timeOfServiceNumber}
+  </div> 
+  <p className="text-lg font-medium text-white ">{timeOfService}</p>
+</div>
+
       </div>
 
       </section>
