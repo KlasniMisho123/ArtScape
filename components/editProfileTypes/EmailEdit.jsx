@@ -65,9 +65,11 @@ export default function EmailEdit() {
           <button
            className={'rounded w-[20%] py-1 text-white bg-[#243642] shadow-lg hover:brightness-110 ' + (verifySection?  "cursor-not-allowed opacity-50" : "")}
            onClick={clearInputs}
+           disabled={verifySection}
           > Cancel</button>
-          <button className='rounded w-[20%] py-1 text-white linear-lblue-blue shadow-lg hover:brightness-110 '
+          <button className={'rounded w-[20%] py-1 text-white linear-lblue-blue shadow-lg hover:brightness-110 '  + (verifySection?  "cursor-not-allowed opacity-50" : "")}
           onClick={handleSubmit}
+          disabled={verifySection}
           > Submit </button>
         </div>
         </div>
