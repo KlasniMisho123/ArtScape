@@ -30,6 +30,11 @@ export default function EmailEdit() {
     setVerifySection(true)
   }
 
+  async function verifyEmailWithCode() {
+    // Check if Code that u sent matches input Code
+    console.log("Dummy Text")
+  }
+
   useEffect( ()=> {
     console.log("currentUser: ",currentUser)
     hashingEmail()
@@ -63,7 +68,8 @@ export default function EmailEdit() {
             />  
           </div>
           {verifySection?
-          <div className="flex flex-col gap-2 border-2 border-gray-500 rounded p-4 bg-[#1a2b3c] text-white space-y-3">
+          <div className="flex flex-col gap-2 border-2 border-gray-500 rounded p-4 bg-[#1a2b3c] text-white space-y-3 
+          transition-all duration-500 ease-in-out transform opacity-100 scale-100">
           <div className="flex justify-between items-center gap-2 ">
             <p className="text-gray-300 text-sm md:text-md">
               A verification code has been sent to your email.
@@ -71,7 +77,7 @@ export default function EmailEdit() {
             <button className="text-red-500 rounded-full p-2 hover:texst-red-800 scale-150 hover:scale-125 transition-all duration-200 ease-in-out"
               onClick={()=>{setVerifySection(false)}}
             >
-              <i class="fa-solid fa-xmark"></i>
+              <i className="fa-solid fa-xmark"></i>
             </button>
           </div>
         
@@ -85,7 +91,8 @@ export default function EmailEdit() {
             <button className="w-max whitespace-nowrap px-4 py-2 bg-[#1a5276] text-white rounded shadow-md hover:opacity-75 hover:shadow-none 
             transition-all duration-300 ease-in-out 
             hover:bg-[#2a78a8] hover:opacity-90 hover:scale-95" 
-            
+            // ADD EMAIL VERIFICATION FUNCTION
+            onClick={verifyEmailWithCode}
             >
               Submit Code
             </button>
