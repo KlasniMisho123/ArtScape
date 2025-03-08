@@ -60,7 +60,9 @@ phoneNumber,emailVerified,displayName
 
 4.  handle every country and city filter? - bagon
 
-5. Verify Email, Verify Phone, add/change.
+5. Verify Email, - nodemailer?
+
+6. Verify Phone,
 
 
 ////////// add error handleing during filling form 
