@@ -104,7 +104,7 @@ export default function PhoneEdit() {
                 A verification code has been sent to your number: {currentUser.phoneNumber}.
               </p>
               <button className="text-red-500 rounded-full p-2 hover:texst-red-800 scale-150 hover:scale-125 transition-all duration-200 ease-in-out"
-                onClick={()=>{closeVerificationSection()}}
+                onClick={closeVerificationSection}
               >
                 <i className="fa-solid fa-xmark"></i>
               </button>
