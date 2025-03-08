@@ -86,8 +86,8 @@ export default function PhoneEdit() {
               <label> Enter New phone number </label>
               <input 
                 className='border-2 border-black bg-[#243642] rounded p-2 text-white'
-                // value={newEmail}
-                // onChange={(e)=>{setNewEmail(e.target.value)}}
+                value={newPhoneNumber}
+                onChange={(e)=>{setNewPhoneNumber(e.target.value)}}
                 placeholder='New email'
               />  
             </div>
@@ -115,7 +115,7 @@ export default function PhoneEdit() {
               <button className="w-max whitespace-nowrap px-4 py-2 bg-[#1a5276] text-white rounded shadow-md hover:opacity-75 hover:shadow-none 
               transition-all duration-300 ease-in-out 
               hover:bg-[#2a78a8] hover:opacity-90 hover:scale-95" 
-              onClick={verifyEmailWithCode}
+              onClick={verifyNumberWithCode}
               >
                 Submit Code
               </button>
