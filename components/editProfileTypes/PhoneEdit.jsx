@@ -42,6 +42,15 @@ export default function PhoneEdit() {
         return
     }
 
+    async function verifyNumberWithCode() {
+      // Check if Code that u sent matches input Code
+      console.log("Verify Number With Code Dummy Text")
+    }
+  
+    async function sendVerificationCode() {
+      // send verification code on inputed email
+      console.log("Send Verification Code Dummy Text")
+    }
 
     useEffect(()=>{
       console.log("currentUser: ", currentUser)
@@ -106,8 +115,7 @@ export default function PhoneEdit() {
               <button className="w-max whitespace-nowrap px-4 py-2 bg-[#1a5276] text-white rounded shadow-md hover:opacity-75 hover:shadow-none 
               transition-all duration-300 ease-in-out 
               hover:bg-[#2a78a8] hover:opacity-90 hover:scale-95" 
-              // ADD EMAIL VERIFICATION FUNCTION
-              // onClick={verifyEmailWithCode}
+              onClick={verifyEmailWithCode}
               >
                 Submit Code
               </button>
