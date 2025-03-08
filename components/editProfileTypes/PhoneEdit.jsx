@@ -61,6 +61,9 @@ export default function PhoneEdit() {
                 Associated phone number: <span> <p className='my-2'> 
                 <i className="fa-solid fa-mobile mx-1 "></i> {currentUser?.phoneNumber? `Ends with: ${currentUser.phone}` : "Empty"} </p>  </span>
               </h2>
+              {/* New phone number? Change number */}
+              {/* Send an SMS to verify your phone number. (Helps ensure you can receive messages from Steam)Verify number*/}
+              {/* Remove your phone number from your account. This will reduce your level of Steam account security.Remove number */}
             </div>
             <div className='flex flex-col gap-2 '>
             <div className="bg-[#1a5276] p-4 rounded text-gray-200">
