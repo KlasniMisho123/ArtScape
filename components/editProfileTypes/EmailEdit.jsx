@@ -35,6 +35,11 @@ export default function EmailEdit() {
   async function handleSubmit() {
     const prevEmail = currentUser?.email
 
+    // if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
+    //   setAuthError("Invalid email");
+    //   return;
+    // } ErrorHandle?!
+    
     if (prevEmail) {
       await generateVerificationCode();
 
