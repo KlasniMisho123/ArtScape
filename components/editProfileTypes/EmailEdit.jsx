@@ -48,13 +48,19 @@ export default function EmailEdit() {
       return
   }
 
+  function closeVerificationSection() {
+    setVerificationCode("")
+    setGeneratedVerificationCode("")
+    setVerifySection(false)
+  }
+  
   async function verifyEmailWithCode() {
     // Check if Code that u sent matches input Code
     console.log("Verify Email With Code Dummy Text")
   }
 
   async function sendVerificationCode() {
-    // send verification code on inputed email
+    // send verification code on previous/new email
     console.log("Send Verification Code Dummy Text")
   }
 

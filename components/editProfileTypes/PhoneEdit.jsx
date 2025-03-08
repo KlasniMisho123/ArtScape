@@ -23,8 +23,14 @@ export default function PhoneEdit() {
         }
     }
 
+    function closeVerificationSection() {
+      setVerificationCode("")
+      setGeneratedVerificationCode("")
+      setVerifySection(false)
+    }
+
     function clearInputs() {
-      setNewEmail("")
+      setNewPhoneNumber("")
     }
 
     async function generateVerificationCode() {
@@ -48,7 +54,7 @@ export default function PhoneEdit() {
     }
   
     async function sendVerificationCode() {
-      // send verification code on inputed email
+      // send verification code on previous/new phone number
       console.log("Send Verification Code Dummy Text")
     }
 
@@ -60,7 +66,6 @@ export default function PhoneEdit() {
       <div className='min-h-[75vh] w-[70%] mx-auto '>        
           <div className='flex items-center gap-2 bg-[#134B70] mt-2 p-4 text-white  md:text-sm lg:text-md rounded '>
               <i className="fa-solid fa-mobile-screen md:text-md lg:text-lg mr-1"></i>
-              
               {/* <span className='cursor-pointer'> Home &gt; Account &gt; Email Preferences </span> */}
               <h1 className='text-white sm:text-md  md:text-lg lg:text-xl '> Phone Number Configuration</h1>
           </div>
@@ -99,7 +104,7 @@ export default function PhoneEdit() {
                 A verification code has been sent to your number: {currentUser.phoneNumber}.
               </p>
               <button className="text-red-500 rounded-full p-2 hover:texst-red-800 scale-150 hover:scale-125 transition-all duration-200 ease-in-out"
-                onClick={()=>{setVerifySection(false)}}
+                onClick={()=>{closeVerificationSection()}}
               >
                 <i className="fa-solid fa-xmark"></i>
               </button>
@@ -126,7 +131,6 @@ export default function PhoneEdit() {
               Didn’t receive the code? <span className="text-blue-400 cursor-pointer hover:underline">Resend</span>
             </p>
           </div>
-          
             : ""}
             <div className='flex justify-end gap-16 ml-[10px] mt-[40px]'>
             <button
