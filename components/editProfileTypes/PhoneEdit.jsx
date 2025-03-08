@@ -29,7 +29,7 @@ export default function PhoneEdit() {
     async function generateVerificationCode() {
       setGeneratedVerificationCode(Math.random().toString(36).substring(2, 8).toUpperCase())
     }
-    
+
     async function handleSubmit() {
       const prevPhoneNumber = currentUser?.phoneNumber
       
@@ -48,8 +48,9 @@ export default function PhoneEdit() {
 
     return (
       <div className='min-h-[75vh] w-[70%] mx-auto '>        
-          <div className='flex gap-2 bg-[#134B70] mt-2 items-center p-4 text-white  md:text-sm lg:text-md rounded '>
-              <i className="fa-solid fa-envelope md:text-md lg:text-lg mr-1"></i>
+          <div className='flex items-center gap-2 bg-[#134B70] mt-2 p-4 text-white  md:text-sm lg:text-md rounded '>
+              <i className="fa-solid fa-mobile-screen md:text-md lg:text-lg mr-1"></i>
+              
               {/* <span className='cursor-pointer'> Home &gt; Account &gt; Email Preferences </span> */}
               <h1 className='text-white sm:text-md  md:text-lg lg:text-xl '> Phone Number Configuration</h1>
           </div>
