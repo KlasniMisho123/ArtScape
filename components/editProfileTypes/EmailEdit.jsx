@@ -27,6 +27,8 @@ export default function EmailEdit() {
   }
 
   function handleSubmit() {
+    const prevEmail = currentUser?.email
+
     setVerifySection(true)
   }
 
