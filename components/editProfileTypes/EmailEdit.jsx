@@ -53,7 +53,7 @@ export default function EmailEdit() {
     setGeneratedVerificationCode("")
     setVerifySection(false)
   }
-  
+
   async function verifyEmailWithCode() {
     // Check if Code that u sent matches input Code
     console.log("Verify Email With Code Dummy Text")
@@ -105,7 +105,7 @@ export default function EmailEdit() {
               A verification code has been sent to your email. {generatedVerificationCode}
             </p>
             <button className="text-red-500 rounded-full p-2 hover:texst-red-800 scale-150 hover:scale-125 transition-all duration-200 ease-in-out"
-              onClick={()=>{setVerifySection(false)}}
+             onClick={closeVerificationSection}
             >
               <i className="fa-solid fa-xmark"></i>
             </button>
