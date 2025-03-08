@@ -26,8 +26,15 @@ export default function EmailEdit() {
     setNewEmail("")
   }
 
-  function handleSubmit() {
+  function generateVerificationCode() {
+    return Math.random().toString(36).substring(2, 8).toUpperCase();
+  }
+    
+
+  async function handleSubmit() {
     const prevEmail = currentUser?.email
+
+    generateVerificationCode()
 
     setVerifySection(true)
   }
@@ -45,6 +52,8 @@ export default function EmailEdit() {
 
   useEffect( ()=> {
     console.log("currentUser: ",currentUser)
+    console.log("generateVerificationCode: ",generateVerificationCode()); 
+
     hashingEmail()
   }, [currentUser])
 
