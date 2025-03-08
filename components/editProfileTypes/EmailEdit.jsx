@@ -27,7 +27,7 @@ export default function EmailEdit() {
     setNewEmail("")
   }
 
-  function generateVerificationCode() {
+  async function generateVerificationCode() {
     setGeneratedVerificationCode(Math.random().toString(36).substring(2, 8).toUpperCase())
   }
     
@@ -35,9 +35,12 @@ export default function EmailEdit() {
   async function handleSubmit() {
     const prevEmail = currentUser?.email
 
-    generateVerificationCode()
+    if (prevEmail) {
+      await generateVerificationCode();
 
-    setVerifySection(true)
+      setVerifySection(true)
+    }
+      return
   }
 
   async function verifyEmailWithCode() {
