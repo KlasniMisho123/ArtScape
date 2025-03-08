@@ -8,6 +8,7 @@ export default function EmailEdit() {
   const [newEmail, setNewEmail ] = useState("")
   const [verifySection, setVerifySection ] = useState(false)
   const [verificationCode, setVerificationCode ] = useState("")
+  const [generatedVerificationCode, setGeneratedVerificationCode ] = useState("")
 
   async function hashingEmail() {
     let userEmail = currentUser?.email
