@@ -69,12 +69,12 @@ export default function PhoneEdit() {
             <div className="bg-[#1a5276] p-4 rounded text-gray-200">
             <h3 className="text-lg">How It Works:</h3>
               <ul className="list-disc pl-5">
-                <li>Enter your new email address.</li>
-                <li>Click "Submit" to receive a confirmation code previous Email.</li>
+                <li>Enter your new phone number address.</li>
+                <li>Click "Submit" to receive a confirmation code previous Phone number.</li>
                 <li>Enter code in verify section.</li>
               </ul>
             </div>
-              <label> Enter New Email </label>
+              <label> Enter New phone number </label>
               <input 
                 className='border-2 border-black bg-[#243642] rounded p-2 text-white'
                 // value={newEmail}
@@ -87,7 +87,7 @@ export default function PhoneEdit() {
             transition-all duration-500 ease-in-out transform opacity-100 scale-100">
             <div className="flex justify-between items-center gap-2 ">
               <p className="text-gray-300 text-sm md:text-md">
-                A verification code has been sent to your email.
+                A verification code has been sent to your number: {currentUser.phoneNumber}.
               </p>
               <button className="text-red-500 rounded-full p-2 hover:texst-red-800 scale-150 hover:scale-125 transition-all duration-200 ease-in-out"
                 onClick={()=>{setVerifySection(false)}}
