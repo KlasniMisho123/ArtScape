@@ -34,7 +34,7 @@ export default function AccountDetailsEdit() {
             className="py-2 border border-black my-2 px-4 rounded transition-all duration-300 hover:bg-black hover:text-white"> 
               Change Phone <i className="fa-solid fa-mobile  "> </i> </Link>
             <p className='my-2'> <span className='text-gray-500'> Phone: </span> <i className="fa-solid fa-mobile mx-1 "></i> {currentUser?.phoneNumber
-             ? `Ends in: ${currentUser.phone}` : "Empty"} </p> 
+             ? `Ends with: ${currentUser.phone}` : "Empty"} </p> 
             <p> <span className='text-gray-500'> Status: </span> {currentUser?.mbverify ? `Verified` : "Unverified"} </p>
             <button className="p-1 border border-black my-4 px-4 rounded transition-all duration-300 hover:bg-black hover:text-white"> Verify Number </button>
           </div>

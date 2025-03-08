@@ -18,6 +18,7 @@ export default function PhoneEdit() {
           let emailLastLetterIndex =  userEmail.indexOf("@")
           let emailLastLetter = userEmail.slice((emailLastLetterIndex-1), emailLastLetterIndex)
           let emailDomain = userEmail.slice((emailLastLetterIndex))
+          setHashedPhoneNumber("")
         } else {
         }
     }
@@ -56,7 +57,10 @@ export default function PhoneEdit() {
           </div>
           <div className='flex gap-4 flex-col my-10 bg-[#103d5c] rounded p-4 '> 
             <div> 
-              <h2 className='md:text-md lg:text-lg'>Change Email For: <span>  </span> </h2>
+              <h2 className='flex items-center gap-2 md:text-md lg:text-lg'>
+                Associated phone number: <span> <p className='my-2'> 
+                <i className="fa-solid fa-mobile mx-1 "></i> {currentUser?.phoneNumber? `Ends with: ${currentUser.phone}` : "Empty"} </p>  </span>
+              </h2>
             </div>
             <div className='flex flex-col gap-2 '>
             <div className="bg-[#1a5276] p-4 rounded text-gray-200">
