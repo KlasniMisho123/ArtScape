@@ -28,7 +28,7 @@ export default function EmailEdit() {
   }
 
   function generateVerificationCode() {
-    return Math.random().toString(36).substring(2, 8).toUpperCase();
+    setGeneratedVerificationCode(Math.random().toString(36).substring(2, 8).toUpperCase())
   }
     
 
@@ -53,8 +53,6 @@ export default function EmailEdit() {
 
   useEffect( ()=> {
     console.log("currentUser: ",currentUser)
-    console.log("generateVerificationCode: ",generateVerificationCode()); 
-
     hashingEmail()
   }, [currentUser])
 
@@ -90,7 +88,7 @@ export default function EmailEdit() {
           transition-all duration-500 ease-in-out transform opacity-100 scale-100">
           <div className="flex justify-between items-center gap-2 ">
             <p className="text-gray-300 text-sm md:text-md">
-              A verification code has been sent to your email.
+              A verification code has been sent to your email. {generatedVerificationCode}
             </p>
             <button className="text-red-500 rounded-full p-2 hover:texst-red-800 scale-150 hover:scale-125 transition-all duration-200 ease-in-out"
               onClick={()=>{setVerifySection(false)}}
