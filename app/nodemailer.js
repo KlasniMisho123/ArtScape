@@ -13,3 +13,18 @@ export async function POST(req) {
         pass: process.env.EMAIL_PASSWORD, // your email password
       },
     });
+
+    try {
+        await transporter.sendMail(mailOptions);
+        return new Response(JSON.stringify({ message: 'Email sent successfully!' }), {
+          status: 200,
+          headers: { 'Content-Type': 'application/json' },
+        });
+      } catch (error) {
+        console.error('Error sending email:', error);
+        return new Response(JSON.stringify({ message: 'Failed to send email.' }), {
+          status: 500,
+          headers: { 'Content-Type': 'application/json' },
+        });
+      }
+}
