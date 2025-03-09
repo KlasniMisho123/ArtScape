@@ -1,7 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-export default function useSendEmail(props) {
-  const { textToSend } = props
+export default function useSendEmail() {
 
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);

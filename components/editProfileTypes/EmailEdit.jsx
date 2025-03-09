@@ -44,11 +44,11 @@ export default function EmailEdit() {
   async function handleSubmit() {
     const prevEmail = currentUser?.email
     
-    if (prevEmail) {
+    if (newEmail) {
       const verificationCode = await generateVerificationCode();
 
       const emailData = { 
-        to:prevEmail,
+        to:newEmail,
         subject: 'Artscape verification code',
         text: `Your verification code is: ${verificationCode}`,
       }
