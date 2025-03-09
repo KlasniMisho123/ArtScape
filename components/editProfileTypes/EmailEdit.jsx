@@ -1,6 +1,7 @@
 'use client'
 import { useAuth } from '@/context/AuthContext'
 import React, { useEffect, useState } from 'react'
+import useSendEmail from '../customHooks/useSendEmail';
 
 export default function EmailEdit() {
   const { currentUser } = useAuth()
@@ -9,6 +10,8 @@ export default function EmailEdit() {
   const [verifySection, setVerifySection ] = useState(false)
   const [verificationCode, setVerificationCode ] = useState("")
   const [generatedVerificationCode, setGeneratedVerificationCode ] = useState("")
+
+  const { sendEmail, isLoading, error, isSuccess } = useSendEmail();
 
   async function hashingEmail() {
     let userEmail = currentUser?.email
@@ -31,17 +34,24 @@ export default function EmailEdit() {
     setGeneratedVerificationCode(Math.random().toString(36).substring(2, 8).toUpperCase())
   }
     
-
-  async function handleSubmit() {
-    const prevEmail = currentUser?.email
-
-    // if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
+  // if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
     //   setAuthError("Invalid email");
     //   return;
     // } ErrorHandle?!
+
+  async function handleSubmit() {
+    const prevEmail = currentUser?.email
     
     if (prevEmail) {
-      await generateVerificationCode();
+      const verificationCode = await generateVerificationCode();
+
+      const emailData = { 
+        to:prevEmail,
+        subject: 'Artscape verification code',
+        text: `Your verification code is: ${verificationCode}`,
+      }
+
+      await sendEmail(emailData);
 
       setVerifySection(true)
     }
