@@ -31,7 +31,9 @@ export default function EmailEdit() {
   }
 
   async function generateVerificationCode() {
-    setGeneratedVerificationCode(Math.random().toString(36).substring(2, 8).toUpperCase())
+    const code = Math.random().toString(36).substring(2, 8).toUpperCase();
+    setGeneratedVerificationCode(code);
+    return code;
   }
     
   // if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
@@ -117,6 +119,7 @@ export default function EmailEdit() {
             </p>
             <button className="text-red-500 rounded-full p-2 hover:texst-red-800 scale-150 hover:scale-125 transition-all duration-200 ease-in-out"
              onClick={closeVerificationSection}
+             disabled={isLoading}
             >
               <i className="fa-solid fa-xmark"></i>
             </button>
@@ -134,6 +137,7 @@ export default function EmailEdit() {
             hover:bg-[#2a78a8] hover:opacity-90 hover:scale-95" 
             // ADD EMAIL VERIFICATION FUNCTION
             onClick={verifyEmailWithCode}
+            disabled={isLoading}
             >
               Submit Code
             </button>
