@@ -27,15 +27,13 @@ export default function useSendEmail(props) {
       if (!response.ok) {
         throw new Error(data.message || 'Failed to send email.');
       }
-      
+
       setIsSuccess(true);
     } catch(err) {
       console.log(err.message)
     } finally {
-
+      setIsLoading(false);
     }
   }
-
-  return ("")
-  
+  return { sendEmail, isLoading, error, isSuccess };
 }
