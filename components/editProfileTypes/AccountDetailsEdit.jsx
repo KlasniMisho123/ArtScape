@@ -44,19 +44,19 @@ export default function AccountDetailsEdit() {
         <div className='text-lg font-bold bg-[#134B70] text-white px-2 py-1 '> <i className="fa-solid fa-shield mr-1"></i> Account Security  </div>
         <div className="flex gap-[10%] p-2 mx-2 pb-8 "> 
           <div>
-            <p className='my-1'>  <span className='text-gray-500'> 2FA Status: </span> <span className={' ' + (isF2AuthActive ? "text-green-400" : "text-red-400" )}> {isF2AuthActive ? "Enabled" : "Disabled"}  </span> </p> 
+            <p className='my-1'>  <span className='text-gray-500'> 2FA Status: </span> <span className={' ' + (isF2AuthActive ? "text-green-500" : "text-red-500" )}> {isF2AuthActive ? "Enabled" : "Disabled"}  </span> </p> 
             <div className='flex gap-1 '> 
             <button 
             onClick={()=>{
               setIsF2AuthActive(false)
             }}
-            className="p-1 border border-black my-1 text-red-400 px-4 rounded transition-all duration-300 hover:bg-red-500 hover:text-white"> 
+            className="p-1 border border-black my-1 text-red-500 px-4 rounded transition-all duration-300 hover:bg-red-600 hover:text-white"> 
             <i className="fa-solid fa-lock"></i> Disable </button>
             <button 
             onClick={()=>{
               setIsF2AuthActive(true)
             }}
-            className="p-1 border border-black my-1 px-4 text-green-400 rounded transition-all duration-300 hover:bg-green-500 hover:text-white"> 
+            className="p-1 border border-black my-1 px-4 text-green-500 rounded transition-all duration-300 hover:bg-green-600 hover:text-white"> 
             <i className="fa-solid fa-play"></i> Activate </button>
             </div>
             <button className="p-1 border border-black my-1 px-4 rounded transition-all duration-300 hover:bg-black hover:text-white mt-6 ">Change Password </button>
