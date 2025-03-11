@@ -1,6 +1,7 @@
 'use client'
 import { useAuth } from '@/context/AuthContext'
 import React, { useEffect, useState } from 'react'
+import axios from "axios";
 
 export default function EmailEdit() {
   const { currentUser } = useAuth()
