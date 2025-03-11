@@ -8,7 +8,7 @@ export default function EmailEdit() {
   const [hashedEmail, setHashedEmail ] = useState("")
   const [newEmail, setNewEmail ] = useState("")
   const [verifySection, setVerifySection ] = useState(false)
-  const [verificationCode, setVerificationCode ] = useState("")
+  const [inputedCode, setInputedCode ] = useState("")
   const [generatedVerificationCode, setGeneratedVerificationCode ] = useState("")
 
   async function hashingEmail() {
@@ -68,8 +68,16 @@ export default function EmailEdit() {
   }
 
   async function verifyEmailWithCode() {
-    // Check if Code that u sent matches input Code
-    console.log("Verify Email With Code Dummy Text")
+    if(inputedCode === generatedVerificationCode)
+    try {
+    console.log("Verify proccess success")
+      // SET NEW EMAIL
+    }catch(err){
+      // ERROR HANDLE when cant update NEW EMAIL
+      console.log("Error, during updateing email")
+    } else {
+      console.log("Wrong Verification code")
+    }
   }
 
   async function sendVerificationCode() {
@@ -120,7 +128,6 @@ export default function EmailEdit() {
             </p>
             <button className="text-red-500 rounded-full p-2 hover:texst-red-800 scale-150 hover:scale-125 transition-all duration-200 ease-in-out"
              onClick={closeVerificationSection}
-            //  disabled={isLoading}
             >
               <i className="fa-solid fa-xmark"></i>
             </button>
@@ -129,16 +136,14 @@ export default function EmailEdit() {
         <div className='flex gap-2'> 
           <input 
             className="border-2 border-gray-500 bg-[#243642] rounded p-2 text-white w-full placeholder-gray-400"
-            value={verificationCode}
-            onChange={(e) => setVerificationCode(e.target.value)}
+            value={inputedCode}
+            onChange={(e) => setInputedCode(e.target.value)}
             placeholder="Enter verification code"
           />  
             <button className="w-max whitespace-nowrap px-4 py-2 bg-[#1a5276] text-white rounded shadow-md hover:opacity-75 hover:shadow-none 
             transition-all duration-300 ease-in-out 
             hover:bg-[#2a78a8] hover:opacity-90 hover:scale-95" 
-            // ADD EMAIL VERIFICATION FUNCTION
             onClick={verifyEmailWithCode}
-            // disabled={isLoading}
             >
               Submit Code
             </button>
