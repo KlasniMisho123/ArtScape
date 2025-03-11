@@ -52,7 +52,7 @@ export default function EmailEdit() {
       });
       
       } catch(err) {
-        console.log(err.message);
+        console.log("Err: ",err);
       }
       setVerifySection(true)
     }
