@@ -45,6 +45,8 @@ export default function EmailEdit() {
     
     if (newEmail) {
       const verificationCode = await generateVerificationCode();
+      setVerifySection(true)
+
       try {
         const sendEmailResponse = await axios.post('http://localhost:5000/sendemail', {
           newEmail,
@@ -53,8 +55,8 @@ export default function EmailEdit() {
       
       } catch(err) {
         console.log("Err: ",err);
+        setVerifySection(false)
       }
-      setVerifySection(true)
     }
       return
   }
