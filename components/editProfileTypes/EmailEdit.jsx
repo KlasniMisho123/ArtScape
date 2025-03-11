@@ -1,7 +1,6 @@
 'use client'
 import { useAuth } from '@/context/AuthContext'
 import React, { useEffect, useState } from 'react'
-import useSendEmail from '../customHooks/useSendEmail';
 
 export default function EmailEdit() {
   const { currentUser } = useAuth()
@@ -10,8 +9,6 @@ export default function EmailEdit() {
   const [verifySection, setVerifySection ] = useState(false)
   const [verificationCode, setVerificationCode ] = useState("")
   const [generatedVerificationCode, setGeneratedVerificationCode ] = useState("")
-
-  const { sendEmail, isLoading, error, isSuccess } = useSendEmail();
 
   async function hashingEmail() {
     let userEmail = currentUser?.email
@@ -41,20 +38,21 @@ export default function EmailEdit() {
     //   return;
     // } ErrorHandle?!
 
-  async function handleSubmit() {
+  async function handleSubmit(e) {
+    e.preventDefault();
     const prevEmail = currentUser?.email
     
     if (newEmail) {
       const verificationCode = await generateVerificationCode();
-
-      const emailData = { 
-        to:newEmail,
-        subject: 'Artscape verification code',
-        text: `Your verification code is: ${verificationCode}`,
+      try {
+        const sendEmailResponse = await axios.post('http://localhost:5000/sendemail', {
+          newEmail,
+          verificationCode
+      });
+      
+      } catch(err) {
+        console.log(err.message);
       }
-
-      await sendEmail(emailData);
-
       setVerifySection(true)
     }
       return
