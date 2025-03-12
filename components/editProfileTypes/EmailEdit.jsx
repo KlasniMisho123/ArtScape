@@ -70,7 +70,12 @@ export default function EmailEdit() {
   async function verifyEmailWithCode() {
     if(inputedCode === generatedVerificationCode)
     try {
-    console.log("Verify proccess success")
+      console.log("Verify proccess success")
+      try {
+
+      } catch(err) {
+        console.log("Couldn't Updated email: ", err.message)
+      }
       // SET NEW EMAIL
     }catch(err){
       // ERROR HANDLE when cant update NEW EMAIL
