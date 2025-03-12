@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 import axios from "axios";
 
 export default function EmailEdit() {
-  const { currentUser, updateEmail } = useAuth()
+  const { currentUser, updateUserEmail } = useAuth()
   const [hashedEmail, setHashedEmail ] = useState("")
   const [newEmail, setNewEmail ] = useState("")
   const [verifySection, setVerifySection ] = useState(false)
@@ -68,14 +68,19 @@ export default function EmailEdit() {
   }
 
   async function verifyEmailWithCode() {
-    if(inputedCode === generatedVerificationCode){
-      await updateEmail(newEmail)
-      
+    if (inputedCode === generatedVerificationCode) {
+        const userPassword = prompt("Enter your password to confirm email change:");
+
+        if (!userPassword) {
+            console.log("Password is required.");
+            return;
+        }
+
+        await updateUserEmail(newEmail, userPassword);
     } else {
-      // WRONG VERIFICATION CODE ERROR HANDLE
-      console.log("WRONG VERIFICATION CODE")
+        console.log("WRONG VERIFICATION CODE");
     }
-  }
+}
 
   async function sendVerificationCode() {
     // send verification code on previous/new email

@@ -1,7 +1,7 @@
 'use client'
 import { auth, db } from "../firebase"
 import React, { useContext , useEffect, useState } from 'react'
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, updateProfile } from "firebase/auth"
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, updateProfile, EmailAuthProvider, reauthenticateWithCredential } from "firebase/auth"
 import { doc, getDoc } from "firebase/firestore"
 
 
@@ -56,16 +56,18 @@ export function AuthProvider({ children }) {
         }
     }
 
-    async function updateEmail(newEmail) {
+    async function updateUserEmail(newEmail, password) {
         if (!auth.currentUser) {
             console.error("No user is logged in.");
             return;
         }
+    
         try {
             const credential = EmailAuthProvider.credential(auth.currentUser.email, password);
             await reauthenticateWithCredential(auth.currentUser, credential);
     
-            await updateEmail(auth.currentUser, newEmail);
+            // ✅ Now using Firebase's updateEmail method
+            await firebaseUpdateEmail(auth.currentUser, newEmail);
             console.log("✅ Email updated successfully!");
     
         } catch (error) {
@@ -164,7 +166,7 @@ export function AuthProvider({ children }) {
         setCurrentUser,
         handleGeneralUpdate,
         updateAvatar,
-        updateEmail,
+        updateUserEmail,
         signup,
         login,
         logout,
