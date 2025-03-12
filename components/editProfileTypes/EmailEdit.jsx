@@ -69,7 +69,8 @@ export default function EmailEdit() {
 
   async function verifyEmailWithCode() {
     if(inputedCode === generatedVerificationCode){
-      await updateEmail()
+      await updateEmail(newEmail)
+      
     } else {
       // WRONG VERIFICATION CODE ERROR HANDLE
       console.log("WRONG VERIFICATION CODE")
@@ -111,6 +112,7 @@ export default function EmailEdit() {
             <input 
               className='border-2 border-black bg-[#243642] rounded p-2 text-white'
               value={newEmail}
+              disabled={verifySection}
               onChange={(e)=>{setNewEmail(e.target.value)}}
               placeholder='New email'
             />  

@@ -67,6 +67,7 @@ export function AuthProvider({ children }) {
                 email: newEmail,
                 emailVerified: true,
             });
+            console.log("updateing EMAIL")
         } catch (error) {
             console.error("Error updating Email:", error.message);
         }
