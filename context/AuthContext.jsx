@@ -72,11 +72,9 @@ export function AuthProvider({ children }) {
     
         } catch (error) {
             if (error.code === 'auth/invalid-credential') {
-                return ("❌ Invalid password")
-            } else if (error.code === 'auth/operation-not-allowed') {
-                return ("❌ Operation not allowed"); 
+                return ("❌ Invalid Password")
             } else {
-                return ("❌ Error updating email")
+                return ("❌ Error Aquired During Updating Email")
             }
         }
     }

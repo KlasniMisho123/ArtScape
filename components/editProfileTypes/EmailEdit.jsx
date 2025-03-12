@@ -85,7 +85,7 @@ export default function EmailEdit() {
           if (response.success) {
               console.log(response.message);
           } else {
-              setVerificationStatus(response.message)
+              setVerificationStatus(response)
           }
 
         } catch(err) {
@@ -149,7 +149,7 @@ export default function EmailEdit() {
               <i className="fa-solid fa-xmark"></i>
             </button>
           </div>
-        
+          <div> {verificationStatus} </div>
           <input
             className="border-2 border-gray-500 bg-[#243642] rounded p-2 text-white w-full placeholder-gray-400"
             type='password'
@@ -171,8 +171,6 @@ export default function EmailEdit() {
              Submit Code
             </button>
         </div>
-            {verificationStatus}
-            
           <p className="text-xs text-gray-400">
             Didn’t receive the code? <span className="text-blue-400 cursor-pointer hover:underline">Resend</span>
           </p>
