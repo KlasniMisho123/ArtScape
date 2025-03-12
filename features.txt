@@ -62,7 +62,9 @@ phoneNumber,emailVerified,displayName
 
 5. Verify Email, - ❌ Error updating Email: "Firebase: Please verify the new email before changing email. (auth/operation-not-allowed)." - bagon // already have custom verification?!
 
-6. Verify Phone,
+6. Invalid Email Without @.(chars) error Handle
+
+7. Verify Phone,
 
 
 ////////// add error handleing during filling form 

@@ -89,7 +89,7 @@ export default function EmailEdit() {
           console.log("Err: ",err)
         }
     } else {
-        console.log("WRONG VERIFICATION CODE");
+      setVerificationStatus("❌ Wrong Verification Code");
     }
 }
 
