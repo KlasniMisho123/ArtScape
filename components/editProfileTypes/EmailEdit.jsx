@@ -12,6 +12,7 @@ export default function EmailEdit() {
   const [generatedVerificationCode, setGeneratedVerificationCode ] = useState("")
   const [verifyUserPasswordSection, setVerifyUserPasswordSection] = useState(false)
   const [verifyUserPassword, setVerifyUserPassword] = useState("")
+  const [verificationStatus, setVerificationStatus] = useState("")
 
   async function hashingEmail() {
     let userEmail = currentUser?.email
@@ -78,7 +79,15 @@ export default function EmailEdit() {
             return;
         }
         try {
-          await updateUserEmail(newEmail, verifyUserPassword);
+          const response = await updateUserEmail(newEmail, verifyUserPassword);
+          console.log("response: ", response); 
+
+          if (response.success) {
+              console.log(response.message);
+          } else {
+              setVerificationStatus(response.message)
+          }
+
         } catch(err) {
           console.log("Err: ",err)
         }
@@ -161,8 +170,8 @@ export default function EmailEdit() {
             onClick={verifyEmailWithCode}> 
              Submit Code
             </button>
-
         </div>
+            {verificationStatus}
             
           <p className="text-xs text-gray-400">
             Didn’t receive the code? <span className="text-blue-400 cursor-pointer hover:underline">Resend</span>
