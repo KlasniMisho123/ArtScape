@@ -60,7 +60,7 @@ phoneNumber,emailVerified,displayName
 
 4.  handle every country and city filter? - bagon
 
-5. Verify Email, - nodemailer?
+5. Verify Email, - ❌ Error updating Email: "Firebase: Please verify the new email before changing email. (auth/operation-not-allowed)." - bagon // already have custom verification?!
 
 6. Verify Phone,
 
