@@ -64,10 +64,11 @@ export function AuthProvider({ children }) {
     
         try {
             await updateProfile(auth.currentUser, {
-                photoURL: newEmail
+                email: newEmail,
+                emailVerified: true,
             });
         } catch (error) {
-            console.error("Error updating avatar:", error.message);
+            console.error("Error updating Email:", error.message);
         }
     }
 
