@@ -54,11 +54,11 @@ phoneNumber,emailVerified,displayName
 
 1. General Edit ✔️. 
 
-2. Mini Profile stats/look // years of service placement
+2. Mini Profile stats/look // years of service placement✔️. 
 
 3. Avatar Error/ handle picture submit - bagon
 
-4.  handle every country and city filter? - bagon
+4. handle every country and city filter? - bagon (+-)
 
 5. Verify Email, - ❌ Error updating Email: "Firebase: Please verify the new email before changing email. (auth/operation-not-allowed)." - bagon // already have custom verification?!
 
