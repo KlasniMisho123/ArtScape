@@ -61,15 +61,15 @@ export function AuthProvider({ children }) {
             console.error("No user is logged in.");
             return;
         }
-    
         try {
-            await updateProfile(auth.currentUser, {
-                email: newEmail,
-                emailVerified: true,
-            });
-            console.log("updateing EMAIL")
+            const credential = EmailAuthProvider.credential(auth.currentUser.email, password);
+            await reauthenticateWithCredential(auth.currentUser, credential);
+    
+            await updateEmail(auth.currentUser, newEmail);
+            console.log("✅ Email updated successfully!");
+    
         } catch (error) {
-            console.error("Error updating Email:", error.message);
+            console.error("❌ Error updating Email:", error.message);
         }
     }
 
