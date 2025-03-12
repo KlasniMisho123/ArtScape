@@ -73,7 +73,7 @@ export default function EmailEdit() {
     if (inputedCode === generatedVerificationCode) {
         setVerifyUserPasswordSection(true)
         
-        if (!userPassword) {
+        if (!verifyUserPassword) {
             console.log("Password is required.");
             return;
         }
