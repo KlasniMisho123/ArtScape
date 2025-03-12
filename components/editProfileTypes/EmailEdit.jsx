@@ -105,7 +105,7 @@ export default function EmailEdit() {
   }, [currentUser])
 
   return (
-    <div className='min-h-[75vh] w-[70%] mx-auto '>        
+    <div className='min-h-[75vh] w-[70%] mx-auto text-white '>        
         <div className='flex gap-2 bg-[#134B70] mt-2 items-center p-4 text-white  md:text-sm lg:text-md rounded '>
             <i className="fa-solid fa-envelope md:text-md lg:text-lg mr-1"></i>
             {/* <span className='cursor-pointer'> Home &gt; Account &gt; Email Preferences </span> */}
@@ -113,7 +113,7 @@ export default function EmailEdit() {
         </div>
         <div className='flex gap-4 flex-col my-10 bg-[#103d5c] rounded p-4 '> 
           <div> 
-            <h2 className='md:text-md lg:text-lg'>Change Email For: <span> {hashedEmail} </span> </h2>
+            <h2 className='md:text-md lg:text-lg'>Change Email For: <span> {hashedEmail || "Loading..."} </span> </h2>
           </div>
           <div className='flex flex-col gap-2 '>
           <div className="bg-[#1a5276] p-4 rounded text-gray-200">
