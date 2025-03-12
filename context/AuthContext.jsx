@@ -56,6 +56,21 @@ export function AuthProvider({ children }) {
         }
     }
 
+    async function updateEmail(newEmail) {
+        if (!auth.currentUser) {
+            console.error("No user is logged in.");
+            return;
+        }
+    
+        try {
+            await updateProfile(auth.currentUser, {
+                photoURL: newEmail
+            });
+        } catch (error) {
+            console.error("Error updating avatar:", error.message);
+        }
+    }
+
     async function handleGeneralUpdate(username) {
         if (!auth.currentUser) {
             console.error("No user is logged in.");
@@ -66,7 +81,6 @@ export function AuthProvider({ children }) {
             await updateProfile(auth.currentUser, {
                 displayName: username
             });
-            // cant add new keys and values in userobject. so need to create collection
         } catch(err) {
             console.log(err.message)
         }
@@ -148,6 +162,7 @@ export function AuthProvider({ children }) {
         setCurrentUser,
         handleGeneralUpdate,
         updateAvatar,
+        updateEmail,
         signup,
         login,
         logout,
