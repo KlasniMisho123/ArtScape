@@ -10,6 +10,8 @@ export default function EmailEdit() {
   const [verifySection, setVerifySection ] = useState(false)
   const [inputedCode, setInputedCode ] = useState("")
   const [generatedVerificationCode, setGeneratedVerificationCode ] = useState("")
+  const [verifyUserPasswordSection, setVerifyUserPasswordSection] = useState(false)
+  const [verifyUserPassword, setVerifyUserPassword] = useState("")
 
   async function hashingEmail() {
     let userEmail = currentUser?.email
@@ -62,21 +64,21 @@ export default function EmailEdit() {
   }
 
   function closeVerificationSection() {
-    setVerificationCode("")
+    setInputedCode("")
     setGeneratedVerificationCode("")
     setVerifySection(false)
   }
 
   async function verifyEmailWithCode() {
     if (inputedCode === generatedVerificationCode) {
-        const userPassword = prompt("Enter your password to confirm email change:");
-
+        setVerifyUserPasswordSection(true)
+        
         if (!userPassword) {
             console.log("Password is required.");
             return;
         }
 
-        await updateUserEmail(newEmail, userPassword);
+        await updateUserEmail(newEmail, verifyUserPassword);
     } else {
         console.log("WRONG VERIFICATION CODE");
     }
@@ -136,6 +138,13 @@ export default function EmailEdit() {
             </button>
           </div>
         
+          <input
+            className="border-2 border-gray-500 bg-[#243642] rounded p-2 text-white w-full placeholder-gray-400"
+            type='password'
+            value={verifyUserPassword}
+            onChange={(e) => setVerifyUserPassword(e.target.value)}
+            placeholder="Password"
+          />
         <div className='flex gap-2'> 
           <input 
             className="border-2 border-gray-500 bg-[#243642] rounded p-2 text-white w-full placeholder-gray-400"
@@ -146,13 +155,12 @@ export default function EmailEdit() {
             <button className="w-max whitespace-nowrap px-4 py-2 bg-[#1a5276] text-white rounded shadow-md hover:opacity-75 hover:shadow-none 
             transition-all duration-300 ease-in-out 
             hover:bg-[#2a78a8] hover:opacity-90 hover:scale-95" 
-            onClick={verifyEmailWithCode}
-            >
-              Submit Code
+            onClick={verifyEmailWithCode}> 
+             Submit Code
             </button>
 
         </div>
-
+            
           <p className="text-xs text-gray-400">
             Didn’t receive the code? <span className="text-blue-400 cursor-pointer hover:underline">Resend</span>
           </p>
