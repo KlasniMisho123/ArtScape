@@ -80,14 +80,11 @@ export default function EmailEdit() {
         }
         try {
           const response = await updateUserEmail(newEmail, verifyUserPassword);
-          console.log("response: ", response); 
-
           if (response.success) {
-              console.log(response.message);
+            setVerificationStatus("SUCCESS")
           } else {
-              setVerificationStatus(response)
+            setVerificationStatus(response)
           }
-
         } catch(err) {
           console.log("Err: ",err)
         }
