@@ -77,8 +77,11 @@ export default function EmailEdit() {
             console.log("Password is required.");
             return;
         }
-
-        await updateUserEmail(newEmail, verifyUserPassword);
+        try {
+          await updateUserEmail(newEmail, verifyUserPassword);
+        } catch(err) {
+          console.log("Err: ",err)
+        }
     } else {
         console.log("WRONG VERIFICATION CODE");
     }
