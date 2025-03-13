@@ -9,7 +9,7 @@ export default function StatusMessage({ status, section }) {
             setText("");
             setIcon("");
         } else if (status === 200) {
-            if(chapter) {
+            if(section) {
                 setText(`${section} Updated Successfully`);
             } else {
                 setText("Profile Updated Successfully");

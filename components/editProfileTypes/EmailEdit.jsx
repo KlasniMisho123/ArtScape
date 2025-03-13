@@ -14,6 +14,7 @@ export default function EmailEdit() {
   const [verifyUserPasswordSection, setVerifyUserPasswordSection] = useState(false)
   const [verifyUserPassword, setVerifyUserPassword] = useState("")
   const [verificationStatus, setVerificationStatus] = useState("")
+  const [SuccessMessage, setSuccessMessage] = useState(false)
 
   async function hashingEmail() {
     let userEmail = currentUser?.email
@@ -70,6 +71,7 @@ export default function EmailEdit() {
     setVerifyUserPassword("")
     setInputedCode("")
     setGeneratedVerificationCode("")
+    setSuccessMessage(false)
     setVerifySection(false)
   }
 
@@ -85,7 +87,8 @@ export default function EmailEdit() {
           const response = await updateUserEmail(newEmail, verifyUserPassword);
           setVerificationStatus(response)
           if(response === "✅ Email updated successfully!") {
-            
+            setSuccessMessage(true)
+            setVerificationStatus("")
             closeVerificationSection()
           }
         } catch(err) {
@@ -171,7 +174,7 @@ export default function EmailEdit() {
              Submit Code
             </button>
         </div>
-            <StatusMessage status={200} section={"Email"}/>
+            {<div className='flex justify-center'> <StatusMessage status={200} section={"Email"}/> </div>}
           <p className="text-xs text-gray-400">
             Didn’t receive the code? <span className="text-blue-400 cursor-pointer hover:underline">Resend</span>
           </p>
