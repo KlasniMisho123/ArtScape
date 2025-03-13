@@ -34,18 +34,23 @@ Hydration failed because the server rendered HTML didn't match the client. As a 
 not logined --> homepage
 
 
-----------------------------Features 💥 ----------------------------
+---------------------------- Features 💥 ----------------------------
 edit profile section ->
 {/* STATS/ RANDOM STATS/ Custom Stats /followers,following...*/}
 Art Style/Mediums (checkboxes or multi-select dropdown) <-
 
 
-----------------------------Firebase Auth ----------------------------
+---------------------------- Firebase Auth ----------------------------
 phoneNumber,emailVerified,displayName 
 ! Two-Factor Authentication (2FA) **
 
+---------------------------- clean up 🧹----------------------------
 
-----------------------------Errors❌ ----------------------------
+1.generatedVerificationCode, during verifiying email,
+
+2.current user console.logs
+
+---------------------------- Errors❌ ----------------------------
 1. Avatar Edit error --> instead of blub, need lasteing picutre upload, same goes for uploading arts. --> AvatarEdit, upload
 
 2. General Edit, after changeing Saved Country it is possible to leave previous city.
