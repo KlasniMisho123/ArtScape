@@ -73,7 +73,6 @@ export function AuthProvider({ children }) {
             if (error.code === 'auth/invalid-credential') {
                 return ("❌ Invalid Password")
             } else {
-                console.log(err.code)
                 return ("❌ Wrong Password")
             }
         }
