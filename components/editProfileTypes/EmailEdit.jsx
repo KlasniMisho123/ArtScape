@@ -2,6 +2,7 @@
 import { useAuth } from '@/context/AuthContext'
 import React, { useEffect, useState } from 'react'
 import axios from "axios";
+import StatusMessage from '../StatusMessage';
 
 export default function EmailEdit() {
   const { currentUser, updateUserEmail } = useAuth()
@@ -65,6 +66,8 @@ export default function EmailEdit() {
   }
 
   function closeVerificationSection() {
+    setVerificationStatus("")
+    setVerifyUserPassword("")
     setInputedCode("")
     setGeneratedVerificationCode("")
     setVerifySection(false)
@@ -80,10 +83,10 @@ export default function EmailEdit() {
         }
         try {
           const response = await updateUserEmail(newEmail, verifyUserPassword);
-          if (response.success) {
-            setVerificationStatus("SUCCESS")
-          } else {
-            setVerificationStatus(response)
+          setVerificationStatus(response)
+          if(response === "✅ Email updated successfully!") {
+            
+            closeVerificationSection()
           }
         } catch(err) {
           console.log("Err: ",err)
@@ -168,6 +171,7 @@ export default function EmailEdit() {
              Submit Code
             </button>
         </div>
+            <StatusMessage status={200} section={"Email"}/>
           <p className="text-xs text-gray-400">
             Didn’t receive the code? <span className="text-blue-400 cursor-pointer hover:underline">Resend</span>
           </p>

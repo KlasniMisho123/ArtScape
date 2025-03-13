@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-export default function StatusMessage({ status }) {
+export default function StatusMessage({ status, section }) {
     const [text, setText] = useState("");
     const [icon, setIcon] = useState("");
 
@@ -9,7 +9,11 @@ export default function StatusMessage({ status }) {
             setText("");
             setIcon("");
         } else if (status === 200) {
-            setText("Profile Updated Successfully");
+            if(chapter) {
+                setText(`${section} Updated Successfully`);
+            } else {
+                setText("Profile Updated Successfully");
+            }
             setIcon(<i className="fa-solid fa-circle-check"></i>);
         } else if (status === 400) {
             setText("Error Acquired");
