@@ -3,7 +3,8 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Head from "./head"
 import { Exo_2, Inter, Lobster, Open_Sans, Pacifico, Poppins, Raleway } from 'next/font/google';
-import { AuthProvider } from "@/context/AuthContext";
+import { AuthProvider, useAuth } from "@/context/AuthContext";
+import AuthenticationForm from "@/components/AuthenticationForm";
 
 const poppins = Poppins({ subsets: ['latin'], weight: ['500'] });
 const pacifico = Pacifico({ subsets: ['latin'], weight: ['400'] });
@@ -26,6 +27,9 @@ const footer = (
 )
 
 export default function RootLayout({ children }) {
+
+  const [currentUser] = useAuth()
+
   return (
     <html lang="en">
       <AuthProvider>
@@ -40,6 +44,7 @@ export default function RootLayout({ children }) {
       </Head>
       <body className="">
         {header}
+        {currentUser && <AuthenticationForm/>}
         {children}
         {footer}
         </body>
