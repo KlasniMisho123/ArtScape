@@ -116,12 +116,12 @@ export default function EmailEdit() {
   }
 
 
-  useEffect( ()=> {
+  useEffect(()=> {
     console.log("currentUser: ",currentUser)
     hashingEmail()
   }, [currentUser, SuccessMessage])
 
-  useEffect( ()=> {
+  useEffect(()=> {
     if(newEmail === currentUser?.email) {
       setIsSameEmailError(true)
     } else {
@@ -208,9 +208,9 @@ export default function EmailEdit() {
            onClick={clearInputs}
            disabled={verifySection}
           > Cancel</button>
-          <button className={'rounded w-[20%] py-1 text-white linear-lblue-blue shadow-lg hover:brightness-110 '  + (verifySection?  "cursor-not-allowed opacity-50" : "")}
+          <button className={'rounded w-[20%] py-1 text-white linear-lblue-blue shadow-lg hover:brightness-110 '  + (!newEmail || isSameEmailError || verifySection?  "cursor-not-allowed opacity-50" : "")}
           onClick={handleSubmit}
-          disabled={verifySection}
+          disabled={!newEmail || isSameEmailError || verifySection }
           > Submit </button>
         </div>
         </div>
