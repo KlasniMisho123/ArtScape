@@ -16,6 +16,11 @@ export default function EmailEdit() {
   const [verificationStatus, setVerificationStatus] = useState("")
   const [isSameEmailError, setIsSameEmailError] = useState(false);
   const [SuccessMessage, setSuccessMessage] = useState(false)
+  const [failedEmailCriteria, setFailedEmailCriteria] = useState(false)
+
+
+  const isDisabled = !newEmail || isSameEmailError || failedEmailCriteria || verifySection;
+
 
   async function hashingEmail() {
     let userEmail = currentUser?.email
@@ -39,11 +44,6 @@ export default function EmailEdit() {
     setGeneratedVerificationCode(code);
     return code;
   }
-    
-  // if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
-    //   setAuthError("Invalid email");
-    //   return;
-    // } ErrorHandle?!
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -121,13 +121,19 @@ export default function EmailEdit() {
     hashingEmail()
   }, [currentUser, SuccessMessage])
 
-  useEffect(()=> {
-    if(newEmail === currentUser?.email) {
-      setIsSameEmailError(true)
+  useEffect(() => {
+    if (newEmail === currentUser?.email) {
+      setIsSameEmailError(true);
+      setFailedEmailCriteria(true);
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(newEmail)) {
+      setFailedEmailCriteria(true); 
+      setIsSameEmailError(false);
     } else {
-      setIsSameEmailError(false)
+      setIsSameEmailError(false);
+      setFailedEmailCriteria(false); 
     }
-  }, [newEmail])
+  }, [newEmail]);
+  
 
   return (
     <div className='min-h-[75vh] w-[70%] mx-auto text-white '>        
@@ -208,9 +214,9 @@ export default function EmailEdit() {
            onClick={clearInputs}
            disabled={verifySection}
           > Cancel</button>
-          <button className={'rounded w-[20%] py-1 text-white linear-lblue-blue shadow-lg hover:brightness-110 '  + (!newEmail || isSameEmailError || verifySection?  "cursor-not-allowed opacity-50" : "")}
+          <button className={'rounded w-[20%] py-1 text-white linear-lblue-blue shadow-lg hover:brightness-110 '  + (isDisabled?  "cursor-not-allowed opacity-50" : "")}
           onClick={handleSubmit}
-          disabled={!newEmail || isSameEmailError || verifySection }
+          disabled={isSameEmailError || failedEmailCriteria || verifySection}
           > Submit </button>
         </div>
         </div>
