@@ -75,8 +75,7 @@ export default function EmailEdit() {
         setVerifyUserPasswordSection(true)
         
         if (!verifyUserPassword) {
-            console.log("Password is required.");
-            return;
+          setVerificationStatus("❗ Password is required.");
         }
         try {
           const response = await updateUserEmail(newEmail, verifyUserPassword);

@@ -68,13 +68,13 @@ export function AuthProvider({ children }) {
             await reauthenticateWithCredential(auth.currentUser, credential);
     
             await firebaseUpdateEmail(auth.currentUser, newEmail);
-            console.log("✅ Email updated successfully!");
-            // return ("✅ Email updated successfully!")?
+            return ("✅ Email updated successfully!")
         } catch (error) {
             if (error.code === 'auth/invalid-credential') {
                 return ("❌ Invalid Password")
             } else {
-                return ("❌ Error Aquired During Updating Email")
+                console.log(err.code)
+                return ("❌ Wrong Password")
             }
         }
     }
