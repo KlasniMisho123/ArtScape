@@ -89,11 +89,11 @@ export default function EmailEdit() {
 
           if(response === "✅ Email updated successfully!") {
             setVerificationStatus("")
-            setSuccessMessage(true)
             closeVerificationSection();
+            setSuccessMessage(true)
             setTimeout(() => {
               setSuccessMessage(false)
-            }, 10000);
+            }, 5000);
           }
 
         } catch(err) {
