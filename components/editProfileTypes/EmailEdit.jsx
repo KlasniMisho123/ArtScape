@@ -93,7 +93,7 @@ export default function EmailEdit() {
             setSuccessMessage(true)
             setTimeout(() => {
               setSuccessMessage(false)
-            }, 5000);
+            }, 2500);
           }
 
         } catch(err) {
@@ -113,7 +113,7 @@ export default function EmailEdit() {
   useEffect( ()=> {
     console.log("currentUser: ",currentUser)
     hashingEmail()
-  }, [currentUser])
+  }, [currentUser, SuccessMessage])
 
   return (
     <div className='min-h-[75vh] w-[70%] mx-auto text-white '>        
@@ -185,8 +185,8 @@ export default function EmailEdit() {
         </div>
         
           : ""}
-          {SuccessMessage? (<div className='flex justify-center'> <StatusMessage status={200} section={"Email"}/> </div>) : ""}
-          <div className='flex justify-end gap-16 ml-[10px] mt-[40px]'>
+          <div className='flex justify-center mt-[20px] h-2 '>{SuccessMessage?   (<StatusMessage status={200} section={"Email"}/> ) : ""} </div>
+          <div className='flex justify-end gap-16 ml-[10px] mt-[20px]'>
           <button
            className={'rounded w-[20%] py-1 text-white bg-[#243642] shadow-lg hover:brightness-110 ' + (verifySection?  "cursor-not-allowed opacity-50" : "")}
            onClick={clearInputs}
