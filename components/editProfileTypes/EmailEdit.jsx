@@ -18,9 +18,7 @@ export default function EmailEdit() {
   const [SuccessMessage, setSuccessMessage] = useState(false)
   const [failedEmailCriteria, setFailedEmailCriteria] = useState(false)
 
-
-  const isDisabled = !newEmail || isSameEmailError || failedEmailCriteria || verifySection;
-
+  const isDisabled = isSameEmailError || failedEmailCriteria || verifySection;
 
   async function hashingEmail() {
     let userEmail = currentUser?.email
@@ -216,7 +214,7 @@ export default function EmailEdit() {
           > Cancel</button>
           <button className={'rounded w-[20%] py-1 text-white linear-lblue-blue shadow-lg hover:brightness-110 '  + (isDisabled?  "cursor-not-allowed opacity-50" : "")}
           onClick={handleSubmit}
-          disabled={isSameEmailError || failedEmailCriteria || verifySection}
+          disabled={isDisabled}
           > Submit </button>
         </div>
         </div>
