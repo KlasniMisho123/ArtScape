@@ -86,11 +86,16 @@ export default function EmailEdit() {
         try {
           const response = await updateUserEmail(newEmail, verifyUserPassword);
           setVerificationStatus(response)
+
           if(response === "✅ Email updated successfully!") {
-            setSuccessMessage(true)
             setVerificationStatus("")
-            closeVerificationSection()
+            setSuccessMessage(true)
+            closeVerificationSection();
+            setTimeout(() => {
+              setSuccessMessage(false)
+            }, 10000);
           }
+
         } catch(err) {
           console.log("Err: ",err)
         }
@@ -174,13 +179,13 @@ export default function EmailEdit() {
              Submit Code
             </button>
         </div>
-            {<div className='flex justify-center'> <StatusMessage status={200} section={"Email"}/> </div>}
           <p className="text-xs text-gray-400">
             Didn’t receive the code? <span className="text-blue-400 cursor-pointer hover:underline">Resend</span>
           </p>
         </div>
         
           : ""}
+          {SuccessMessage? (<div className='flex justify-center'> <StatusMessage status={200} section={"Email"}/> </div>) : ""}
           <div className='flex justify-end gap-16 ml-[10px] mt-[40px]'>
           <button
            className={'rounded w-[20%] py-1 text-white bg-[#243642] shadow-lg hover:brightness-110 ' + (verifySection?  "cursor-not-allowed opacity-50" : "")}
