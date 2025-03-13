@@ -121,6 +121,14 @@ export default function EmailEdit() {
     hashingEmail()
   }, [currentUser, SuccessMessage])
 
+  useEffect( ()=> {
+    if(newEmail === currentUser?.email) {
+      setIsSameEmailError(true)
+    } else {
+      setIsSameEmailError(false)
+    }
+  }, [newEmail])
+
   return (
     <div className='min-h-[75vh] w-[70%] mx-auto text-white '>        
         <div className='flex gap-2 bg-[#134B70] mt-2 items-center p-4 text-white  md:text-sm lg:text-md rounded '>
@@ -192,7 +200,6 @@ export default function EmailEdit() {
             Didn’t receive the code? <span className="text-blue-400 cursor-pointer hover:underline">Resend</span>
           </p>
         </div>
-        
           : ""}
           <div className='flex justify-center mt-[20px] h-2 '>{SuccessMessage?   (<StatusMessage status={200} section={"Email"}/> ) : ""} </div>
           <div className='flex justify-end gap-16 ml-[10px] mt-[30px]'>
