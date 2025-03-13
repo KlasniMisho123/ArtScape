@@ -14,6 +14,7 @@ export default function EmailEdit() {
   const [verifyUserPasswordSection, setVerifyUserPasswordSection] = useState(false)
   const [verifyUserPassword, setVerifyUserPassword] = useState("")
   const [verificationStatus, setVerificationStatus] = useState("")
+  const [isSameEmailError, setIsSameEmailError] = useState(false);
   const [SuccessMessage, setSuccessMessage] = useState(false)
 
   async function hashingEmail() {
@@ -47,7 +48,11 @@ export default function EmailEdit() {
   async function handleSubmit(e) {
     e.preventDefault();
     const prevEmail = currentUser?.email
-    
+    if(newEmail === prevEmail) {
+
+      return;
+    }
+
     if (newEmail) {
       const verificationCode = await generateVerificationCode();
       setVerifySection(true)
@@ -90,6 +95,7 @@ export default function EmailEdit() {
           if(response === "✅ Email updated successfully!") {
             setVerificationStatus("")
             closeVerificationSection();
+            setNewEmail("")
             setSuccessMessage(true)
             setTimeout(() => {
               setSuccessMessage(false)
@@ -137,12 +143,15 @@ export default function EmailEdit() {
           </div>
             <label> Enter New Email </label>
             <input 
-              className='border-2 border-black bg-[#243642] rounded p-2 text-white'
+              className={'border-2 border-black bg-[#243642] rounded p-2 text-white ' + ("")}
               value={newEmail}
               disabled={verifySection}
               onChange={(e)=>{setNewEmail(e.target.value)}}
               placeholder='New email'
             />  
+            <p className="mt-2 text-sm text-red-500 font-medium">
+            {isSameEmailError? "⚠ You are already using this email!" : ""}
+            </p>
           </div>
           {verifySection?
           <div className="flex flex-col gap-2 border-2 border-gray-500 rounded p-4 bg-[#1a2b3c] text-white space-y-3 
@@ -186,7 +195,7 @@ export default function EmailEdit() {
         
           : ""}
           <div className='flex justify-center mt-[20px] h-2 '>{SuccessMessage?   (<StatusMessage status={200} section={"Email"}/> ) : ""} </div>
-          <div className='flex justify-end gap-16 ml-[10px] mt-[20px]'>
+          <div className='flex justify-end gap-16 ml-[10px] mt-[30px]'>
           <button
            className={'rounded w-[20%] py-1 text-white bg-[#243642] shadow-lg hover:brightness-110 ' + (verifySection?  "cursor-not-allowed opacity-50" : "")}
            onClick={clearInputs}
