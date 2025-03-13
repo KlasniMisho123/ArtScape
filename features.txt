@@ -66,5 +66,5 @@ phoneNumber,emailVerified,displayName
 
 7. Verify Phone,
 
-
+8. layout.js, authentification if currentUser Doesnot exists? //except hero?! 📌
 ////////// add error handleing during filling form 

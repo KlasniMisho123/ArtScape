@@ -28,7 +28,7 @@ const footer = (
 
 export default function RootLayout({ children }) {
 
-  const [currentUser] = useAuth()
+  // const [currentUser] = useAuth()
 
   return (
     <html lang="en">
