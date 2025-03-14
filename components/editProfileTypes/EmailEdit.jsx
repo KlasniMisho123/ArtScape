@@ -47,7 +47,6 @@ export default function EmailEdit() {
     e.preventDefault();
     const prevEmail = currentUser?.email
     if(newEmail === prevEmail) {
-
       return;
     }
 
@@ -202,7 +201,7 @@ export default function EmailEdit() {
             </button>
         </div>
           <p className="text-xs text-gray-400">
-            Didn’t receive the code? <span onClick={() => alert("Span clicked!")} className="text-blue-400 cursor-pointer hover:underline">Resend</span>
+            Didn’t receive the code? <span onClick={handleSubmit} className="text-blue-400 cursor-pointer hover:underline">Resend</span>
           </p>
         </div>
           : ""}
