@@ -3,6 +3,8 @@ import { useAuth } from '@/context/AuthContext'
 import React, { useEffect, useState } from 'react'
 import axios from "axios";
 import StatusMessage from '../StatusMessage';
+import { doc, getDoc } from 'firebase/firestore';
+import { db } from '@/firebase';
 
 export default function EmailEdit() {
   const { currentUser, updateUserEmail } = useAuth()
@@ -17,6 +19,7 @@ export default function EmailEdit() {
   const [isSameEmailError, setIsSameEmailError] = useState(false);
   const [SuccessMessage, setSuccessMessage] = useState(false)
   const [failedEmailCriteria, setFailedEmailCriteria] = useState(false)
+  const [emailVerified, setEmailVerified] = useState("")
 
   const isDisabled = isSameEmailError || failedEmailCriteria || verifySection;
 
@@ -31,6 +34,17 @@ export default function EmailEdit() {
         setHashedEmail(`${emailFirstLetter}***${emailLastLetter}${emailDomain}`)
       } else {
       }
+  }
+
+  async function isEmailVerified() {
+    try {
+      const userRef = doc(db, "users", currentUser.uid)
+      const userInfo = await getDoc(userRef)
+  
+      setEmailVerified(userInfo.data()?.emailVerified)
+    } catch(err) {
+      console.log(err.message)
+    } 
   }
 
   function clearInputs() {
@@ -124,6 +138,11 @@ export default function EmailEdit() {
       setFailedEmailCriteria(false); 
     }
   }, [newEmail]);
+  
+    useEffect(()=> {
+      console.log(currentUser)
+      isEmailVerified()
+    },[currentUser])
   
 
   return (
