@@ -9,8 +9,8 @@ export default function AccountDetailsEdit() {
   
 
   useEffect(()=> {
-
-  },[])
+    console.log(currentUser)
+  },[currentUser])
 
   return (
     <div className={''}>

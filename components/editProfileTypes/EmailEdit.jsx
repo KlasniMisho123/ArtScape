@@ -149,7 +149,7 @@ export default function EmailEdit() {
           <h3 className="text-lg">How It Works:</h3>
             <ul className="list-disc pl-5">
               <li>Enter your new email address.</li>
-              <li>Click "Submit" to receive a confirmation code previous Email.</li>
+              <li>Click "Submit" to receive a confirmation code on new Email.</li>
               <li>Enter code in verify section.</li>
             </ul>
           </div>
