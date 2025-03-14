@@ -9,14 +9,14 @@ export default function AccountDetailsEdit() {
   const {currentUser, isLightMode} = useAuth()
   const [isF2AuthActive, setIsF2AuthActive] = useState(false)
 
-  const [emailVeirified, setEmailVerified] = useState("")
+  const [emailVerified, setEmailVerified] = useState("")
 
   async function isEmailVerified() {
     try {
       const userRef = doc(db, "users", currentUser.uid)
       const userInfo = await getDoc(userRef)
   
-      console.log(userInfo)
+      setEmailVerified(userInfo.data()?.emailVerified)
     } catch(err) {
       console.log(err.message)
     } 
@@ -40,8 +40,11 @@ export default function AccountDetailsEdit() {
             Change Email <i className="fa-solid fa-envelope"></i> </Link>
             
             <p className='my-2'> <span className='text-gray-500'> Email address: </span>{currentUser?.email || ""} </p> 
-            <p> <span className='text-gray-500'> Status: </span> {currentUser?.emailVerified ? `Verified` : "Unverified"} </p>
-            <button className="p-1 border border-black my-4  px-4 rounded transition-all duration-300 hover:bg-black hover:text-white"> Verify Email </button>
+            <p> <span className='text-gray-500 mr-1'> Status: </span> {currentUser?.emailVerified? `Verified` : 
+            <button className="p-1 border border-black my-4  px-4 rounded transition-all duration-300 hover:bg-black hover:text-white">
+               Verify Email 
+            </button>} </p>
+
           </div>
           <div>
             <Link 
