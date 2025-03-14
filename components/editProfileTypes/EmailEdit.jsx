@@ -134,13 +134,19 @@ export default function EmailEdit() {
             <h1 className='text-white sm:text-md  md:text-lg lg:text-xl '> Email Configuration</h1>
         </div>
         <div className='flex gap-4 flex-col my-10 bg-[#103d5c] rounded p-4 '> 
+          
+          <div> 
+            <h2 className='md:text-md lg:text-lg'>Verify email </h2>
+          </div>
+          
+          <p> <span className='text-gray-500 mr-1'> Status: </span> {emailVerified? `Verified` : ""} </p>
+          {/* VerifyEmail */}
+          <button className="p-1 w-[30%] border border-black my-4 px-4 rounded transition-all duration-300 hover:bg-black hover:text-white"> Verify Email </button>
+          
           <div> 
             <h2 className='md:text-md lg:text-lg'>Change Email For: <span> {hashedEmail || "Loading..."} </span> </h2>
           </div>
 
-          <div> 
-            <h2 className='md:text-md lg:text-lg'>Change Email For: <span> {hashedEmail || "Loading..."} </span> </h2>
-          </div>
           <div className='flex flex-col gap-2 '>
           <div className="bg-[#1a5276] p-4 rounded text-gray-200">
           <h3 className="text-lg">How It Works:</h3>
