@@ -3,7 +3,7 @@ import { auth, db } from "../firebase"
 import React, { useContext , useEffect, useState } from 'react'
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, updateProfile,} from "firebase/auth"
 import { EmailAuthProvider, reauthenticateWithCredential, updateEmail as firebaseUpdateEmail } from "firebase/auth";
-import { doc, getDoc } from "firebase/firestore"
+import { doc, getDoc, setDoc } from "firebase/firestore"
 
 
 const AuthContext = React.createContext()
@@ -75,6 +75,7 @@ export function AuthProvider({ children }) {
                 emailVerified: true
             }
 
+            await setDoc(userRef, userInfoObject, { merge: true })
             
 
             await firebaseUpdateEmail(auth.currentUser, newEmail);

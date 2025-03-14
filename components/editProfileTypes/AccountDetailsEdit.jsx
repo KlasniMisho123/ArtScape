@@ -6,7 +6,7 @@ import Link from 'next/link'
 export default function AccountDetailsEdit() {
   const {currentUser, isLightMode} = useAuth()
   const [isF2AuthActive, setIsF2AuthActive] = useState(false)
-  
+  const [emailVeirified, setEmailVerified] = useState(false)
 
   useEffect(()=> {
     console.log(currentUser)
