@@ -65,9 +65,9 @@ phoneNumber,emailVerified,displayName
 
 4. handle every country and city filter? - bagon (+-)
 
-5. Verify Email, - ❌ Error updating Email: "Firebase: Please verify the new email before changing email. (auth/operation-not-allowed)." - bagon // already have custom verification?!
+5. Verify Email - ✔️, verify exsisting Email - 🔨
 
-6. Invalid Email Without @.(chars) error Handle
+6. Invalid Email error Handle - ✔️
 
 7. Verify Phone,
 
