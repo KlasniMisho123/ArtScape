@@ -2,14 +2,29 @@
 import { useAuth } from '@/context/AuthContext'
 import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
+import { doc, getDoc } from 'firebase/firestore'
+import { db } from '@/firebase'
 
 export default function AccountDetailsEdit() {
   const {currentUser, isLightMode} = useAuth()
   const [isF2AuthActive, setIsF2AuthActive] = useState(false)
-  const [emailVeirified, setEmailVerified] = useState(false)
+
+  const [emailVeirified, setEmailVerified] = useState("")
+
+  async function isEmailVerified() {
+    try {
+      const userRef = doc(db, "users", currentUser.uid)
+      const userInfo = await getDoc(userRef)
+  
+      console.log(userInfo)
+    } catch(err) {
+      console.log(err.message)
+    } 
+  }
 
   useEffect(()=> {
     console.log(currentUser)
+    isEmailVerified()
   },[currentUser])
 
   return (
