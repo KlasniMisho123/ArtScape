@@ -40,10 +40,13 @@ export default function AccountDetailsEdit() {
             Change Email <i className="fa-solid fa-envelope"></i> </Link>
             
             <p className='my-2'> <span className='text-gray-500'> Email address: </span>{currentUser?.email || ""} </p> 
-            <p> <span className='text-gray-500 mr-1'> Status: </span> {currentUser?.emailVerified? `Verified` : 
-            <button className="p-1 border border-black my-4  px-4 rounded transition-all duration-300 hover:bg-black hover:text-white">
-               Verify Email 
-            </button>} </p>
+            <p> <span className='text-gray-500'> Status: </span> {emailVerified? `Verified` :
+            <Link 
+            href="/accountmanegement/change-email"
+            className="p-1 border border-black my-4  px-4 rounded transition-all duration-300 hover:bg-black hover:text-white">
+               Verify Email
+            </Link>} 
+            </p>
 
           </div>
           <div>
