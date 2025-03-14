@@ -64,9 +64,19 @@ export function AuthProvider({ children }) {
         }
     
         try {
+            const userRef = doc(db, "users", currentUser.uid )
+            const userInfo = await getDoc(userRef)
+
             const credential = EmailAuthProvider.credential(auth.currentUser.email, password);
             await reauthenticateWithCredential(auth.currentUser, credential);
     
+            // ADD VERIFIED EMAIL Via Firebase/Firestore
+            const userInfoObject = {
+                emailVerified: true
+            }
+
+            
+
             await firebaseUpdateEmail(auth.currentUser, newEmail);
 
             return ("✅ Email updated successfully!")

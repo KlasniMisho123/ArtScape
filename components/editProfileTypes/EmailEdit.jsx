@@ -136,8 +136,8 @@ export default function EmailEdit() {
   return (
     <div className='min-h-[75vh] w-[70%] mx-auto text-white '>        
         <div className='flex gap-2 bg-[#134B70] mt-2 items-center p-4 text-white  md:text-sm lg:text-md rounded '>
-            <i className="fa-solid fa-envelope md:text-md lg:text-lg mr-1"></i>
             {/* <span className='cursor-pointer'> Home &gt; Account &gt; Email Preferences </span> */}
+            <i className="fa-solid fa-envelope md:text-md lg:text-lg mr-1"></i>
             <h1 className='text-white sm:text-md  md:text-lg lg:text-xl '> Email Configuration</h1>
         </div>
         <div className='flex gap-4 flex-col my-10 bg-[#103d5c] rounded p-4 '> 
