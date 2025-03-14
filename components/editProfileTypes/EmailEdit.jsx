@@ -107,12 +107,6 @@ export default function EmailEdit() {
     }
 }
 
-  async function sendVerificationCode() {
-    // send verification code on previous/new email
-    console.log("Send Verification Code Dummy Text")
-  }
-
-
   useEffect(()=> {
     console.log("currentUser: ",currentUser)
     hashingEmail()
