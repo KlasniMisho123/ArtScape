@@ -160,9 +160,9 @@ export default function EmailEdit() {
           <div className='flex flex-col'>
             <p> <span className='text-gray-500 mr-1'> Status: </span> {emailVerified? `Verified` : ""} </p>
             <button 
-            disabled={false}
+            disabled={emailVerified}
             onClick={()=>{console.log("VERIFY EMAIL")}}
-            className="p-1 w-[30%] border border-black my-4 px-4 rounded transition-all duration-300 hover:bg-black hover:text-white">
+            className={"p-1 w-[30%] border border-black my-4 px-4 rounded transition-all duration-300 hover:bg-black hover:text-white " + (emailVerified? "cursor-not-allowed opacity-50" : "")}>
               Verify Email 
             </button>
           </div>
