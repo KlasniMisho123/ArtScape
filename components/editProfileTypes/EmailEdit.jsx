@@ -153,7 +153,7 @@ export default function EmailEdit() {
             <h1 className='text-white sm:text-md  md:text-lg lg:text-xl '> Email Configuration</h1>
         </div>
         <div className='flex gap-4 flex-col my-10 bg-[#103d5c] rounded p-4 '> 
-          {/* VerifyEmail */}
+          {/* VerifyEmail, send text on old email? */}
           <div> 
             <h2 className='md:text-md lg:text-lg'>Verify email </h2>
           </div>
