@@ -65,7 +65,7 @@ phoneNumber,emailVerified,displayName
 
 4. handle every country and city filter? - bagon (+-)
 
-5. Verify Email - ✔️, verify exsisting Email - 🔨
+5. Verify Email - ✔️
 
 6. Invalid Email error Handle - ✔️
 
@@ -73,3 +73,5 @@ phoneNumber,emailVerified,displayName
 
 8. layout.js, authentification if currentUser Doesnot exists? //except hero?! 🎯📌
 ////////// add error handleing during filling form 
+
+9. verify exsisting Email During Signup - 🔨

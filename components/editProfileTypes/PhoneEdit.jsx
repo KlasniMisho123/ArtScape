@@ -63,7 +63,7 @@ export default function PhoneEdit() {
     },[currentUser])
 
     return (
-      <div className='min-h-[75vh] w-[70%] mx-auto '>        
+      <div className='min-h-[75vh] w-[70%] mx-auto text-white'>        
           <div className='flex items-center gap-2 bg-[#134B70] mt-2 p-4 text-white  md:text-sm lg:text-md rounded '>
               <i className="fa-solid fa-mobile-screen md:text-md lg:text-lg mr-1"></i>
               {/* <span className='cursor-pointer'> Home &gt; Account &gt; Email Preferences </span> */}
