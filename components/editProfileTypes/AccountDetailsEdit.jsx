@@ -41,13 +41,10 @@ export default function AccountDetailsEdit() {
             
             <p className='my-2'> <span className='text-gray-500'> Email address: </span>{currentUser?.email || ""} </p> 
             <p> <span className='text-gray-500 mr-1'> Status: </span> {emailVerified? `Verified` :
-            <Link 
-            href="/accountmanegement/change-email"
-            className="transition-all text-blue-600 duration-300  hover:text-blue-400">
+            <span className="transition-all text-blue-600 duration-300  hover:text-blue-400">
                Unverified
-            </Link>} 
+            </span>} 
             </p>
-
           </div>
           <div>
             <Link 
