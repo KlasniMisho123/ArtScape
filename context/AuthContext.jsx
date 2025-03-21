@@ -204,6 +204,7 @@ export function AuthProvider({ children }) {
         setCurrentUser,
         handleGeneralUpdate,
         updateAvatar,
+        setUserPhoneNumber,
         updateUserEmail,
         signup,
         login,

@@ -3,7 +3,7 @@ import { useAuth } from '@/context/AuthContext'
 import React, { useEffect, useState } from 'react'
 
 export default function PhoneEdit() {
-  const { currentUser, setPhoneNumber } = useAuth()
+  const { currentUser, setPhoneNumber, setUserPhoneNumber } = useAuth()
     const [hashedPhoneNumber, setHashedPhoneNumber ] = useState("")
     const [newPhoneNumber, setNewPhoneNumber ] = useState("")
     const [phonePrefix, setPhonePrefix] = useState("")
@@ -43,24 +43,32 @@ export default function PhoneEdit() {
     }
 
     async function handleSubmit() {
-      const prevPhoneNumber = userPhoneNumber
+      const prevPhoneNumber = userPhoneNumber;
+      let fullNumber = null;
 
-      let fullNumbber = null
-
-      if(phonePrefix && newPhoneNumber) {
-        fullNumbber = phonePrefix + newPhoneNumber
+      // Combine the phone prefix and new phone number
+      if (phonePrefix && newPhoneNumber) {
+        fullNumber = phonePrefix + newPhoneNumber;
       }
 
+      // Check if the user already has a phone number connected
       if (prevPhoneNumber) {
-        await generateVerificationCode();
-  
-        setVerifySection(true)
-      } else {
         try {
-          // ADD PHONE NUMBER
-          console.log("Adding new number: ", fullNumbber)
+          // Generate a verification code for the user
+          await generateVerificationCode();
+
+          // Show the verification section for entering the code
+          setVerifySection(true);
+        } catch (err) {
+          console.error("❌ Error generating verification code:", err.message);
+        }
+        } else {
+        try {
+          console.log("Adding new number: ", fullNumber)
+
+          await setUserPhoneNumber(fullNumber);
         } catch(err) {
-          console.log(err.message)
+         console.error("❌ Error adding new phone number:", err.message);
         }
       }
     }
