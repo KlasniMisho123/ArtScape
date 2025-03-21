@@ -107,10 +107,25 @@ export function AuthProvider({ children }) {
     }
 
     async function setUserPhoneNumber(newPhoneNumber, verificationId, verificationCode) {
+        const auth = getAuth();
+        const user = auth.currentUser;
+        
         if (!auth.currentUser) {
             console.error("❌ No user is logged in.");
             return;
         }  
+        try {
+            const credential = PhoneAuthProvider.credential(verificationId, verificationCode);
+            await signInWithCredential(auth, credential);
+
+            await updateProfile(user, {
+                phoneNumber: newPhoneNumber
+            });
+
+            console.log("Phone number updated successfully!");
+        } catch(err) {
+            console.error("❌ Error updating phone number:", error.message);
+        }
     }
 
     useEffect(()=>{
