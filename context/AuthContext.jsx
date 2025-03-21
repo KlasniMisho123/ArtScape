@@ -89,20 +89,6 @@ export function AuthProvider({ children }) {
             }
         }
     }
-
-    // async function verifyEmailWithCode() {
-    //     if (inputedCode === generatedVerificationCode) {
-    //         const password = prompt("Enter your password to confirm email change:");
-    //         if (!password) return console.error("❌ Password is required.");
-    
-    //         await sendVerificationEmail(auth.currentUser, newEmail); // Step 1: Send verification email
-    //         console.log("📩 Please verify your new email before proceeding.");
-    
-    //     } else {
-    //         console.log("❌ WRONG VERIFICATION CODE");
-    //     }
-    // }
-    
     
     async function handleGeneralUpdate(username) {
         if (!auth.currentUser) {
