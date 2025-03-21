@@ -46,7 +46,11 @@ export default function PhoneEdit() {
 
     async function handleSubmit() {
       const prevPhoneNumber = userPhoneNumber
-      
+
+      if(phonePrefix && newPhoneNumber) {
+        let fullNumbber = phonePrefix + newPhoneNumber
+      }
+
       if (prevPhoneNumber) {
         await generateVerificationCode();
   
