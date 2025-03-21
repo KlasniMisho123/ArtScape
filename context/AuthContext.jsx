@@ -3,7 +3,6 @@ import { auth, db } from "../firebase"
 import React, { useContext , useEffect, useState } from 'react'
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, updateProfile,} from "firebase/auth"
 import { EmailAuthProvider, reauthenticateWithCredential, updateEmail as firebaseUpdateEmail,  } from "firebase/auth";
-import { PhoneAuthProvider, signInWithCredential, linkWithCredential } from "firebase/auth";
 import { doc, getDoc, setDoc } from "firebase/firestore"
 
 
@@ -58,17 +57,6 @@ export function AuthProvider({ children }) {
         }
     }
 
-    // async function verifyAndAddPhoneNumber(confirmationResult, verificationCode) {
-    //     try {
-    //         const credential = PhoneAuthProvider.credential(confirmationResult.verificationId, verificationCode);
-    //         await linkWithCredential(auth.currentUser, credential); // 🔗 Links phone number to account
-    
-    //         console.log("✅ Phone number added successfully!");
-    //     } catch (error) {
-    //         console.error("❌ Error adding phone number:", error.message);
-    //     }
-    // }
-
     async function updateUserEmail(newEmail, password) {
         if (!auth.currentUser) {
             console.error("❌ No user is logged in.");
@@ -114,6 +102,7 @@ export function AuthProvider({ children }) {
     //         console.log("❌ WRONG VERIFICATION CODE");
     //     }
     // }
+    
     
     async function handleGeneralUpdate(username) {
         if (!auth.currentUser) {

@@ -1,7 +1,6 @@
 'use client'
 import { useAuth } from '@/context/AuthContext'
 import React, { useEffect, useState } from 'react'
-import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 
 export default function PhoneEdit() {
   const { currentUser, setPhoneNumber } = useAuth()
@@ -42,17 +41,6 @@ export default function PhoneEdit() {
       setGeneratedVerificationCode(Math.random().toString(36).substring(2, 8).toUpperCase())
     }
 
-    // async function sendVerificationCode(phoneNumber) {
-    //   const recaptchaVerifier = new RecaptchaVerifier(auth, "recaptcha-container");
-
-    //   try {
-    //     const confirmationResult = await signInWithPhoneNumber(auth, phoneNumber, recaptchaVerifier);
-    //     return confirmationResult; // Save this for step 2
-    // } catch (error) {
-    //     console.error("❌ Error sending verification code:", error.message);
-    // }
-    // }
-
     async function handleSubmit() {
       const prevPhoneNumber = userPhoneNumber
       
@@ -61,9 +49,8 @@ export default function PhoneEdit() {
   
         setVerifySection(true)
       } else {
-        console.log("Adding new number")
         try {
-          await setPhoneNumber(newPhoneNumber)
+          console.log("Adding new number")
         } catch(err) {
           console.log(err.message)
         }
