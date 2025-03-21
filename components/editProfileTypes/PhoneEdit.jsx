@@ -55,7 +55,7 @@ export default function PhoneEdit() {
 
     async function handleSubmit() {
       // const prevPhoneNumber = userPhoneNumber
-      
+      sendVerificationCode(newPhoneNumber)
       // if (prevPhoneNumber) {
       //   await generateVerificationCode();
   
