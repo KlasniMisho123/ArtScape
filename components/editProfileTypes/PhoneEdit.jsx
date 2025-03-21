@@ -57,7 +57,7 @@ export default function PhoneEdit() {
         setVerifySection(true)
       } else {
         try {
-
+          // ADD PHONE NUMBER
           console.log("Adding new number: ", fullNumbber)
         } catch(err) {
           console.log(err.message)
