@@ -50,7 +50,11 @@ export default function PhoneEdit() {
         setVerifySection(true)
       } else {
         console.log("Adding new number")
-        setPhoneNumber(newPhoneNumber)
+        try {
+          await setPhoneNumber(newPhoneNumber)
+        } catch(err) {
+          console.log(err.message)
+        }
       }
     }
 
