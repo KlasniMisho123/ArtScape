@@ -50,6 +50,7 @@ export default function PhoneEdit() {
         setVerifySection(true)
       } else {
         try {
+          
           console.log("Adding new number")
         } catch(err) {
           console.log(err.message)
@@ -73,7 +74,7 @@ export default function PhoneEdit() {
 
     useEffect(()=>{
       console.log("currentUser: ", currentUser)
-      console.log(userPhoneNumber)
+      // console.log(userPhoneNumber)
     },[currentUser])
 
     return (

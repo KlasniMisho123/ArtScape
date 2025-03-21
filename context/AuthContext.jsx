@@ -105,6 +105,14 @@ export function AuthProvider({ children }) {
         }
     }
 
+    async function setUserPhoneNumber() {
+        if (!auth.currentUser) {
+            console.error("❌ No user is logged in.");
+            return;
+        }
+        
+    }
+
     useEffect(()=>{
         const unsubscribe = onAuthStateChanged(auth, async user => {
             try{
