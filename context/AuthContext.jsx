@@ -4,7 +4,7 @@ import React, { useContext , useEffect, useState } from 'react'
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, updateProfile,} from "firebase/auth"
 import { EmailAuthProvider, reauthenticateWithCredential, updateEmail as firebaseUpdateEmail,  } from "firebase/auth";
 import { doc, getDoc, setDoc } from "firebase/firestore"
-import { getAuth, PhoneAuthProvider, signInWithCredential } from 'firebase/auth';
+import { getAuth } from 'firebase/auth';
 
 
 const AuthContext = React.createContext()
@@ -109,24 +109,29 @@ export function AuthProvider({ children }) {
     async function setUserPhoneNumber(newPhoneNumber, verificationId, verificationCode) {
         const auth = getAuth();
         const user = auth.currentUser;
-        
-        if (!auth.currentUser) {
-            console.error("❌ No user is logged in.");
-            return;
-        }  
-        try {
-            const credential = PhoneAuthProvider.credential(verificationId, verificationCode);
-            await signInWithCredential(auth, credential);
-
-            await updateProfile(user, {
-                phoneNumber: newPhoneNumber
-            });
-
-            console.log("Phone number updated successfully!");
-        } catch(err) {
-            console.error("❌ Error updating phone number:", error.message);
+      
+        if (!user) {
+          console.error("❌ No user is logged in.");
+          return;
         }
-    }
+      
+        try {
+          // Create a credential for phone verification
+          const credential = PhoneAuthProvider.credential(verificationId, verificationCode);
+      
+          // Sign in with the credential to update the phone number
+          await signInWithCredential(auth, credential);
+      
+          // Update the phone number in Firebase profile
+          await updateProfile(user, {
+            phoneNumber: newPhoneNumber,
+          });
+      
+          console.log("Phone number updated successfully!");
+        } catch (error) {
+          console.error("❌ Error updating phone number:", error.message);
+        }
+      }
 
     useEffect(()=>{
         const unsubscribe = onAuthStateChanged(auth, async user => {

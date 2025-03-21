@@ -60,7 +60,7 @@ export default function PhoneEdit() {
           // Show the verification section for entering the code
           setVerifySection(true);
         } catch (err) {
-          console.error("❌ Error generating verification code:", err.message);
+          console.log("❌ Error generating verification code:", err.message);
         }
         } else {
         try {
@@ -68,7 +68,7 @@ export default function PhoneEdit() {
 
           await setUserPhoneNumber(fullNumber);
         } catch(err) {
-         console.error("❌ Error adding new phone number:", err.message);
+          console.log("❌ Error adding new phone number:", err.message);
         }
       }
     }
