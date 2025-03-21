@@ -57,6 +57,22 @@ export function AuthProvider({ children }) {
         }
     }
 
+    async function setPhoneNumber(phoneNumber) {
+        if (!auth.currentUser) {
+            console.error("No user is logged in.");
+            return;
+        }
+
+        try {
+            await updateProfile(auth.currentUser, {
+                phoneNumber: phoneNumber
+            });
+        } catch (error) {
+            console.error("Error updating avatar:", error.message);
+        }
+
+    }
+
     async function updateUserEmail(newEmail, password) {
         if (!auth.currentUser) {
             console.error("❌ No user is logged in.");
@@ -195,6 +211,7 @@ export function AuthProvider({ children }) {
         handleGeneralUpdate,
         updateAvatar,
         updateUserEmail,
+        setPhoneNumber,
         signup,
         login,
         logout,

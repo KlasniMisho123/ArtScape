@@ -3,7 +3,7 @@ import { useAuth } from '@/context/AuthContext'
 import React, { useEffect, useState } from 'react'
 
 export default function PhoneEdit() {
-  const { currentUser } = useAuth()
+  const { currentUser, setPhoneNumber } = useAuth()
     const [hashedPhoneNumber, setHashedPhoneNumber ] = useState("")
     const [newPhoneNumber, setNewPhoneNumber ] = useState("")
     const [verifySection, setVerifySection ] = useState(false)
@@ -50,6 +50,7 @@ export default function PhoneEdit() {
         setVerifySection(true)
       } else {
         console.log("Adding new number")
+        setPhoneNumber(newPhoneNumber)
       }
     }
 
