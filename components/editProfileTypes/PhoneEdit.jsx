@@ -14,6 +14,8 @@ export default function PhoneEdit() {
 
     const userPhoneNumber = currentUser?.phoneNumber
     // const userPhoneNumber = true
+    const focusAnimation = ` focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 placeholder-gray-300 transition duration-300 ease-in-out`
+
 
     async function hashingPhoneNumber() {
       let userPhoneNumber = currentUser?.phoneNumber
@@ -142,11 +144,28 @@ export default function PhoneEdit() {
                   <label> Enter New phone number </label>
                   {/* Nation Phone Number Prefix */}
                   <div className='flex gap-1 '> 
-                    <input type="tel" />
+                    <input
+                     type="tel"
+                     className={"border-2 border-gray-400 bg-[#1E293B] text-white rounded-lg px-2 py-2 "  + focusAnimation}
+                     value={phonePrefix}
+                     onChange={(e)=>{
+                      const value = e.target.value
+                      if (/^\+?\d*$/.test(value)) {
+                        setPhonePrefix(value);
+                      }
+                    }}
+                     placeholder='Example: +995'
+                     maxLength={5}
+                     />
                     <input 
-                      className='border-2 border-black bg-[#243642] rounded p-2 text-white w-full '
+                      className={'border-2 border-black bg-[#243642] rounded p-2 text-white w-full '}
                       value={newPhoneNumber}
-                      onChange={(e)=>{setNewPhoneNumber(e.target.value)}}
+                      onChange={(e)=>{
+                        const value = e.target.value
+                        if (/^\+?\d*$/.test(value)) {
+                          setNewPhoneNumber(value);
+                        } 
+                      }}
                       placeholder='New Phone Number'
                     />
                   </div>
