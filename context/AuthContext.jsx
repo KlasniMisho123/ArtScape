@@ -105,29 +105,25 @@ export function AuthProvider({ children }) {
             console.log(err.message)
         }
     }
+    // setUserPhoneNumber
+    async function setUserPhoneNumber(newPhoneNumber) {
 
-    async function setUserPhoneNumber(newPhoneNumber, verificationId, verificationCode) {
-        const auth = getAuth();
-        const user = auth.currentUser;
-      
         if (!user) {
-          console.error("❌ No user is logged in.");
-          return;
+            console.error("❌ No user is logged in.");
+            return;
         }
-      
+
+        const userRef = doc(db, "users", currentUser.uid )
+        const userInfo = await getDoc(userRef)
+
         try {
-          // Create a credential for phone verification
-          const credential = PhoneAuthProvider.credential(verificationId, verificationCode);
-      
-          // Sign in with the credential to update the phone number
-          await signInWithCredential(auth, credential);
-      
-          // Update the phone number in Firebase profile
-          await updateProfile(user, {
-            phoneNumber: newPhoneNumber,
-          });
-      
-          console.log("Phone number updated successfully!");
+
+        const userInfoObject = {
+            phoneNumber: newPhoneNumber
+        }
+
+        await setDoc(userRef, userInfoObject, { merge: true })
+        console.log("Phone number updated successfully!");
         } catch (error) {
           console.error("❌ Error updating phone number:", error.message);
         }
