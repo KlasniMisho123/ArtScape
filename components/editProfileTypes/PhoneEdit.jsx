@@ -53,20 +53,18 @@ export default function PhoneEdit() {
 
       // Check if the user already has a phone number connected
       if (prevPhoneNumber) {
-        // try {
-        //   // Generate a verification code for the user
-        //   await generateVerificationCode();
-
-        //   // Show the verification section for entering the code
-        //   setVerifySection(true);
-        // } catch (err) {
-        //   console.log("❌ Error generating verification code:", err.message);
-        // }
+        try {
+        // sending verification code to old number and then set?
+        } catch(err) {
+          console.log(err.message)
+        }
         } else {
         try {
           console.log("Adding new number: ", fullNumber)
-
+           // sending verification code to new number and then set?
           await setUserPhoneNumber(fullNumber);
+          clearInputs()
+          setIsChangeingPhone(false)
         } catch(err) {
           console.log("❌ Error adding new phone number:", err.message);
         }

@@ -75,3 +75,8 @@ phoneNumber,emailVerified,displayName
 ////////// add error handleing during filling form 
 
 9. verify exsisting Email During Signup - 🔨
+
+10. phone number breaks
+
+11. phone number change verifications.
+
