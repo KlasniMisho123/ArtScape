@@ -42,32 +42,32 @@ export default function PhoneEdit() {
       setGeneratedVerificationCode(Math.random().toString(36).substring(2, 8).toUpperCase())
     }
 
-    async function sendVerificationCode(phoneNumber) {
-      const recaptchaVerifier = new RecaptchaVerifier(auth, "recaptcha-container");
+    // async function sendVerificationCode(phoneNumber) {
+    //   const recaptchaVerifier = new RecaptchaVerifier(auth, "recaptcha-container");
 
-      try {
-        const confirmationResult = await signInWithPhoneNumber(auth, phoneNumber, recaptchaVerifier);
-        return confirmationResult;
-      } catch (error) {
-          console.error("❌ Error sending verification code:", error.message);
-      }
-    }
+    //   try {
+    //     const confirmationResult = await signInWithPhoneNumber(auth, phoneNumber, recaptchaVerifier);
+    //     return confirmationResult; // Save this for step 2
+    // } catch (error) {
+    //     console.error("❌ Error sending verification code:", error.message);
+    // }
+    // }
 
     async function handleSubmit() {
-      // const prevPhoneNumber = userPhoneNumber
-      sendVerificationCode(newPhoneNumber)
-      // if (prevPhoneNumber) {
-      //   await generateVerificationCode();
+      const prevPhoneNumber = userPhoneNumber
+      
+      if (prevPhoneNumber) {
+        await generateVerificationCode();
   
-      //   setVerifySection(true)
-      // } else {
-      //   console.log("Adding new number")
-      //   try {
-      //     await setPhoneNumber(newPhoneNumber)
-      //   } catch(err) {
-      //     console.log(err.message)
-      //   }
-      // }
+        setVerifySection(true)
+      } else {
+        console.log("Adding new number")
+        try {
+          await setPhoneNumber(newPhoneNumber)
+        } catch(err) {
+          console.log(err.message)
+        }
+      }
     }
 
     function handlePhoneChangeSection() {

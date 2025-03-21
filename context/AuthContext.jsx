@@ -58,16 +58,16 @@ export function AuthProvider({ children }) {
         }
     }
 
-    async function verifyAndAddPhoneNumber(confirmationResult, verificationCode) {
-        try {
-            const credential = PhoneAuthProvider.credential(confirmationResult.verificationId, verificationCode);
-            await linkWithCredential(auth.currentUser, credential); // 🔗 Links phone number to account
+    // async function verifyAndAddPhoneNumber(confirmationResult, verificationCode) {
+    //     try {
+    //         const credential = PhoneAuthProvider.credential(confirmationResult.verificationId, verificationCode);
+    //         await linkWithCredential(auth.currentUser, credential); // 🔗 Links phone number to account
     
-            console.log("✅ Phone number added successfully!");
-        } catch (error) {
-            console.error("❌ Error adding phone number:", error.message);
-        }
-    }
+    //         console.log("✅ Phone number added successfully!");
+    //     } catch (error) {
+    //         console.error("❌ Error adding phone number:", error.message);
+    //     }
+    // }
 
     async function updateUserEmail(newEmail, password) {
         if (!auth.currentUser) {
@@ -207,7 +207,6 @@ export function AuthProvider({ children }) {
         handleGeneralUpdate,
         updateAvatar,
         updateUserEmail,
-        verifyAndAddPhoneNumber,
         signup,
         login,
         logout,
