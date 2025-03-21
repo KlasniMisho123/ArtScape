@@ -107,13 +107,12 @@ export function AuthProvider({ children }) {
     }
     // setUserPhoneNumber
     async function setUserPhoneNumber(newPhoneNumber) {
-
         if (!user) {
             console.error("❌ No user is logged in.");
             return;
         }
 
-        const userRef = doc(db, "users", currentUser.uid )
+        const userRef = doc(db, "users", currentUser.uid)
         const userInfo = await getDoc(userRef)
 
         try {
@@ -121,7 +120,7 @@ export function AuthProvider({ children }) {
         const userInfoObject = {
             phoneNumber: newPhoneNumber
         }
-
+        
         await setDoc(userRef, userInfoObject, { merge: true })
         console.log("Phone number updated successfully!");
         } catch (error) {
