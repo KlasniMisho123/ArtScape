@@ -20,13 +20,10 @@ export default function PhoneEdit() {
     async function hashingPhoneNumber() {
       let userPhoneNumber = currentUser?.phoneNumber
       if(userPhoneNumber) {
-          let emailFirstLetter = currentUser?.email.slice(0, 1) 
-  
-          let emailLastLetterIndex =  userEmail.indexOf("@")
-          let emailLastLetter = userEmail.slice((emailLastLetterIndex-1), emailLastLetterIndex)
-          let emailDomain = userEmail.slice((emailLastLetterIndex))
+          // last 2 number
           setHashedPhoneNumber("")
         } else {
+          console.log("User Phone Number Is Empty")
         }
     }
 
@@ -38,6 +35,7 @@ export default function PhoneEdit() {
 
     function clearInputs() {
       setNewPhoneNumber("")
+      setPhonePrefix("")
     }
 
     async function generateVerificationCode() {
@@ -47,8 +45,10 @@ export default function PhoneEdit() {
     async function handleSubmit() {
       const prevPhoneNumber = userPhoneNumber
 
+      let fullNumbber = null
+
       if(phonePrefix && newPhoneNumber) {
-        let fullNumbber = phonePrefix + newPhoneNumber
+        fullNumbber = phonePrefix + newPhoneNumber
       }
 
       if (prevPhoneNumber) {
@@ -58,7 +58,7 @@ export default function PhoneEdit() {
       } else {
         try {
 
-          console.log("Adding new number")
+          console.log("Adding new number: ", fullNumbber)
         } catch(err) {
           console.log(err.message)
         }
