@@ -9,7 +9,10 @@ export default function PhoneEdit() {
     const [verifySection, setVerifySection ] = useState(false)
     const [verificationCode, setVerificationCode ] = useState("")
     const [generatedVerificationCode, setGeneratedVerificationCode ] = useState("")
-    const [isChangeingPhone, setIsChangeingPhone] = useState(true)
+    const [isChangeingPhone, setIsChangeingPhone] = useState(false)
+
+    const userPhoneNumber = currentUser?.phoneNumber
+    // const userPhoneNumber = true
 
     async function hashingPhoneNumber() {
       let userPhoneNumber = currentUser?.phoneNumber
@@ -39,14 +42,19 @@ export default function PhoneEdit() {
     }
 
     async function handleSubmit() {
-      const prevPhoneNumber = currentUser?.phoneNumber
+      const prevPhoneNumber = userPhoneNumber
       
       if (prevPhoneNumber) {
         await generateVerificationCode();
   
         setVerifySection(true)
+      } else {
+        console.log("Adding new number")
       }
-        return
+    }
+
+    function handlePhoneChangeSection() {
+      setIsChangeingPhone(true)
     }
 
     async function verifyNumberWithCode() {
@@ -61,6 +69,7 @@ export default function PhoneEdit() {
 
     useEffect(()=>{
       console.log("currentUser: ", currentUser)
+      console.log(userPhoneNumber)
     },[currentUser])
 
     return (
@@ -74,8 +83,25 @@ export default function PhoneEdit() {
             <div> 
               <h2 className='flex items-center gap-2 md:text-md lg:text-lg'>
                 Associated phone number: <span> <p className='my-2'> 
-                <i className="fa-solid fa-mobile mx-1 "></i> {currentUser?.phoneNumber? `Ends with: ${currentUser.phone}` : "Empty"} </p>  </span>
+                <i className="fa-solid fa-mobile mx-1 "></i> {userPhoneNumber? `Ends with: ${userPhoneNumber}` : "Empty"} </p>  </span>
               </h2>
+
+              {userPhoneNumber ? (
+                <button 
+                className="px-4 py-2 bg-blue-500 text-sm text-white rounded shadow-md hover:bg-blue-600 transition"
+                onClick={""}
+                >
+                  Change Phone Number
+                </button>
+              ) : (
+                <button 
+                className="px-4 py-2 bg-blue-500 text-sm text-white rounded shadow-md hover:bg-blue-600 transition"
+                onClick={handlePhoneChangeSection}
+                >
+                  Add Phone Number
+                </button>
+              )}
+
               {/* New phone number? Change number */}
               {/* Send an SMS to verify your phone number. (Helps ensure you can receive messages from Steam)Verify number*/}
               {/* Remove your phone number from your account. This will reduce your level of Steam account security.Remove number */}
@@ -90,13 +116,13 @@ export default function PhoneEdit() {
               </ul>
             </div>
               {isChangeingPhone? (
-                <div className='flex gap-4 flex-col my-10 bg-[#103d5c] rounded ' >
+                <div className='flex gap-4 flex-col my-5 bg-[#103d5c] rounded ' >
                   <label> Enter New phone number </label>
                   <input 
                     className='border-2 border-black bg-[#243642] rounded p-2 text-white'
                     value={newPhoneNumber}
                     onChange={(e)=>{setNewPhoneNumber(e.target.value)}}
-                    placeholder='New email'
+                    placeholder='New Phone Number'
                   />
                 </div>) : ""} 
             </div>
@@ -105,7 +131,7 @@ export default function PhoneEdit() {
             transition-all duration-500 ease-in-out transform opacity-100 scale-100">
             <div className="flex justify-between items-center gap-2 ">
               <p className="text-gray-300 text-sm md:text-md">
-                A verification code has been sent to your number: {currentUser.phoneNumber}.
+                A verification code has been sent to your number: {userPhoneNumber}.
               </p>
               <button className="text-red-500 rounded-full p-2 hover:texst-red-800 scale-150 hover:scale-125 transition-all duration-200 ease-in-out"
                 onClick={closeVerificationSection}
