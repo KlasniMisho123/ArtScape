@@ -4,6 +4,7 @@ import React, { useContext , useEffect, useState } from 'react'
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, updateProfile,} from "firebase/auth"
 import { EmailAuthProvider, reauthenticateWithCredential, updateEmail as firebaseUpdateEmail,  } from "firebase/auth";
 import { doc, getDoc, setDoc } from "firebase/firestore"
+import { getAuth, PhoneAuthProvider, signInWithCredential } from 'firebase/auth';
 
 
 const AuthContext = React.createContext()
@@ -105,12 +106,11 @@ export function AuthProvider({ children }) {
         }
     }
 
-    async function setUserPhoneNumber() {
+    async function setUserPhoneNumber(newPhoneNumber, verificationId, verificationCode) {
         if (!auth.currentUser) {
             console.error("❌ No user is logged in.");
             return;
-        }
-        
+        }  
     }
 
     useEffect(()=>{
