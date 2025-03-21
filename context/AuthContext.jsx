@@ -2,7 +2,7 @@
 import { auth, db } from "../firebase"
 import React, { useContext , useEffect, useState } from 'react'
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, updateProfile,} from "firebase/auth"
-import { EmailAuthProvider, reauthenticateWithCredential, updateEmail as firebaseUpdateEmail } from "firebase/auth";
+import { EmailAuthProvider, reauthenticateWithCredential, updateEmail as firebaseUpdateEmail,  } from "firebase/auth";
 import { doc, getDoc, setDoc } from "firebase/firestore"
 
 
@@ -70,7 +70,6 @@ export function AuthProvider({ children }) {
         } catch (error) {
             console.error("Error updating avatar:", error.message);
         }
-
     }
 
     async function updateUserEmail(newEmail, password) {
