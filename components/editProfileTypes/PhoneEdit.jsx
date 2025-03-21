@@ -9,6 +9,7 @@ export default function PhoneEdit() {
     const [verifySection, setVerifySection ] = useState(false)
     const [verificationCode, setVerificationCode ] = useState("")
     const [generatedVerificationCode, setGeneratedVerificationCode ] = useState("")
+    const [isChangeingPhone, setIsChangeingPhone] = useState(true)
 
     async function hashingPhoneNumber() {
       let userPhoneNumber = currentUser?.phoneNumber
@@ -88,13 +89,16 @@ export default function PhoneEdit() {
                 <li>Enter code in verify section.</li>
               </ul>
             </div>
-              <label> Enter New phone number </label>
-              <input 
-                className='border-2 border-black bg-[#243642] rounded p-2 text-white'
-                value={newPhoneNumber}
-                onChange={(e)=>{setNewPhoneNumber(e.target.value)}}
-                placeholder='New email'
-              />  
+              {isChangeingPhone? (
+                <div className='flex gap-4 flex-col my-10 bg-[#103d5c] rounded ' >
+                  <label> Enter New phone number </label>
+                  <input 
+                    className='border-2 border-black bg-[#243642] rounded p-2 text-white'
+                    value={newPhoneNumber}
+                    onChange={(e)=>{setNewPhoneNumber(e.target.value)}}
+                    placeholder='New email'
+                  />
+                </div>) : ""} 
             </div>
             {verifySection?
             <div className="flex flex-col gap-2 border-2 border-gray-500 rounded p-4 bg-[#1a2b3c] text-white space-y-3 
