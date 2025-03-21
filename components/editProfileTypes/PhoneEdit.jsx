@@ -6,6 +6,7 @@ export default function PhoneEdit() {
   const { currentUser, setPhoneNumber } = useAuth()
     const [hashedPhoneNumber, setHashedPhoneNumber ] = useState("")
     const [newPhoneNumber, setNewPhoneNumber ] = useState("")
+    const [phonePrefix, setPhonePrefix] = useState("")
     const [verifySection, setVerifySection ] = useState(false)
     const [verificationCode, setVerificationCode ] = useState("")
     const [generatedVerificationCode, setGeneratedVerificationCode ] = useState("")
@@ -50,7 +51,7 @@ export default function PhoneEdit() {
         setVerifySection(true)
       } else {
         try {
-          
+
           console.log("Adding new number")
         } catch(err) {
           console.log(err.message)
@@ -139,12 +140,16 @@ export default function PhoneEdit() {
               {isChangeingPhone? (
                 <div className='flex gap-4 flex-col my-5 bg-[#103d5c] rounded ' >
                   <label> Enter New phone number </label>
-                  <input 
-                    className='border-2 border-black bg-[#243642] rounded p-2 text-white'
-                    value={newPhoneNumber}
-                    onChange={(e)=>{setNewPhoneNumber(e.target.value)}}
-                    placeholder='New Phone Number'
-                  />
+                  {/* Nation Phone Number Prefix */}
+                  <div className='flex gap-1 '> 
+                    <input type="tel" />
+                    <input 
+                      className='border-2 border-black bg-[#243642] rounded p-2 text-white w-full '
+                      value={newPhoneNumber}
+                      onChange={(e)=>{setNewPhoneNumber(e.target.value)}}
+                      placeholder='New Phone Number'
+                    />
+                  </div>
                 </div>) : ""} 
             </div>
             {verifySection?
