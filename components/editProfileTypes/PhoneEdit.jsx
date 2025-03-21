@@ -95,14 +95,14 @@ export default function PhoneEdit() {
                 className="px-4 py-2 bg-blue-500 text-sm text-white rounded shadow-md hover:bg-blue-600 transition"
                 onClick={""}
                 >
-                  Change Phone Number
+                  Change Number
                 </button>
               ) : (
                 <button 
                 className="px-4 py-2 bg-blue-500 text-sm text-white rounded shadow-md hover:bg-blue-600 transition"
                 onClick={handlePhoneChangeSection}
                 >
-                  Add Phone Number
+                  Add Number
                 </button>
               )}
 
@@ -113,11 +113,27 @@ export default function PhoneEdit() {
             <div className='flex flex-col gap-2 '>
             <div className="bg-[#1a5276] p-4 rounded text-gray-200">
             <h3 className="text-lg">How It Works:</h3>
-              <ul className="list-disc pl-5">
-                <li>Enter your new phone number address.</li>
-                <li>Click "Submit" to receive a confirmation code previous Phone number.</li>
-                <li>Enter code in verify section.</li>
-              </ul>
+            <ul className="list-disc pl-5 space-y-2">
+              <li>
+                <span className="font-semibold">Don’t have a number connected?</span>
+                <ul className="list-disc pl-5 space-y-1">
+                  <li>Click on the "Add Number" button.</li>
+                  <li>Enter your new phone number.</li>
+                  <li>Submit.</li>
+                </ul>
+              </li>
+
+              <li>
+                <span className="font-semibold">Already have a number connected?</span>
+                <ul className="list-disc pl-5 space-y-1">
+                  <li>Click on the "Change Number" button.</li>
+                  <li>Enter your new phone number.</li>
+                  <li>Click "Submit" to receive a confirmation code on your previous phone number.</li>
+                  <li>Enter the code in the verification section.</li>
+                </ul>
+              </li>
+            </ul>
+
             </div>
               {isChangeingPhone? (
                 <div className='flex gap-4 flex-col my-5 bg-[#103d5c] rounded ' >
