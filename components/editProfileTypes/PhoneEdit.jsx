@@ -1,5 +1,6 @@
 'use client'
 import { useAuth } from '@/context/AuthContext'
+import axios from "axios";
 import React, { useEffect, useState } from 'react'
 
 export default function PhoneEdit() {
@@ -44,7 +45,7 @@ export default function PhoneEdit() {
 
     async function handleSubmit() {
       const prevPhoneNumber = userPhoneNumber;
-      generateVerificationCode()
+      await generateVerificationCode()
       let fullNumber = null;
       if(!phonePrefix) {
         console.log("Phone Prefix Number Required!")
@@ -53,6 +54,7 @@ export default function PhoneEdit() {
       if(!newPhoneNumber) {
         return console.log("Phone Number Required!")
       }
+
       // Combine the phone prefix and new phone number
       if (phonePrefix && newPhoneNumber) {
         fullNumber = phonePrefix + newPhoneNumber;
@@ -68,8 +70,9 @@ export default function PhoneEdit() {
         } else {
         try {
           console.log("Adding new number: ", fullNumber)
-           // sending verification code to new number and then set?
-          await setUserPhoneNumber(fullNumber);
+          axios.post("/sendphone")
+          // axios.post("/sendphone", fullNumber)
+          // await setUserPhoneNumber(fullNumber);
           // clearInputs()
           // setIsChangeingPhone(false)
         } catch(err) {
@@ -102,7 +105,7 @@ export default function PhoneEdit() {
           <div className='flex items-center gap-2 bg-[#134B70] mt-2 p-4 text-white  md:text-sm lg:text-md rounded '>
               <i className="fa-solid fa-mobile-screen md:text-md lg:text-lg mr-1"></i>
               {/* <span className='cursor-pointer'> Home &gt; Account &gt; Email Preferences </span> */}
-              <h1 className='text-white sm:text-md  md:text-lg lg:text-xl '> Phone Number Configuration: {generatedVerificationCode}</h1>
+              <h1 className='text-white sm:text-md  md:text-lg lg:text-xl '> Phone Number Configuration: {generatedVerificationCode} </h1>
           </div>
           <div className='flex gap-4 flex-col my-10 bg-[#103d5c] rounded p-4 '> 
             <div> 
