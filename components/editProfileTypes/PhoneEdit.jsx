@@ -70,9 +70,8 @@ export default function PhoneEdit() {
         } else {
         try {
           // console.log("Adding new number: ", fullNumber)
-          const sendPhoneResponse = await axios.post('http://localhost:5000/sendphone', {
-            fullNumber
-          }) 
+          
+          getHomeData(fullNumber)
 
           // await setUserPhoneNumber(fullNumber);
           // clearInputs()
@@ -82,6 +81,17 @@ export default function PhoneEdit() {
         }
       }
     }
+    
+    async function getHomeData(fullNumber) {
+      try {
+        const sendPhoneResponse = await axios.post('http://localhost:5000/sendphone', {
+            fullNumber
+          }) 
+        console.log('Server response:', sendPhoneResponse.data);
+      } catch (error) {
+        console.error('Error fetching data from /home:', error);
+      }
+    };
 
     function handlePhoneChangeSection() {
       setIsChangeingPhone(true)
