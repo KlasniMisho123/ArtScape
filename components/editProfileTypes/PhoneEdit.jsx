@@ -82,10 +82,11 @@ export default function PhoneEdit() {
       }
     }
     
-    async function getHomeData(fullNumber) {
+    async function getHomeData(phonePrefix, newPhoneNumber) {
       try {
         const sendPhoneResponse = await axios.post('http://localhost:5000/sendphone', {
-            fullNumber
+          phonePrefix, 
+          newPhoneNumber
           }) 
         console.log('Server response:', sendPhoneResponse.data);
       } catch (error) {
