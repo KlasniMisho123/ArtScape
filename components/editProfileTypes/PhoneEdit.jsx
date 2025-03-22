@@ -71,7 +71,7 @@ export default function PhoneEdit() {
         try {
           // console.log("Adding new number: ", fullNumber)
           
-          getHomeData(fullNumber)
+          getHomeData(phonePrefix, newPhoneNumber)
 
           // await setUserPhoneNumber(fullNumber);
           // clearInputs()
