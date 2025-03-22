@@ -69,13 +69,11 @@ export default function PhoneEdit() {
         }
         } else {
         try {
-          console.log("Adding new number: ", fullNumber)
+          // console.log("Adding new number: ", fullNumber)
           const sendPhoneResponse = await axios.post('http://localhost:5000/sendphone', {
             fullNumber
           }) 
 
-          console.log(sendPhoneResponse)
-          // axios.post("/sendphone", fullNumber)
           // await setUserPhoneNumber(fullNumber);
           // clearInputs()
           // setIsChangeingPhone(false)
