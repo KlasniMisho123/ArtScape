@@ -8,10 +8,11 @@ export default function PhoneEdit() {
     const [hashedPhoneNumber, setHashedPhoneNumber ] = useState("")
     const [newPhoneNumber, setNewPhoneNumber ] = useState("")
     const [phonePrefix, setPhonePrefix] = useState("")
-    const [verifySection, setVerifySection ] = useState(false)
     const [verificationCode, setVerificationCode ] = useState("")
     const [generatedVerificationCode, setGeneratedVerificationCode ] = useState("")
     const [isChangeingPhone, setIsChangeingPhone] = useState(false)
+    const [verifySection, setVerifySection ] = useState(false)
+
 
     const userPhoneNumber = currentUser?.phoneNumber
     // const userPhoneNumber = true
@@ -37,6 +38,7 @@ export default function PhoneEdit() {
     function clearInputs() {
       setNewPhoneNumber("")
       setPhonePrefix("")
+      ge
     }
 
     async function generateVerificationCode() {
@@ -73,7 +75,7 @@ export default function PhoneEdit() {
         try {
           // console.log("Adding new number: ", fullNumber)
           
-          getHomeData(phonePrefix, newPhoneNumber, verificationCode)
+          sendPhoneVerification(phonePrefix, newPhoneNumber, verificationCode)
 
           // await setUserPhoneNumber(fullNumber);
           // clearInputs()
@@ -84,13 +86,14 @@ export default function PhoneEdit() {
       }
     }
     
-    async function getHomeData(phonePrefix, newPhoneNumber, verificationCode) {
+    async function sendPhoneVerification(phonePrefix, newPhoneNumber, verificationCode) {
       try {
         const sendPhoneResponse = await axios.post('http://localhost:5000/sendphone', {
           phonePrefix, 
           newPhoneNumber,
           verificationCode
           }) 
+
         console.log('Server response:', sendPhoneResponse.data);
       } catch (error) {
         console.error('Error fetching data from /home:', error);
@@ -212,7 +215,7 @@ export default function PhoneEdit() {
             transition-all duration-500 ease-in-out transform opacity-100 scale-100">
             <div className="flex justify-between items-center gap-2 ">
               <p className="text-gray-300 text-sm md:text-md">
-                A verification code has been sent to your number: {userPhoneNumber}.
+                A verification code has been sent to your number.
               </p>
               <button className="text-red-500 rounded-full p-2 hover:texst-red-800 scale-150 hover:scale-125 transition-all duration-200 ease-in-out"
                 onClick={closeVerificationSection}
@@ -249,9 +252,14 @@ export default function PhoneEdit() {
              onClick={clearInputs}
              disabled={verifySection}
             > Cancel</button>
-            <button className={'rounded w-[20%] py-1 text-white linear-lblue-blue shadow-lg hover:brightness-110 '  + (verifySection?  "cursor-not-allowed opacity-50" : "")}
+            <button 
+           className={
+            'rounded w-[20%] py-1 text-white linear-lblue-blue shadow-lg hover:brightness-110 ' +
+            (verifySection ? 'cursor-not-allowed opacity-50 ' : ' ') +
+            (!phonePrefix || !newPhoneNumber ? 'cursor-not-allowed ' : '')
+          }
             onClick={handleSubmit}
-            disabled={verifySection}
+            disabled={!phonePrefix || !newPhoneNumber}
             > Submit </button>
           </div>
           </div>

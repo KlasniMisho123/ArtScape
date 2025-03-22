@@ -76,7 +76,7 @@ phoneNumber,emailVerified,displayName
 
 9. verify exsisting Email During Signup - 🔨
 
-10. phone number breaks
+10. phone number Requirements
 
 11. phone number change verifications.
 
