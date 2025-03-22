@@ -40,12 +40,14 @@ export default function PhoneEdit() {
     }
 
     async function generateVerificationCode() {
-      setGeneratedVerificationCode(Math.random().toString(36).substring(2, 8).toUpperCase())
+      const code = Math.random().toString(36).substring(2, 8).toUpperCase();
+      setGeneratedVerificationCode(code);
+      return code;
     }
 
     async function handleSubmit() {
       const prevPhoneNumber = userPhoneNumber;
-      await generateVerificationCode()
+      const verificationCode = await generateVerificationCode()
       let fullNumber = null;
       if(!phonePrefix) {
         console.log("Phone Prefix Number Required!")
@@ -71,7 +73,7 @@ export default function PhoneEdit() {
         try {
           // console.log("Adding new number: ", fullNumber)
           
-          getHomeData(phonePrefix, newPhoneNumber)
+          getHomeData(phonePrefix, newPhoneNumber, verificationCode)
 
           // await setUserPhoneNumber(fullNumber);
           // clearInputs()
@@ -82,11 +84,12 @@ export default function PhoneEdit() {
       }
     }
     
-    async function getHomeData(phonePrefix, newPhoneNumber) {
+    async function getHomeData(phonePrefix, newPhoneNumber, verificationCode) {
       try {
         const sendPhoneResponse = await axios.post('http://localhost:5000/sendphone', {
           phonePrefix, 
-          newPhoneNumber
+          newPhoneNumber,
+          verificationCode
           }) 
         console.log('Server response:', sendPhoneResponse.data);
       } catch (error) {
