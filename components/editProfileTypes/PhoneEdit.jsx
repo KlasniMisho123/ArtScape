@@ -93,7 +93,7 @@ export default function PhoneEdit() {
           newPhoneNumber,
           verificationCode,
           userEmail
-          }) 
+        }) 
 
         console.log('Server response:', sendPhoneResponse.data);
       } catch (error) {
@@ -109,15 +109,9 @@ export default function PhoneEdit() {
       // Check if Code that u sent matches input Code
       console.log("Verify Number With Code Dummy Text")
     }
-  
-    async function sendVerificationCode() {
-      // send verification code on previous/new phone number
-      console.log("Send Verification Code Dummy Text")
-    }
 
     useEffect(()=>{
       console.log("currentUser: ", currentUser)
-      // console.log(userPhoneNumber)
       setUserEmail(currentUser?.email)
     },[currentUser])
 
@@ -126,30 +120,11 @@ export default function PhoneEdit() {
           <div className='flex items-center gap-2 bg-[#134B70] mt-2 p-4 text-white  md:text-sm lg:text-md rounded '>
               <i className="fa-solid fa-mobile-screen md:text-md lg:text-lg mr-1"></i>
               {/* <span className='cursor-pointer'> Home &gt; Account &gt; Email Preferences </span> */}
-              <h1 className='text-white sm:text-md  md:text-lg lg:text-xl '> Phone Number Configuration: {userEmail} {generatedVerificationCode} </h1>
+              <h1 className='text-white sm:text-md  md:text-lg lg:text-xl '> Phone Number Configuration: </h1>
           </div>
           <div className='flex gap-4 flex-col my-10 bg-[#103d5c] rounded p-4 '> 
             <div> 
-              <h2 className='flex items-center gap-2 md:text-md lg:text-lg'>
-                Associated phone number: <span> <p className='my-2'> 
-                <i className="fa-solid fa-mobile mx-1 "></i> {userPhoneNumber? `Ends with: ${userPhoneNumber}` : "Empty"} </p>  </span>
-              </h2>
-
-              {userPhoneNumber ? (
-                <button 
-                className="px-4 py-2 bg-blue-500 text-sm text-white rounded shadow-md hover:bg-blue-600 transition"
-                onClick={""}
-                >
-                  Change Number
-                </button>
-              ) : (
-                <button 
-                className="px-4 py-2 bg-blue-500 text-sm text-white rounded shadow-md hover:bg-blue-600 transition"
-                onClick={handlePhoneChangeSection}
-                >
-                  Add Number
-                </button>
-              )}
+              
 
               {/* New phone number? Change number */}
               {/* Send an SMS to verify your phone number. (Helps ensure you can receive messages from Steam)Verify number*/}
@@ -164,6 +139,8 @@ export default function PhoneEdit() {
                 <ul className="list-disc pl-5 space-y-1">
                   <li>Click on the "Add Number" button.</li>
                   <li>Enter your new phone number.</li>
+                  <li>Click "Submit" to receive a confirmation code on new Email.</li>
+                  <li>Verification code will be sent to your current email</li>
                   <li>Submit.</li>
                 </ul>
               </li>
@@ -178,8 +155,29 @@ export default function PhoneEdit() {
                 </ul>
               </li>
             </ul>
-
             </div>
+              <div> 
+                <h2 className='flex items-center gap-2 md:text-md lg:text-lg'>
+                    Associated phone number: <span> <p className='my-2'> 
+                    <i className="fa-solid fa-mobile mx-1 "></i> {userPhoneNumber? `Ends with: ${userPhoneNumber}` : "Empty"} </p>  </span>
+                  </h2>
+
+                  {userPhoneNumber ? (
+                    <button 
+                    className="px-4 py-2 bg-blue-500 text-sm text-white rounded shadow-md hover:bg-blue-600 transition"
+                    onClick={""}
+                    >
+                      Change Number
+                    </button>
+                  ) : (
+                    <button 
+                    className="px-4 py-2 bg-blue-500 text-sm text-white rounded shadow-md hover:bg-blue-600 transition"
+                    onClick={handlePhoneChangeSection}
+                    >
+                      Add Number
+                    </button>
+                  )}
+              </div>
               {isChangeingPhone? (
                 <div className='flex gap-4 flex-col my-5 bg-[#103d5c] rounded ' >
                   <label> Enter New phone number </label>
