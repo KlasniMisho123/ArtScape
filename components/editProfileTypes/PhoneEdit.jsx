@@ -18,8 +18,6 @@ export default function PhoneEdit() {
     const [inputedVerCode, setInputedVerCode] = useState("")
     const [userCurrentPhoneNumber, setUserCurrentPhoneNumber] = useState("")
 
-    const userPhoneNumber = currentUser?.phoneNumber
-    // const userPhoneNumber = true
     const focusAnimation = ` focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 placeholder-gray-300 transition duration-300 ease-in-out`
 
     async function handleUserInfo() {
@@ -27,9 +25,7 @@ export default function PhoneEdit() {
         const userRef = doc(db, "users", currentUser.uid)
         const getUserInfo = await getDoc(userRef)
   
-        // console.log("userInfo: ",getUserInfo.data())
-        console.log("PASSED")
-        setUserCurrentPhoneNumber("")
+        setUserCurrentPhoneNumber(getUserInfo.data()?.phoneNumber)
   
         setUserEmail(currentUser?.email)
       } catch(err) {
@@ -38,8 +34,7 @@ export default function PhoneEdit() {
     }
 
     async function hashingPhoneNumber() {
-      let userPhoneNumber = currentUser?.phoneNumber
-      if(userPhoneNumber) {
+      if(userCurrentPhoneNumber) {
           // last 2 number
           setHashedPhoneNumber("")
         } else {
@@ -66,7 +61,6 @@ export default function PhoneEdit() {
     }
 
     async function handleSubmit() {
-      const prevPhoneNumber = userPhoneNumber;
       const verificationCode = await generateVerificationCode()
 
       if(!phonePrefix) {
@@ -172,21 +166,19 @@ export default function PhoneEdit() {
               <div> 
                 <h2 className='flex items-center gap-2 md:text-md lg:text-lg'>
                     Associated phone number: <span> <p className='my-2'> 
-                    <i className="fa-solid fa-mobile mx-1 "></i> {userPhoneNumber? `Ends with: ${userPhoneNumber}` : "Empty"} </p>  </span>
+                    <i className="fa-solid fa-mobile mx-1 "></i> {userCurrentPhoneNumber? `Ends with: ${userCurrentPhoneNumber}` : "Empty"} </p>  </span>
                   </h2>
 
-                  {userPhoneNumber ? (
+                  {userCurrentPhoneNumber ? (
                     <button 
                     className="px-4 py-2 bg-blue-500 text-sm text-white rounded shadow-md hover:bg-blue-600 transition"
-                    onClick={""}
-                    >
+                    onClick={handlePhoneChangeSection}>
                       Change Number
                     </button>
                   ) : (
                     <button 
                     className="px-4 py-2 bg-blue-500 text-sm text-white rounded shadow-md hover:bg-blue-600 transition"
-                    onClick={handlePhoneChangeSection}
-                    >
+                    onClick={handlePhoneChangeSection}>
                       Add Number
                     </button>
                   )}
