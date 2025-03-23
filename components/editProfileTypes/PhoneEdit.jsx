@@ -119,6 +119,7 @@ export default function PhoneEdit() {
           clearInputs()
           setIsChangeingPhone(false)
           setVerifySection(false)
+          setSuccessMessage(true)
           setTimeout(() => {
             setSuccessMessage(false)
           }, 2500);
