@@ -2,7 +2,7 @@
 import { useAuth } from '@/context/AuthContext'
 import axios from "axios";
 import { doc, getDoc } from 'firebase/firestore';
-import db  from "../../firebase"
+import { db } from "../../firebase"; 
 import React, { useEffect, useState } from 'react'
 
 export default function PhoneEdit() {
