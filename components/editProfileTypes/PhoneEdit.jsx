@@ -128,7 +128,7 @@ export default function PhoneEdit() {
     useEffect(()=>{
       console.log("currentUser: ", currentUser)
       if(currentUser) {
-        handleUserInfo
+        handleUserInfo()
       }
     },[currentUser])
 
