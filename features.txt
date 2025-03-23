@@ -80,3 +80,6 @@ phoneNumber,emailVerified,displayName
 
 11. phone number change verifications.
 
+// phone submit btn for verify section - change phone
+
+12.setup sending text on phone - Twilio --?? limitations-- sending code on email
