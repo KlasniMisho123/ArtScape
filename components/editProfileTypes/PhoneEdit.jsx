@@ -126,7 +126,7 @@ export default function PhoneEdit() {
           <div className='flex items-center gap-2 bg-[#134B70] mt-2 p-4 text-white  md:text-sm lg:text-md rounded '>
               <i className="fa-solid fa-mobile-screen md:text-md lg:text-lg mr-1"></i>
               {/* <span className='cursor-pointer'> Home &gt; Account &gt; Email Preferences </span> */}
-              <h1 className='text-white sm:text-md  md:text-lg lg:text-xl '> Phone Number Configuration: {userEmail} {verificationCode} </h1>
+              <h1 className='text-white sm:text-md  md:text-lg lg:text-xl '> Phone Number Configuration: {userEmail} {generatedVerificationCode} </h1>
           </div>
           <div className='flex gap-4 flex-col my-10 bg-[#103d5c] rounded p-4 '> 
             <div> 
