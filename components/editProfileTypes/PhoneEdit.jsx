@@ -18,8 +18,7 @@ export default function PhoneEdit() {
     const [userEmail, setUserEmail] = useState("")
     const [inputedVerCode, setInputedVerCode] = useState("")
     const [userCurrentPhoneNumber, setUserCurrentPhoneNumber] = useState("")
-    const [successMessage, setSuccessMessage] = useState("")
-
+    const [successMessage, setSuccessMessage] = useState(false)
     const focusAnimation = ` focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 placeholder-gray-300 transition duration-300 ease-in-out`
 
     async function handleUserInfo() {
@@ -52,6 +51,7 @@ export default function PhoneEdit() {
       setVerificationCode("")
       setGeneratedVerificationCode("")
       setVerifySection(false)
+      setSuccessMessage(false)
     }
 
     function clearInputs() {
@@ -119,7 +119,10 @@ export default function PhoneEdit() {
           clearInputs()
           setIsChangeingPhone(false)
           setVerifySection(false)
-          setSuccessMessage(true)
+          setTimeout(() => {
+            setSuccessMessage(false)
+          }, 2500);
+
         } catch(err) {
           console.log(err.message)
         }
