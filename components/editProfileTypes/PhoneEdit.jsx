@@ -34,12 +34,16 @@ export default function PhoneEdit() {
     }
 
     async function hashingPhoneNumber() {
-      if(userCurrentPhoneNumber) {
-          // last 2 number
-          setHashedPhoneNumber("")
-        } else {
-          console.log("User Phone Number Is Empty")
-        }
+      // if(userCurrentPhoneNumber) {
+      //     let phonenumberLength = userCurrentPhoneNumber.length
+
+      //     let lastTwonumber = userCurrentPhoneNumber.slice(0, 1)
+      //     console.log("lastTwonumber: ", lastTwonumber)
+      //     setHashedPhoneNumber(lastTwonumber)
+      //   } else {
+      //     console.log("User Phone Number Is Empty")
+      //   }
+        console.log("userCurrentPhoneNumber: ", userCurrentPhoneNumber)
     }
 
     function closeVerificationSection() {
@@ -124,6 +128,7 @@ export default function PhoneEdit() {
       if(currentUser) {
         handleUserInfo()
       }
+      hashingPhoneNumber()
     },[currentUser])
 
     return (
@@ -166,7 +171,7 @@ export default function PhoneEdit() {
               <div> 
                 <h2 className='flex items-center gap-2 md:text-md lg:text-lg'>
                     Associated phone number: <span> <p className='my-2'> 
-                    <i className="fa-solid fa-mobile mx-1 "></i> {userCurrentPhoneNumber? `Ends with: ${userCurrentPhoneNumber}` : "Empty"} </p>  </span>
+                    <i className="fa-solid fa-mobile mx-1 "></i> {userCurrentPhoneNumber? `Ends with: ${hashedPhoneNumber}` : "Empty"} </p>  </span>
                   </h2>
 
                   {userCurrentPhoneNumber ? (
