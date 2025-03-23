@@ -132,8 +132,6 @@ export default function PhoneEdit() {
 
     useEffect(()=>{
       const fullNumber = phonePrefix + newPhoneNumber
-      console.log(userCurrentPhoneNumber)
-      console.log("fullNumber: ", fullNumber)
       if("+" + fullNumber === userCurrentPhoneNumber) {
         setSamePhoneNumber(true)
       } else {
