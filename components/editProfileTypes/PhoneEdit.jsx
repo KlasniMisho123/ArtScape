@@ -2,7 +2,7 @@
 import { useAuth } from '@/context/AuthContext'
 import axios from "axios";
 import { doc, getDoc } from 'firebase/firestore';
-import db  from "../firebase"
+import db  from "../../firebase"
 import React, { useEffect, useState } from 'react'
 
 export default function PhoneEdit() {
@@ -22,6 +22,15 @@ export default function PhoneEdit() {
     // const userPhoneNumber = true
     const focusAnimation = ` focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 placeholder-gray-300 transition duration-300 ease-in-out`
 
+    async function handleUserInfo() {
+      const userRef = doc(db, "users", currentUser.uid)
+      const getUserInfo = await getDoc(userRef)
+
+      console.log("userInfo: ",getUserInfo.data())
+      setUserCurrentPhoneNumber("")
+
+      setUserEmail(currentUser?.email)
+    }
 
     async function hashingPhoneNumber() {
       let userPhoneNumber = currentUser?.phoneNumber
@@ -113,13 +122,9 @@ export default function PhoneEdit() {
 
     useEffect(()=>{
       console.log("currentUser: ", currentUser)
-      const userRef = doc(db, "users", currentUser.uid)
-      const getUserInfo = getDoc(userRef)
-
-      console.log("userInfo: ",getUserInfo.data())
-      setUserCurrentPhoneNumber("")
-
-      setUserEmail(currentUser?.email)
+      if(currentUser) {
+        handleUserInfo
+      }
     },[currentUser])
 
     return (
