@@ -4,6 +4,7 @@ import axios from "axios";
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from "../../firebase"; 
 import React, { useEffect, useState } from 'react'
+import StatusMessage from '../StatusMessage';
 
 export default function PhoneEdit() {
   const { currentUser, setPhoneNumber, setUserPhoneNumber } = useAuth()
@@ -17,6 +18,7 @@ export default function PhoneEdit() {
     const [userEmail, setUserEmail] = useState("")
     const [inputedVerCode, setInputedVerCode] = useState("")
     const [userCurrentPhoneNumber, setUserCurrentPhoneNumber] = useState("")
+    const [successMessage, setSuccessMessage] = useState("")
 
     const focusAnimation = ` focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 placeholder-gray-300 transition duration-300 ease-in-out`
 
@@ -117,6 +119,7 @@ export default function PhoneEdit() {
           clearInputs()
           setIsChangeingPhone(false)
           setVerifySection(false)
+          setSuccessMessage(true)
         } catch(err) {
           console.log(err.message)
         }
@@ -257,6 +260,7 @@ export default function PhoneEdit() {
             </p>
           </div>
             : ""}
+            <div className='flex justify-center mt-[20px] h-2 '>{successMessage?   (<StatusMessage status={200} section={"Email"}/> ) : ""} </div>
             <div className='flex justify-end gap-16 ml-[10px] mt-[40px]'>
             <button
              className={'rounded w-[20%] py-1 text-white bg-[#243642] shadow-lg hover:brightness-110 ' + (verifySection?  "cursor-not-allowed opacity-50" : "")}

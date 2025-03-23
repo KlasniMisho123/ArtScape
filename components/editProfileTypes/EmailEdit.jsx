@@ -17,7 +17,7 @@ export default function EmailEdit() {
   const [verifyUserPassword, setVerifyUserPassword] = useState("")
   const [verificationStatus, setVerificationStatus] = useState("")
   const [isSameEmailError, setIsSameEmailError] = useState(false);
-  const [SuccessMessage, setSuccessMessage] = useState(false)
+  const [successMessage, setSuccessMessage] = useState(false)
   const [failedEmailCriteria, setFailedEmailCriteria] = useState(false)
   const [emailVerified, setEmailVerified] = useState("")
 
@@ -124,7 +124,7 @@ export default function EmailEdit() {
   useEffect(()=> {
     console.log("currentUser: ",currentUser)
     hashingEmail()
-  }, [currentUser, SuccessMessage])
+  }, [currentUser, successMessage])
 
   useEffect(() => {
     if (newEmail === currentUser?.email) {
@@ -231,18 +231,18 @@ export default function EmailEdit() {
           </p>
         </div>
           : ""}
-          <div className='flex justify-center mt-[20px] h-2 '>{SuccessMessage?   (<StatusMessage status={200} section={"Email"}/> ) : ""} </div>
+          <div className='flex justify-center mt-[20px] h-2 '>{successMessage?   (<StatusMessage status={200} section={"Email"}/> ) : ""} </div>
           <div className='flex justify-end gap-16 ml-[10px] mt-[30px]'>
-          <button
-           className={'rounded w-[20%] py-1 text-white bg-[#243642] shadow-lg hover:brightness-110 ' + (verifySection?  "cursor-not-allowed opacity-50" : "")}
-           onClick={clearInputs}
-           disabled={verifySection}
-          > Cancel</button>
-          <button className={'rounded w-[20%] py-1 text-white linear-lblue-blue shadow-lg hover:brightness-110 '  + (isDisabled?  "cursor-not-allowed opacity-50" : "")}
-          onClick={handleSubmit}
-          disabled={isDisabled}
-          > Submit </button>
-        </div>
+            <button
+            className={'rounded w-[20%] py-1 text-white bg-[#243642] shadow-lg hover:brightness-110 ' + (verifySection?  "cursor-not-allowed opacity-50" : "")}
+            onClick={clearInputs}
+            disabled={verifySection}
+            > Cancel</button>
+            <button className={'rounded w-[20%] py-1 text-white linear-lblue-blue shadow-lg hover:brightness-110 '  + (isDisabled?  "cursor-not-allowed opacity-50" : "")}
+            onClick={handleSubmit}
+            disabled={isDisabled}
+            > Submit </button>
+          </div>
         </div>
     </div>
   )
