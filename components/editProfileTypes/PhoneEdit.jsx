@@ -1,6 +1,8 @@
 'use client'
 import { useAuth } from '@/context/AuthContext'
 import axios from "axios";
+import { doc, getDoc } from 'firebase/firestore';
+import db  from "../firebase"
 import React, { useEffect, useState } from 'react'
 
 export default function PhoneEdit() {
@@ -112,6 +114,9 @@ export default function PhoneEdit() {
     useEffect(()=>{
       console.log("currentUser: ", currentUser)
       const userRef = doc(db, "users", currentUser.uid)
+      const getUserInfo = getDoc(userRef)
+
+      console.log("userInfo: ",getUserInfo.data())
       setUserCurrentPhoneNumber("")
 
       setUserEmail(currentUser?.email)
