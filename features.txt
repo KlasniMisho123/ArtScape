@@ -63,7 +63,9 @@ phoneNumber,emailVerified,displayName
 
 3. Avatar Error/ handle picture submit - bagon
 
-4. handle every country and city filter? - bagon ➕➖
+4.1 handle every country and city filter? - bagon ➕➖
+
+4.2 get tel prefixes by country - ❓
 
 5. Verify Email - ✔️
 

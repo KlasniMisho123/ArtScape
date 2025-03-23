@@ -18,7 +18,7 @@ export default function PhoneEdit() {
     const [userEmail, setUserEmail] = useState("")
     const [inputedVerCode, setInputedVerCode] = useState("")
     const [userCurrentPhoneNumber, setUserCurrentPhoneNumber] = useState("")
-    const [successMessage, setSuccessMessage] = useState(true)
+    const [successMessage, setSuccessMessage] = useState(false)
     const [samePhoneNumber, setSamePhoneNumber] = useState(false)
   
     const focusAnimation = ` focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 placeholder-gray-300 transition duration-300 ease-in-out`
@@ -44,9 +44,7 @@ export default function PhoneEdit() {
           let phonenumberLength = currentUserNumber.length;
           let lastTwonumber = currentUserNumber.slice((phonenumberLength-2), phonenumberLength);
           setHashedPhoneNumber(lastTwonumber);
-        } else {
-          console.log("empty");
-        }
+        } 
       }
     
 
@@ -109,7 +107,6 @@ export default function PhoneEdit() {
     }
 
     async function verifyNumberWithCode() {
-      // Check if Code that u sent matches input Code
       if (inputedVerCode === generatedVerificationCode) {
         try {
           let fullNumber = null;
@@ -135,8 +132,12 @@ export default function PhoneEdit() {
 
     useEffect(()=>{
       const fullNumber = phonePrefix + newPhoneNumber
-      if(fullNumber === userCurrentPhoneNumber) {
-        console.log("MATCH")
+      console.log(userCurrentPhoneNumber)
+      console.log("fullNumber: ", fullNumber)
+      if("+" + fullNumber === userCurrentPhoneNumber) {
+        setSamePhoneNumber(true)
+      } else {
+        setSamePhoneNumber(false)
       }
     },[phonePrefix, newPhoneNumber])
 
@@ -236,6 +237,9 @@ export default function PhoneEdit() {
                       placeholder='New Phone Number'
                     />
                   </div>
+                  <p className="mt-2 text-sm text-red-500 font-medium">
+                    {samePhoneNumber? "⚠ You are already using this number!" : ""}
+                  </p>
                 </div>) : ""} 
             </div>
             {verifySection?
@@ -285,10 +289,10 @@ export default function PhoneEdit() {
            className={
             'rounded w-[20%] py-1 text-white linear-lblue-blue shadow-lg hover:brightness-110 ' +
             (verifySection ? 'cursor-not-allowed opacity-50 ' : ' ') +
-            (!phonePrefix || !newPhoneNumber ? 'cursor-not-allowed ' : '')
+            (!phonePrefix || !newPhoneNumber || samePhoneNumber ? 'cursor-not-allowed opacity-75 ' : '')
           }
             onClick={handleSubmit}
-            disabled={!phonePrefix || !newPhoneNumber}
+            disabled={!phonePrefix || !newPhoneNumber || samePhoneNumber} 
             > Submit </button>
           </div>
           </div>
