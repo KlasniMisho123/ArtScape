@@ -23,13 +23,18 @@ export default function PhoneEdit() {
     const focusAnimation = ` focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 placeholder-gray-300 transition duration-300 ease-in-out`
 
     async function handleUserInfo() {
-      const userRef = doc(db, "users", currentUser.uid)
-      const getUserInfo = await getDoc(userRef)
-
-      console.log("userInfo: ",getUserInfo.data())
-      setUserCurrentPhoneNumber("")
-
-      setUserEmail(currentUser?.email)
+      try {
+        const userRef = doc(db, "users", currentUser.uid)
+        const getUserInfo = await getDoc(userRef)
+  
+        // console.log("userInfo: ",getUserInfo.data())
+        console.log("PASSED")
+        setUserCurrentPhoneNumber("")
+  
+        setUserEmail(currentUser?.email)
+      } catch(err) {
+        console.log("handleUserInfo Error: ", err.message)
+      }
     }
 
     async function hashingPhoneNumber() {
