@@ -96,7 +96,7 @@ export default function PhoneEdit() {
     };
 
     function handlePhoneChangeSection() {
-      setIsChangeingPhone(true)
+      setIsChangeingPhone(!isChangeingPhone)
     }
 
     async function verifyNumberWithCode() {
