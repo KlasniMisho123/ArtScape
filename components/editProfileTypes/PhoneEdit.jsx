@@ -18,9 +18,12 @@ export default function PhoneEdit() {
     const [userEmail, setUserEmail] = useState("")
     const [inputedVerCode, setInputedVerCode] = useState("")
     const [userCurrentPhoneNumber, setUserCurrentPhoneNumber] = useState("")
-    const [successMessage, setSuccessMessage] = useState(false)
+    const [successMessage, setSuccessMessage] = useState(true)
+    const [samePhoneNumber, setSamePhoneNumber] = useState(false)
+  
     const focusAnimation = ` focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 placeholder-gray-300 transition duration-300 ease-in-out`
 
+    
     async function handleUserInfo() {
       try {
         const userRef = doc(db, "users", currentUser.uid);
@@ -129,6 +132,13 @@ export default function PhoneEdit() {
         }
       }
     }
+
+    useEffect(()=>{
+      const fullNumber = phonePrefix + newPhoneNumber
+      if(fullNumber === userCurrentPhoneNumber) {
+        console.log("MATCH")
+      }
+    },[phonePrefix, newPhoneNumber])
 
     useEffect(()=>{
       console.log("currentUser: ", currentUser)
@@ -264,7 +274,7 @@ export default function PhoneEdit() {
             </p>
           </div>
             : ""}
-            <div className='flex justify-center mt-[20px] h-2 '>{successMessage?   (<StatusMessage status={200} section={"Email"}/> ) : ""} </div>
+            <div className='flex justify-center mt-[20px] h-2 '>{successMessage?   (<StatusMessage status={200} section={"Phone Number"}/> ) : ""} </div>
             <div className='flex justify-end gap-16 ml-[10px] mt-[40px]'>
             <button
              className={'rounded w-[20%] py-1 text-white bg-[#243642] shadow-lg hover:brightness-110 ' + (verifySection?  "cursor-not-allowed opacity-50" : "")}
