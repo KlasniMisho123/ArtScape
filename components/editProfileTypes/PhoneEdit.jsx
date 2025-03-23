@@ -22,29 +22,29 @@ export default function PhoneEdit() {
 
     async function handleUserInfo() {
       try {
-        const userRef = doc(db, "users", currentUser.uid)
-        const getUserInfo = await getDoc(userRef)
-  
-        setUserCurrentPhoneNumber(getUserInfo.data()?.phoneNumber)
-  
-        setUserEmail(currentUser?.email)
-      } catch(err) {
-        console.log("handleUserInfo Error: ", err.message)
+        const userRef = doc(db, "users", currentUser.uid);
+        const getUserInfo = await getDoc(userRef);
+        const currentUserNumber = getUserInfo.data()?.phoneNumber;
+
+        setUserCurrentPhoneNumber(currentUserNumber);
+        hashingPhoneNumber(currentUserNumber);
+
+        setUserEmail(currentUser?.email);
+      } catch (err) {
+        console.log("handleUserInfo Error: ", err.message);
       }
     }
 
-    async function hashingPhoneNumber() {
-      // if(userCurrentPhoneNumber) {
-      //     let phonenumberLength = userCurrentPhoneNumber.length
-
-      //     let lastTwonumber = userCurrentPhoneNumber.slice(0, 1)
-      //     console.log("lastTwonumber: ", lastTwonumber)
-      //     setHashedPhoneNumber(lastTwonumber)
-      //   } else {
-      //     console.log("User Phone Number Is Empty")
-      //   }
-        console.log("userCurrentPhoneNumber: ", userCurrentPhoneNumber)
-    }
+      function hashingPhoneNumber(currentUserNumber) {
+        if (currentUserNumber) {
+          let phonenumberLength = currentUserNumber.length;
+          let lastTwonumber = currentUserNumber.slice((phonenumberLength-2), phonenumberLength);
+          setHashedPhoneNumber(lastTwonumber);
+        } else {
+          console.log("empty");
+        }
+      }
+    
 
     function closeVerificationSection() {
       setVerificationCode("")
@@ -128,7 +128,6 @@ export default function PhoneEdit() {
       if(currentUser) {
         handleUserInfo()
       }
-      hashingPhoneNumber()
     },[currentUser])
 
     return (
