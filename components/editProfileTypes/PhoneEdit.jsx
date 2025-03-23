@@ -13,6 +13,7 @@ export default function PhoneEdit() {
     const [isChangeingPhone, setIsChangeingPhone] = useState(false)
     const [verifySection, setVerifySection ] = useState(false)
     const [userEmail, setUserEmail] = useState("")
+    const [inputedVerCode, setInputedVerCode] = useState("")
 
     const userPhoneNumber = currentUser?.phoneNumber
     // const userPhoneNumber = true
@@ -59,31 +60,21 @@ export default function PhoneEdit() {
         return console.log("Phone Number Required!")
       }
 
-      // Combine the phone prefix and new phone number
       if (phonePrefix && newPhoneNumber) {
         fullNumber = phonePrefix + newPhoneNumber;
       }
+      try {
+        sendPhoneVerification(phonePrefix, newPhoneNumber, userEmail, verificationCode)
 
-      // Check if the user already has a phone number connected
-      if (prevPhoneNumber) {
-        try {
-        // sending verification code to old number and then set?
-        } catch(err) {
-          console.log(err.message)
-        }
-        } else {
-        try {
-          // console.log("Adding new number: ", fullNumber)
-          
-          sendPhoneVerification(phonePrefix, newPhoneNumber, userEmail, verificationCode)
-
-          // await setUserPhoneNumber(fullNumber);
-          // clearInputs()
-          // setIsChangeingPhone(false)
-        } catch(err) {
-          console.log("❌ Error adding new phone number:", err.message);
-        }
+        setVerifySection(true)
+        // functions after setting number succesfully
+        // await setUserPhoneNumber(fullNumber);
+        // clearInputs()
+        // setIsChangeingPhone(false)
+      } catch(err) {
+        console.log("❌ Error adding new phone number:", err.message);
       }
+      
     }
     
     async function sendPhoneVerification(phonePrefix, newPhoneNumber, userEmail, verificationCode) {
@@ -107,7 +98,9 @@ export default function PhoneEdit() {
 
     async function verifyNumberWithCode() {
       // Check if Code that u sent matches input Code
-      console.log("Verify Number With Code Dummy Text")
+      if (inputedCode === generatedVerificationCode) {
+        console.log("Verify Number With Code Dummy Text")
+      }
     }
 
     useEffect(()=>{
@@ -158,7 +151,7 @@ export default function PhoneEdit() {
             </div>
               <div> 
                 <h2 className='flex items-center gap-2 md:text-md lg:text-lg'>
-                    Associated phone number: <span> <p className='my-2'> 
+                    Associated phone number: {generatedVerificationCode}<span> <p className='my-2'> 
                     <i className="fa-solid fa-mobile mx-1 "></i> {userPhoneNumber? `Ends with: ${userPhoneNumber}` : "Empty"} </p>  </span>
                   </h2>
 
@@ -227,8 +220,8 @@ export default function PhoneEdit() {
           <div className='flex gap-2'> 
             <input 
               className="border-2 border-gray-500 bg-[#243642] rounded p-2 text-white w-full placeholder-gray-400"
-              value={verificationCode}
-              onChange={(e) => setVerificationCode(e.target.value)}
+              value={inputedVerCode}
+              onChange={(e) => setInputedVerCode(e.target.value)}
               placeholder="Enter verification code"
             />  
               <button className="w-max whitespace-nowrap px-4 py-2 bg-[#1a5276] text-white rounded shadow-md hover:opacity-75 hover:shadow-none 
