@@ -118,7 +118,7 @@ export default function PhoneEdit() {
     useEffect(()=>{
       console.log("currentUser: ", currentUser)
       // console.log(userPhoneNumber)
-      setUserEmail(currentUser.userEmail)
+      setUserEmail(currentUser?.email)
     },[currentUser])
 
     return (
