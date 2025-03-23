@@ -14,6 +14,7 @@ export default function PhoneEdit() {
     const [verifySection, setVerifySection ] = useState(false)
     const [userEmail, setUserEmail] = useState("")
     const [inputedVerCode, setInputedVerCode] = useState("")
+    const [userCurrentPhoneNumber, setUserCurrentPhoneNumber] = useState("")
 
     const userPhoneNumber = currentUser?.phoneNumber
     // const userPhoneNumber = true
@@ -110,6 +111,9 @@ export default function PhoneEdit() {
 
     useEffect(()=>{
       console.log("currentUser: ", currentUser)
+      const userRef = doc(db, "users", currentUser.uid)
+      setUserCurrentPhoneNumber("")
+
       setUserEmail(currentUser?.email)
     },[currentUser])
 
