@@ -39,7 +39,7 @@ export default function PhoneEdit() {
     function clearInputs() {
       setNewPhoneNumber("")
       setPhonePrefix("")
-      ge
+      setInputedVerCode("")
     }
 
     async function generateVerificationCode() {
@@ -51,7 +51,7 @@ export default function PhoneEdit() {
     async function handleSubmit() {
       const prevPhoneNumber = userPhoneNumber;
       const verificationCode = await generateVerificationCode()
-      let fullNumber = null;
+
       if(!phonePrefix) {
         console.log("Phone Prefix Number Required!")
         return
@@ -60,17 +60,9 @@ export default function PhoneEdit() {
         return console.log("Phone Number Required!")
       }
 
-      if (phonePrefix && newPhoneNumber) {
-        fullNumber = phonePrefix + newPhoneNumber;
-      }
       try {
         sendPhoneVerification(phonePrefix, newPhoneNumber, userEmail, verificationCode)
-
         setVerifySection(true)
-        // functions after setting number succesfully
-        // await setUserPhoneNumber(fullNumber);
-        // clearInputs()
-        // setIsChangeingPhone(false)
       } catch(err) {
         console.log("❌ Error adding new phone number:", err.message);
       }
@@ -98,8 +90,21 @@ export default function PhoneEdit() {
 
     async function verifyNumberWithCode() {
       // Check if Code that u sent matches input Code
-      if (inputedCode === generatedVerificationCode) {
-        console.log("Verify Number With Code Dummy Text")
+      if (inputedVerCode === generatedVerificationCode) {
+        try {
+          let fullNumber = null;
+
+          if (phonePrefix && newPhoneNumber) {
+            fullNumber = phonePrefix + newPhoneNumber;
+          }
+          
+          await setUserPhoneNumber(fullNumber);
+          clearInputs()
+          setIsChangeingPhone(false)
+          setVerifySection(false)
+        } catch(err) {
+          console.log(err.message)
+        }
       }
     }
 
@@ -117,10 +122,6 @@ export default function PhoneEdit() {
           </div>
           <div className='flex gap-4 flex-col my-10 bg-[#103d5c] rounded p-4 '> 
             <div> 
-              
-
-              {/* New phone number? Change number */}
-              {/* Send an SMS to verify your phone number. (Helps ensure you can receive messages from Steam)Verify number*/}
               {/* Remove your phone number from your account. This will reduce your level of Steam account security.Remove number */}
             </div>
             <div className='flex flex-col gap-2 '>
@@ -151,7 +152,7 @@ export default function PhoneEdit() {
             </div>
               <div> 
                 <h2 className='flex items-center gap-2 md:text-md lg:text-lg'>
-                    Associated phone number: {generatedVerificationCode}<span> <p className='my-2'> 
+                    Associated phone number: <span> <p className='my-2'> 
                     <i className="fa-solid fa-mobile mx-1 "></i> {userPhoneNumber? `Ends with: ${userPhoneNumber}` : "Empty"} </p>  </span>
                   </h2>
 
@@ -185,7 +186,8 @@ export default function PhoneEdit() {
                       if (/^\+?\d*$/.test(value)) {
                         setPhonePrefix(value);
                       }
-                    }}
+                      }}
+                     disabled={verifySection}
                      placeholder='Example: +995'
                      maxLength={5}
                      />
@@ -198,6 +200,7 @@ export default function PhoneEdit() {
                           setNewPhoneNumber(value);
                         } 
                       }}
+                      disabled={verifySection}
                       placeholder='New Phone Number'
                     />
                   </div>
@@ -208,7 +211,7 @@ export default function PhoneEdit() {
             transition-all duration-500 ease-in-out transform opacity-100 scale-100">
             <div className="flex justify-between items-center gap-2 ">
               <p className="text-gray-300 text-sm md:text-md">
-                A verification code has been sent to your number.
+                A verification code has been sent to your number. {generatedVerificationCode}
               </p>
               <button className="text-red-500 rounded-full p-2 hover:texst-red-800 scale-150 hover:scale-125 transition-all duration-200 ease-in-out"
                 onClick={closeVerificationSection}
