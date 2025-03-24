@@ -84,4 +84,6 @@ phoneNumber,emailVerified,displayName
 
 12. phone number change with SMS - Twilio --?? limitations -- ❓
 
-14. resend handle for sendemai/sendphone
+14. resend handle for sendemai/sendphone.
+
+15. Better Design.
